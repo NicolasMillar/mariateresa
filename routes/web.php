@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,7 @@ Route::get('/historia', function () {
     return view('historia');
 })->name('historia');
 
-Route::resource('file', 'FileController');
+Route::resource('file', 'App\Http\Controllers\FileController');
+
+Route::get('/test','App\Http\Controllers\Imagecontroller@index');
+Route::resource('test','App\Http\Controllers\Imagecontroller');
