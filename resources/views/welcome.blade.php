@@ -1,7 +1,34 @@
 <x-app-layout>
-    <div class="grid bg-white place-items-center">
-        
-    </div>
+    <main id="main">
+        <div class="container">
+            <div class="wrap-main-slide">
+                <div class="owl-carousel owl-theme">
+                    <div class="item">
+                        <a href="{{ route('home') }}">
+                            <img src="{{asset('assets/images/sliders/1.jpg')}}" alt="" class="img-slide">
+                        </a>
+                        <h2 class="f-title"><b>un titulo</b></h2>
+                    </div>
+                    <div class="item">
+
+                        <a href="{{ route('home') }}">
+                            <img src="{{asset('assets/images/sliders/2.jpg')}}" alt="" class="img-slide">
+                        </a>
+                        <h2 class="f-title"><b>un titulo</b></h2>
+                    </div>
+                    {{--@foreach ($sliders as $slide)
+                        <div class="item-slide">
+                            <img src="{{asset('assets/images/sliders')}} /{{$slide->image}}" alt="" class="img-slide">
+                            <div class="slide-info slide-1">
+                                <h2 class="f-title"><b>{{$slide->titulo}}</b></h2>
+                                <a href="{{$slide->link}}" class="btn-link">ir ahora</a>
+                            </div>
+                        </div>
+                    @endforeach--}}
+                </div>
+            </div>
+        </div>
+    </main>
 </x-app-layout>
 {{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">

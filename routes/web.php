@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Livewire\Admin\AdminAddHomeSliderComponent;
+use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
+use App\Http\Livewire\Admin\AdminHomeSliderComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +28,7 @@ Route::get('/historia', function () {
     return view('historia');
 })->name('historia');
 
-Route::resource('file', 'FileController');
+Route::get('/admin/slider',  AdminHomeSliderComponent::class)->name('admin.homeslider');
+Route::get('/admin/slider/add',  AdminAddHomeSliderComponent::class)->name('admin.addhomeslider');
+Route::get('/admin/slider/edit/{slide_id}',  AdminEditHomeSliderComponent::class)->name('admin.edithomeslider');
+
