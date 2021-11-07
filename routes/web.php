@@ -4,6 +4,7 @@ use App\Http\Livewire\Admin\AdminAddHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminHomeSliderComponent;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,7 @@ Route::get('/admin/slider',  AdminHomeSliderComponent::class)->name('admin.homes
 Route::get('/admin/slider/add',  AdminAddHomeSliderComponent::class)->name('admin.addhomeslider');
 Route::get('/admin/slider/edit/{slide_id}',  AdminEditHomeSliderComponent::class)->name('admin.edithomeslider');
 
+Route::resource('file', 'App\Http\Controllers\FileController');
+
+Route::get('/test','App\Http\Controllers\Imagecontroller@index');
+Route::resource('test','App\Http\Controllers\Imagecontroller');
