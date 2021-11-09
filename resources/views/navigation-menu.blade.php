@@ -33,13 +33,12 @@
          
     .navbar-custom {
             background-color: #312e81;
-        }
-        /* Modify brand and text color */
-         
-        .navbar-custom .navbar-brand,
-        .navbar-custom .navbar-text {
-            color: yellow;
-        }
+    }
+    /* Modify brand and text color */    
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-text {
+        color: yellow;
+    }
     #linkcolor{
         color: yellow;
     }
