@@ -50,22 +50,67 @@
   .container{
     margin:auto;
   }
-  
-  .f-title{
-    position: absolute;
-    bottom: 10px;
+  .container h1{
+    font-size: 150%;
+    text-align: center;
+  }
+  .owl-carousel{
+    background: #ffffff;
   }
     .owl-carousel .item {
         width:100%;
         max-width:600px;
-        background: #bdbec0;
+        background: #ffffff;
         margin:auto;
     }
+    .box{
+      display: flex;
+      align-items: flex-start;
+    }
+    .box2{
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
+      align-items: flex-start;
+    }
+    #tarjeta-fechas{
+      text-align: left;
+      width: 300px;
+      margin-top: 20px;
+      margin-left: 25px;
+    }
+    .tarjeta-noticias{
+      display: flex;
+      flex-wrap: wrap;
+      text-align: left;
+      width: 700px;
+      margin-top: 20px;
+      margin-left: 25px;
+      
+    }
+    #calendar{
+        float: left;
+    }
+    #noticias{
+      float: left;
+    }
+    .centrar{
+      position: relative;
+    }
+    .event-carousel .item h2 {
+      color: rgb(0, 0, 0);
+      font-weight: 400;
+      margin-top: 0rem;
+      font-size: 150%;
+      justify-content: center;
+     }
     .owl-carousel .item h2 {
       color: rgb(0, 0, 0);
       font-weight: 400;
       margin-top: 0rem;
       font-size: 150%;
+      position: absolute;
+      bottom: 10px;
      }
     .owl-carousel .nav-btn{
       height: 47px;
@@ -82,7 +127,7 @@
 
     .owl-carousel .prev-slide{
         background: url(https://freakyjolly.com/demo/jquery/OwlCarousel2/nav-icon.png) no-repeat scroll 0 0;
-        left: 5%;
+        left: 10px;
         margin-left: 2rem auto;
     }
     .owl-carousel .next-slide{
@@ -137,5 +182,5 @@
          }
       }
     })
-  })
+  });
 </script>
