@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+      
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -14,6 +18,8 @@
         <link rel="stylesheet" href="/css/app.css">
         <link rel="stylesheet" href="..\..\..\node_modules\@splidejs\splide\dist\css\splide.min.css">
 
+        <!--Icons-->
+        <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
         @livewireStyles
 
         <!-- Scripts -->
@@ -28,7 +34,64 @@
 
             <!-- Page Content -->
             <main>
-                @yield('Content') @section('Content')
+            <div class="left-div" >
+              <div class="acciones">
+                <nav>
+                    <div class="margen">
+                        <x-jet-dropdown align="right">
+                            <x-slot name="trigger">
+                                <x-jet-nav-link  style="font-size: 175%;">Materiales</x-jet-nav-link>
+                            </x-slot>
+                            <x-slot name="content">
+                                <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">
+                                    Placeholder
+                                </x-jet-dropdown-link>
+                            </x-slot>
+                        </x-jet-dropdown>
+                    </div>
+                    <div class="margen">
+                        <x-jet-dropdown align="right">
+                            <x-slot name="trigger">
+                                <x-jet-nav-link  style="font-size: 175%;">Notas</x-jet-nav-link>
+                            </x-slot>
+                            <x-slot name="content">
+                                <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">
+                                    Placeholder
+                                </x-jet-dropdown-link>
+                            </x-slot>
+                        </x-jet-dropdown>
+                    </div>
+                    <div class="margen">
+                        <x-jet-dropdown align="right" >
+                            <x-slot name="trigger">
+                                <x-jet-nav-link style="font-size: 175%;">Anotaciones</x-jet-nav-link>
+                            </x-slot>
+                            <x-slot name="content">
+                                <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">
+                                    Placeholder
+                                </x-jet-dropdown-link>
+                            </x-slot>
+                        </x-jet-dropdown>
+                    </div>
+                    <div class="margen">
+                        <x-jet-nav-link  style="font-size: 175%;" href='#'>Calendario</x-jet-nav-link>
+                    </div>
+                    <div class="margen">
+                        <x-jet-nav-link  style="font-size: 175%;" href='#'>Cuenta</x-jet-nav-link>
+                    </div>
+                </nav>
+              </div>
+              <div class="boton-salir">
+                <button>
+                  <a class="Salir" href="{{ route('home') }}">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                  </a>
+                </button>
+              </div> 
+            </div>
+                <div class="right-div" >
+                  @yield('Content') @section('Content')
+                </div>
             </main>
         </div>
 
@@ -87,20 +150,54 @@
       background-position: -24px -53px;
     }
     span.img-text {
-    text-decoration: none;
-    outline: none;
-    transition: all 0.4s ease;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    cursor: pointer;
-    width: 100%;
-    font-size: 23px;
-    display: block;
-    text-transform: capitalize;
+      text-decoration: none;
+      outline: none;
+      transition: all 0.4s ease;
+      -webkit-transition: all 0.4s ease;
+      -moz-transition: all 0.4s ease;
+      -o-transition: all 0.4s ease;
+      cursor: pointer;
+      width: 100%;
+      font-size: 23px;
+      display: block;
+      text-transform: capitalize;
   }
   span.img-text:hover {
     color: #2caae1;
+  }
+  .left-div{
+      width: 15%;
+      height: 100%;
+      float:left;
+      background-color: #312e81;
+  }
+  .right-div{
+    width: 85%;
+    height: 100%;
+    float:right; 
+    text-align:center;
+  }
+  .foto{
+    display:flex;
+    justify-content: center;
+    margin-top: 5%;
+  }
+  .margen{
+    margin-top: 5%;
+    margin-bottom: 3%;
+  }
+  .acciones{
+    height:95.2%;
+  }
+  .boton-salir{
+    display:flex;
+    justify-content: center;
+  }
+  .Salir{
+    background-color: red;
+    display:inline-block;
+    font-size:1.25em;
+    color: white;
   }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
