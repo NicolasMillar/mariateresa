@@ -38,10 +38,10 @@
          
         .navbar-custom .navbar-brand,
         .navbar-custom .navbar-text {
-            color: yellow;
+            color: rgb(255, 255, 255);
         }
     #linkcolor{
-        color: yellow;
+        color: rgb(255, 255, 255);
     }
 </style>
 
@@ -75,14 +75,10 @@
                             </x-jet-dropdown-link>
 
                             <x-jet-dropdown-link href='#'>
-                                Noticias
-                            </x-jet-dropdown-link>
-                        
-                            <x-jet-dropdown-link href='#'>
                                 Asistentes
                             </x-jet-dropdown-link>
                         
-                            <x-jet-dropdown-link href='#'>
+                            <x-jet-dropdown-link class="text" href="{{route('cancion')}}" :active="request()->routeIs('cancion')">
                                 Cancion del colegio
                             </x-jet-dropdown-link>
                         </x-slot>
@@ -140,7 +136,7 @@
                                 Direccion
                             </x-jet-dropdown-link>
 
-                            <x-jet-dropdown-link href='#'>
+                            <x-jet-dropdown-link class="text" href="{{route('comentarios')}}" :active="request()->routeIs('comentarios')">
                                 Comentarios
                             </x-jet-dropdown-link>
                         </x-slot>

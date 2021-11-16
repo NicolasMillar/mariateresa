@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Estudios_asistente extends Model
+class Noticia extends Model
 {
     use HasFactory;
-    public function asistente(){
-        return $this->belongsTo('App\Models\Asistente');
-    }
 }

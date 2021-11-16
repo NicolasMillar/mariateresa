@@ -9,4 +9,8 @@ class Usuario_alumno extends Model
 {
     use HasFactory;
     protected $primaryKey = 'Rut_Alumno';
+
+    public function alergia(){
+        return $this->hasMany('App\Models\Alergia');
+    }
 }

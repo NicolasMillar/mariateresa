@@ -1,1 +1,1 @@
-<img src="{{asset('assets/images/custom/escudo.png')}}" alt="" width="50px">
+<img src="{{asset('assets/images/custom/escudo.png')}}" alt="" width="40px">

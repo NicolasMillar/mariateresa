@@ -50,9 +50,17 @@
   .container{
     margin:auto;
   }
-  .container h1{
+  .subtitulos{
     font-size: 150%;
     text-align: center;
+    margin-top: 10px;
+  }
+  .subtitulos2{
+    font-size: 125%;
+  }
+  .song{
+    text-align: center;
+    margin-top: 25px;
   }
   .owl-carousel{
     background: #ffffff;
@@ -88,6 +96,22 @@
       margin-left: 25px;
       
     }
+    .tarjeta-historia{
+      display: flex;
+      flex-wrap: wrap;
+      text-align: left;
+      width: 1500px;
+      margin-top: 20px;
+      margin-left: 25px;
+    }
+    .tarjeta-historia2{
+      display: flex;
+      flex-wrap: wrap;
+      width: 1500px;
+      margin-top: 20px;
+      margin-left: 25px;
+    }
+    
     #calendar{
         float: left;
     }

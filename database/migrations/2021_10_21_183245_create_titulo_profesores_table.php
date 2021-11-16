@@ -16,6 +16,10 @@ class CreateTituloProfesoresTable extends Migration
         Schema::create('titulo_profesores', function (Blueprint $table) {
             $table->id();
             $table->string('Nombre_Titulo');
+            $table->unsignedInteger('Rut_Profesor');
+
+            $table->foreign('Rut_Profesor')->references('Rut_Profesor')->on('usuario_profesores')->onDelete('cascade')->onUpdate('cascade');
+
             $table->timestamps();
         });
     }

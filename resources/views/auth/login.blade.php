@@ -25,6 +25,13 @@
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
+            <div>
+                <input type="radio" id="estudiante" name="fav_language" value="ESTUDIANTE">
+                <label for="estudiante">estudiante</label>
+                <input type="radio" id="profesor" name="fav_language" value="PROFESOR">
+                <label for="profesor">profesor</label>
+            </div>
+
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
                     <x-jet-checkbox id="remember_me" name="remember" />

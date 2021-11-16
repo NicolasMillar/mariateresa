@@ -16,6 +16,8 @@ class CreateEstudiosAsistentesTable extends Migration
         Schema::create('estudios_asistentes', function (Blueprint $table) {
             $table->id();
             $table->string('Nombre_EstudiosA');
+            $table->unsignedInteger('Rut_Asistente');
+            $table->foreign('Rut_Asistente')->references('Rut_Asistente')->on('asistentes')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
