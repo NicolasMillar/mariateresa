@@ -9,4 +9,7 @@ class Usuario_apoderado extends Model
 {
     use HasFactory;
     protected $primaryKey = 'Rut_Apoderado';
+    public function poder(){
+        return $this->hasMany('App\Models\Poder');
+    }
 }

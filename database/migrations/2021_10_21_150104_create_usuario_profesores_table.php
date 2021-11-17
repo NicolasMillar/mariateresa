@@ -20,10 +20,10 @@ class CreateUsuarioProfesoresTable extends Migration
             $table->string('ApellidoP_Profesor');
             $table->string('ApellidoM_Profesor');
             $table->string('Contraseña_Profesor');
-            $table->bigInteger('TelefonoC_Profesor');
             $table->string('Estado_Profesor');
             $table->date('FechaInicio_Profesor');
             $table->date('FechaTermino_Profesor');
+            $table->string('Imagen');
             $table->timestamps();
         });
     }

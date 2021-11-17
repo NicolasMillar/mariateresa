@@ -19,4 +19,13 @@ class Usuario_alumno extends Model
     public function enfermedades_cronica(){
         return $this->hasMany('App\Models\Enfermedades_cronica');
     }
+    public function poder(){
+        return $this->hasMany('App\Models\Poder');
+    }
+    public function calificacion(){
+        return $this->hasMany('App\Models\Calificacion');
+    }
+    public function participante(){
+        return $this->hasMany('App\Models\Participante');
+    }
 }

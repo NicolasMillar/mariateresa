@@ -30,6 +30,7 @@ class CreateUsuarioAlumnosTable extends Migration
             $table->string('Estado_Alumno');
             $table->date('FechaIngreso_Alumno');
             $table->date('FechaSalida_Alumno')->nullable();
+            $table->date('Imagen');
             $table->timestamps();
         });
     }

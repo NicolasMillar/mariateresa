@@ -21,4 +21,7 @@ class Asignatura extends Model
     public function curso(){
         return $this->belongsTo('App\Models\Curso');
     }
+    public function profesor(){
+        return $this->hasMany('App\Models\Profesor');
+    }
 }

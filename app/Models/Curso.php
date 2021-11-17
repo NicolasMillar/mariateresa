@@ -14,4 +14,8 @@ class Curso extends Model
     public function usuario_profesor(){
         return $this->belongsTo('App\Models\Usuario_profesor');
     }
+    public function participante(){
+        return $this->hasMany('App\Models\Participante');
+    }
+    
 }
