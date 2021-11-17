@@ -12,6 +12,12 @@ class Asignatura extends Model
     public function material(){
         return $this->hasMany('App\Models\Material');
     }
+    public function anotacion(){
+        return $this->hasMany('App\Models\Anotacion');
+    }
+    public function prueba(){
+        return $this->hasMany('App\Models\Prueba');
+    }
     public function curso(){
         return $this->belongsTo('App\Models\Curso');
     }

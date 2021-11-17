@@ -13,4 +13,10 @@ class Usuario_alumno extends Model
     public function alergia(){
         return $this->hasMany('App\Models\Alergia');
     }
+    public function anotacion(){
+        return $this->hasMany('App\Models\Anotacion');
+    }
+    public function enfermedades_cronica(){
+        return $this->hasMany('App\Models\Enfermedades_cronica');
+    }
 }

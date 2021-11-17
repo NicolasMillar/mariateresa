@@ -14,4 +14,7 @@ class Usuario_profesor extends Model
     public function titulo_profesor(){
         return $this->hasMany('App\Models\Titulo_profesor');
     }
+    public function curso(){
+        return $this->hasMany('App\Models\Curso');
+    }
 }
