@@ -175,7 +175,6 @@
     width: 85%;
     height: 100%;
     float:right; 
-    text-align:center;
   }
   .foto{
     display:flex;
