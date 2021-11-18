@@ -29,6 +29,14 @@ Route::get('/historia', function () {
     return view('historia');
 })->name('historia');
 
+Route::get('/cancion', function () {
+    return view('cancion');
+})->name('cancion');
+
+Route::get('/comentarios', function () {
+    return view('comentarios');
+})->name('comentarios');
+
 Route::get('/admin/slider',  AdminHomeSliderComponent::class)->name('admin.homeslider');
 Route::get('/admin/slider/add',  AdminAddHomeSliderComponent::class)->name('admin.addhomeslider');
 Route::get('/admin/slider/edit/{slide_id}',  AdminEditHomeSliderComponent::class)->name('admin.edithomeslider');

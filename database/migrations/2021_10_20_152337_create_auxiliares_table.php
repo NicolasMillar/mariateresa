@@ -18,11 +18,12 @@ class CreateAuxiliaresTable extends Migration
             $table->char('DigitoV_Auxiliar');
             $table->string('Nombre_Auxiliar');
             $table->string('ApellidoP_Auxiliar');
-            $table->String('ApellidoV_Auxiliar');
+            $table->String('ApellidoM_Auxiliar');
             $table->year('AñoInicio_Auxiliar');
             $table->year('AñoTermino_Auxiliar')->nullable();
-            $table->String('Cargo_Auxiliar');
-            $table->String('Estado_Auxiliar');
+            $table->string('Cargo_Auxiliar');
+            $table->string('Estado_Auxiliar');
+            $table->string('Imagen');
             $table->timestamps();
         });
     }

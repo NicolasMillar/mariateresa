@@ -17,6 +17,8 @@ class CreateEnfermedadesCronicasTable extends Migration
             $table->id();
             $table->string('Nombre_Enfermedad');
             $table->string('precaucion');
+            $table->unsignedInteger('Rut_Alumno');
+            $table->foreign('Rut_Alumno')->references('Rut_Alumno')->on('usuario_alumnos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

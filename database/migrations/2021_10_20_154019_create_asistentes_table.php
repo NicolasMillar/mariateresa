@@ -18,12 +18,13 @@ class CreateAsistentesTable extends Migration
             $table->char('DigitoV_Asistente');
             $table->string('Nombre_Asistente');
             $table->string('ApellidoP_Asistente');
-            $table->String('ApellidoV_Asistente');
+            $table->string('ApellidoM_Asistente');
             $table->year('AñoInicio_Asistente');
             $table->year('AñoTermino_Asistente')->nullable();
-            $table->String('Cargo_Asistente');
-            $table->String('Estado_Asistente');
+            $table->string('Cargo_Asistente');
+            $table->string('Estado_Asistente');
             $table->bigInteger('TelefonoC_Asistente');
+            $table->string('Imagen');
             $table->timestamps();
         });
     }

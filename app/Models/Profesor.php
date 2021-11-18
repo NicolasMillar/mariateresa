@@ -4,13 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\App;
 
-class Titulo_profesor extends Model
+class Profesor extends Model
 {
     use HasFactory;
-    protected $table = "titulo_profesores";
+    protected $table = "profesores";
 
+    public function asignatura(){
+        return $this->belongsTo('App\Models\Asignatura');
+    }
     public function usuario_profesor(){
         return $this->belongsTo('App\Models\Usuario_profesor');
     }
