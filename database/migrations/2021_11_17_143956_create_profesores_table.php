@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProfesorsTable extends Migration
+class CreateProfesoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,7 +17,7 @@ class CreateProfesorsTable extends Migration
             $table->id();
             $table->date('FechaTermino_Imparticion')->nullable();
             $table->date('FechaInicio_Imparticion');
-            $table->unsignedInteger('ID_Asignatura');
+            $table->unsignedBigInteger('ID_Asignatura');
             $table->foreign('ID_Asignatura')->references('id')->on('asignaturas')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedInteger('Rut_Profesor')->nullable();
             $table->foreign('Rut_Profesor')->references('Rut_Profesor')->on('usuario_profesores')->onDelete('set null')->onUpdate('cascade');

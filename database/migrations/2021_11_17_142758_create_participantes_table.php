@@ -17,7 +17,7 @@ class CreateParticipantesTable extends Migration
             $table->id();
             $table->unsignedInteger('Rut_Alumno');
             $table->foreign('Rut_Alumno')->references('Rut_Alumno')->on('usuario_alumnos')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedInteger('ID_Curso');
+            $table->unsignedBigInteger('ID_Curso');
             $table->foreign('ID_Curso')->references('id')->on('cursos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
