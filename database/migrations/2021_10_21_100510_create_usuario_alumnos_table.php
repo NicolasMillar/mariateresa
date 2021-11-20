@@ -14,7 +14,7 @@ class CreateUsuarioAlumnosTable extends Migration
     public function up()
     {
         Schema::create('usuario_alumnos', function (Blueprint $table) {
-            $table->integer('Rut_Alumno');
+            $table->unsignedInteger('Rut_Alumno');
             $table->char('DigitoV_Alumno');
             $table->string('Nombre_Alumno');
             $table->string('ApellidoP_Alumno');
@@ -31,6 +31,7 @@ class CreateUsuarioAlumnosTable extends Migration
             $table->date('FechaIngreso_Alumno');
             $table->date('FechaSalida_Alumno')->nullable();
             $table->date('Imagen');
+            $table->primary('Rut_Alumno');
             $table->timestamps();
         });
     }

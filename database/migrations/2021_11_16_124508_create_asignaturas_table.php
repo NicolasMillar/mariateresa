@@ -18,7 +18,7 @@ class CreateAsignaturasTable extends Migration
             $table->string('Nombre_Asignatura');
             $table->string('Tipo_Asignatura');
             $table->string('Estado_Asignatura');
-            $table->unsignedInteger('ID_Curso');
+            $table->unsignedBigInteger('ID_Curso');
             $table->foreign('ID_Curso')->references('id')->on('cursos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

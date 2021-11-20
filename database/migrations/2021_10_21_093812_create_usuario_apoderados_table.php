@@ -14,12 +14,13 @@ class CreateUsuarioApoderadosTable extends Migration
     public function up()
     {
         Schema::create('usuario_apoderados', function (Blueprint $table) {
-            $table->integer('Rut_Apoderado');
+            $table->unsignedInteger('Rut_Apoderado');
             $table->char('DigitoV_Apoderado');
             $table->string('Nombre_Apoderado');
             $table->string('ApellidoP_Apoderado');
             $table->string('ApellidoM_Apoderado');
             $table->bigInteger('TelefonoC_Apoderado');
+            $table->primary('Rut_Apoderado');
             $table->timestamps();
         });
     }

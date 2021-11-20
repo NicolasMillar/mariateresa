@@ -18,7 +18,7 @@ class CreatePruebasTable extends Migration
             $table->string('Nombre_Prueba');
             $table->date('Fecha_Prueba');
             $table->tinyInteger('Semestre');
-            $table->unsignedInteger('ID_Asignatura');
+            $table->unsignedBigInteger('ID_Asignatura');
             $table->foreign('ID_Asignatura')->references('id')->on('asignaturas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
