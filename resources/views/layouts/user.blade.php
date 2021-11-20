@@ -34,62 +34,77 @@
 
             <!-- Page Content -->
             <main>
-            <div class="left-div" >
-              <div class="acciones">
-                <nav>
-                    <div class="margen">
-                        <x-jet-dropdown align="right">
-                            <x-slot name="trigger">
-                                <x-jet-nav-link  style="font-size: 175%;">Materiales</x-jet-nav-link>
-                            </x-slot>
-                            <x-slot name="content">
-                                <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">
-                                    Placeholder
-                                </x-jet-dropdown-link>
-                            </x-slot>
-                        </x-jet-dropdown>
-                    </div>
-                    <div class="margen">
-                        <x-jet-dropdown align="right">
-                            <x-slot name="trigger">
-                                <x-jet-nav-link  style="font-size: 175%;">Notas</x-jet-nav-link>
-                            </x-slot>
-                            <x-slot name="content">
-                                <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">
-                                    Placeholder
-                                </x-jet-dropdown-link>
-                            </x-slot>
-                        </x-jet-dropdown>
-                    </div>
-                    <div class="margen">
-                        <x-jet-dropdown align="right" >
-                            <x-slot name="trigger">
-                                <x-jet-nav-link style="font-size: 175%;">Anotaciones</x-jet-nav-link>
-                            </x-slot>
-                            <x-slot name="content">
-                                <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">
-                                    Placeholder
-                                </x-jet-dropdown-link>
-                            </x-slot>
-                        </x-jet-dropdown>
-                    </div>
-                    <div class="margen">
-                        <x-jet-nav-link  style="font-size: 175%;" href='#'>Calendario</x-jet-nav-link>
-                    </div>
-                    <div class="margen">
-                        <x-jet-nav-link  style="font-size: 175%;" href='#'>Cuenta</x-jet-nav-link>
-                    </div>
-                </nav>
-              </div>
-              <div class="boton-salir">
-                <button>
-                  <a class="Salir" href="{{ route('home') }}">
-                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+              <div class="up-div">
+                <div class="icono-escuela">
+                  <a href="{{ route('home') }}">
+                    <x-jet-application-mark class="block h-9 w-auto" />
                   </a>
-                </button>
-              </div> 
-            </div>
-                <div class="right-div" >
+                </div>
+                <div class="nombre-escuela">
+                  <h1>Escuela Maria Teresa Marchant</h1>
+                </div>
+                <div class="boton-salir">
+                  <button>
+                    <a class="Salir" href="{{ route('home') }}">
+                      <i class="fas fa-power-off"></i> Cerrar Sesión
+                    </a>
+                  </button>
+                </div>
+              </div>
+              <div class="left-div" id="left-div">
+                <div class="acciones">
+                  <nav>
+                      <div class="margen">
+                          <x-jet-dropdown align="right">
+                              <x-slot name="trigger">
+                                  <x-jet-nav-link  style="font-size: 175%;">Materiales</x-jet-nav-link>
+                              </x-slot>
+                              <x-slot name="content">
+                                  <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">
+                                      Placeholder
+                                  </x-jet-dropdown-link>
+                              </x-slot>
+                          </x-jet-dropdown>
+                      </div>
+                      <div class="margen">
+                          <x-jet-dropdown align="right">
+                              <x-slot name="trigger">
+                                  <x-jet-nav-link  style="font-size: 175%;">Notas</x-jet-nav-link>
+                              </x-slot>
+                              <x-slot name="content">
+                                  <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">
+                                      Placeholder
+                                  </x-jet-dropdown-link>
+                              </x-slot>
+                          </x-jet-dropdown>
+                      </div>
+                      <div class="margen">
+                          <x-jet-dropdown align="right" >
+                              <x-slot name="trigger">
+                                  <x-jet-nav-link style="font-size: 175%;">Anotaciones</x-jet-nav-link>
+                              </x-slot>
+                              <x-slot name="content">
+                                  <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">
+                                      Placeholder
+                                  </x-jet-dropdown-link>
+                              </x-slot>
+                          </x-jet-dropdown>
+                      </div>
+                      <div class="margen">
+                          <x-jet-nav-link  style="font-size: 175%;" href='#'>Calendario</x-jet-nav-link>
+                      </div>
+                      <div class="margen">
+                          <x-jet-nav-link  style="font-size: 175%;" href='#'>Cuenta</x-jet-nav-link>
+                      </div>
+                  </nav>
+                </div>
+              </div>
+                <div class="right-div" id="right-div">
+                  <button id="ocular-div" onclick="OculatarDiv()">
+                    <a class="Ocultar" >
+                      <i class="fas fa-align-justify"></i>ㅤ
+                    </a>
+                  </button>
                   @yield('Content') @section('Content')
                 </div>
             </main>
@@ -109,71 +124,70 @@
     position: absolute;
     bottom: 10px;
   }
-    .owl-carousel .item {
-        width:100%;
-        max-width:600px;
-        background: #bdbec0;
-        margin:auto;
-    }
-    .owl-carousel .item h2 {
-      color: rgb(0, 0, 0);
-      font-weight: 400;
-      margin-top: 0rem;
-      font-size: 150%;
-     }
-    .owl-carousel .nav-btn{
-      height: 47px;
-      position: absolute;
-      width: 26px;
-      cursor: pointer;
-      top: 100px !important;
-    }
-    .owl-carousel .owl-prev.disabled,
-    .owl-carousel .owl-next.disabled{
-      pointer-events: none;
-      opacity: 0.2;
-    }
-
-    .owl-carousel .prev-slide{
-        background: url(https://freakyjolly.com/demo/jquery/OwlCarousel2/nav-icon.png) no-repeat scroll 0 0;
-        left: 5%;
-        margin-left: 2rem auto;
-    }
-    .owl-carousel .next-slide{
-        background: url(https://freakyjolly.com/demo/jquery/OwlCarousel2/nav-icon.png) no-repeat scroll -24px 0px;
-        right: 10px;
-    }
-    .owl-carousel .prev-slide:hover{
-      background-position: 0px -53px;
-    }
-    .owl-carousel .next-slide:hover{
-      background-position: -24px -53px;
-    }
-    span.img-text {
-      text-decoration: none;
-      outline: none;
-      transition: all 0.4s ease;
-      -webkit-transition: all 0.4s ease;
-      -moz-transition: all 0.4s ease;
-      -o-transition: all 0.4s ease;
-      cursor: pointer;
-      width: 100%;
-      font-size: 23px;
-      display: block;
-      text-transform: capitalize;
+  .owl-carousel .item {
+      width:100%;
+      max-width:600px;
+      background: #bdbec0;
+      margin:auto;
+  }
+  .owl-carousel .item h2 {
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    margin-top: 0rem;
+    font-size: 150%;
+ }
+  .owl-carousel .nav-btn{
+    height: 47px;
+    position: absolute;
+    width: 26px;
+    cursor: pointer;
+    top: 100px !important;
+  }
+  .owl-carousel .owl-prev.disabled,
+  .owl-carousel .owl-next.disabled{
+    pointer-events: none;
+    opacity: 0.2;
+  }
+  .owl-carousel .prev-slide{
+    background: url(https://freakyjolly.com/demo/jquery/OwlCarousel2/nav-icon.png) no-repeat scroll 0 0;
+    left: 5%;
+    margin-left: 2rem auto;
+  }
+  .owl-carousel .next-slide{
+    background: url(https://freakyjolly.com/demo/jquery/OwlCarousel2/nav-icon.png) no-repeat scroll -24px 0px;
+    right: 10px;
+  }
+  .owl-carousel .prev-slide:hover{
+    background-position: 0px -53px;
+  }
+  .owl-carousel .next-slide:hover{
+    background-position: -24px -53px;
+  }
+  span.img-text {
+    text-decoration: none;
+    outline: none;
+    transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    cursor: pointer;
+    width: 100%;
+    font-size: 23px;
+    display: block;
+    text-transform: capitalize;
   }
   span.img-text:hover {
     color: #2caae1;
   }
   .left-div{
-      width: 15%;
-      height: 100%;
-      float:left;
-      background-color: #312e81;
+    width: 15%;
+    height: 94%;
+    float:left;
+    background-color: #312e81;
   }
   .right-div{
     width: 85%;
-    height: 100%;
+    height: 94%;
     float:right; 
   }
   .foto{
@@ -190,13 +204,44 @@
   }
   .boton-salir{
     display:flex;
-    justify-content: center;
+    justify-content: right;
+    float: right;
+    width: 30%;  
   }
   .Salir{
     background-color: red;
     display:inline-block;
     font-size:1.25em;
     color: white;
+  }
+  .up-div{
+    background-color: #363294;
+    height: 6%;
+  }
+  .icono-escuela{
+    float:left;
+    height: 6%;
+    width: 36%;
+    justify-content: center;
+    display: flex;
+  }
+  .nombre-escuela{
+    float:center;
+    display:flex;
+    height: 6%;
+    width: 36%;
+  }
+  .nombre-escuela h1{
+    color: #ffffff;
+    font-size: xx-large;
+  }
+  .ocultar{
+    background-color: #312e81;
+    display:inline-block;
+    font-size:2em;
+    color: white;
+    width: 35px;
+    height: 35px;
   }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -225,4 +270,15 @@
       }
     })
   })
+  function OculatarDiv(){
+    var x = document.getElementById("left-div");
+    var y = document.getElementById("right-div");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        y.style.width = "85%";
+    } else {
+        x.style.display = "none";
+        y.style.width = "100%";
+    }
+  }
 </script>
