@@ -17,8 +17,8 @@ class CreatePoderesTable extends Migration
             $table->id();
             $table->date('FechaInicio_Poder');
             $table->date('FechaTermino_Poder')->nullable();
-            $table->unsignedInteger('Rut_Alumno');
-            $table->foreign('Rut_Alumno')->references('Rut_Alumno')->on('usuario_alumnos')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedInteger('Rut');
+            $table->foreign('Rut')->references('Rut')->on('usuario_alumnos')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedInteger('Rut_Apoderado');
             $table->foreign('Rut_Apoderado')->references('Rut_Apoderado')->on('usuario_apoderados')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

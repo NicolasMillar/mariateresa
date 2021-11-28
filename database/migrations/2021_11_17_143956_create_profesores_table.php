@@ -20,7 +20,7 @@ class CreateProfesoresTable extends Migration
             $table->unsignedBigInteger('ID_Asignatura');
             $table->foreign('ID_Asignatura')->references('id')->on('asignaturas')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedInteger('Rut_Profesor')->nullable();
-            $table->foreign('Rut_Profesor')->references('Rut_Profesor')->on('usuario_profesores')->onDelete('set null')->onUpdate('cascade');
+            $table->foreign('Rut_Profesor')->references('Rut')->on('usuario_profesores')->onDelete('set null')->onUpdate('cascade');
             $table->timestamps();
         });
     }

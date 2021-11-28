@@ -16,8 +16,8 @@ class CreateAlergiasTable extends Migration
         Schema::create('alergias', function (Blueprint $table) {
             $table->id();
             $table->string('Nombre_Alergia');
-            $table->unsignedInteger('Rut_Alumno');
-            $table->foreign('Rut_Alumno')->references('Rut_Alumno')->on('usuario_alumnos')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedInteger('Rut');
+            $table->foreign('Rut')->references('Rut')->on('usuario_alumnos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

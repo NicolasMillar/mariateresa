@@ -15,8 +15,8 @@ class CreateParticipantesTable extends Migration
     {
         Schema::create('participantes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('Rut_Alumno');
-            $table->foreign('Rut_Alumno')->references('Rut_Alumno')->on('usuario_alumnos')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedInteger('Rut');
+            $table->foreign('Rut')->references('Rut')->on('usuario_alumnos')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('ID_Curso');
             $table->foreign('ID_Curso')->references('id')->on('cursos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

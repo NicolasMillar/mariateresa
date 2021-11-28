@@ -16,8 +16,8 @@ class CreateCalificacionesTable extends Migration
         Schema::create('calificaciones', function (Blueprint $table) {
             $table->id();
             $table->float('Notas', 3, 1);
-            $table->unsignedInteger('Rut_Alumno');
-            $table->foreign('Rut_Alumno')->references('Rut_Alumno')->on('usuario_alumnos')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedInteger('Rut');
+            $table->foreign('Rut')->references('Rut')->on('usuario_alumnos')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('ID_Pruebas');
             $table->foreign('ID_Pruebas')->references('id')->on('pruebas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

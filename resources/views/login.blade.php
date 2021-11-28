@@ -5,30 +5,22 @@
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
-
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
-
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST">
             @csrf
-
             <div>
                 <x-jet-label for="email" value="Rut" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-jet-input id="email" class="block mt-1 w-full" type="text" name="Rut" :value="old('rut')" required autofocus />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password" value="Contraseña" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="Contraseña" required autocomplete="current-password" />
             </div>
 
             <div>
-                <input type="radio" id="estudiante" name="fav_language" value="ESTUDIANTE">
+                <input type="radio" id="estudiante" name="Tipo_usuario" value="ESTUDIANTE">
                 <label for="estudiante">estudiante</label>
-                <input type="radio" id="profesor" name="fav_language" value="PROFESOR">
+                <input type="radio" id="profesor" name="Tipo_usuario" value="PROFESOR">
                 <label for="profesor">profesor</label>
             </div>
 

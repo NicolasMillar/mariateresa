@@ -20,7 +20,7 @@ class CreateCursosTable extends Migration
             $table->char('Valor_Curso');
             $table->string('Estado_Curso');
             $table->unsignedInteger('Rut_Profesor')->nullable();
-            $table->foreign('Rut_Profesor')->references('Rut_Profesor')->on('usuario_profesores')->onDelete('set null')->onUpdate('cascade');
+            $table->foreign('Rut_Profesor')->references('Rut')->on('usuario_profesores')->onDelete('set null')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -5,6 +5,8 @@ use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminHomeSliderComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileController;
+use App\Models\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +18,7 @@ use App\Http\Controllers\FileController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,5 +46,8 @@ Route::get('/admin/slider/edit/{slide_id}',  AdminEditHomeSliderComponent::class
 
 Route::resource('file', 'App\Http\Controllers\FileController');
 
-Route::get('/test','App\Http\Controllers\Imagecontroller@index');
-Route::resource('test','App\Http\Controllers\Imagecontroller');
+Route::resource('alumnohome','App\Http\Controllers\newLogcontroller')->names(['index'=> 'alumno.home']);
+
+Route::get('login', 'App\Http\Controllers\newLogcontroller@entrar')-> name('login');
+
+Route::post('login', 'App\Http\Controllers\newLogcontroller@login');

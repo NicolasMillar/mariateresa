@@ -19,8 +19,8 @@ class CreateAnotacionesTable extends Migration
             $table->string('Tipo_Anotacion');
             $table->unsignedBigInteger('ID_Asignatura');
             $table->foreign('ID_Asignatura')->references('id')->on('asignaturas')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedInteger('Rut_Alumno');
-            $table->foreign('Rut_Alumno')->references('Rut_Alumno')->on('usuario_alumnos')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedInteger('Rut');
+            $table->foreign('Rut')->references('Rut')->on('usuario_alumnos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
