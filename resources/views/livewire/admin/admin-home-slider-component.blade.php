@@ -1,21 +1,24 @@
 <div>
+    <link rel="stylesheet" href="{{asset('css/estilos.css')}}">
     {{-- Close your eyes. Count to one. That is how long forever feels. --}}
     <div class="container" style="padding: 30px 0;">
-        <div class="row">
+        <div>
             <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-md-6">
-                                Imagenes
-                            </div>
-                            <div class="col-md-6">
-                                <a href="{{route('admin.addhomeslider')}}" class="btn btn-success pull-right">Añadir Imagenes</a>
+                <div class="panel panel-default" style="">
+                    <div style="display: flex; justify-content:center">
+                        <div class="panel-heading" style="width: 80%;">
+                            <div class="row" >
+                                <div class="column" style="width: 50%; font-size:150%">
+                                    Imagenes
+                                </div>
+                                <div class="column" style="width: 50%; justify-content: right; display:flex">
+                                    <a href="{{route('admin.addhomeslider')}}" class="exito">Añadir Imagenes</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="panel-body">
-                        <table class="table-striped">
+                    <div class="panel-body" style=" justify-content: center; display:flex" >
+                        <table class="tabla" style="margin-right: 5%">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -28,7 +31,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($sliders as $slider)
+                                {{--@foreach ($sliders as $slider)
                                     <tr>
                                         <td>{{$slider->id}}</td>
                                         <td>{{$slider->Titulo}}</td>
@@ -37,7 +40,23 @@
                                         <td>{{$slider->Estado == 1 ? 'Active':'Inactive'}}</td>
                                         <td>{{$slider->created_at}}</td>
                                     </tr>
-                                @endforeach
+                                @endforeach--}}
+                                <tr>
+                                    <td>hola</td>
+                                    <td>estos</td>
+                                    <td>son</td>
+                                    <td>datos</td>
+                                    <td>de</td>
+                                    <td>prueba</td>
+                                </tr>
+                                <tr>
+                                    <td>hola</td>
+                                    <td>estos</td>
+                                    <td>son</td>
+                                    <td>datos</td>
+                                    <td>de</td>
+                                    <td>prueba</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'alumnos',
         'passwords' => 'users',
     ],
 
@@ -88,6 +88,14 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'alumnos' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Usuario_alumno::class,
+        ],
+        'profesor' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Usuario_profesor::class,
         ],
 
         'alumnos' => [

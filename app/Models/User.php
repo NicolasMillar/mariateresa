@@ -23,10 +23,12 @@ class User extends Authenticatable
      *
      * @var string[]
      */
+    protected $table = 'usuario_alumnos';
+
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'nombre',
+        'rut',
+        'contraseña',
     ];
 
     /**
@@ -35,10 +37,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
+        'contraseña'
+        /*
         'password',
         'remember_token',
         'two_factor_recovery_codes',
-        'two_factor_secret',
+        'two_factor_secret',*/
     ];
 
     /**
@@ -47,7 +51,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'FechaIngreso_Alumno' => 'datetime',
     ];
 
     /**

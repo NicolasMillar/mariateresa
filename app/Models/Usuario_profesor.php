@@ -9,7 +9,7 @@ class Usuario_profesor extends Model
 {
     use HasFactory;
     protected $table = "usuario_profesores";
-    protected $primaryKey = 'Rut_Profesor';
+    protected $primaryKey = 'Rut';
 
     public function titulo_profesor(){
         return $this->hasMany('App\Models\Titulo_profesor');
