@@ -18,7 +18,7 @@ class CreateTituloProfesoresTable extends Migration
             $table->string('Nombre_Titulo');
             $table->unsignedInteger('Rut_Profesor');
 
-            $table->foreign('Rut_Profesor')->references('Rut_Profesor')->on('usuario_profesores')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('Rut_Profesor')->references('Rut')->on('usuario_profesores')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });

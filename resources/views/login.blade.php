@@ -5,30 +5,37 @@
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
-
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
-
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{route('validar')}}">
             @csrf
-
             <div>
+                <label for="dni">
+                    @if($errors->first('Rut'))
+                    <p class="text-danger">{{$errors->first('Rut')}}</p>
+                    @endif
+                </label>
                 <x-jet-label for="email" value="Rut" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-jet-input id="email" class="block mt-1 w-full" type="text" name="Rut"  />
             </div>
 
             <div class="mt-4">
+                <label for="dni">
+                    @if ($errors->first('Contraseña'))
+                    <p class="text-danger">{{$errors->first('Contraseña')}}</p>                        
+                    @endif
+                </label>
                 <x-jet-label for="password" value="Contraseña" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="Contraseña" />
             </div>
 
             <div>
-                <input type="radio" id="estudiante" name="fav_language" value="ESTUDIANTE">
+                <label for="dni">
+                    @if ($errors->first('Tipo_usuario'))
+                    <p class="text-danger">{{$errors->first('Tipo_usuario')}}</p>                        
+                    @endif
+                </label>
+                <input type="radio" id="estudiante" name="Tipo_usuario" value="ESTUDIANTE">
                 <label for="estudiante">estudiante</label>
-                <input type="radio" id="profesor" name="fav_language" value="PROFESOR">
+                <input type="radio" id="profesor" name="Tipo_usuario" value="PROFESOR">
                 <label for="profesor">profesor</label>
             </div>
 
@@ -51,5 +58,8 @@
                 </x-jet-button>
             </div>
         </form>
+        @if (Session::has('mensaje'))
+            <div class="alert alert-danger">{{Session::get('mensaje')}} </div>
+        @endif
     </x-jet-authentication-card>
 </x-guest-layout>

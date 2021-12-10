@@ -1,3 +1,11 @@
+<?php 
+    $sessionusuario = session('nombre');
+    $sessiontipo = session('sessiontipo');
+    $sessionrut = session('rut');
+    $sessionfechan = session('fechaN');
+    $sessionfechai = session('fechaI');
+?>
+
 @extends('layouts.user')
 @section('Content')
     <div class="foto" >
@@ -5,12 +13,10 @@
     </div>
     <div style="justify-content: center; display: flex;  margin-top:2%">
         <div class= "datos" > 
-            <h1>Rut:</h1>
-            <h1>Nombre:</h1>
-            <h1>Fecha de nacimiento:</h1>
-            <h1>Año de ingreso:</h1>
-            <h1>Telefono de contacto:</h1>
-            <h1>Mail de contacto:</h1>
+            <h1>Rut: <?php echo $sessionrut ?></h1>
+            <h1>Nombre: <?php echo $sessionusuario ?></h1>
+            <h1>Fecha de nacimiento: <?php echo $sessionfechan ?></h1>
+            <h1>Año de ingreso: <?php echo $sessionfechai ?></h1>
         </div>
     </div>
 @endsection

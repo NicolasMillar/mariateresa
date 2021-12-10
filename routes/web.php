@@ -5,6 +5,8 @@ use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminHomeSliderComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileController;
+use App\Models\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +19,10 @@ use App\Http\Controllers\FileController;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
 
 Route::get('/historia', function () {
     return view('historia');
@@ -43,5 +42,11 @@ Route::get('/admin/slider/edit/{slide_id}',  AdminEditHomeSliderComponent::class
 
 Route::resource('file', 'App\Http\Controllers\FileController');
 
-Route::get('/test','App\Http\Controllers\Imagecontroller@index');
-Route::resource('test','App\Http\Controllers\Imagecontroller');
+/*Route::middleware(['auth:sanctum', 'verified'])->get('/alumnohome', function () {
+    return view('alumnohome');
+})->name('alumnohome');*/
+
+Route::get('login', 'App\Http\Controllers\newlogincontroller@login')->name('login');
+Route::post('validar', 'App\Http\Controllers\newlogincontroller@validar')->name('validar');
+Route::get('alumnohome', 'App\Http\Controllers\newlogincontroller@alumno')->name('alumnohome');
+Route::get('cerrarsession', 'App\Http\Controllers\newlogincontroller@cerrarsession')->name('cerrarsession');

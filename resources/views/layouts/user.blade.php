@@ -45,7 +45,7 @@
                 </div>
                 <div class="boton-salir">
                   <button>
-                    <a class="Salir" href="{{ route('home') }}">
+                    <a class="Salir" href="{{ route('cerrarsession') }}">
                       <i class="fas fa-power-off"></i> Cerrar Sesión
                     </a>
                   </button>

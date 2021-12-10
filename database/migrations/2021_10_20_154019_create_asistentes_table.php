@@ -14,7 +14,7 @@ class CreateAsistentesTable extends Migration
     public function up()
     {
         Schema::create('asistentes', function (Blueprint $table) {
-            $table->integer('Rut_Asistente');
+            $table->unsignedInteger('Rut_Asistente');
             $table->char('DigitoV_Asistente');
             $table->string('Nombre_Asistente');
             $table->string('ApellidoP_Asistente');
@@ -25,6 +25,7 @@ class CreateAsistentesTable extends Migration
             $table->string('Estado_Asistente');
             $table->bigInteger('TelefonoC_Asistente');
             $table->string('Imagen');
+            $table->primary('Rut_Asistente');
             $table->timestamps();
         });
     }
