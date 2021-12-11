@@ -16,22 +16,31 @@
                         </a>
                         <h2 class="f-title"><b>un titulo</b></h2>
                     </div>
-                    {{--@foreach ($sliders as $slide)
-                        <div class="item-slide">
-                            <img src="{{asset('assets/images/sliders')}} /{{$slide->image}}" alt="" class="img-slide">
-                            <div class="slide-info slide-1">
-                                <h2 class="f-title"><b>{{$slide->titulo}}</b></h2>
-                                <a href="{{$slide->link}}" class="btn-link">ir ahora</a>
-                            </div>
+                    @foreach ($owl as $owls)
+                        
+                        <div class="item">
+                            <a href="{{$owls->Link}}">
+                                <img src="{{asset($owls->Image)}}" alt="" class="img-slide">
+                            </a>
+                            <h2 class="f-title"><b>{{$owls->Titulo}}</b></h2>
                         </div>
-                    @endforeach--}}
+                    @endforeach
                 </div>
             </div>
         </div>
         <div class="container" style="border: 2px solid blue; height: 200px; max-width:1000px; border-radius: 25px; margin-top:3px; background-color: white">
             <h1 class="subtitulos"><b>Fechas relevantes</b></h1>
             <div class="box">
+                @foreach ($eventos as $evento)
                 <div id="tarjeta-fechas">
+                    <div style="border: 1px solid yellow; height:100px; max-width:300px; border-radius: 25px">
+                        <div style="width: 100px"><img id="calendar" src="{{asset('assets/images/custom/calendar-icon.png')}}" class="img-slide"  width="100%" height="100" style="border-radius: 25px"></div>
+                        <h2 style="word-wrap: break-word"><b>{{$evento->Titulo}}</b></h2>
+                        <p>{{$evento->FechaInicio_Evento}}</p>
+                    </div>
+                </div>
+                @endforeach
+                {{--<div id="tarjeta-fechas">
                     <div style="border: 1px solid yellow; height:100px; max-width:300px; border-radius: 25px">
                         <div style="width: 100px"><img id="calendar" src="{{asset('assets/images/custom/calendar-icon.png')}}" class="img-slide"  width="100%" height="100" style="border-radius: 25px"></div>
                         <h2><b>un titulo</b></h2>
@@ -48,13 +57,28 @@
                         <div style="width: 100px"><img id="calendar" src="{{asset('assets/images/custom/calendar-icon.png')}}" class="img-slide" width="100%" height="100" style="border-radius: 25px"></div>
                         <h2><b>un titulo</b></h2>
                     </div>
-                </div>
+                </div>--}}
             </div>
         </div>
         <div class="container" style="border: 2px solid red">
             <h1 class="subtitulos"><b>Noticias</b></h1>
             <div class="box2">
+                @foreach ($noticias as $noticia)
                 <div class="tarjeta-noticias" style="border: 1px solid orange; height:150px; max-width:700px; border-radius: 25px">
+                    <div class="centrar" style="width: 200px; height: 150px;">
+                        <img id="noticias" src="{{asset($noticia->Imagen)}}" width="100%" style="border-radius: 25px; position: absolute; top: 50%; transform: translateY(-50%); max-height:95%">
+                    </div>
+                    <div class="texto noticias" style="width: 490px; height:150px;">
+                        <a href="{{$noticia->Link}}">
+                            <h2><b>{{$noticia->Titulo}}</b></h2>
+                        </a>
+                        <div style="width: 490px; height: 100px; overflow-x: hidden; overflow-y: scroll;">
+                            <p>{{$noticia->Descripcion}}</p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                {{--<div class="tarjeta-noticias" style="border: 1px solid orange; height:150px; max-width:700px; border-radius: 25px">
                     <div class="centrar" style="width: 200px; height: 150px;">
                         <img id="noticias" src="{{asset('assets/images/sliders/1.jpg')}}" width="100%" height="100" style="border-radius: 25px; position: absolute; top: 50%; transform: translateY(-50%);">
                     </div>
@@ -77,7 +101,7 @@
                     <div class="texto noticias">
                         <h2><b>un titulo</b></h2>
                     </div>
-                </div>
+                </div>--}}
             </div>
         </div>
     </main>

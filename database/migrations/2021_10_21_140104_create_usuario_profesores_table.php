@@ -22,7 +22,7 @@ class CreateUsuarioProfesoresTable extends Migration
             $table->string('Contraseña_Profesor');
             $table->string('Estado_Profesor');
             $table->date('FechaInicio_Profesor');
-            $table->date('FechaTermino_Profesor');
+            $table->date('FechaTermino_Profesor')->nullable();
             $table->string('Imagen');
             $table->primary('Rut_Profesor');
             $table->timestamps();

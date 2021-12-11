@@ -10,6 +10,7 @@ class Usuario_profesor extends Model
     use HasFactory;
     protected $table = "usuario_profesores";
     protected $primaryKey = 'Rut_Profesor';
+    protected $fillable=['Rut_Profesor', 'DigitoV_Profesor', 'Nombre_Profesor', 'ApellidoP_Profesor', 'ApellidoM_Profesor', 'Contraseña_Profesor', 'Estado_Profesor', 'FechaInicio_Profesor', 'FechaTermino_Profesor', 'Imagen'];
 
     public function titulo_profesor(){
         return $this->hasMany('App\Models\Titulo_profesor');
@@ -19,5 +20,9 @@ class Usuario_profesor extends Model
     }
     public function profesor(){
         return $this->hasMany('App\Models\Profesor');
+    }
+    public function getFullNameAttribute()
+    {
+       return ucfirst($this->Nombre_Profesor) . ' ' . ucfirst($this->ApellidoP_Profesor);
     }
 }

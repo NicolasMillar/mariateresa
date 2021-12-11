@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Curso extends Model
 {
     use HasFactory;
+    protected $fillable=['Grado', 'Anio_Academico', 'Valor_Curso', 'Estado_Curso', 'Rut_Profesor'];
     public function asignatura(){
         return $this->hasMany('App\Models\Asignatura');
     }

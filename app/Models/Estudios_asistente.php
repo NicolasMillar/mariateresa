@@ -11,4 +11,5 @@ class Estudios_asistente extends Model
     public function asistente(){
         return $this->belongsTo('App\Models\Asistente');
     }
+    protected $fillable=['Nombre_EstudiosA', 'Rut_Asistente'];
 }

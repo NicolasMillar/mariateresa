@@ -15,13 +15,14 @@ class CreateCursosTable extends Migration
     {
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
-            $table->integer('Grado');
+            $table->string('Grado');
             $table->year('Anio_Academico');
             $table->char('Valor_Curso');
             $table->string('Estado_Curso');
             $table->unsignedInteger('Rut_Profesor')->nullable();
             $table->foreign('Rut_Profesor')->references('Rut_Profesor')->on('usuario_profesores')->onDelete('set null')->onUpdate('cascade');
             $table->timestamps();
+            $table->unique(['Grado', 'Anio_Academico', 'Valor_Curso']);
         });
     }
 
