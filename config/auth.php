@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'alumnos',
+        'guard' => 'web',
         'passwords' => 'users',
     ],
 
@@ -45,26 +45,6 @@ return [
             'provider'=>'users',
             'hash'=>false,
         ],
-
-        'almnuo' => [
-            'driver' => 'session',
-            'provider' => 'alumnos',
-        ],
-        'api' =>[
-            'driver'=>'token',
-            'provider'=>'alumnos',
-            'hash'=>false,
-        ],
-
-        'profesor' => [
-            'driver' => 'session',
-            'provider' => 'profesores',
-        ],
-        'api' =>[
-            'driver'=>'token',
-            'provider'=>'profesores',
-            'hash'=>false,
-        ],
     ],
 
     /*
@@ -88,24 +68,6 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
-        ],
-        'alumnos' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Usuario_alumno::class,
-        ],
-        'profesor' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Usuario_profesor::class,
-        ],
-
-        'alumnos' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Usuario_alumno::class,
-        ],
-
-        'profesores' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Usuario_profesor::class,
         ],
 
         // 'users' => [
@@ -132,20 +94,6 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
-            'table' => 'password_resets',
-            'expire' => 60,
-            'throttle' => 60,
-        ],
-
-        'alumnos' => [
-            'provider' => 'alumnos',
-            'table' => 'password_resets',
-            'expire' => 60,
-            'throttle' => 60,
-        ],
-
-        'profesores' => [
-            'provider' => 'profesores',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

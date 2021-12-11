@@ -18,7 +18,7 @@ class newlogincontroller extends Controller
         }else if($sessiontipo == "profesor"){
             return "algun dia";
         }else{
-            return redirect()->route('newlogin'); 
+            return redirect()->route('login'); 
         }
     }
 
