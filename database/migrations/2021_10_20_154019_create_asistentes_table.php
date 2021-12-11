@@ -15,7 +15,7 @@ class CreateAsistentesTable extends Migration
     {
         Schema::create('asistentes', function (Blueprint $table) {
             $table->unsignedInteger('Rut_Asistente');
-            $table->char('DigitoV_Asistente');
+            $table->char('DigitoV_Asistente')->nullable();
             $table->string('Nombre_Asistente');
             $table->string('ApellidoP_Asistente');
             $table->string('ApellidoM_Asistente');
@@ -23,7 +23,7 @@ class CreateAsistentesTable extends Migration
             $table->year('AñoTermino_Asistente')->nullable();
             $table->string('Cargo_Asistente');
             $table->string('Estado_Asistente');
-            $table->bigInteger('TelefonoC_Asistente');
+            $table->bigInteger('TelefonoC_Asistente')->nullable();
             $table->string('Imagen');
             $table->primary('Rut_Asistente');
             $table->timestamps();

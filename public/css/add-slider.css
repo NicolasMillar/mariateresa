@@ -1,0 +1,26 @@
+#volver{
+    background-color: orange;
+    border: 1px solid red;
+    border-radius: 20px;
+    color: white;
+    padding: 10px 24px;
+}
+#volver:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.row {
+    display: flex;
+}
+.boton-primario{
+    background-color: white;
+    border: 1px solid blue;
+    border-radius: 20px;
+    color: blue;
+    padding: 8px 24px;
+}
+.boton-primario:hover{
+    background-color: blue;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

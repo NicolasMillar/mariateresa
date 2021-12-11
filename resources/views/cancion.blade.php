@@ -14,24 +14,25 @@
                 <p style="font-size: 125%; color: purple; margin-top: 25px">
                     Arcoíris de juventud <br>
                     Alzan voces de bello sentir <br>
-                    A la escuela que canta alegría <br>
+                    A la escuela, que canta alegría <br>
                     Pregonando futuro sin fin <br><br>
                     Nuestro hogar, panal de unidad <br>
                     De enseñanza y fiel amistad <br>
                     Clases plenas de sabiduría <br>
                     Y recreos de fraternidad <br><br>
-                    <b>Caminad por claros senderos. <br>
+                    <b> x2<br>
+                        Caminad por claros senderos. <br>
                         Descubrid el saber con afán <br>
-                        Evocad el ejemplo altruista <br>
+                        Evocando el ejemplo altruista <br>
                         De María T. Marchant <br><br>
                     </b>
                     Arcoíris de juventud <br>
                     Alzan voces de bello sentir <br>
-                    A la escuela que canta alegría <br>
+                    A la escuela, que canta alegría <br>
                     Pregonando futuro sin fin <br><br>
                     <b>Caminad por claros senderos. <br>
                         Descubrid el saber con afán <br>
-                        Evocad el ejemplo altruista <br>
+                        Evocando el ejemplo altruista <br>
                         De María T. Marchant <br>
                     </b>
                 </p>

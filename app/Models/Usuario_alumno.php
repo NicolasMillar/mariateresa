@@ -33,4 +33,5 @@ class Usuario_alumno extends Authenticatable
     public function participante(){
         return $this->hasMany('App\Models\Participante');
     }
+    protected $fillable=['Rut', 'DigitoV_Alumno', 'Nombre_Alumno', 'ApellidoP_Alumno', 'ApellidoM_Alumno', 'Direccion_Alumno', 'Comuna_Alumno', 'FechaNacimiento_Alumno', 'Contraseña', 'Estado_Alumno', 'FechaIngreso_Alumno', 'FechaSalida_Alumno', 'Imagen'];
 }

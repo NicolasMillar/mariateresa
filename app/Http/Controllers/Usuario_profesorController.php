@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Titulo_profesor;
+use App\Models\Usuario_profesor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class Usuario_profesorController extends Controller
 {
@@ -13,7 +17,8 @@ class Usuario_profesorController extends Controller
      */
     public function index()
     {
-        //
+        $pusuarios = Usuario_profesor::all();
+        return view('admin.usuario_profesores.index', compact('pusuarios'));
     }
 
     /**
@@ -23,7 +28,8 @@ class Usuario_profesorController extends Controller
      */
     public function create()
     {
-        //
+        $date= \Carbon\Carbon::now();
+        return view('admin.usuario_profesores.create', compact('date'));
     }
 
     /**
@@ -34,7 +40,43 @@ class Usuario_profesorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $anio= \Carbon\Carbon::now();
+        $year =date('Y', strtotime($anio));
+        $request->validate([
+            'Rut'=>'required|between:1,10',
+            'DV'=>'required|regex:/^[kK0-9 ]+$/',
+            'Nombre'=>'required|regex:/^[\pL\s\-]+$/u',
+            'ApellidoP'=>'required|regex:/^[a-zA-Z]+$/u',
+            'ApellidoM'=>'required|regex:/^[a-zA-Z]+$/u',
+            'FechaI'=>'required',
+            'Password'=>['required','min:6','regex:/^.*(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!"#$%&()*+,-.:;<=>?@_`{|}~]).*$/'],
+            'Imagen'=>'required|image',
+            'Estado'=>'required',
+            'addmore.*' => 'required',
+        ]);
+        $imagenes = $request->file('Imagen')->store('public/usuario_profesor');
+        $url = Storage::url($imagenes);
+        $Estado=$request->Estado==1 ? 'active':'inactive';
+        Usuario_profesor::create([
+            'Rut'=>$request->Rut,
+            'DigitoV_Profesor'=>$request->DV,
+            'Nombre_Profesor'=>$request->Nombre,
+            'ApellidoP_Profesor'=>$request->ApellidoP,
+            'ApellidoM_Profesor'=>$request->ApellidoM,
+            'Contraseña'=>$request->Password,
+            'FechaInicio_Profesor'=>$request->FechaI,
+            'Imagen'=>$url,
+            'Estado_Profesor'=>$Estado
+        ]);
+        foreach ($request->addmore as $key => $value) {
+
+            Titulo_profesor::create([
+                'Nombre_Titulo'=>$value,
+                'Rut_Profesor'=>$request->Rut
+            ]);
+
+        }
+        return redirect()->route('admin.usuario_profesor.create')->with('info', 'se creo el/la profesor/a exitosamente');
     }
 
     /**
@@ -54,9 +96,10 @@ class Usuario_profesorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Usuario_profesor $pusuario)
     {
-        //
+        $date= \Carbon\Carbon::now();
+        return view('admin.usuario_profesores.edit', compact('pusuario', 'date'));
     }
 
     /**
@@ -66,9 +109,61 @@ class Usuario_profesorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Usuario_profesor $pusuario)
     {
-        //
+        $anio= \Carbon\Carbon::now();
+        
+        $request->validate([
+            'Nombre'=>'required|regex:/^[\pL\s\-]+$/u',
+            'ApellidoP'=>'required|regex:/^[a-zA-Z]+$/u',
+            'ApellidoM'=>'required|regex:/^[a-zA-Z]+$/u',
+            'FechaI'=>'required',
+            'Password'=>['nullable','min:6','regex:/^.*(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!"#$%&()*+,-.:;<=>?@_`{|}~]).*$/'],
+            'Imagen'=>'image',
+            'Estado'=>'required'
+        ]);
+        $Password=$request->Password;
+        if($Password==null){
+            $Password=$pusuario->Contraseña_Profesor;
+        };
+        
+        $Estado=$request->Estado==1 ? 'active':'inactive';
+        if($request->hasFile('Imagen')){
+            $urleliminada = str_replace('storage', 'public', $pusuario->Imagen);
+            Storage::delete($urleliminada);
+            $imagenes = $request->file('Imagen')->store('public/usuario_profesor');
+            $url = Storage::url($imagenes);
+            $pusuario->update([
+                
+                'Nombre_Profesor'=>$request->Nombre,
+                'ApellidoP_Profesor'=>$request->ApellidoP,
+                'ApellidoM_Profesor'=>$request->ApellidoM,
+                'Contraseña'=>$Password,
+                'FechaInicio_Profesor'=>$request->FechaI,
+                'Imagen'=>$url,
+                'Estado_Profesor'=>$Estado
+            ]);
+        }else{
+            $pusuario->update([
+                'Nombre_Profesor'=>$request->Nombre,
+                'ApellidoP_Profesor'=>$request->ApellidoP,
+                'ApellidoM_Profesor'=>$request->ApellidoM,
+                'Contraseña'=>$Password,
+                'FechaInicio_Profesor'=>$request->FechaI,
+                'Estado_Profesor'=>$Estado
+            ]);
+        }
+        foreach ($request->addmore as $key => $value) {
+            if($value!=null){
+                Titulo_profesor::create([
+                    'Nombre_Titulo'=>$value,
+                    'Rut_Profesor'=>$request->Rut
+                ]);
+    
+            }
+            
+        }
+        return redirect()->route('admin.usuario_profesor.index')->with('info', 'se actualizo el/la profesor/a exitosamente');
     }
 
     /**
@@ -77,8 +172,13 @@ class Usuario_profesorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($pusuario)
     {
-        //
+        $pusuario=Usuario_profesor::where('Rut', $pusuario)->first();
+        $url = str_replace('storage', 'public', $pusuario->Imagen);
+        Storage::delete($url);
+
+        $pusuario->delete();
+        return redirect()->route('admin.usuario_profesor.index');
     }
 }
