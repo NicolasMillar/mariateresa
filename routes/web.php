@@ -17,11 +17,13 @@ use App\Models\Evento;
 use App\Models\HomeSlider;
 use Carbon\Carbon;
 use App\Http\Controllers\NoticiaController;
+use App\Http\Controllers\ParticipanteController;
 use App\Http\Controllers\Usuario_alumnoController;
 use App\Http\Controllers\Usuario_profesorController;
 use App\Models\Asistente;
 use App\Models\Noticia;
 use App\Models\Usuario_profesor;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -62,10 +64,11 @@ Route::resource('sliders', HomeSliderController::class)->names('admin.homeslider
 Route::resource('eventos', EventoController::class)->names('admin.evento');
 Route::resource('noticias', NoticiaController::class)->names('admin.noticia');
 Route::resource('asistentes', AsistenteController::class)->names('admin.asistente');
-Route::resource('asignaturas', AsignaturaController::class)->names('admin.asignatura');
+//Route::resource('asignaturas', AsignaturaController::class)->names('admin.asignatura');
 
 Route::resource('file', 'App\Http\Controllers\FileController');
-
+Route::get('participantes/{curso}', 'App\Http\Controllers\ParticipanteController@create')->name('participante.create');
+Route::post('participantes/{curso}', 'App\Http\Controllers\ParticipanteController@store')->name('participante.store');
 /*Route::middleware(['auth:sanctum', 'verified'])->get('/alumnohome', function () {
     return view('alumnohome');
 })->name('alumnohome');*/
