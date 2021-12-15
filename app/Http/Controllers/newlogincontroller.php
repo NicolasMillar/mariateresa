@@ -29,15 +29,14 @@ class newlogincontroller extends Controller
             'Tipo_usuario' => 'required',
         ]);
         if($request->Tipo_usuario == 'ESTUDIANTE'){
-            $password=Hash::make($request->Contraseña);
-            $consulta=Usuario_alumno::where('Rut',$request->Rut)->get();
-            $cuantos=count($consulta);
-            if($cuantos == 1 and Hash::check($request->Contraseña, $consulta[0]->Contraseña)){
-                Session::put('rut', $consulta[0]->Rut. "-".$consulta[0]->DigitoV_Alumno);
-                Session::put('nombre',$consulta[0]->Nombre_Alumno. " ".$consulta[0]->ApellidoP_Alumno);
+            $consulta=Usuario_alumno::where('Rut',$request->Rut)->first();
+            if(Hash::check($request->Contraseña, $consulta->Contraseña)){
+                Session::put('rut', $consulta->Rut. "-".$consulta->DigitoV_Alumno);
+                Session::put('nombre',$consulta->Nombre_Alumno. " ".$consulta->ApellidoP_Alumno);
                 Session::put('sessiontipo','alummno');
-                Session::put('fechaN',$consulta[0]->FechaNacimiento_Alumno);
-                Session::put('fechaI',$consulta[0]->FechaIngreso_Alumno);
+                Session::put('fechaN',$consulta->FechaNacimiento_Alumno);
+                Session::put('fechaI',$consulta->FechaIngreso_Alumno);
+                Session::put('Imagen',$consulta->Imagen);
                 return redirect()->route('alumnohome');
             }else{
                 Session::flash('mensaje', "El Rut o la clave ingresada son incorrectos");
@@ -46,12 +45,15 @@ class newlogincontroller extends Controller
         }else{
             return "algun dia";
         }
-        
     }
 
     public function cerrarsession(){
-        Session::forget('session');
+        Session::forget('rut');
         Session::forget('sessiontipo');
+        Session::forget('nombre');
+        Session::forget('fechaN');
+        Session::forget('fechaI');
+        Session::forget('Imagen');
         Session::flush();
         return redirect()->route('home');
     }
