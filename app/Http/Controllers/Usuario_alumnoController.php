@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Hash;
 use App\Models\Usuario_alumno;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -55,6 +55,7 @@ class Usuario_alumnoController extends Controller
             'Imagen'=>'required|image',
             'Estado'=>'required',
         ]);
+        $password=Hash::make($request->Password);
         $imagenes = $request->file('Imagen')->store('public/auxiliares');
         $url = Storage::url($imagenes);
         $Estado=$request->Estado==1 ? 'active':'inactive';
@@ -67,7 +68,7 @@ class Usuario_alumnoController extends Controller
             'Direccion_Alumno'=>$request->Direccion,
             'Comuna_Alumno'=>$request->Comuna,
             'FechaNacimiento_Alumno'=>$request->FechaN,
-            'Contraseña'=>$request->Password,
+            'Contraseña'=>$password,
             'FechaIngreso_Alumno'=>$request->FechaI,
             'Imagen'=>$url,
             'Estado_Alumno'=>$Estado
@@ -118,7 +119,8 @@ class Usuario_alumnoController extends Controller
         if($Password==null){
             $Password=$alumno->Contraseña;
         };
-        
+
+        $password=Hash::make($request->Password);
         $Estado=$request->Estado==1 ? 'active':'inactive';
         if($request->hasFile('Imagen')){
             $urleliminada = str_replace('storage', 'public', $alumno->Imagen);
@@ -126,18 +128,17 @@ class Usuario_alumnoController extends Controller
             $imagenes = $request->file('Imagen')->store('public/usuario_alumno');
             $url = Storage::url($imagenes);
             $alumno->update([
-                
                 'Direccion_Alumno'=>$request->Direccion,
                 'Comuna_Alumno'=>$request->Comuna,
                 'Imagen'=>$url,
-                'Contraseña'=>$Password,
+                'Contraseña'=>$password,
                 'Estado_Alumno'=>$Estado
             ]);
         }else{
             $alumno->update([
                 'Direccion_Alumno'=>$request->Direccion,
                 'Comuna_Alumno'=>$request->Comuna,
-                'Contraseña'=>$Password,
+                'Contraseña'=>$password,
                 'Estado_Alumno'=>$Estado
             ]);
         }
