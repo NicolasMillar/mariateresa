@@ -43,7 +43,7 @@
                             <tbody>
                                 @foreach ($pusuarios as $pusuario)
                                     <tr>
-                                        <td>{{$pusuario->Rut_Profesor}}</td>
+                                        <td>{{$pusuario->Rut}}</td>
                                         <td><img src="{{asset($pusuario->Imagen)}}" width="120" /></td>
                                         <td>{{$pusuario->Nombre_Profesor}}</td>
                                         <td>{{$pusuario->ApellidoP_Profesor}}</td>

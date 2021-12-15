@@ -15,7 +15,7 @@ class CreateCursosTable extends Migration
     {
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
-            $table->string('Grado');
+            $table->integer('Grado');
             $table->year('Anio_Academico');
             $table->char('Valor_Curso');
             $table->string('Estado_Curso');

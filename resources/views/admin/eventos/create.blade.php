@@ -26,6 +26,15 @@
                 @endif
                 <div class="card">
                     <div class="card-body" style="background-color: lightblue">
+                        @if (session('info'))
+                            <div class="alert alert-success">
+                                <strong>{{session('info')}}</strong>
+                            </div>
+                        @elseif (session('danger'))
+                            <div class="alert alert-danger">
+                                <strong>{{session('danger')}}</strong>
+                            </div>
+                        @endif
                         {!! Form::open(['route'=>'admin.evento.store']) !!}
                             <div class="form-group" style="margin-top: 10px;">
                                 {!! Form::label('Titulo', 'TITULO') !!}

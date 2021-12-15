@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Curso;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Validation\Rule;
 
 class CursoController extends Controller
@@ -17,6 +18,7 @@ class CursoController extends Controller
     {
         $cursos = Curso::all();
         return view('admin.cursos.index', compact('cursos'));
+        
     }
 
     /**
@@ -41,39 +43,7 @@ class CursoController extends Controller
     {
         $anio= \Carbon\Carbon::now();
         $year =date('Y', strtotime($anio));
-        $Grado=null;
-        switch($request->Grado){
-            case 0:
-                $Grado='PRIMERO';
-            break;
-            case 1:
-                $Grado='SEGUNDO';
-            break;
-            case 2:
-                $Grado='TERCERO';
-            break;
-            case 3:
-                $Grado='CUARTO';
-            break;
-            case 4:
-                $Grado='QUINTO';
-            break;
-            case 5:
-                $Grado='SEXTO';
-            break;
-            case 6:
-                $Grado='SEPTIMO';
-            break;
-            case 7:
-                $Grado='OCTAVO';
-            break;
-            case 8:
-                $Grado='PREKINDER';
-            break;
-            case 9:
-                $Grado='KINDER';
-            break;
-        }
+        
         $request->validate([
             'Grado'=>['required', Rule::unique('cursos')->where(function ($query) use ($request) {
                 return $query->where('Anio_Academico', $request->Anio)
@@ -88,7 +58,7 @@ class CursoController extends Controller
         $Estado=$request->Estado==1 ? 'active':'inactive';
         
         Curso::create([
-            'Grado'=>$Grado,
+            'Grado'=>$request->Grado,
             'Anio_Academico'=>$request->Anio,
             'Valor_Curso'=>$request->Letra,
             'Estado_Curso'=>$Estado,

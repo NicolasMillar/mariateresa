@@ -48,6 +48,10 @@ Route::get('/historia', function () {
     return view('historia');
 })->name('historia');
 
+Route::get('/profesoresjefe', function () {
+    return view('cursos');
+})->name('profesoresjefe');
+
 Route::get('/cancion', function () {
     return view('cancion');
 })->name('cancion');

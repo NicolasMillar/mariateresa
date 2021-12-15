@@ -92,7 +92,7 @@
                             </x-jet-nav-link>
                         </x-slot>
                         <x-slot name="content">
-                            <x-jet-dropdown-link href='#'>
+                            <x-jet-dropdown-link class="text" href="{{route('profesoresjefe')}}" :active="request()->routeIs('profesoresjefe')">
                                 Cursos
                             </x-jet-dropdown-link>
 
