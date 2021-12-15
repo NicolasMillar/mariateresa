@@ -20,6 +20,8 @@ class CreateAsignaturasTable extends Migration
             $table->string('Estado_Asignatura');
             $table->unsignedBigInteger('ID_Curso');
             $table->foreign('ID_Curso')->references('id')->on('cursos')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('ID_Categoria');
+            $table->foreign('ID_Categoria')->references('id')->on('categoria_asignaturas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

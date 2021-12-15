@@ -7,22 +7,22 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="column" style="width: 50%; font-size:150%">
-                        Añadir Nueva Imagen
+                        Añadir Nuevo Alumno
                     </div>
                     <div class="column" style="width: 50%; justify-content: right; display:flex" >
-                        <a href="{{route('admin.usuario_alumno.index')}}" id="volver">Todas Las Imagenes</a>
+                        <a href="{{route('admin.usuario_alumno.index')}}" id="volver">Todos Los Alumnos</a>
                     </div>
                 </div>
             </div>
             <div class="panel-body" style="justify-content: center; display: flex">
-                @if (session('info'))
-                    <div class="alert alert-success">
-                        <strong>{{session('info')}}</strong>
-                    </div>
-                @endif
                 
                 <div class="card">
                     <div class="card-body" style="background-color: lightblue">
+                        @if (session('info'))
+                            <div class="alert alert-success">
+                                <strong>{{session('info')}}</strong>
+                            </div>
+                        @endif
                         {!! Form::open(['route'=>'admin.usuario_alumno.store', 'enctype'=>'multipart/form-data', 'id'=>'formulario-dinamico']) !!}
                             <div class="row">
                                 <div class="col-md-10">

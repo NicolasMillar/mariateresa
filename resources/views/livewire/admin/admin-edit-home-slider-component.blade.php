@@ -8,10 +8,10 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="column" style="width: 50%; font-size:150%">
-                            Añadir Nueva Imagen
+                            Editar Slider
                         </div>
                         <div class="column" style="width: 50%; justify-content: right; display:flex" >
-                            <a href="{{route('admin.homeslider.index')}}" id="volver">Todas Las Imagenes</a>
+                            <a href="{{route('admin.homeslider.index')}}" id="volver">Todos Los Sliders</a>
                         </div>
                     </div>
                 </div>

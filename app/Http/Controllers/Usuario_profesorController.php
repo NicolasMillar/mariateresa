@@ -124,7 +124,7 @@ class Usuario_profesorController extends Controller
         ]);
         $Password=$request->Password;
         if($Password==null){
-            $Password=$pusuario->Contraseña_Profesor;
+            $Password=$pusuario->Contraseña;
         };
         
         $Estado=$request->Estado==1 ? 'active':'inactive';

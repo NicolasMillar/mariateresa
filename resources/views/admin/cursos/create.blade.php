@@ -13,22 +13,22 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="column" style="width: 50%; font-size:150%">
-                        Añadir Nueva Imagen
+                        Añadir Nuevo Curso
                     </div>
                     <div class="column" style="width: 50%; justify-content: right; display:flex" >
-                        <a href="{{route('admin.curso.index')}}" id="volver">Todas Las Imagenes</a>
+                        <a href="{{route('admin.curso.index')}}" id="volver">Todos Los Cursos</a>
                     </div>
                 </div>
             </div>
             <div class="panel-body" style="justify-content: center; display: flex">
-                @if (session('info'))
-                    <div class="alert alert-success">
-                        <strong>{{session('info')}}</strong>
-                    </div>
-                @endif
                 
                 <div class="card">
                     <div class="card-body" style="background-color: lightblue">
+                        @if (session('info'))
+                            <div class="alert alert-success">
+                                <strong>{{session('info')}}</strong>
+                            </div>
+                        @endif
                         {!! Form::open(['route'=>'admin.curso.store', 'enctype'=>'multipart/form-data', 'id'=>'formulario-dinamico']) !!}
                             
                             <div class="row">
@@ -70,7 +70,7 @@
                             </div>
                             <div class="form-group" style="margin-top: 10px">
                                 {!! Form::label('Profesor', 'Profesor') !!}
-                                {!! Form::select('Profesor', Usuario_profesor::all()->pluck('full_name', 'Rut_Profesor'), null, ['placeholder' => 'Elija un profesor', 'class'=>'form-control']) !!}
+                                {!! Form::select('Profesor', Usuario_profesor::all()->pluck('full_name', 'Rut'), null, ['placeholder' => 'Elija un profesor', 'class'=>'form-control']) !!}
                                 @error('Profesor')
                                     <small class="text-danger">{{$message}}</small>
                                 @enderror
