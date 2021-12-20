@@ -209,7 +209,7 @@
     width: 30%;  
   }
   .Salir{
-    background-color: red;
+    border: 2px outset rgb(212, 23, 64);
     display:inline-block;
     font-size:1.25em;
     color: white;
@@ -221,8 +221,8 @@
   .icono-escuela{
     float:left;
     height: 6%;
-    width: 36%;
-    justify-content: center;
+    width: 5%;
+    justify-content: right;
     display: flex;
   }
   .nombre-escuela{
@@ -233,7 +233,7 @@
   }
   .nombre-escuela h1{
     color: #ffffff;
-    font-size: xx-large;
+    font-size: x-large;
   }
   .ocultar{
     background-color: #312e81;

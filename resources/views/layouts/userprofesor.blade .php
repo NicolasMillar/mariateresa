@@ -69,7 +69,7 @@
                       <div class="margen">
                           <x-jet-dropdown align="right">
                               <x-slot name="trigger">
-                                  <x-jet-nav-link  style="font-size: 175%;">Notas</x-jet-nav-link>
+                                  <x-jet-nav-link  style="font-size: 175%;">Notas -></x-jet-nav-link>
                               </x-slot>
                               <x-slot name="content">
                                   <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">
