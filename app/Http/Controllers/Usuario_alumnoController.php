@@ -28,7 +28,10 @@ class Usuario_alumnoController extends Controller
     public function create()
     {
         $date= \Carbon\Carbon::now();
-        return view('admin.usuario_alumnos.create', compact('date'));
+        $date->format('Y-M-D');
+        $dateN= \Carbon\Carbon::now();
+        $dateN->subYears(4);
+        return view('admin.usuario_alumnos.create', compact('date', 'dateN'));
     }
 
     /**
@@ -74,7 +77,7 @@ class Usuario_alumnoController extends Controller
             'Estado_Alumno'=>$Estado
             
         ]);
-        return redirect()->route('admin.usuario_alumno.create')->with('info', 'se creo el/la auxiliar exitosamente');
+        return redirect()->route('admin.usuario_alumno.create')->with('info', 'se creo el/la Alumno/a exitosamente');
     }
 
     /**

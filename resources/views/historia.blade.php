@@ -11,7 +11,7 @@
         <div class="container">
             <div class="history">
                 <div class="tarjeta-historia" style="border: 1px solid orange; height:150px; max-width:1500px; border-radius: 25px">
-                    <div class="centrar" style="width: 200px; height: 150px; border: 1px solid blue;">
+                    <div class="centrar" style="width: 200px; height: 150px;">
                         <img id="historia" src="{{asset('assets/images/sliders/1.jpg')}}" width="100%" height="100" style="border-radius: 25px; position: absolute; top: 50%; transform: translateY(-50%);">
                     </div>
                     <div class="texto-historia" style="margin-left: 20px">
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="tarjeta-historia" style="border: 1px solid orange; height:150px; max-width:1500px; border-radius: 25px">
-                    <div class="centrar" style="width: 200px; height: 150px; border: 1px solid blue;">
+                    <div class="centrar" style="width: 200px; height: 150px;">
                         <img id="historia" src="{{asset('assets/images/sliders/1.jpg')}}" width="100%" height="100" style="border-radius: 25px; position: absolute; top: 50%; transform: translateY(-50%);">
                     </div>
                     <div class="texto-historia" style="margin-left: 20px">
@@ -66,7 +66,7 @@
                 </div>
                 <h1 class="subtitulos"> MISION Y VISION</h1>
                 <div class="tarjeta-historia" style="border: 1px solid orange; height:150px; max-width:1500px; border-radius: 25px">
-                    <div class="centrar" style="width: 200px; height: 150px; border: 1px solid blue;">
+                    <div class="centrar" style="width: 200px; height: 150px;">
                         <img id="historia" src="{{asset('assets/images/sliders/1.jpg')}}" width="100%" height="100" style="border-radius: 25px; position: absolute; top: 50%; transform: translateY(-50%);">
                     </div>
                     <div class="texto-historia" style="margin-left: 20px">

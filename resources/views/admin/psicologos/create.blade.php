@@ -7,10 +7,10 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="column" style="width: 50%; font-size:150%">
-                        Añadir Nuevo Alumno
+                        Añadir Nuevo Psicologo
                     </div>
                     <div class="column" style="width: 50%; justify-content: right; display:flex" >
-                        <a href="{{route('admin.usuario_alumno.index')}}" id="volver">Todos Los Alumnos</a>
+                        <a href="{{route('admin.psicologo.index')}}" id="volver">Todos Los Psicologos</a>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                                 <strong>{{session('info')}}</strong>
                             </div>
                         @endif
-                        {!! Form::open(['route'=>'admin.usuario_alumno.store', 'enctype'=>'multipart/form-data', 'id'=>'formulario-dinamico']) !!}
+                        {!! Form::open(['route'=>'admin.psicologo.store', 'enctype'=>'multipart/form-data', 'id'=>'formulario-dinamico']) !!}
                             <div class="row">
                                 <div class="col-md-10">
                                     <div class="form-group" style="margin-top: 10px;">
@@ -47,57 +47,37 @@
                             
                             <div class="form-group" style="margin-top: 10px;">
                                 {!! Form::label('Nombre', 'NOMBRE') !!}
-                                {!! Form::text('Nombre', null, ['class'=>'form-control', 'placeholder'=>'Ingrese el Nombre de el/la asistente']) !!}
+                                {!! Form::text('Nombre', null, ['class'=>'form-control', 'placeholder'=>'Ingrese el Nombre del psicologo']) !!}
                                 @error('Nombre')
                                     <small class="text-danger">{{$message}}</small>
                                 @enderror
                             </div>
                             <div class="form-group" style="margin-top: 10px;">
                                 {!! Form::label('ApellidoP', 'APELLIDO PATERNO') !!}
-                                {!! Form::text('ApellidoP', null, ['class'=>'form-control', 'placeholder'=>'Ingrese el Apellido Paterno de el/la profesor/a']) !!}
+                                {!! Form::text('ApellidoP', null, ['class'=>'form-control', 'placeholder'=>'Ingrese el Apellido Paterno del psicologo']) !!}
                                 @error('ApellidoP')
                                     <small class="text-danger">{{$message}}</small>
                                 @enderror
                             </div>
                             <div class="form-group" style="margin-top: 10px;">
                                 {!! Form::label('ApellidoM', 'APELLIDO MATERNO') !!}
-                                {!! Form::text('ApellidoM', null, ['class'=>'form-control', 'placeholder'=>'Ingrese el Apellido materno de el/la profesor/a']) !!}
+                                {!! Form::text('ApellidoM', null, ['class'=>'form-control', 'placeholder'=>'Ingrese el Apellido materno del psicologo']) !!}
                                 @error('ApellidoM')
                                     <small class="text-danger">{{$message}}</small>
                                 @enderror
                             </div>
+                            
                             <div class="form-group" style="margin-top: 10px;">
-                                {!! Form::label('Direccion', 'DIRECCION') !!}
-                                {!! Form::text('Direccion', null, ['class'=>'form-control', 'placeholder'=>'Ingrese la direccion de el/la alumno/a']) !!}
-                                @error('Direccion')
+                                {!! Form::label('HoraI', 'HORA DE INICIO') !!}
+                                {!! Form::time('HoraI', null, ['class'=>'form-control']) !!}
+                                @error('HoraI')
                                     <small class="text-danger">{{$message}}</small>
                                 @enderror
                             </div>
                             <div class="form-group" style="margin-top: 10px;">
-                                {!! Form::label('Comuna', 'COMUNA') !!}
-                                {!! Form::text('Comuna', null, ['class'=>'form-control', 'placeholder'=>'Ingrese la comuna de el/la alumno/a']) !!}
-                                @error('Comuna')
-                                    <small class="text-danger">{{$message}}</small>
-                                @enderror
-                            </div>
-                            <div class="form-group" style="margin-top: 10px;">
-                                {!! Form::label('FechaN', 'FECHA NACIMIENTO') !!}
-                                {!! Form::date('FechaN', $dateN, ['id'=>'FechaN', 'class'=>'form-control', 'min'=>'1900-01-01', 'max'=>'2018-01-01']) !!}
-                                @error('FechaN')
-                                    <small class="text-danger">{{$message}}</small>
-                                @enderror
-                            </div>
-                            <div class="form-group" style="margin-top: 10px;">
-                                {!! Form::label('FechaI', 'Fecha Ingreso') !!}
-                                {!! Form::date('FechaI', $date, ['class'=>'form-control', 'min'=>'1900-01-01', 'max'=>$date]) !!}
-                                @error('FechaI')
-                                    <small class="text-danger">{{$message}}</small>
-                                @enderror
-                            </div>
-                            <div class="form-group" style="margin-top: 10px;">
-                                {!! Form::label('Password', 'CONTRASEÑA') !!}
-                                {!! Form::password('Password', null, ['class'=>'form-control', 'minlenght'=>'8']) !!}
-                                @error('Password')
+                                {!! Form::label('HoraT', 'HORA DE TERMINO') !!}
+                                {!! Form::time('HoraT', null, ['class'=>'form-control']) !!}
+                                @error('HoraT')
                                     <small class="text-danger">{{$message}}</small>
                                 @enderror
                             </div>
@@ -108,9 +88,19 @@
                                     <small class="text-danger">{{$message}}</small>
                                 @enderror
                             </div>
-                            <div class="form-group" style="margin-top: 10px">
-                                {!! Form::label('Estado', 'ESTADO') !!}
-                                {!! Form::select('Estado', ['Inactivo', 'Activo'], 'Inactivo', ['class'=>'form-control']) !!}
+                            <div class="form-group" style="margin-top: 10px;">
+                                {!! Form::label('Telefono', 'TELEFONO DE CONTACTO') !!}
+                                {!! Form::text('Telefono', null, ['class'=>'form-control', 'placeholder'=>'Ingrese el telefono de contacto del psicologo']) !!}
+                                @error('Telefono')
+                                    <small class="text-danger">{{$message}}</small>
+                                @enderror
+                            </div>
+                            <div class="form-group" style="margin-top: 10px;">
+                                {!! Form::label('Especialidad', 'ESPECIALIDAD') !!}
+                                {!! Form::text('Especialidad', null, ['class'=>'form-control', 'placeholder'=>'Ingrese la especialidad del psicologo']) !!}
+                                @error('Especialidad')
+                                    <small class="text-danger">{{$message}}</small>
+                                @enderror
                             </div>
                             
                             
@@ -124,24 +114,5 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script>
-        var today = new Date();
-        var dd = today.getDate();
-        var mm = today.getMonth() + 1; //January is 0!
-        var yyyy = today.getFullYear()-4;
-        var anio = today.getFullYear()
-
-        if (dd < 10) {
-        dd = '0' + dd;
-        }
-
-        if (mm < 10) {
-        mm = '0' + mm;
-        } 
-            
-        today = yyyy + '-' + mm + '-' + dd;
-        today2=anio + '-' + mm + '-' + dd;
-        document.getElementById("FechaN").setAttribute("max", today);
-        document.getElementById("FechaI").setAttribute("max", today2);
-    </script>
+    
 </div>

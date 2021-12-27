@@ -1,7 +1,3 @@
-
-    
-    
-
 <div>
     <link rel="stylesheet" href="{{asset('css/estilos.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -12,100 +8,123 @@
             <div class="alert alert-success">
                 <strong>{{session('info')}}</strong>
             </div>
-        @elseif (session('danger'))
-            <div class="alert alert-danger">
-                <strong>{{session('danger')}}</strong>
-            </div>
         @endif
         <div>
-            <div class="col-md-12">
+            <div class="">
                 <div class="panel panel-default" style="">
                     <div style="display: flex; justify-content:center">
                         <div class="panel-heading" style="width: 80%;">
                             <div class="row" >
                                 <div class="column" style="width: 50%; font-size:150%">
-                                    Cursos
+                                    Categorias de Asignaturas
                                 </div>
                                 <div class="column" style="width: 50%; justify-content: right; display:flex">
-                                    <a href="{{route('admin.curso.create')}}" class="exito">Añadir cursos</a>
+                                    <a href="{{route('admin.categoria_asignatura.create')}}" class="exito">Añadir Categorias</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="panel-body" style=" justify-content: center; display:flex" >
-                        <table id="tabla" class="table table-striped table-bordered table-sm" style="margin-right: 5%; width: 100%">
+                    <div class="panel-body" style=" justify-content: center; display:flex;" >
+                       
+                        <table id="tabla" class="table table-striped table-bordered table-sm" style="width: 100%">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Grado</th>
-                                    <th>Letra</th>
-                                    <th>Año</th>
-                                    <th>Estado</th>
-                                    <th>Editar</th>
+                                    <th>Nombre</th>
+                                    <th>Minimo Grado</th>
+                                    <th>Maximo Grado</th>
                                     <th>Eliminar</th>
-                                    <th>agregar</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($cursos as $curso)
+                                @foreach ($categorias as $categoria)
                                 @php
-                                    $grado=null;
-                                    switch ($curso->Grado) {
+                                    $grado1=null;
+                                    switch ($categoria->Minimo_Grado) {
                                         case 0:
-                                            $grado='PREKINDER';
+                                            $grado1='PREKINDER';
                                         break;
                                         case 1:
-                                            $grado='KINDER';
+                                            $grado1='KINDER';
                                         break;
                                         case 2:
-                                            $grado='PRIMERO';
+                                            $grado1='PRIMERO';
                                         break;
                                         case 3:
-                                            $grado='SEGUNDO';
+                                            $grado1='SEGUNDO';
                                         break;
                                         case 4:
-                                            $grado='TERCERO';
+                                            $grado1='TERCERO';
                                         break;
                                         case 5:
-                                            $grado='CUARTO';
+                                            $grado1='CUARTO';
                                         break;
                                         case 6:
-                                            $grado='QUINTO';
+                                            $grado1='QUINTO';
                                         break;
                                         case 7:
-                                            $grado='SEXTO';
+                                            $grado1='SEXTO';
                                         break;
                                         case 8:
-                                            $grado='SEPTIMO';
+                                            $grado1='SEPTIMO';
                                         break;
                                         case 9:
-                                            $grado='OCTAVO';
+                                            $grado1='OCTAVO';
+                                        break;
+                                            
+                                    }
+                                    $grado2=null;
+                                    switch ($categoria->Maximo_Grado) {
+                                        case 0:
+                                            $grado2='PREKINDER';
+                                        break;
+                                        case 1:
+                                            $grado2='KINDER';
+                                        break;
+                                        case 2:
+                                            $grado2='PRIMERO';
+                                        break;
+                                        case 3:
+                                            $grado2='SEGUNDO';
+                                        break;
+                                        case 4:
+                                            $grado2='TERCERO';
+                                        break;
+                                        case 5:
+                                            $grado2='CUARTO';
+                                        break;
+                                        case 6:
+                                            $grado2='QUINTO';
+                                        break;
+                                        case 7:
+                                            $grado2='SEXTO';
+                                        break;
+                                        case 8:
+                                            $grado2='SEPTIMO';
+                                        break;
+                                        case 9:
+                                            $grado2='OCTAVO';
                                         break;
                                             
                                     }
                                 @endphp
                                     <tr>
-                                        <td>{{$curso->id}}</td>
-                                        <td>{{$grado}}</td>
-                                        <td>{{$curso->Valor_Curso}}</td>
-                                        <td>{{$curso->Anio_Academico}}</td>
-                                        <td>{{$curso->Estado_Curso}}</td>
+                                        <td>{{$categoria->id}}</td>
+                                        <td>{{$categoria->Nombre_Categoria}}</td>
+                                        <td>{{$grado1}}</td>
+                                        <td>{{$grado2}}</td>
+                                        
                                         <td>
-                                            <a href="{{route('admin.curso.edit', $curso)}}" class="btn btn-primary">Editar</a>
-                                        </td>
-                                        <td>
-                                            <form action="{{route('admin.curso.destroy', $curso)}}" method="POST">
+                                            <form action="{{route('admin.categoria_asignatura.destroy', $categoria)}}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button type='submit' class="btn btn-danger">Eliminar</button>
                                             </form>
                                         </td>
-                                        <td>
-                                            <a href="{{route('participante.create', $curso)}}" class="btn btn-success">Agregar Alumnos</a>
-                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
+                            
                         </table>
                     </div>
                 </div>

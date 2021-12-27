@@ -12,5 +12,5 @@ class Asistente extends Model
     public function estudios_asistente(){
         return $this->hasMany('App\Models\Estudios_asistente');
     }
-    protected $fillable=['Rut_Asistente', 'Nombre_Asistente', 'ApellidoP_Asistente', 'ApellidoM_Asistente', 'AñoInicio_Asistente', 'AñoTermino_Asistente', 'Cargo_Asistente', 'Estado_Asistente', 'TelefonoC_Asistente', 'Imagen'];
+    protected $fillable=['Rut_Asistente', 'DigitoV_Asistente', 'Nombre_Asistente', 'ApellidoP_Asistente', 'ApellidoM_Asistente', 'AñoInicio_Asistente', 'AñoTermino_Asistente', 'Cargo_Asistente', 'Estado_Asistente', 'TelefonoC_Asistente', 'Imagen'];
 }

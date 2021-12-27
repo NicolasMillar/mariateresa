@@ -23,12 +23,25 @@
                             </div>
                         @endif
                         {!! Form::open(['route'=>'admin.asistente.store', 'enctype'=>'multipart/form-data', 'id'=>'formulario-dinamico']) !!}
-                            <div class="form-group" style="margin-top: 10px;">
-                                {!! Form::label('Rut', 'RUT') !!}
-                                {!! Form::text('Rut', null, ['class'=>'form-control', 'placeholder'=>'Ingrese un Rut sin digito verificador']) !!}
-                                @error('Rut')
-                                    <small class="text-danger">{{$message}}</small>
-                                @enderror
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="form-group" style="margin-top: 10px;">
+                                        {!! Form::label('Rut', 'RUT') !!}
+                                        {!! Form::text('Rut', null, ['class'=>'form-control', 'placeholder'=>'Ingrese un Rut sin digito verificador', 'maxlength'=>'9']) !!}
+                                        @error('Rut')
+                                            <small class="text-danger">{{$message}}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group" style="margin-top: 10px;">
+                                        {!! Form::label('DV', 'DV') !!}
+                                        {!! Form::text('DV', null, ['class'=>'form-control', 'maxlength'=>'1', 'width'=>'250' ]) !!}
+                                        @error('DV')
+                                            <small class="text-danger">{{$message}}</small>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group" style="margin-top: 10px;">
                                 {!! Form::label('Nombre', 'NOMBRE') !!}

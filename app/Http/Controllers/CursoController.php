@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Curso;
+use App\Models\Usuario_profesor;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
+
 
 class CursoController extends Controller
 {
@@ -30,7 +33,11 @@ class CursoController extends Controller
     {
         $anio= \Carbon\Carbon::now();
         $year =date('Y', strtotime($anio));
-        return view('admin.cursos.create', compact('year'));
+        
+        $resto= DB::table('usuario_profesores')->join('cursos', 'cursos.Rut_Profesor', '=', 'usuario_profesores.Rut')->where('Anio_Academico', '=', $year)->select('usuario_profesores.Rut')->get();
+        
+        $profesor=Usuario_profesor::whereNotIn('Rut', $resto->pluck('Rut'))->get();
+        return view('admin.cursos.create', compact('year', 'profesor'));
     }
 
     /**
@@ -45,21 +52,20 @@ class CursoController extends Controller
         $year =date('Y', strtotime($anio));
         
         $request->validate([
-            'Grado'=>['required', Rule::unique('cursos')->where(function ($query) use ($request) {
-                return $query->where('Anio_Academico', $request->Anio)
-                   ->where('Valor_Curso', $request->Letra);
-             })],
+            'Grado'=>'required|numeric',
             'Letra'=>'required|regex:/^[a-zA-Z]+$/u',
-            'Anio'=>"required|digits:4",
             'Estado'=>'required',
             'Profesor'=>'digits_between:0,10',
         ]);
-        
+        $validacion=Curso::where('Grado', '=', $request->Grado)->where('Valor_Curso', '=', $request->Letra)->where('Anio_Academico', '=', $request->Anio)->first();
+        if($validacion!=null){
+            return redirect()->route('admin.curso.create')->with('info', 'no se creo el curso. la combinacion de año, grado y letra ya existe');
+        }
         $Estado=$request->Estado==1 ? 'active':'inactive';
         
         Curso::create([
             'Grado'=>$request->Grado,
-            'Anio_Academico'=>$request->Anio,
+            'Anio_Academico'=>$year,
             'Valor_Curso'=>$request->Letra,
             'Estado_Curso'=>$Estado,
             'Rut_Profesor'=>$request->Profesor

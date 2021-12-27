@@ -44,6 +44,7 @@ class AsistenteController extends Controller
         $year =date('Y', strtotime($anio));
         $request->validate([
             'Rut'=>'required|digits_between:0,10',
+            'DV'=>'required|regex:/^[kK0-9 ]+$/',
             'Nombre'=>'required|regex:/^[\pL\s\-]+$/u',
             'ApellidoP'=>'required|regex:/^[a-zA-Z]+$/u',
             'ApellidoM'=>'required|regex:/^[a-zA-Z]+$/u',
@@ -58,6 +59,7 @@ class AsistenteController extends Controller
         $Estado=$request->Estado==1 ? 'active':'inactive';
         Asistente::create([
             'Rut_Asistente'=>$request->Rut,
+            'DigitoV_Asistente'=>$request->DV,
             'Nombre_Asistente'=>$request->Nombre,
             'ApellidoP_Asistente'=>$request->ApellidoP,
             'ApellidoM_Asistente'=>$request->ApellidoM,
