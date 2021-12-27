@@ -12,7 +12,6 @@
 @extends('layouts.user')
 @section('Content')             
     <div style=" justify-content: center; display:flex;" >
-                       
         <table class="tabla" style="width: 50%">
             <thead>
                 <tr>
@@ -33,4 +32,5 @@
                             
         </table>
     </div>
-@endsection   
+@endsection
+<style></style>   

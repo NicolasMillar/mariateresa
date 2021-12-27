@@ -37,7 +37,7 @@
             <main>
               <div class="up-div">
                 <div class="icono-escuela">
-                  <a href="{{ route('home') }}">
+                  <a href="{{ route('alumnohome') }}">
                     <x-jet-application-mark class="block h-9 w-auto" />
                   </a>
                 </div>

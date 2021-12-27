@@ -9,7 +9,6 @@
     $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
     $sessionasignatura = collect($sessionasignatura);
 ?>
-
 @extends('layouts.user')
 @section('Content')
     <div class="background">
