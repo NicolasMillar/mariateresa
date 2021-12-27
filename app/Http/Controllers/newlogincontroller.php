@@ -12,7 +12,14 @@ use Session;
 class newlogincontroller extends Controller
 {
     public function login(){
-        return view('login');
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "alummno"){
+            return view('alumnohome');
+        }else if($sessiontipo == "profesor"){
+            return "algun dia";
+        }else{
+            return view('login');
+        }
     }
     public function alumno(){
         $sessiontipo = session('sessiontipo');
