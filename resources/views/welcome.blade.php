@@ -7,14 +7,14 @@
                         <a href="{{ route('home') }}">
                             <img src="{{asset('assets/images/sliders/1.jpg')}}" alt="" class="img-slide">
                         </a>
-                        <h2 class="f-title"><b>un titulo</b></h2>
+                        
                     </div>
                     <div class="item">
 
                         <a href="{{ route('home') }}">
                             <img src="{{asset('assets/images/sliders/2.jpg')}}" alt="" class="img-slide">
                         </a>
-                        <h2 class="f-title"><b>un titulo</b></h2>
+                        
                     </div>
                     @foreach ($owl as $owls)
                         
@@ -22,7 +22,7 @@
                             <a href="{{$owls->Link}}">
                                 <img src="{{asset($owls->Image)}}" alt="" class="img-slide">
                             </a>
-                            <h2 class="f-title"><b>{{$owls->Titulo}}</b></h2>
+                            
                         </div>
                     @endforeach
                 </div>
@@ -65,14 +65,14 @@
             <div class="box2">
                 @foreach ($noticias as $noticia)
                 <div class="tarjeta-noticias" style="border: 1px solid orange; height:150px; max-width:700px; border-radius: 25px">
-                    <div class="centrar" style="width: 200px; height: 150px;">
+                    <div class="centrar" style="width: 200px; height: 150px; margin-left:5px">
                         <img id="noticias" src="{{asset($noticia->Imagen)}}" width="100%" style="border-radius: 25px; position: absolute; top: 50%; transform: translateY(-50%); max-height:95%">
                     </div>
-                    <div class="texto noticias" style="width: 490px; height:150px;">
+                    <div class="texto noticias" style="width: 475px; height:150px; margin-top:5px; margin-left:10px">
                         <a href="{{$noticia->Link}}">
                             <h2><b>{{$noticia->Titulo}}</b></h2>
                         </a>
-                        <div style="width: 490px; height: 100px; overflow-x: hidden; overflow-y: scroll;">
+                        <div style="width: 475px; height: 100px; overflow-x: hidden; overflow-y: scroll;">
                             <p>{{$noticia->Descripcion}}</p>
                         </div>
                     </div>

@@ -17,6 +17,7 @@
         <!-- Styles -->
         <link rel="stylesheet" href="/css/app.css">
         <link rel="stylesheet" href="..\..\..\node_modules\@splidejs\splide\dist\css\splide.min.css">
+        <link rel="stylesheet" href="{{asset('css/estilos.css')}}">
 
         <!--Icons-->
         <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
@@ -59,11 +60,15 @@
                               <x-slot name="trigger">
                                   <x-jet-nav-link  style="font-size: 175%;">Materiales</x-jet-nav-link>
                               </x-slot>
+                              
                               <x-slot name="content">
-                                  <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">
-                                      Placeholder
+                                @foreach ($sessionasignatura as $asignatura)
+                                  <x-jet-dropdown-link class="text" href="{{route('calificacion.index', [$asignatura, $sessionrut])}}" style="font-size: 150%;">
+                                    {{$asignatura->Nombre_Asignatura}}
                                   </x-jet-dropdown-link>
+                                @endforeach
                               </x-slot>
+                              
                           </x-jet-dropdown>
                       </div>
                       <div class="margen">
@@ -72,16 +77,18 @@
                                   <x-jet-nav-link  style="font-size: 175%;">Notas</x-jet-nav-link>
                               </x-slot>
                               <x-slot name="content">
-                                  <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">
-                                      Placeholder
-                                  </x-jet-dropdown-link>
+                                  @foreach ($sessionasignatura as $asignatura)
+                                  <x-jet-dropdown-link class="text" href="{{route('calificacion.index', [$asignatura, $sessionrut])}}" style="font-size: 150%;">
+                                      {{$asignatura->Nombre_Asignatura}}
+                                    </x-jet-dropdown-link>
+                                  @endforeach
                               </x-slot>
                           </x-jet-dropdown>
                       </div>
                       <div class="margen">
                           <x-jet-dropdown align="right" >
                               <x-slot name="trigger">
-                                  <x-jet-nav-link style="font-size: 175%;">Anotaciones</x-jet-nav-link>
+                                  <x-jet-nav-link href="{{route('anotacion.index', $sessionrut)}}" style="font-size: 175%;">Anotaciones</x-jet-nav-link>
                               </x-slot>
                               <x-slot name="content">
                                   <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">

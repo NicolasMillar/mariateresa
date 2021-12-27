@@ -7,29 +7,41 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="column" style="width: 50%; font-size:150%">
-                        Añadir Nueva Imagen
+                        Añadir Nuevo Asistente
                     </div>
                     <div class="column" style="width: 50%; justify-content: right; display:flex" >
-                        <a href="{{route('admin.asistente.index')}}" id="volver">Todas Las Imagenes</a>
+                        <a href="{{route('admin.asistente.index')}}" id="volver">Todos Los Asistentes</a>
                     </div>
                 </div>
             </div>
             <div class="panel-body" style="justify-content: center; display: flex">
-                @if (session('info'))
-                    <div class="alert alert-success">
-                        <strong>{{session('info')}}</strong>
-                    </div>
-                @endif
-                
                 <div class="card">
                     <div class="card-body" style="background-color: lightblue">
+                        @if (session('info'))
+                            <div class="alert alert-success">
+                                <strong>{{session('info')}}</strong>
+                            </div>
+                        @endif
                         {!! Form::open(['route'=>'admin.asistente.store', 'enctype'=>'multipart/form-data', 'id'=>'formulario-dinamico']) !!}
-                            <div class="form-group" style="margin-top: 10px;">
-                                {!! Form::label('Rut', 'RUT') !!}
-                                {!! Form::text('Rut', null, ['class'=>'form-control', 'placeholder'=>'Ingrese un Rut sin digito verificador']) !!}
-                                @error('Rut')
-                                    <small class="text-danger">{{$message}}</small>
-                                @enderror
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="form-group" style="margin-top: 10px;">
+                                        {!! Form::label('Rut', 'RUT') !!}
+                                        {!! Form::text('Rut', null, ['class'=>'form-control', 'placeholder'=>'Ingrese un Rut sin digito verificador', 'maxlength'=>'9']) !!}
+                                        @error('Rut')
+                                            <small class="text-danger">{{$message}}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group" style="margin-top: 10px;">
+                                        {!! Form::label('DV', 'DV') !!}
+                                        {!! Form::text('DV', null, ['class'=>'form-control', 'maxlength'=>'1', 'width'=>'250' ]) !!}
+                                        @error('DV')
+                                            <small class="text-danger">{{$message}}</small>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group" style="margin-top: 10px;">
                                 {!! Form::label('Nombre', 'NOMBRE') !!}

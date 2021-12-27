@@ -8,17 +8,17 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="column" style="width: 50%; font-size:150%">
-                            Añadir Nueva Imagen
+                            Editar Profesor
                         </div>
                         <div class="column" style="width: 50%; justify-content: right; display:flex" >
-                            <a href="{{route('admin.usuario_profesor.index')}}" id="volver">Todas Las Imagenes</a>
+                            <a href="{{route('admin.usuario_profesor.index')}}" id="volver">Todos Los Profesores</a>
                         </div>
                     </div>
                 </div>
                 <div class="panel-body" style="justify-content: center; display: flex">
                     <div class="card">
                         <div class="card-body" style="background-color: lightblue">
-                            {!! Form::model($pusuario, ['route' => ['admin.usuario_profesor.update', $pusuario], 'method'=>'put', 'enctype'=>'multipart/form-data']) !!}
+                            {!! Form::model($pusuario, ['route' => ['admin.usuario_profesor.update', $pusuario], 'method'=>'put', 'enctype'=>'multipart/form-data', 'id'=>'formulario-dinamico']) !!}
                                 
                                 <div class="form-group" style="margin-top: 10px;">
                                     {!! Form::label('Nombre', 'NOMBRE') !!}
@@ -27,20 +27,7 @@
                                         <small class="text-danger">{{$message}}</small>
                                     @enderror
                                 </div>
-                                <div class="form-group" style="margin-top: 10px;">
-                                    {!! Form::label('ApellidoP', 'APELLIDO PATERNO') !!}
-                                    {!! Form::text('ApellidoP', $pusuario->ApellidoP_Profesor, ['class'=>'form-control', 'placeholder'=>'Ingrese el Apellido Paterno de el/la profesor/a']) !!}
-                                    @error('ApellidoP')
-                                        <small class="text-danger">{{$message}}</small>
-                                    @enderror
-                                </div>
-                                <div class="form-group" style="margin-top: 10px;">
-                                    {!! Form::label('ApellidoM', 'APELLIDO MATERNO') !!}
-                                    {!! Form::text('ApellidoM', $pusuario->ApellidoM_Profesor, ['class'=>'form-control', 'placeholder'=>'Ingrese el Apellido materno de el/la profesor/a']) !!}
-                                    @error('ApellidoM')
-                                        <small class="text-danger">{{$message}}</small>
-                                    @enderror
-                                </div>
+                                
                                 <div class="form-group" style="margin-top: 10px;">
                                     {!! Form::label('FechaI', 'FECHA INICIO') !!}
                                     {!! Form::date('FechaI', $pusuario->FechaInicio_Profesor, ['class'=>'form-control', 'min'=>'1900-01-01', 'max'=>$date]) !!}
@@ -67,15 +54,15 @@
                                     {!! Form::select('Estado', ['Inactivo', 'Activo'], 'Inactivo', ['class'=>'form-control']) !!}
                                 </div>
                                 <div class="form-group" style="margin-top: 10px">
-                                    
+                                
                                     <table class="table table-bordered" id="dynamicTable">  
                                         <tr>
                                             <th>Estudios</th>
-                                            <th>Action</th>
+                                            
                                         </tr>
                                         <tr>  
                                             <td>{!! Form::text('addmore[0]', null, ['placeholder'=>'Ingrese las titulos que posee', 'class'=>'form-control']) !!}</td>
-                                            <td><button type="button" name="add" id="add" class="btn btn-success">Agregar</button></td> 
+                                            
                                         </tr>
                                     </table> 
                                 </div>
@@ -92,16 +79,3 @@
     </div>
     
 </div>
-<script type="text/javascript">
-
-    var i = 0;
-
-    $("#add").click(function(){
-        ++i;
-        $("#dynamicTable").append('<tr><td>{!! Form::text("addmore['+i+']", null, ["placeholder"=>"Ingrese el cargo que ocupa", "class"=>"form-control"]) !!}</td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
-    });
-
-    $(document).on('click', '.remove-tr', function(){  
-        $(this).parents('tr').remove();
-    });  
-</script>

@@ -115,8 +115,6 @@ class Usuario_profesorController extends Controller
         
         $request->validate([
             'Nombre'=>'required|regex:/^[\pL\s\-]+$/u',
-            'ApellidoP'=>'required|regex:/^[a-zA-Z]+$/u',
-            'ApellidoM'=>'required|regex:/^[a-zA-Z]+$/u',
             'FechaI'=>'required',
             'Password'=>['nullable','min:6','regex:/^.*(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!"#$%&()*+,-.:;<=>?@_`{|}~]).*$/'],
             'Imagen'=>'image',
@@ -124,7 +122,7 @@ class Usuario_profesorController extends Controller
         ]);
         $Password=$request->Password;
         if($Password==null){
-            $Password=$pusuario->Contraseña_Profesor;
+            $Password=$pusuario->Contraseña;
         };
         
         $Estado=$request->Estado==1 ? 'active':'inactive';
@@ -136,8 +134,6 @@ class Usuario_profesorController extends Controller
             $pusuario->update([
                 
                 'Nombre_Profesor'=>$request->Nombre,
-                'ApellidoP_Profesor'=>$request->ApellidoP,
-                'ApellidoM_Profesor'=>$request->ApellidoM,
                 'Contraseña'=>$Password,
                 'FechaInicio_Profesor'=>$request->FechaI,
                 'Imagen'=>$url,
@@ -146,8 +142,6 @@ class Usuario_profesorController extends Controller
         }else{
             $pusuario->update([
                 'Nombre_Profesor'=>$request->Nombre,
-                'ApellidoP_Profesor'=>$request->ApellidoP,
-                'ApellidoM_Profesor'=>$request->ApellidoM,
                 'Contraseña'=>$Password,
                 'FechaInicio_Profesor'=>$request->FechaI,
                 'Estado_Profesor'=>$Estado
@@ -157,7 +151,7 @@ class Usuario_profesorController extends Controller
             if($value!=null){
                 Titulo_profesor::create([
                     'Nombre_Titulo'=>$value,
-                    'Rut_Profesor'=>$request->Rut
+                    'Rut_Profesor'=>$pusuario->Rut
                 ]);
     
             }

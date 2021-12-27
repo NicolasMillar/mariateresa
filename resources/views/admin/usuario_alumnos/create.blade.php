@@ -7,22 +7,22 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="column" style="width: 50%; font-size:150%">
-                        Añadir Nueva Imagen
+                        Añadir Nuevo Alumno
                     </div>
                     <div class="column" style="width: 50%; justify-content: right; display:flex" >
-                        <a href="{{route('admin.usuario_alumno.index')}}" id="volver">Todas Las Imagenes</a>
+                        <a href="{{route('admin.usuario_alumno.index')}}" id="volver">Todos Los Alumnos</a>
                     </div>
                 </div>
             </div>
             <div class="panel-body" style="justify-content: center; display: flex">
-                @if (session('info'))
-                    <div class="alert alert-success">
-                        <strong>{{session('info')}}</strong>
-                    </div>
-                @endif
                 
                 <div class="card">
                     <div class="card-body" style="background-color: lightblue">
+                        @if (session('info'))
+                            <div class="alert alert-success">
+                                <strong>{{session('info')}}</strong>
+                            </div>
+                        @endif
                         {!! Form::open(['route'=>'admin.usuario_alumno.store', 'enctype'=>'multipart/form-data', 'id'=>'formulario-dinamico']) !!}
                             <div class="row">
                                 <div class="col-md-10">
@@ -82,7 +82,7 @@
                             </div>
                             <div class="form-group" style="margin-top: 10px;">
                                 {!! Form::label('FechaN', 'FECHA NACIMIENTO') !!}
-                                {!! Form::date('FechaN', $date, ['class'=>'form-control', 'min'=>'1900-01-01', 'max'=>$date]) !!}
+                                {!! Form::date('FechaN', $dateN, ['id'=>'FechaN', 'class'=>'form-control', 'min'=>'1900-01-01', 'max'=>'2018-01-01']) !!}
                                 @error('FechaN')
                                     <small class="text-danger">{{$message}}</small>
                                 @enderror
@@ -124,5 +124,24 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    
+    <script>
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear()-4;
+        var anio = today.getFullYear()
+
+        if (dd < 10) {
+        dd = '0' + dd;
+        }
+
+        if (mm < 10) {
+        mm = '0' + mm;
+        } 
+            
+        today = yyyy + '-' + mm + '-' + dd;
+        today2=anio + '-' + mm + '-' + dd;
+        document.getElementById("FechaN").setAttribute("max", today);
+        document.getElementById("FechaI").setAttribute("max", today2);
+    </script>
 </div>

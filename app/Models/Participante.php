@@ -15,4 +15,5 @@ class Participante extends Model
     public function usuario_alumno(){
         return $this->belongsTo('App\Models\Usuario_alumno');
     }
+    protected $fillable=['Rut', 'ID_Curso'];
 }

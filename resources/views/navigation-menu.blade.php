@@ -74,7 +74,7 @@
                                 Historia
                             </x-jet-dropdown-link>
 
-                            <x-jet-dropdown-link href='#'>
+                            <x-jet-dropdown-link href="{{route('asistentes')}}" :active="request()->routeIs('asistentes')">
                                 Asistentes
                             </x-jet-dropdown-link>
                         
@@ -92,17 +92,17 @@
                             </x-jet-nav-link>
                         </x-slot>
                         <x-slot name="content">
-                            <x-jet-dropdown-link href='#'>
+                            <x-jet-dropdown-link class="text" href="{{route('profesoresjefe')}}" :active="request()->routeIs('profesoresjefe')">
                                 Cursos
                             </x-jet-dropdown-link>
 
-                            <x-jet-dropdown-link href='#'>
+                            <x-jet-dropdown-link class="text" href="{{route('talleres_ex')}}" :active="request()->routeIs('talleres_ex')">
                                 Talleres
                             </x-jet-dropdown-link>
                         </x-slot>
                     </x-jet-dropdown>
                 </div>
-                <div class="hidden sm:flex sm:items-center sm:ml-6">
+                {{--<div class="hidden sm:flex sm:items-center sm:ml-6">
                     <x-jet-dropdown align="left">
                         <x-slot name="trigger">
                             <x-jet-nav-link href='#' id="linkcolor">
@@ -119,7 +119,7 @@
                             </x-jet-dropdown-link>
                         </x-slot>
                     </x-jet-dropdown>
-                </div>
+                </div>--}}
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <x-jet-dropdown align="left">
                         <x-slot name="trigger">
@@ -128,7 +128,7 @@
                             </x-jet-nav-link>
                         </x-slot>
                         <x-slot name="content">
-                            <x-jet-dropdown-link href='#'>
+                            <x-jet-dropdown-link class="text" href="{{route('psicologia')}}" :active="request()->routeIs('psicologia')">
                                 Psicologa
                             </x-jet-dropdown-link>
 

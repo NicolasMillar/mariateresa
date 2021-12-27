@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="comentarios" style="margin: auto; max-width: 500px; height:400px; border: 1px solid red; position: relative">
+            <div class="comentarios" style="margin: auto; max-width: 500px; height:400px; position: relative">
                 <div style="margin-left:10px ;position: absolute; top: 50%; transform: translateY(-50%);">
                     <form method="POST" action="">
                         <label for="w3review" style="margin-left: 10px">Comentario</label>

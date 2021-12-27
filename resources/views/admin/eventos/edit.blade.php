@@ -7,7 +7,7 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="column" style="width: 50%; font-size:150%">
-                        Editar evento
+                        Editar Evento
                     </div>
                     <div class="column" style="width: 50%; justify-content: right; display:flex" >
                         <a href="{{route('admin.evento.index')}}" id="volver">Todos los eventos</a>

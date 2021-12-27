@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asignatura;
+use App\Models\Categoria_Asignatura;
+use App\Models\Curso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class AsignaturaController extends Controller
@@ -42,31 +45,37 @@ class AsignaturaController extends Controller
         $anio= \Carbon\Carbon::now();
         $year =date('Y', strtotime($anio));
         $request->validate([
-            'Rut'=>'required|digits_between:0,10',
-            'Nombre'=>'required|regex:/^[\pL\s\-]+$/u',
-            'ApellidoP'=>'required|regex:/^[a-zA-Z]+$/u',
-            'ApellidoM'=>'required|regex:/^[a-zA-Z]+$/u',
-            'AnioI'=>"required|digits:4",
-            'Cargo'=>'required',
-            'Imagen'=>'required|image',
-            'Estado'=>'required',
-            'addmore.*' => 'required',
+            'Categoria'=>'required|numeric',
+            'Curso'=>'required|numeric',
+            'Estado'=>'required|numeric',
+            'Profesor'=>'required|numeric|digits_between:0,10'
         ]);
-        $imagenes = $request->file('Imagen')->store('public/asignaturas');
-        $url = Storage::url($imagenes);
-
-        Asignatura::create([
-            'Rut_Asignatura'=>$request->Rut,
-            'Nombre_Asignatura'=>$request->Nombre,
-            'ApellidoP_Asignatura'=>$request->ApellidoP,
-            'ApellidoM_Asignatura'=>$request->ApellidoM,
-            'AñoInicio_Asignatura'=>$request->AnioI,
-            'Cargo_Asignatura'=>$request->Cargo,
-            'Imagen'=>$url,
-            'Estado_Asignatura'=>$request->Estado
-        ]);
+        $curso=Curso::where('id', '=', $request->Curso)->first();
+        $categoria=DB::table('categoria_asignaturas')->where('id', '=', $request->Categoria)->first();
+        $validacion=Asignatura::where('ID_Curso', '=', $request->Curso)->where('ID_Categoria', '=', $request->Categoria)->first();
+        if($validacion!=null){
+            return redirect()->route('admin.asignatura.create')->with('info', 'no se creo la asignatura. ya existe una asignatura con esta categoria para este curso');
+        }else{
+            if($curso->Grado>=$categoria->Minimo_Grado && $curso->Grado<=$categoria->Maximo_Grado){
+                $Estado=$request->Estado==1 ? 'active':'inactive';
+                $Nombre=$categoria->Nombre_Categoria.' '.$curso->full_name;
+                Asignatura::create([
+                    'Nombre_Asignatura'=>$Nombre,
+                    'Estado_Asignatura'=>$Estado,
+                    'ID_Categoria'=>$request->Categoria,
+                    'ID_Curso'=>$request->Curso,
+                    'Rut_Profesor'=>$request->Profesor
+                ]);
+                
+                return redirect()->route('admin.asignatura.create')->with('info', 'se creo el/la asignatura exitosamente');
+            }
+            else{
+                return redirect()->route('admin.asignatura.create')->with('info', 'El curso no esta en el rango de cursos aceptados por la categoria');
+            }
+            
+        }
         
-        return redirect()->route('admin.asignatura.create')->with('info', 'se creo el/la asignatura exitosamente');
+        
     }
 
     /**
@@ -103,44 +112,15 @@ class AsignaturaController extends Controller
     public function update(Request $request, Asignatura $asignatura)
     {
         $request->validate([
-            'Nombre'=>'required|regex:/^[\pL\s\-]+$/u',
-            'ApellidoP'=>'required|regex:/^[a-zA-Z]+$/u',
-            'ApellidoM'=>'required|regex:/^[a-zA-Z]+$/u',
-            'AnioI'=>"required|digits:4",
-            'Cargo'=>'required',
-            'Imagen'=>'image',
-            'Estado'=>'required',
+            'Estado'=>'required|numeric',
+            'Profesor'=>'required|numeric|digits_between:0,10'
         ]);
         $Estado=$request->Estado==1 ? 'active':'inactive';
-        if($request->hasFile('Imagen')){
-            $urleliminada = str_replace('storage', 'public', $asignatura->Imagen);
-            Storage::delete($urleliminada);
-            $imagenes = $request->file('Imagen')->store('public/asignaturas');
-            $url = Storage::url($imagenes);
-            $asignatura->update([
-                'Rut_Asignatura'=>$request->Rut,
-                'Nombre_Asignatura'=>$request->Nombre,
-                'ApellidoP_Asignatura'=>$request->ApellidoP,
-                'ApellidoM_Asignatura'=>$request->ApellidoM,
-                'AñoInicio_Asignatura'=>$request->AnioI,
-                'Cargo_Asignatura'=>$request->Cargo,
-                'Imagen'=>$url,
-                'Estado_Asignatura'=>$request->Estado
-            ]);
-        }else{
-            $asignatura->update([
-                'Rut_Asignatura'=>$request->Rut,
-                'Nombre_Asignatura'=>$request->Nombre,
-                'ApellidoP_Asignatura'=>$request->ApellidoP,
-                'ApellidoM_Asignatura'=>$request->ApellidoM,
-                'AñoInicio_Asignatura'=>$request->AnioI,
-                'Cargo_Asignatura'=>$request->Cargo,
-                'Estado_Asignatura'=>$request->Estado
-            ]);
-        }
-        
-        
-        
+        $asignatura->update([
+            'Rut_Profesor'=>$request->Profesor,
+            'Estado_Asignatura'=>$Estado
+        ]);
+            
         return redirect()->route('admin.asignatura.index')->with('info', 'la actualizacion fue exitosa');
     }
 
@@ -152,9 +132,7 @@ class AsignaturaController extends Controller
      */
     public function destroy($asignatura)
     {
-        $asignatura=Asignatura::where('Rut_Asignatura', $asignatura)->first();
-        $url = str_replace('storage', 'public', $asignatura->Imagen);
-        Storage::delete($url);
+        $asignatura=Asignatura::where('id', $asignatura)->first();
 
         $asignatura->delete();
         return redirect()->route('admin.asignatura.index');
