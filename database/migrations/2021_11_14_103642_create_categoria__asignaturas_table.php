@@ -15,6 +15,8 @@ class CreateCategoriaAsignaturasTable extends Migration
     {
         Schema::create('categoria_asignaturas', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('Minimo_Grado');
+            $table->tinyInteger('Maximo_Grado');
             $table->string('Nombre_Categoria');
             $table->timestamps();
         });

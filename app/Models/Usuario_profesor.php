@@ -18,11 +18,12 @@ class Usuario_profesor extends Model
     public function curso(){
         return $this->hasMany('App\Models\Curso');
     }
-    public function profesor(){
-        return $this->hasMany('App\Models\Profesor');
+    public function asignatura(){
+        return $this->hasMany('App\Models\Asignatura');
     }
     public function getFullNameAttribute()
     {
        return ucfirst($this->Nombre_Profesor) . ' ' . ucfirst($this->ApellidoP_Profesor);
     }
+    protected $appends = ['full_name'];
 }

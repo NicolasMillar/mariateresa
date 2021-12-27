@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Asignatura extends Model
 {
     use HasFactory;
+    protected $fillable=['Nombre_Asignatura', 'Estado_Asignatura', 'ID_Curso', 'ID_Categoria', 'Rut_Profesor'];
 
     public function material(){
         return $this->hasMany('App\Models\Material');
@@ -24,7 +25,7 @@ class Asignatura extends Model
     public function categoria_asignatura(){
         return $this->belongsTo('App\Models\Categoria_Asignatura');
     }
-    public function profesor(){
-        return $this->hasMany('App\Models\Profesor');
+    public function usuario_profesor(){
+        return $this->belongsTo('App\Models\Usuario_profesor');
     }
 }

@@ -7,10 +7,10 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="column" style="width: 50%; font-size:150%">
-                        Añadir Nuevo Curso
+                        Añadir Nuevo Taller
                     </div>
                     <div class="column" style="width: 50%; justify-content: right; display:flex" >
-                        <a href="{{route('admin.curso.index')}}" id="volver">Todos Los Cursos</a>
+                        <a href="{{route('admin.taller.index')}}" id="volver">Todos Los Talleres</a>
                     </div>
                 </div>
             </div>
@@ -23,37 +23,18 @@
                                 <strong>{{session('info')}}</strong>
                             </div>
                         @endif
-                        {!! Form::open(['route'=>'admin.curso.store', 'enctype'=>'multipart/form-data', 'id'=>'formulario-dinamico']) !!}
+                        {!! Form::open(['route'=>'admin.taller.store', 'enctype'=>'multipart/form-data', 'id'=>'formulario-dinamico']) !!}
                             
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group" style="margin-top: 10px;">
-                                        {!! Form::label('Grado', 'GRADO') !!}
-                                        {!! Form::select('Grado', ['PREKINDER', 'KINDER', 'PRIMERO', 'SEGUNDO', 'TERCERO', 'CUARTO', 'QUINTO', 'SEXTO', 'SEPTIMO', 'OCTAVO' ], '0', ['class'=>'form-control']) !!}
-                                        @error('Grado')
-                                            <small class="text-danger">{{$message}}</small>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group" style="margin-top: 10px;">
-                                        {!! Form::label('Letra', 'LETRA') !!}
-                                        {!! Form::text('Letra', null, ['class'=>'form-control']) !!}
-                                        @error('Letra')
-                                            <small class="text-danger">{{$message}}</small>
-                                        @enderror
-                                    </div>
-                                </div>
                                 
-                            </div>
+                                    <div class="form-group" style="margin-top: 10px;">
+                                        {!! Form::label('Nombre', 'NOMBRE') !!}
+                                        {!! Form::text('Nombre', null, ['class'=>'form-control', 'placeholder'=>'Ingrese el Nombre de el taller']) !!}
+                                        @error('Nombre')
+                                            <small class="text-danger">{{$message}}</small>
+                                        @enderror
+                                    </div>
+                                
                             
-                            <div class="form-group" style="margin-top: 10px">
-                                {!! Form::label('Estado', 'ESTADO') !!}
-                                {!! Form::select('Estado', ['Inactivo', 'Activo'], 'Inactivo', ['class'=>'form-control']) !!}
-                                @error('Estado')
-                                    <small class="text-danger">{{$message}}</small>
-                                @enderror
-                            </div>
                             <div class="form-group" style="margin-top: 10px">
                                 {!! Form::label('Profesor', 'Profesor') !!}
                                 {!! Form::select('Profesor', $profesor->pluck('full_name', 'Rut'), null, ['placeholder' => 'Elija un profesor', 'class'=>'form-control']) !!}

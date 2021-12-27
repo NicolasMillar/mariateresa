@@ -103,6 +103,13 @@
       margin-top: 20px;
       margin-left: 25px;
     }
+    .tarjeta-profesor{
+      display: flex;
+      flex-wrap: wrap;
+      text-align: left;
+      width: 1500px;
+      margin-left: 25px;
+    }
     .tarjeta-historia2{
       display: flex;
       flex-wrap: wrap;

@@ -16,12 +16,14 @@ class CreateAsignaturasTable extends Migration
         Schema::create('asignaturas', function (Blueprint $table) {
             $table->id();
             $table->string('Nombre_Asignatura');
-            $table->string('Tipo_Asignatura');
             $table->string('Estado_Asignatura');
             $table->unsignedBigInteger('ID_Curso');
             $table->foreign('ID_Curso')->references('id')->on('cursos')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('ID_Categoria');
             $table->foreign('ID_Categoria')->references('id')->on('categoria_asignaturas')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedInteger('Rut_Profesor')->nullable();
+            $table->foreign('Rut_Profesor')->references('Rut')->on('usuario_profesores')->onDelete('set null')->onUpdate('cascade');
+            $table->unique(['ID_Curso', 'ID_Categoria']);
             $table->timestamps();
         });
     }

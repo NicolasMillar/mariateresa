@@ -11,28 +11,16 @@
         <div class="container">
             <div class="history">
                 @foreach ($profesores as $profesor)
-                    <h1 style="font-size: 150%; margin-left:2%; margin-top:0.5%">{{$profesor->Grado-1}}-{{$profesor->Valor_Curso}}</h1>
+                    <h1 style="font-size: 150%; margin-left:2%; margin-top:0.5%">{{$profesor->Nombre_Taller}}</h1>
                     <div class="tarjeta-profesor" style="border: 1px solid orange; height:150px; max-width:1500px; border-radius: 25px">
                         <div class="centrar" style="width: 150px; height: 150px;">
                             <img id="historia" src="{{asset($profesor->Imagen)}}" style="margin-left:10%; border-radius: 25px; position: absolute; top: 50%; transform: translateY(-50%); width:100%; max-width:120px; height:100%; max-height:120px">
                         </div>
                         <div class="texto-historia" style="margin-left: 20px">
-                                @php
-                                    $credenciales=$titulos->where('Rut_Profesor', '=', $profesor->Rut);
-                                @endphp
+                                
                                 <h3 style="font-size: 125%"><b>{{$profesor->Nombre_Profesor}} {{$profesor->ApellidoP_Profesor}} {{$profesor->ApellidoM_Profesor}}</b></h3>
                                 <h3><b>{{$profesor->Rut}}-{{$profesor->DigitoV_Profesor}}</b></h3>
-                                <p><b>Titulos:
-                                    @foreach ($credenciales as $credencial)
-                                        @if ($loop->first)
-                                            {{$credencial->Nombre_Titulo}}
-                                        @else
-                                            , {{$credencial->Nombre_Titulo}}
-                                        @endif
-                                        
-                                    @endforeach
-                                    </b>
-                                </p>
+                                
                         </div>
                     </div>
                 @endforeach

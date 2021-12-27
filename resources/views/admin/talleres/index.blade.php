@@ -1,7 +1,3 @@
-
-    
-    
-
 <div>
     <link rel="stylesheet" href="{{asset('css/estilos.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -24,10 +20,10 @@
                         <div class="panel-heading" style="width: 80%;">
                             <div class="row" >
                                 <div class="column" style="width: 50%; font-size:150%">
-                                    Cursos
+                                    Talleres
                                 </div>
                                 <div class="column" style="width: 50%; justify-content: right; display:flex">
-                                    <a href="{{route('admin.curso.create')}}" class="exito">Añadir cursos</a>
+                                    <a href="{{route('admin.taller.create')}}" class="exito">Añadir Talleres</a>
                                 </div>
                             </div>
                         </div>
@@ -37,71 +33,25 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Grado</th>
-                                    <th>Letra</th>
-                                    <th>Año</th>
-                                    <th>Estado</th>
+                                    <th>Nombre</th>
                                     <th>Editar</th>
                                     <th>Eliminar</th>
-                                    <th>agregar</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($cursos as $curso)
-                                @php
-                                    $grado=null;
-                                    switch ($curso->Grado) {
-                                        case 0:
-                                            $grado='PREKINDER';
-                                        break;
-                                        case 1:
-                                            $grado='KINDER';
-                                        break;
-                                        case 2:
-                                            $grado='PRIMERO';
-                                        break;
-                                        case 3:
-                                            $grado='SEGUNDO';
-                                        break;
-                                        case 4:
-                                            $grado='TERCERO';
-                                        break;
-                                        case 5:
-                                            $grado='CUARTO';
-                                        break;
-                                        case 6:
-                                            $grado='QUINTO';
-                                        break;
-                                        case 7:
-                                            $grado='SEXTO';
-                                        break;
-                                        case 8:
-                                            $grado='SEPTIMO';
-                                        break;
-                                        case 9:
-                                            $grado='OCTAVO';
-                                        break;
-                                            
-                                    }
-                                @endphp
+                                @foreach ($talleres as $taller)
                                     <tr>
-                                        <td>{{$curso->id}}</td>
-                                        <td>{{$grado}}</td>
-                                        <td>{{$curso->Valor_Curso}}</td>
-                                        <td>{{$curso->Anio_Academico}}</td>
-                                        <td>{{$curso->Estado_Curso}}</td>
+                                        <td>{{$taller->id}}</td>
+                                        <td>{{$taller->Nombre_Taller}}</td>
                                         <td>
-                                            <a href="{{route('admin.curso.edit', $curso)}}" class="btn btn-primary">Editar</a>
+                                            <a href="{{route('admin.taller.edit', $taller)}}" class="btn btn-primary">Editar</a>
                                         </td>
                                         <td>
-                                            <form action="{{route('admin.curso.destroy', $curso)}}" method="POST">
+                                            <form action="{{route('admin.taller.destroy', $taller)}}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button type='submit' class="btn btn-danger">Eliminar</button>
                                             </form>
-                                        </td>
-                                        <td>
-                                            <a href="{{route('participante.create', $curso)}}" class="btn btn-success">Agregar Alumnos</a>
                                         </td>
                                     </tr>
                                 @endforeach

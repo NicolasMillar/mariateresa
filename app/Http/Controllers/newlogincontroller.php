@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Asignatura;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Usuario_alumno;
+use Illuminate\Support\Facades\DB;
 use Session;
 
 class newlogincontroller extends Controller
@@ -36,15 +39,18 @@ class newlogincontroller extends Controller
             'Tipo_usuario' => 'required',
         ]);
         if($request->Tipo_usuario == 'ESTUDIANTE'){
-            $consulta=Usuario_alumno::where('Rut',$request->Rut)->get();
-            $cuantos = count($consulta);
-            if($cuantos==1 and Hash::check($request->Contraseña, $consulta[0]->Contraseña)){
-                Session::put('rut', $consulta[0]->Rut. "-".$consulta[0]->DigitoV_Alumno);
-                Session::put('nombre',$consulta[0]->Nombre_Alumno. " ".$consulta[0]->ApellidoP_Alumno);
+            $consulta=Usuario_alumno::where('Rut',$request->Rut)->first();
+            if(Hash::check($request->Contraseña, $consulta->Contraseña)){
+                $dbasignatura=DB::table('asignaturas')->select('asignaturas.id')->join('cursos', 'asignaturas.ID_Curso', '=', 'cursos.id')->join('participantes', 'cursos.id', '=', 'participantes.ID_Curso')->where('Estado_Curso', '=', 'active')->where('participantes.Rut', '=', $request->Rut)->get();
+                $asignaturas=Asignatura::whereIn('id', $dbasignatura->pluck('id'))->get();
+                Session::put('rut', $consulta->Rut);
+                Session::put('dv', $consulta->DigitoV_Alumno);
+                Session::put('nombre',$consulta->Nombre_Alumno. " ".$consulta->ApellidoP_Alumno);
                 Session::put('sessiontipo','alummno');
-                Session::put('fechaN',$consulta[0]->FechaNacimiento_Alumno);
-                Session::put('fechaI',$consulta[0]->FechaIngreso_Alumno);
-                Session::put('Imagen',$consulta[0]->Imagen);
+                Session::put('fechaN',$consulta->FechaNacimiento_Alumno);
+                Session::put('fechaI',$consulta->FechaIngreso_Alumno);
+                Session::put('Imagen',$consulta->Imagen);
+                Session::put('asignaturas', $asignaturas->toArray());
                 return redirect()->route('alumnohome');
             }else{
                 Session::flash('mensaje', "El Rut o la clave ingresada son incorrectos");
