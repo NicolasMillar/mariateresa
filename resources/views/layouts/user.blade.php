@@ -55,54 +55,19 @@
               <div class="left-div" id="left-div">
                 <div class="acciones">
                   <nav>
-                      <div class="margen">
-                          <x-jet-dropdown align="right">
-                              <x-slot name="trigger">
-                                  <x-jet-nav-link  style="font-size: 175%;">Materiales</x-jet-nav-link>
-                              </x-slot>
-                              
-                              <x-slot name="content">
-                                @foreach ($sessionasignatura as $asignatura)
-                                  <x-jet-dropdown-link class="text" href="{{route('calificacion.index', [$asignatura, $sessionrut])}}" style="font-size: 150%;">
-                                    {{$asignatura->Nombre_Asignatura}}
-                                  </x-jet-dropdown-link>
-                                @endforeach
-                              </x-slot>
-                              
-                          </x-jet-dropdown>
-                      </div>
-                      <div class="margen">
-                          <x-jet-dropdown align="right">
-                              <x-slot name="trigger">
-                                  <x-jet-nav-link  style="font-size: 175%;">Notas</x-jet-nav-link>
-                              </x-slot>
-                              <x-slot name="content">
-                                  @foreach ($sessionasignatura as $asignatura)
-                                  <x-jet-dropdown-link class="text" href="{{route('calificacion.index', [$asignatura, $sessionrut])}}" style="font-size: 150%;">
-                                      {{$asignatura->Nombre_Asignatura}}
-                                    </x-jet-dropdown-link>
-                                  @endforeach
-                              </x-slot>
-                          </x-jet-dropdown>
-                      </div>
-                      <div class="margen">
-                          <x-jet-dropdown align="right" >
-                              <x-slot name="trigger">
-                                  <x-jet-nav-link href="{{route('anotacion.index', $sessionrut)}}" style="font-size: 175%;">Anotaciones</x-jet-nav-link>
-                              </x-slot>
-                              <x-slot name="content">
-                                  <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">
-                                      Placeholder
-                                  </x-jet-dropdown-link>
-                              </x-slot>
-                          </x-jet-dropdown>
-                      </div>
-                      <div class="margen">
-                          <x-jet-nav-link  style="font-size: 175%;" href='#'>Calendario</x-jet-nav-link>
-                      </div>
-                      <div class="margen">
-                          <x-jet-nav-link  style="font-size: 175%;" href='#'>Cuenta</x-jet-nav-link>
-                      </div>
+                      <ul>
+                        <li class="dropdown"><a href="">Materiales</a>
+                            <ul>
+                              @foreach ($sessionasignatura as $asignatura)
+                                <li><a href="{{route('calificacion.index', [$asignatura, $sessionrut])}}"> {{$asignatura->Nombre_Asignatura}}</a></li>
+                              @endforeach  
+                            </ul>
+                        </li>
+                        <li><a href="">Notas</a></li>
+                        <li><a href="{{route('anotacion.index', $sessionrut)}}">Anotaciones</a></li>
+                        <li><a href="">Calendario</a></li>
+                        <li><a href="">Cuenta</a></li>
+                      </ul>
                   </nav>
                 </div>
               </div>
@@ -249,6 +214,35 @@
     color: white;
     width: 35px;
     height: 35px;
+  }
+  nav ul li a{
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    height: 50px;
+    transition: .5s ease;
+    border-radius: 0 30px;
+  }
+  nav ul li a:hover{
+    background-attachment: rgba(0,0,0,0.7);
+    color: #fff;
+  }
+  nav ul ul{
+    position: absolute;
+    left: 250px;
+    width: 200px;
+    top: 0;
+    display: none;
+    background-color: #312e81;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7)
+
+  }
+  nav ul .dropdown{
+    position: relative;
+  }
+  nav ul .dropdown:hover ul{
+    display: initial;
   }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
