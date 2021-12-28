@@ -63,7 +63,13 @@
                               @endforeach  
                             </ul>
                         </li>
-                        <li><a href="">Notas</a></li>
+                        <li><a href="">Notas</a>
+                          <ul>
+                            @foreach ($sessionasignatura as $asignatura)
+                              <li><a href="{{route('calificacion.index', [$asignatura, $sessionrut])}}"> {{$asignatura->Nombre_Asignatura}}</a></li>
+                            @endforeach  
+                          </ul>
+                        </li>
                         <li><a href="{{route('anotacion.index', $sessionrut)}}">Anotaciones</a></li>
                         <li><a href="">Calendario</a></li>
                         <li><a href="">Cuenta</a></li>
