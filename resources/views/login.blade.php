@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="container">
-        <img src="/storage/auxiliares/Colegio.jpeg" style="height:939px; width:100%; padding-left: 22%;">
+        <img src="https://i.pinimg.com/564x/f6/f4/e2/f6f4e2584ca92b4348cb48171b240cf3.jpg" style="height:939px; width:100%; padding-left: 22%;">
         <div class="text-block">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTI91X4Elct655bx7O8fLqIVOhQHDC5WyhHOhO2bk4y7tKkooC2FFkukO2n9I1qH2LkwQ&usqp=CAU" >
                 <form method="POST" action="{{route('validar')}}">
