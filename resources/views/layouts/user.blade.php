@@ -63,7 +63,7 @@
                               @endforeach  
                             </ul>
                         </li>
-                        <li><a href="">Notas</a>
+                        <li class="dropdown"><a href="">Notas</a>
                           <ul>
                             @foreach ($sessionasignatura as $asignatura)
                               <li><a href="{{route('calificacion.index', [$asignatura, $sessionrut])}}"> {{$asignatura->Nombre_Asignatura}}</a></li>
