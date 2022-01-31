@@ -58,19 +58,15 @@
                       <ul>
                         <li class="dropdown"><a href="">Materiales</a>
                             <ul>
-                              @foreach ($sessionasignatura as $asignatura)
-                                <li><a href="{{route('calificacion.index', [$asignatura, $sessionrut])}}"> {{$asignatura->Nombre_Asignatura}}</a></li>
-                              @endforeach  
+                              <li><a href="">placeholder</a></li> 
                             </ul>
                         </li>
                         <li class="dropdown"><a href="">Notas</a>
                           <ul>
-                            @foreach ($sessionasignatura as $asignatura)
-                              <li><a href="{{route('calificacion.index', [$asignatura, $sessionrut])}}"> {{$asignatura->Nombre_Asignatura}}</a></li>
-                            @endforeach  
+                            <li><a href="">placeholder</a></li>
                           </ul>
                         </li>
-                        <li><a href="{{route('anotacion.index', $sessionrut)}}">Anotaciones</a></li>
+                        <li><a href="">Anotaciones</a></li>
                         <li><a href="">Calendario</a></li>
                         <li><a href="">Cuenta</a></li>
                       </ul>
