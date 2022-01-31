@@ -220,7 +220,7 @@
   nav ul li a{
     display: flex;
     align-items: center;
-    padding: 20px 40px;
+    padding: 10px 30px;
     height: 50px;
     transition: .5s ease;
     border-radius: 0 30px;
