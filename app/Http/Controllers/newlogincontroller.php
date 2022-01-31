@@ -32,6 +32,10 @@ class newlogincontroller extends Controller
         }
     }
 
+    public function profesor(){
+        return view('profesorhome');
+    }
+
     public function validar(Request $request){
         $this->validate($request,[
             'Rut' => 'required',
