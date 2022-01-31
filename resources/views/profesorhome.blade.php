@@ -2,7 +2,7 @@
     use App\Models\Asignatura;
 
 ?>
-@extends('layouts.user')
+@extends('layouts.userprofesor')
 @section('Content')
     <div class="background">
         <div class="foto" > 
