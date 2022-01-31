@@ -114,5 +114,5 @@ Route::get('alumnohome/anotaciones/{alumno}', 'App\Http\Controllers\AnotacionCon
 Route::get('login', 'App\Http\Controllers\newlogincontroller@login')->name('login');
 Route::post('validar', 'App\Http\Controllers\newlogincontroller@validar')->name('validar');
 Route::get('alumnohome', 'App\Http\Controllers\newlogincontroller@alumno')->name('alumnohome');
-Route::get('alumnohome', 'App\Http\Controllers\newlogincontroller@profesor')->name('profesorhome');
+Route::get('profesorhome', 'App\Http\Controllers\newlogincontroller@profesor')->name('profesorhome');
 Route::get('cerrarsession', 'App\Http\Controllers\newlogincontroller@cerrarsession')->name('cerrarsession');
