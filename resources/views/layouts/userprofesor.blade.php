@@ -225,6 +225,7 @@
     transition: .5s ease;
     border-radius: 0 30px;
     font-size: 1.95em;
+    color: #fff;
   }
   nav ul li a:hover{
     background-attachment: rgba(0,0,0,0.7);
