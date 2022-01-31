@@ -221,7 +221,7 @@
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    height: 50px;
+    height: 100px;
     transition: .5s ease;
     border-radius: 0 30px;
     font-size: 1.95em;
