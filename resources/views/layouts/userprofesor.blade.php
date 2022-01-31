@@ -17,6 +17,7 @@
         <!-- Styles -->
         <link rel="stylesheet" href="/css/app.css">
         <link rel="stylesheet" href="..\..\..\node_modules\@splidejs\splide\dist\css\splide.min.css">
+        <link rel="stylesheet" href="{{asset('css/estilos.css')}}">
 
         <!--Icons-->
         <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
@@ -36,7 +37,7 @@
             <main>
               <div class="up-div">
                 <div class="icono-escuela">
-                  <a href="{{ route('home') }}">
+                  <a href="{{ route('alumnohome') }}">
                     <x-jet-application-mark class="block h-9 w-auto" />
                   </a>
                 </div>
@@ -54,48 +55,25 @@
               <div class="left-div" id="left-div">
                 <div class="acciones">
                   <nav>
-                      <div class="margen">
-                          <x-jet-dropdown align="right">
-                              <x-slot name="trigger">
-                                  <x-jet-nav-link  style="font-size: 175%;">Materiales</x-jet-nav-link>
-                              </x-slot>
-                              <x-slot name="content">
-                                  <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">
-                                      Placeholder
-                                  </x-jet-dropdown-link>
-                              </x-slot>
-                          </x-jet-dropdown>
-                      </div>
-                      <div class="margen">
-                          <x-jet-dropdown align="right">
-                              <x-slot name="trigger">
-                                  <x-jet-nav-link  style="font-size: 175%;">Notas -></x-jet-nav-link>
-                              </x-slot>
-                              <x-slot name="content">
-                                  <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">
-                                      Placeholder
-                                  </x-jet-dropdown-link>
-                              </x-slot>
-                          </x-jet-dropdown>
-                      </div>
-                      <div class="margen">
-                          <x-jet-dropdown align="right" >
-                              <x-slot name="trigger">
-                                  <x-jet-nav-link style="font-size: 175%;">Anotaciones</x-jet-nav-link>
-                              </x-slot>
-                              <x-slot name="content">
-                                  <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">
-                                      Placeholder
-                                  </x-jet-dropdown-link>
-                              </x-slot>
-                          </x-jet-dropdown>
-                      </div>
-                      <div class="margen">
-                          <x-jet-nav-link  style="font-size: 175%;" href='#'>Calendario</x-jet-nav-link>
-                      </div>
-                      <div class="margen">
-                          <x-jet-nav-link  style="font-size: 175%;" href='#'>Cuenta</x-jet-nav-link>
-                      </div>
+                      <ul>
+                        <li class="dropdown"><a href="">Materiales</a>
+                            <ul>
+                              @foreach ($sessionasignatura as $asignatura)
+                                <li><a href="{{route('calificacion.index', [$asignatura, $sessionrut])}}"> {{$asignatura->Nombre_Asignatura}}</a></li>
+                              @endforeach  
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a href="">Notas</a>
+                          <ul>
+                            @foreach ($sessionasignatura as $asignatura)
+                              <li><a href="{{route('calificacion.index', [$asignatura, $sessionrut])}}"> {{$asignatura->Nombre_Asignatura}}</a></li>
+                            @endforeach  
+                          </ul>
+                        </li>
+                        <li><a href="{{route('anotacion.index', $sessionrut)}}">Anotaciones</a></li>
+                        <li><a href="">Calendario</a></li>
+                        <li><a href="">Cuenta</a></li>
+                      </ul>
                   </nav>
                 </div>
               </div>
@@ -209,7 +187,7 @@
     width: 30%;  
   }
   .Salir{
-    background-color: red;
+    border: 2px outset rgb(212, 23, 64);
     display:inline-block;
     font-size:1.25em;
     color: white;
@@ -221,8 +199,8 @@
   .icono-escuela{
     float:left;
     height: 6%;
-    width: 36%;
-    justify-content: center;
+    width: 5%;
+    justify-content: right;
     display: flex;
   }
   .nombre-escuela{
@@ -233,7 +211,7 @@
   }
   .nombre-escuela h1{
     color: #ffffff;
-    font-size: xx-large;
+    font-size: x-large;
   }
   .ocultar{
     background-color: #312e81;
@@ -242,6 +220,35 @@
     color: white;
     width: 35px;
     height: 35px;
+  }
+  nav ul li a{
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    height: 50px;
+    transition: .5s ease;
+    border-radius: 0 30px;
+  }
+  nav ul li a:hover{
+    background-attachment: rgba(0,0,0,0.7);
+    color: #fff;
+  }
+  nav ul ul{
+    position: absolute;
+    left: 250px;
+    width: 200px;
+    top: 0;
+    display: none;
+    background-color: #312e81;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7)
+
+  }
+  nav ul .dropdown{
+    position: relative;
+  }
+  nav ul .dropdown:hover ul{
+    display: initial;
   }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
