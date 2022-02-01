@@ -225,9 +225,12 @@
     display: flex;
     align-items: center;
     padding: 10px 30px;
-    height: 50px;
+    height: 70px;
     transition: .5s ease;
     border-radius: 0 30px;
+    font-size: 1.95em;
+    color: #fff;
+    text-transform: capitalize;
   }
   nav ul li a:hover{
     background-attachment: rgba(0,0,0,0.7);

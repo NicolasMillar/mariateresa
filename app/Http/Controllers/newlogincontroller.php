@@ -16,7 +16,7 @@ class newlogincontroller extends Controller
         if($sessiontipo == "alummno"){
             return redirect()->route('alumnohome');
         }else if($sessiontipo == "profesor"){
-            return "algun dia";
+            return redirect()->route('profesorhome');
         }else{
             return view('login');
         }
@@ -26,14 +26,21 @@ class newlogincontroller extends Controller
         if($sessiontipo == "alummno"){
             return view('alumnohome');
         }else if($sessiontipo == "profesor"){
-            return "algun dia";
+            return redirect()->route('profesorhome'); 
         }else{
             return redirect()->route('login'); 
         }
     }
 
     public function profesor(){
-        return view('profesorhome');
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "alummno"){
+            return redirect()->route('alumnohome'); 
+        }else if($sessiontipo == "profesor"){
+            return redirect()->route('profesorhome'); 
+        }else{
+            return redirect()->route('login'); 
+        }
     }
 
     public function validar(Request $request){
@@ -61,7 +68,7 @@ class newlogincontroller extends Controller
                 return redirect()->route('login'); 
             }
         }else{
-            return "algun dia";
+            return redirect()->route('profesorhome'); 
         }
     }
 
