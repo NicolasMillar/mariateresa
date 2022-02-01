@@ -68,6 +68,7 @@ class newlogincontroller extends Controller
                 return redirect()->route('login'); 
             }
         }else if($request->Tipo_usuario == 'PROFESOR'){
+            Session::put('sessiontipo','profesor');
             return redirect()->route('profesorhome');
         }
     }
