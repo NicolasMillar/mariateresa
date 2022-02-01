@@ -67,8 +67,7 @@ class newlogincontroller extends Controller
                 Session::flash('mensaje', "El Rut o la clave ingresada son incorrectos");
                 return redirect()->route('login'); 
             }
-        }else{
-            echo"hola";
+        }else if($request->Tipo_usuario == 'PROFESOR'){
             return redirect()->route('profesorhome'); 
         }
     }
