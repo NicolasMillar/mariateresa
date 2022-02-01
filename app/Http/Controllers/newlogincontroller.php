@@ -68,6 +68,7 @@ class newlogincontroller extends Controller
                 return redirect()->route('login'); 
             }
         }else{
+            echo"hola";
             return redirect()->route('profesorhome'); 
         }
     }
