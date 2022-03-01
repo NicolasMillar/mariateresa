@@ -111,8 +111,8 @@ Route::post('participantes/{curso}', 'App\Http\Controllers\ParticipanteControlle
 })->name('alumnohome');*/
 Route::get('alumnohome/calificaciones/{asignatura}/{alumno}', 'App\Http\Controllers\CalificacionController@index')->name('calificacion.index');
 Route::get('alumnohome/anotaciones/{alumno}', 'App\Http\Controllers\AnotacionController@index')->name('anotacion.index');
-Route::get('login', 'App\Http\Controllers\newlogincontroller@login')->name('login');
-Route::post('validar', 'App\Http\Controllers\newlogincontroller@validar')->name('validar');
-Route::get('alumnohome', 'App\Http\Controllers\newlogincontroller@alumno')->name('alumnohome');
-Route::get('profesorhome', 'App\Http\Controllers\newlogincontroller@profesor')->name('profesorhome');
-Route::get('cerrarsession', 'App\Http\Controllers\newlogincontroller@cerrarsession')->name('cerrarsession');
+Route::get('login', 'App\Http\Controllers\AlumnoProfesorhome@login')->name('login');
+Route::post('validar', 'App\Http\Controllers\AlumnoProfesorhome@validar')->name('validar');
+Route::get('alumnohome', 'App\Http\Controllers\AlumnoProfesorhome@alumno')->name('alumnohome');
+Route::get('profesorhome', 'App\Http\Controllers\AlumnoProfesorhome@profesor')->name('profesorhome');
+Route::get('cerrarsession', 'App\Http\Controllers\AlumnoProfesorhome@cerrarsession')->name('cerrarsession');
