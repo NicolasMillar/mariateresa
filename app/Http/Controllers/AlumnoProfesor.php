@@ -45,9 +45,11 @@ class AlumnoProfesor extends Controller
     }
     public function calendario(){
         $sessiontipo = session('sessiontipo');
-        return view('calendario');
-        /*if($sessiontipo == "alummno" || $sessiontipo == "profesor"){
-            return view('calendario'); 
+        return view('calendarioprofesor');
+        /*if($sessiontipo == "profesor"){
+            return view('calendarioprofesor'); 
+        }if($sessiontipo == "alummno" ){
+            return view('calendarioalumno');
         }else{
             return redirect()->route('login'); 
         }*/

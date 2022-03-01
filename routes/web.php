@@ -106,9 +106,7 @@ Route::resource('talleres', TallerController::class)->names('admin.taller');
 Route::resource('file', 'App\Http\Controllers\FileController');
 Route::get('participantes/{curso}', 'App\Http\Controllers\ParticipanteController@create')->name('participante.create');
 Route::post('participantes/{curso}', 'App\Http\Controllers\ParticipanteController@store')->name('participante.store');
-/*Route::middleware(['auth:sanctum', 'verified'])->get('/alumnohome', function () {
-    return view('alumnohome');
-})->name('alumnohome');*/
+
 Route::get('alumnohome/calificaciones/{asignatura}/{alumno}', 'App\Http\Controllers\CalificacionController@index')->name('calificacion.index');
 Route::get('alumnohome/anotaciones/{alumno}', 'App\Http\Controllers\AnotacionController@index')->name('anotacion.index');
 Route::get('login', 'App\Http\Controllers\AlumnoProfesor@login')->name('login');
@@ -116,4 +114,5 @@ Route::post('validar', 'App\Http\Controllers\AlumnoProfesor@validar')->name('val
 Route::get('alumnohome', 'App\Http\Controllers\AlumnoProfesor@alumno')->name('alumnohome');
 Route::get('profesorhome', 'App\Http\Controllers\AlumnoProfesor@profesor')->name('profesorhome');
 Route::get('cerrarsession', 'App\Http\Controllers\AlumnoProfesor@cerrarsession')->name('cerrarsession');
-Route::get('calendario', 'App\Http\Controllers\AlumnoProfesor@calendario')->name('calendario');
+Route::get('calendarioprofesor', 'App\Http\Controllers\AlumnoProfesor@calendario')->name('calendarioprofesor');
+//Route::get('calendarioalumno', 'App\Http\Controllers\AlumnoProfesor@calendario')->name('calendarioalumno');
