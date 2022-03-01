@@ -6,6 +6,7 @@ use App\Models\Asignatura;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Usuario_alumno;
+use App\Models\Usuario_profesor;
 use Illuminate\Support\Facades\DB;
 use Session;
 
@@ -70,10 +71,9 @@ class newlogincontroller extends Controller
         }else if($request->Tipo_usuario == 'PROFESOR'){
             $consulta=Usuario_profesor::where('Rut',$request->Rut)->first();
             if(Hash::check($request->Contraseña, $consulta->Contraseña)){
-                $dbasignatura=DB::table('asignaturas')->select('asignaturas.id')->join('cursos', 'asignaturas.ID_Curso', '=', 'cursos.id')->join('participantes', 'cursos.id', '=', 'participantes.ID_Curso')->where('Estado_Curso', '=', 'active')->where('participantes.Rut', '=', $request->Rut)->get();
-                $asignaturas=Asignatura::whereIn('id', $dbasignatura->pluck('id'))->get();
                 Session::put('rut', $consulta->Rut);
-                Session::put('dv', $consulta->DigitoV_profesor);
+                Session::put('dv', $consulta->DigitoV_Profesor);
+                Session::put('nombre',$consulta->Nombre_Profesor." ".$consulta->ApellidoP_Profesor);
                 Session::put('sessiontipo','profesor');
                 return redirect()->route('profesorhome');
             }else{
