@@ -43,6 +43,15 @@ class AlumnoProfesor extends Controller
             return redirect()->route('login'); 
         }
     }
+    public function calendario(){
+        $sessiontipo = session('sessiontipo');
+        return view('calendario');
+        /*if($sessiontipo == "alummno" || $sessiontipo == "profesor"){
+            return view('calendario'); 
+        }else{
+            return redirect()->route('login'); 
+        }*/
+    }
 
     public function validar(Request $request){
         $this->validate($request,[
