@@ -116,3 +116,4 @@ Route::post('validar', 'App\Http\Controllers\AlumnoProfesor@validar')->name('val
 Route::get('alumnohome', 'App\Http\Controllers\AlumnoProfesor@alumno')->name('alumnohome');
 Route::get('profesorhome', 'App\Http\Controllers\AlumnoProfesor@profesor')->name('profesorhome');
 Route::get('cerrarsession', 'App\Http\Controllers\AlumnoProfesor@cerrarsession')->name('cerrarsession');
+Route::get('calendario', 'App\Http\Controllers\AlumnoProfesor@calendario')->name('calendario');
