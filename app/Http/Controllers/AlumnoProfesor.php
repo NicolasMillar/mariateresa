@@ -10,7 +10,7 @@ use App\Models\Usuario_profesor;
 use Illuminate\Support\Facades\DB;
 use Session;
 
-class newlogincontroller extends Controller
+class AlumnoProfesor extends Controller
 {
     public function login(){
         $sessiontipo = session('sessiontipo');
