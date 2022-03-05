@@ -58,12 +58,13 @@
                 right: 'dayGridMonth, timeGridWeek, listWeek'
             },
             dateClick: function(info) {
-                myFunction();
+                $("#exampleModal").modal("show");
             }
         });
         calendar.render();
+        calendar.setOption('height', 700);
     });
     function myFunction() {
-      $("#exampleModal").modal("show");
+      
     }
 </script>
