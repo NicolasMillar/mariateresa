@@ -63,6 +63,7 @@
                 right: 'dayGridMonth, timeGridWeek, listWeek'
             },
             dateClick: function(info) {
+                alert('Clicked on: ' + info.dateStr);
                 $("#exampleModal").modal("show");
             }
         });
