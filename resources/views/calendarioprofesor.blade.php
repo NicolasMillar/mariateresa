@@ -47,6 +47,22 @@
 
 @endsection
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale:"es",
+            headerToolbar:{
+                center:'title',
+                left: 'prev,next today',
+                right: 'dayGridMonth, timeGridWeek, listWeek'
+            },
+            dateClick: function(info) {
+                myFunction();
+            }
+        });
+        calendar.render();
+    });
     function myFunction() {
       $("#exampleModal").modal("show");
     }
