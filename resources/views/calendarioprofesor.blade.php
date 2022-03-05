@@ -46,7 +46,9 @@
 @endsection
 
 <style>
-
+.calendar{
+    height: 100%;
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/locales-all.js"></script>
@@ -57,6 +59,7 @@
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
             locale:"es",
+            
             headerToolbar:{
                 center:'title',
                 left: 'prev,next today',
@@ -67,6 +70,7 @@
                 $("#exampleModal").modal("show");
             }
         });
+        calendar.setOption('height', 700);
         calendar.render();
     });
 </script>
