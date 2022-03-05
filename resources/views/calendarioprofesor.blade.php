@@ -60,7 +60,7 @@
                 right: 'dayGridMonth, timeGridWeek, listWeek'
             },
             dateClick: function(info) {
-                alert('Event: ' + data.title);
+                alert('Clicked on: ' + info.dateStr);
             }
         });
         calendar.render();
