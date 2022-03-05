@@ -15,26 +15,28 @@
 
     </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="evaluaciones" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+    <!-- Modal -->
+    <div class="modal" id="exampleModal"  tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+      
+            <!--Este es el pie del modal aqui puedes agregar mas botones-->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 @endsection
 
 <style>
@@ -44,21 +46,33 @@
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/locales-all.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.css">
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
-            locale:"es",
-            headerToolbar:{
-                center:'title',
-                left: 'prev,next today',
-                right: 'dayGridMonth, timeGridWeek, listWeek'
-            },
-            dateClick: function(info) {
-                alert('Clicked on: ' + info.dateStr);
-                $(this).css('background-color','red');
-            }
-        });
-        calendar.render();
-    });
+	$(document).ready(function() {		
+	 $('#calendar').fullCalendar({           			
+		header: {				
+			left: 'prev,next today',
+			center: 'title',
+			right: 'month,basicWeek,basicDay',			 
+		},
+		locale: 'es',
+		 monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+		monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+		dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+		dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],			
+
+		 //Evento Click
+		dayClick: function(date, jsEvent, view) {
+			alert('Clicked on: ' + date.format());
+			alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+			alert('Current view: ' + view.name);
+			// change the day's background color just for fun
+			$(this).css('background-color', 'red');
+	
+			//------------Llamando al modal de Bootstrap
+			$("#exampleModal").modal();
+  		}
+		 //Fin Evento Click
+		 
+		});		 // full calendar		
+	});  // function
 </script>
+
