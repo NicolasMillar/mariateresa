@@ -7,7 +7,9 @@
     <div id='calendar'>
 
     </div>
+    
 @endsection
+
 <style>
 
 </style>
@@ -18,7 +20,13 @@
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth'
+            initialView: 'dayGridMonth',
+            locale:"es",
+            headerToolbar:{
+                center:'title',
+                left: 'prev,next today',
+                right: 'dayGridMonth, timeGridWeek, listWeek'
+            }
         });
         calendar.render();
     });
