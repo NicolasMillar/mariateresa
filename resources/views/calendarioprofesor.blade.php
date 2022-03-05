@@ -59,7 +59,7 @@
             },
             dateClick: function(info) {
                 alert('Clicked on: ' + info.dateStr);
-                $(this).css('background-color','red');
+                $("#exampleModal").modal();
             }
         });
         calendar.render();
