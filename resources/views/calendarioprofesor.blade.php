@@ -54,7 +54,7 @@
                 left: 'prev,next today',
                 right: 'dayGridMonth, timeGridWeek, listWeek'
             },
-            dayClick:function(date,jsEvent,view){
+            dayClick: function(date, jsEvent, view) {
                 alert("Valor seleccionado: "+date.fomart('H:m'));
                 $(this).css('background-color','red');
             }
