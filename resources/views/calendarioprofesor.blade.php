@@ -18,7 +18,7 @@
 </body>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button type="button" class="btn btn-primary" data-toggle="modal" onclick="myFunction()">
   Launch demo modal
 </button>
 
@@ -46,9 +46,6 @@
 @endsection
 
 <style>
-.calendar{
-    height: 100%;
-}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/locales-all.js"></script>
@@ -72,5 +69,8 @@
         });
         calendar.setOption('height', 700);
         calendar.render();
+        function myFunction() {
+            $("#exampleModal").modal("show");
+        }
     });
 </script>
