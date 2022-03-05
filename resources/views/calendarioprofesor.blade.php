@@ -58,6 +58,9 @@
                 center:'title',
                 left: 'prev,next today',
                 right: 'dayGridMonth, timeGridWeek, listWeek'
+            },
+            dateClick:function(info){
+                $("#evaluaciones").modal("show");
             }
         });
         calendar.render();
