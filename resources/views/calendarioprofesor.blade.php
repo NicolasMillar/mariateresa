@@ -64,10 +64,13 @@
             },
             dateClick: function(info) {
                 alert('Clicked on: ' + info.dateStr);
-                $("#exampleModal").modal("show");
+                myFunction();
             }
         });
         calendar.setOption('height', 700);
         calendar.render();
+        function myFunction() {
+            $("#exampleModal").modal("show");
+        }
     });
 </script>
