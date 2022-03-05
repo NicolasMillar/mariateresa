@@ -61,6 +61,7 @@
             },
             dateClick: function(info) {
                 alert('Clicked on: ' + info.dateStr);
+                $("#evaluaciones").modal();
             }
         });
         calendar.render();
