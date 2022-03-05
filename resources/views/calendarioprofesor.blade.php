@@ -37,6 +37,7 @@
           </div>
         </div>
       </div>
+ 
 @endsection
 
 <style>
@@ -46,29 +47,27 @@
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/locales-all.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.css">
 <script>
-	$(document).ready(function() {		
-	 $('#calendar').fullCalendar({           			
-		header: {				
-			left: 'prev,next today',
-			center: 'title',
-			right: 'month,basicWeek,basicDay',			 
-		},
-		locale: 'es',
-
-		//Evento Click
-		dayClick: function(date, jsEvent, view) {
-			alert('Clicked on: ' + date.format());
-			alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-			alert('Current view: ' + view.name);
-			// change the day's background color just for fun
-			$(this).css('background-color', 'red');
-	
-			//------------Llamando al modal de Bootstrap
-			$("#exampleModal").modal();
-  		}
-		 //Fin Evento Click
-		 
-		});		 // full calendar		
-	});  // function
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale:"es",
+            headerToolbar:{
+                center:'title',
+                left: 'prev,next today',
+                right: 'dayGridMonth, timeGridWeek, listWeek'
+            },
+            dayClick: function(date, jsEvent, view) {
+                alert('Clicked on: ' + date.format());
+                alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+                alert('Current view: ' + view.name);
+                // change the day's background color just for fun
+                $(this).css('background-color', 'red');
+        
+                //------------Llamando al modal de Bootstrap
+                $("#exampleModal").modal();
+            }
+        });
+        calendar.render();
+    });
 </script>
-
