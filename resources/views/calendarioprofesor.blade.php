@@ -46,3 +46,8 @@
    </div>
 
 @endsection
+<script>
+    function myFunction() {
+      $("#exampleModal").modal("show");
+    }
+</script>
