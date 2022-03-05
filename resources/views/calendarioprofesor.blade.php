@@ -54,9 +54,9 @@
                 left: 'prev,next today',
                 right: 'dayGridMonth, timeGridWeek, listWeek'
             },
-            dateClick: function(info) {
-                alert('Clicked on: ' + info.dateStr);
-                $("#evaluaciones").modal();
+            dayClick:function(date,jsEvent,view){
+                alert("Valor seleccionado: "+date.fomart('H:m'));
+                $(this).css('background-color','red');
             }
         });
         calendar.render();
