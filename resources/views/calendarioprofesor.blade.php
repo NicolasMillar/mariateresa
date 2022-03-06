@@ -48,6 +48,8 @@
 
 @endsection
 <script>
+    import * as $ from 'jquery';
+
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
