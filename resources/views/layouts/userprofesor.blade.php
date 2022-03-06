@@ -32,6 +32,9 @@
         <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
         @livewireStyles
 
+        <!-- Scripts -->
+        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script type="text/javascript" src="..\..\..\node_modules\@splidejs\splide\dist\js\splide.min.js"></script>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
@@ -256,32 +259,7 @@
     display: initial;
   }
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.min.css"/>
 <script>
-  jQuery(document).ready(function($){
-    $('.owl-carousel').owlCarousel({
-      stagePadding: 50,
-      autoplay:true,
-      loop:true,
-      nav:true,
-      center:true,
-      navText:["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
-      responsive:{
-        0:{
-          items:1
-        },
-        600:{
-          items:1
-        },
-        1000:{
-          items:1
-         }
-      }
-    })
-  })
   function OculatarDiv(){
     var x = document.getElementById("left-div");
     var y = document.getElementById("right-div");
