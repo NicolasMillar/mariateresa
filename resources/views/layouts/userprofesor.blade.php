@@ -73,7 +73,7 @@
                         <li class="dropdown"><a href="">Notas</a>
                           <ul>
                             @foreach ($sessionasignatura as $asignatura)
-                              <li><a href="{{route('notasprofesor', [$asignatura])}}"> {{$asignatura->Nombre_Asignatura}}</a></li>
+                              <li><a href=""> {{$asignatura->Nombre_Asignatura}}</a></li>
                             @endforeach  
                           </ul>
                         </li>
