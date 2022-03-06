@@ -16,11 +16,9 @@
 
 @extends('layouts.userprofesor')
 @section('Content')
-<body>
     <div id='calendar'>
    
     </div>
-   </body>
    
    <!-- Button trigger modal -->
    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -61,6 +59,7 @@
                 right: 'dayGridMonth, timeGridWeek, listWeek'
             },
             dateClick: function(info) {
+              alert("hola");
               $("#exampleModal").modal("show");
             }
         });
