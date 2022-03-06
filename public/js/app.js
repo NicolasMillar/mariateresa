@@ -1,6 +1,5 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
-//= require_tree .
 
 /***/ "./node_modules/alpinejs/dist/module.esm.js":
 /*!**************************************************!*\

@@ -10,6 +10,8 @@
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/locales-all.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.css">
 
+
+
 @extends('layouts.userprofesor')
 @section('Content')
 <body>
@@ -46,7 +48,7 @@
 
 @endsection
 <script>
-    //= require_tree .
+    require_tree .
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -58,7 +60,8 @@
                 right: 'dayGridMonth, timeGridWeek, listWeek'
             },
             dateClick: function(info) {
-                $("#exampleModal").modal("show");
+              jQuery.noConflict();
+               $("#exampleModal").modal("show");
             }
         });
         calendar.render();
