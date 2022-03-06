@@ -61,7 +61,7 @@
             },
             dateClick: function(info) {
               jQuery.noConflict();
-               $("#exampleModal").modal("show");
+              $("#exampleModal").modal("show");
             }
         });
         calendar.render();
