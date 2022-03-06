@@ -18,26 +18,7 @@
            </button>
          </div>
          <div class="modal-body">
-           <form action="">
-             <select name="Curso" id="curso">
-               <option selected="selected"> Seleccione un curso</option>
-             </select>
-             <h6>Seleccione un semestre</h6>
-             <select name="Semestre" id="Semestre">
-               <option value="1">1</option>
-               <option value="2">2</option>
-               <option value="3">3</option>
-               <option value="4">4</option>
-               <option value="5">5</option>
-               <option value="6">6</option>
-               <option value="7">7</option>
-               <option value="8">8</option>
-               <option value="9">9</option>
-               <option value="10">10</option>
-             </select>
-             <h6>descripcion de la evauacion o trabajo</h6>
-             <input type="text" name="" id="">
-           </form>
+           
          </div>
          <div class="modal-footer">
            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
