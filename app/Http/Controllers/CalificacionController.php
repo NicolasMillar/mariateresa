@@ -18,8 +18,4 @@ class CalificacionController extends Controller
         return view('admin.calificaciones.index', compact('notas'));
     }
 
-    public function profesor(Asignatura $asignatura)
-    {
-        
-    }
 }
