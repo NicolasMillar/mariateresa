@@ -7,12 +7,6 @@
     <div id='calendar'>
    
     </div>
-   
-   <!-- Button trigger modal -->
-   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-     Launch demo modal
-   </button>
-   
    <!-- Modal -->
    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
      <div class="modal-dialog">
@@ -24,7 +18,12 @@
            </button>
          </div>
          <div class="modal-body">
-           ...
+           <form action="">
+             <section>
+               <option selected="selected" >Seleccione un curso</option>
+             </section>
+             <input type="text" name="" id="">
+           </form>
          </div>
          <div class="modal-footer">
            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -48,7 +47,6 @@
                 right: 'dayGridMonth, timeGridWeek, listWeek'
             },
             dateClick: function(info) {
-              alert("hola");
               $("#exampleModal").modal("show");
             }
         });
