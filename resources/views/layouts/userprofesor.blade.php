@@ -72,8 +72,9 @@
                         </li>
                         <li class="dropdown"><a href="">Notas</a>
                           <ul>
-                            <li><a href="">placeholder</a></li>
-                            <li><a href="">placeholder 2</a></li>
+                            @foreach ($sessionasignatura as $asignatura)
+                              <li><a href="{{route('notasprofesor', [$asignatura])}}"> {{$asignatura->Nombre_Asignatura}}</a></li>
+                            @endforeach  
                           </ul>
                         </li>
                         <li><a href="">Anotaciones</a></li>

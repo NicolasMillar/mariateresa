@@ -17,4 +17,9 @@ class CalificacionController extends Controller
         $notas = DB::table('calificaciones')->join('pruebas', 'pruebas.id', '=', 'calificaciones.ID_Pruebas')->where('Rut', '=', $alumno->Rut)->whereIn('ID_Pruebas', $pruebas->pluck('id'))->get();
         return view('admin.calificaciones.index', compact('notas'));
     }
+
+    public function profesor(Asignatura $asignatura)
+    {
+        
+    }
 }

@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\Usuario_alumno;
 use App\Models\Usuario_profesor;
 use Illuminate\Support\Facades\DB;
+use App\Models\Calificacion;
+use App\Models\Prueba;
 use Session;
 
 class AlumnoProfesor extends Controller
@@ -54,8 +56,11 @@ class AlumnoProfesor extends Controller
         }
     }
 
-    public function notasprofesor(){
+    public function notasprofesor(Asignatura $asignatura){
         $sessiontipo = session('sessiontipo');
+        $pruebas = Prueba::where('ID_Asignatura', '=', $asignatura->id)->get();
+        $notas = DB::table('calificaciones')->join('pruebas', 'pruebas.id', '=', 'calificaciones.ID_Pruebas')->whereIn('ID_Pruebas', $pruebas->pluck('id'))->get();
+        return view('admin.calificaciones.index', compact('notas'));
         return view('notasprofesor');
     }
 
@@ -90,6 +95,7 @@ class AlumnoProfesor extends Controller
                 Session::put('dv', $consulta->DigitoV_Profesor);
                 Session::put('nombre',$consulta->Nombre_Profesor." ".$consulta->ApellidoP_Profesor);
                 Session::put('sessiontipo','profesor');
+                Session::put('asignaturas', $asignaturas->toArray());
                 return redirect()->route('profesorhome');
             }else{
                 Session::flash('mensaje', "El Rut o la clave ingresada son incorrectos");
