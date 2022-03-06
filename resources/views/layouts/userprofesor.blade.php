@@ -73,6 +73,7 @@
                         <li class="dropdown"><a href="">Notas</a>
                           <ul>
                             <li><a href="">placeholder</a></li>
+                            <li><a href="">placeholder 2</a></li>
                           </ul>
                         </li>
                         <li><a href="">Anotaciones</a></li>
