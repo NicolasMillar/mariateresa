@@ -54,6 +54,11 @@ class AlumnoProfesor extends Controller
         }
     }
 
+    public function notasprofesor(){
+        $sessiontipo = session('sessiontipo');
+        return view('notasprofesor');
+    }
+
     public function validar(Request $request){
         $this->validate($request,[
             'Rut' => 'required',
