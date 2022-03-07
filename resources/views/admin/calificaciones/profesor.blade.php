@@ -12,7 +12,7 @@
 @extends('layouts.userprofesor')
 @section('Content')
     <div >
-        <button style="background-color:rgba(62, 62, 248, 0.664)">Crear Evaluacion</button>
+        <button style="background-color:rgba(62, 62, 248, 0.664)" id="boton">Crear Evaluacion</button>
         <button style="background-color:cadetblue; font-size: 16px; border-radius: 4px">Ingresar calificacion</button>
         <button style="background-color:chartreuse; font-size: 16px; border-radius: 4px%">Modifica calificacion</button>
     </div>
@@ -43,7 +43,7 @@
     </div>
 @endsection
 <style>
-    .button{
+    .boton{
         font-size: 16px; 
         border-radius: 4px;
     }   
