@@ -73,7 +73,7 @@
                         <li class="dropdown"><a href="">Notas</a>
                           <ul>
                             @foreach ($sessionasignatura as $asignatura)
-                              <li><a href="{{route('calificacion.profesor', [$asignatura])}}"> {{$asignatura->Nombre_Asignatura}}</a></li>
+                              <li><a href="{{route('calificacion.profesor', [$asignatura])}}" id="menuasignaturas"> {{$asignatura->Nombre_Asignatura}}</a></li>
                             @endforeach  
                           </ul>
                         </li>
@@ -228,7 +228,7 @@
     width: 35px;
     height: 35px;
   }
-  nav ul li {
+  nav ul li a{
     display: flex;
     align-items: center;
     padding: 10px 20px;
@@ -236,17 +236,6 @@
     transition: .5s ease;
     border-radius: 0 30px;
     font-size: 1.95em;
-    color: #fff;
-    text-transform: capitalize;
-  }
-  a{
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    height: 70px;
-    transition: .5s ease;
-    border-radius: 0 30px;
-    font-size: 9px;
     color: #fff;
     text-transform: capitalize;
   }
@@ -270,6 +259,17 @@
   }
   nav ul .dropdown:hover ul{
     display: initial;
+  }
+  #menuasignaturas{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    height: 70px;
+    transition: .5s ease;
+    border-radius: 0 30px;
+    font-size: 0.95em;
+    color: #fff;
+    text-transform: capitalize;
   }
 </style>
 <script>
