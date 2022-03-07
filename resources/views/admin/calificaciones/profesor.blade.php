@@ -11,43 +11,44 @@
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
-    <div style="width: 100%; height:35px ;border: solid blue 1px">
-        <div style="float:left">
-            <button style="background-color:rgba(62, 62, 248, 0.664)" id="boton">Crear Evaluacion</button>
+    <div>
+        <div style="width: 100%; border: solid blue 1px">
+            <div style="float:left">
+                <button style="background-color:rgba(62, 62, 248, 0.664)" id="boton">Crear Evaluacion</button>
+            </div>
+            <div style="float:left">
+                <button style="background-color:cadetblue" id="boton">Ingresar calificacion</button>
+            </div>
+            <div style="float:left">
+                <button style="background-color:darkolivegreen" id="boton">Modifica calificacion</button>
+            </div>        
         </div>
-        <div style="float:left">
-            <button style="background-color:cadetblue" id="boton">Ingresar calificacion</button>
-        </div>
-        <div style="float:left">
-            <button style="background-color:darkolivegreen" id="boton">Modifica calificacion</button>
-        </div>        
-        
-    </div>
-    <div style=" justify-content: center; display:flex;" >
-        <table class="tabla" style="width: 50%">
-            <thead>
-                <tr>
-                    <th>Nombre Alumno</th>
-                    <th>Nombre</th>
-                    <th>Notas</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($notas as $nota)
+        <div style=" justify-content: center; display:flex;" >
+            <table class="tabla" style="width: 50%">
+                <thead>
                     <tr>
-                        <td>{{$nota->Rut}}</td>
-                        @foreach ($notas as $nota1)
-                            @if ($nota->Rut == $nota1->Rut)
-                                <td>{{$nota1->Nombre_Prueba}}</td>
-                                <td>{{$nota1->Notas}}</td>
-                            @endif
-                        @endforeach             
+                        <th>Nombre Alumno</th>
+                        <th>Nombre</th>
+                        <th>Notas</th>
                     </tr>
-                @endforeach
-            </tbody>
-                            
-        </table>
+                </thead>
+                <tbody>
+                    @foreach ($notas as $nota)
+                        <tr>
+                            <td>{{$nota->Rut}}</td>
+                            @foreach ($notas as $nota1)
+                                @if ($nota->Rut == $nota1->Rut)
+                                    <td>{{$nota1->Nombre_Prueba}}</td>
+                                    <td>{{$nota1->Notas}}</td>
+                                @endif
+                            @endforeach             
+                        </tr>
+                    @endforeach
+                </tbody>            
+            </table>
+        </div>
     </div>
+    
 @endsection
 <style>
     #boton{
