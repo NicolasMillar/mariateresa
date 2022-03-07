@@ -1,6 +1,10 @@
 <?php 
     use App\Models\Asignatura;
-
+    $sessionrut = session('rut');
+    $sessionusuario = session('nombre');
+    $sessiontipo = session('sessiontipo');
+    $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
+    $sessionasignatura = collect($sessionasignatura);
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
