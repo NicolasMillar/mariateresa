@@ -15,7 +15,7 @@
         <div style="float:left">
             <button style="background-color:rgba(62, 62, 248, 0.664)" id="boton">Crear Evaluacion</button>
         </div>
-        <div style="float:right">
+        <div style="justify-content: center; ">
             <button style="background-color:cadetblue" id="boton">Ingresar calificacion</button>
         </div>
         <div style="float:right">
