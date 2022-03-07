@@ -23,7 +23,7 @@
                 <button style="background-color:darkolivegreen" id="boton">Modifica calificacion</button>
             </div>        
         </div>
-        <div style=" justify-content: center; display:flex" >
+        <div>
             <table class="tabla" style="width: 50%">
                 <thead>
                     <tr>
