@@ -84,6 +84,8 @@ class AlumnoProfesor extends Controller
         }else if($request->Tipo_usuario == 'PROFESOR'){
             $consulta=Usuario_profesor::where('Rut',$request->Rut)->first();
             if(Hash::check($request->Contraseña, $consulta->Contraseña)){
+                $dbasignatura=DB::table('asignaturas')->select('asignaturas.id')->join('cursos', 'asignaturas.ID_Curso', '=', 'cursos.id')->where('Estado_Curso', '=', 'active')->where('asignaturas.Rut_Profesor', '=', $request->Rut)->get();
+                $asignaturas=Asignatura::whereIn('id', $dbasignatura->pluck('id'))->get();
                 Session::put('rut', $consulta->Rut);
                 Session::put('dv', $consulta->DigitoV_Profesor);
                 Session::put('nombre',$consulta->Nombre_Profesor." ".$consulta->ApellidoP_Profesor);
