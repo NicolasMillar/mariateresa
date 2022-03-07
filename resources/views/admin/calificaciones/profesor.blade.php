@@ -14,7 +14,7 @@
     <div >
         <button style="background-color:rgba(62, 62, 248, 0.664)" id="boton">Crear Evaluacion</button>
         <button style="background-color:cadetblue" id="boton">Ingresar calificacion</button>
-        <button style="background-color:chartreuse" id="boton">Modifica calificacion</button>
+        <button style="background-color:darkolivegreen" id="boton">Modifica calificacion</button>
     </div>
     <div style=" justify-content: center; display:flex;" >
         <table class="tabla" style="width: 50%">
