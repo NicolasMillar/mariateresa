@@ -228,7 +228,7 @@
     width: 35px;
     height: 35px;
   }
-  nav ul li a{
+  nav ul a{
     display: flex;
     align-items: center;
     padding: 10px 20px;
@@ -236,6 +236,17 @@
     transition: .5s ease;
     border-radius: 0 30px;
     font-size: 1.95em;
+    color: #fff;
+    text-transform: capitalize;
+  }
+  li{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    height: 70px;
+    transition: .5s ease;
+    border-radius: 0 30px;
+    font-size: 0.95em;
     color: #fff;
     text-transform: capitalize;
   }
