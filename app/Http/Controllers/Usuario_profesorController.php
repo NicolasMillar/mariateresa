@@ -56,6 +56,7 @@ class Usuario_profesorController extends Controller
         ]);
         $imagenes = $request->file('Imagen')->store('public/usuario_profesor');
         $url = Storage::url($imagenes);
+        $password=Hash::make($request->Password);
         $Estado=$request->Estado==1 ? 'active':'inactive';
         Usuario_profesor::create([
             'Rut'=>$request->Rut,
@@ -63,7 +64,7 @@ class Usuario_profesorController extends Controller
             'Nombre_Profesor'=>$request->Nombre,
             'ApellidoP_Profesor'=>$request->ApellidoP,
             'ApellidoM_Profesor'=>$request->ApellidoM,
-            'Contraseña'=>$request->Password,
+            'Contraseña'=>$password,
             'FechaInicio_Profesor'=>$request->FechaI,
             'Imagen'=>$url,
             'Estado_Profesor'=>$Estado
