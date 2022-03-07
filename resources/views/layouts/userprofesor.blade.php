@@ -246,7 +246,7 @@
     height: 70px;
     transition: .5s ease;
     border-radius: 0 30px;
-    font-size: 0.95em;
+    font-size: 9px;
     color: #fff;
     text-transform: capitalize;
   }
