@@ -43,7 +43,7 @@
     </div>
 @endsection
 <style>
-    .boton{
+    #boton{
         font-size: 16px; 
         border-radius: 4px;
     }   
