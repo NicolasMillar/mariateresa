@@ -24,7 +24,7 @@
             </div>        
         </div>
         <div style="text-align:center">
-            <table class="tabla" style="width: 50%; margin: 0 auto; margin-top:2%">
+            <table class="tabla" style="width: 50%; margin: 0 auto; margin-top:15%">
                 <thead>
                     <tr>
                         <th>Nombre Alumno</th>
