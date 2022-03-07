@@ -11,7 +11,7 @@
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
-    <div style="width: 100%; height:28px ;border: solid blue 1px">
+    <div style="width: 100%; height:35px ;border: solid blue 1px">
         <div style="float:left">
             <button style="background-color:rgba(62, 62, 248, 0.664)" id="boton">Crear Evaluacion</button>
         </div>
