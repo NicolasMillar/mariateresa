@@ -10,9 +10,13 @@
     $sessionasignatura = collect($sessionasignatura);
 ?>
 @extends('layouts.userprofesor')
-@section('Content')             
+@section('Content')
+    <div >
+        <button>Crear Evaluacion</button>
+        <button>Ingresar calificacion</button>
+        <button>Modifica calificacion</button>
+    </div>
     <div style=" justify-content: center; display:flex;" >
-                       
         <table class="tabla" style="width: 50%">
             <thead>
                 <tr>
