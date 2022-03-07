@@ -228,7 +228,7 @@
     width: 35px;
     height: 35px;
   }
-  nav ul a{
+  nav ul li {
     display: flex;
     align-items: center;
     padding: 10px 20px;
@@ -239,7 +239,7 @@
     color: #fff;
     text-transform: capitalize;
   }
-  li{
+  a{
     display: flex;
     align-items: center;
     padding: 10px 20px;
