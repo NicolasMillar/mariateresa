@@ -10,6 +10,7 @@ use App\Models\Usuario_profesor;
 use Illuminate\Support\Facades\DB;
 use App\Models\Calificacion;
 use App\Models\Prueba;
+
 use Session;
 
 class AlumnoProfesor extends Controller
@@ -54,14 +55,6 @@ class AlumnoProfesor extends Controller
         }else{
             return redirect()->route('login'); 
         }
-    }
-
-    public function notasprofesor(Asignatura $asignatura){
-        $sessiontipo = session('sessiontipo');
-        $pruebas = Prueba::where('ID_Asignatura', '=', $asignatura->id)->get();
-        $notas = DB::table('calificaciones')->join('pruebas', 'pruebas.id', '=', 'calificaciones.ID_Pruebas')->whereIn('ID_Pruebas', $pruebas->pluck('id'))->get();
-        return view('admin.calificaciones.index', compact('notas'));
-        return view('notasprofesor');
     }
 
     public function validar(Request $request){
