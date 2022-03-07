@@ -12,9 +12,9 @@
 @extends('layouts.userprofesor')
 @section('Content')
     <div >
-        <button style="background-color:rgba(62, 62, 248, 0.664)">Crear Evaluacion</button>
-        <button style="background-color:cadetblue">Ingresar calificacion</button>
-        <button style="background-color:chartreuse">Modifica calificacion</button>
+        <button style="background-color:rgba(62, 62, 248, 0.664); border-radius: 25%">Crear Evaluacion</button>
+        <button style="background-color:cadetblue; border-radius: 25%">Ingresar calificacion</button>
+        <button style="background-color:chartreuse; border-radius: 25%">Modifica calificacion</button>
     </div>
     <div style=" justify-content: center; display:flex;" >
         <table class="tabla" style="width: 50%">
