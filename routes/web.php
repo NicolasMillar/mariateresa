@@ -108,6 +108,7 @@ Route::get('participantes/{curso}', 'App\Http\Controllers\ParticipanteController
 Route::post('participantes/{curso}', 'App\Http\Controllers\ParticipanteController@store')->name('participante.store');
 
 Route::get('alumnohome/calificaciones/{asignatura}/{alumno}', 'App\Http\Controllers\CalificacionController@index')->name('calificacion.index');
+Route::get('profesorhome/calificaciones/{asignatura}/', 'App\Http\Controllers\CalificacionController@profesor')->name('calificacion.profesor');
 Route::get('alumnohome/anotaciones/{alumno}', 'App\Http\Controllers\AnotacionController@index')->name('anotacion.index');
 Route::get('login', 'App\Http\Controllers\AlumnoProfesor@login')->name('login');
 Route::post('validar', 'App\Http\Controllers\AlumnoProfesor@validar')->name('validar');
