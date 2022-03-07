@@ -13,17 +13,17 @@
 @section('Content')
     <div>
         <div style="width: 100%; ">
-            <div style="float:left; border: solid blue 1px; width: 15%;">
+            <div style="float:left; border: solid blue 1px; width: 15%; justify-content: center;">
                 <button style="background-color:rgba(62, 62, 248, 0.664)" id="boton">Crear Evaluacion</button>
             </div>
-            <div style="float:left; border: solid green 1px; width: 70%;">
+            <div style="float:left; border: solid green 1px; width: 70%; justify-content: center;">
                 <button style="background-color:cadetblue" id="boton">Ingresar calificacion</button>
             </div>
-            <div style="float:left; border: solid red 1px; width: 15%;">
+            <div style="float:left; border: solid red 1px; width: 15%; justify-content: center;">
                 <button style="background-color:darkolivegreen" id="boton">Modifica calificacion</button>
             </div>        
         </div>
-        <div style=" justify-content: center; display:block" >
+        <div style=" justify-content: center; float:none" >
             <table class="tabla" style="width: 50%">
                 <thead>
                     <tr>
