@@ -18,7 +18,7 @@
         <div style="float:left">
             <button style="background-color:cadetblue" id="boton">Ingresar calificacion</button>
         </div>
-        <div style="float:left">
+        <div style="float:right">
             <button style="background-color:darkolivegreen" id="boton">Modifica calificacion</button>
         </div>        
         
