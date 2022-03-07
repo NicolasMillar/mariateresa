@@ -11,14 +11,14 @@
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
-    <div style="align-content:left">
-        <div style="border-color: red;">
+    <div>
+        <div style="float:left">
             <button style="background-color:rgba(62, 62, 248, 0.664)" id="boton">Crear Evaluacion</button>
         </div>
-        <div style="border-color:green">
+        <div style="float:left">
             <button style="background-color:cadetblue" id="boton">Ingresar calificacion</button>
         </div>
-        <div style="border-color: blue">
+        <div style="float:left">
             <button style="background-color:darkolivegreen" id="boton">Modifica calificacion</button>
         </div>        
         
