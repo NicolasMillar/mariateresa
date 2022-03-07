@@ -115,6 +115,6 @@ Route::post('validar', 'App\Http\Controllers\AlumnoProfesor@validar')->name('val
 Route::get('alumnohome', 'App\Http\Controllers\AlumnoProfesor@alumno')->name('alumnohome');
 Route::get('profesorhome', 'App\Http\Controllers\AlumnoProfesor@profesor')->name('profesorhome');
 Route::get('cerrarsession', 'App\Http\Controllers\AlumnoProfesor@cerrarsession')->name('cerrarsession');
-Route::get('calendarioprofesor', 'App\Http\Controllers\AlumnoProfesor@calendario')->name('calendarioprofesor');
+Route::get('profesorhome/calendarioprofesor', 'App\Http\Controllers\AlumnoProfesor@calendario')->name('calendarioprofesor');
 Route::get('notasprofesor', 'App\Http\Controllers\AlumnoProfesor@notasprofesor')->name('notasprofesor');
 Route::get('calendarioalumno', 'App\Http\Controllers\AlumnoProfesor@calendario')->name('calendarioalumno');

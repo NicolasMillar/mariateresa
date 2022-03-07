@@ -77,8 +77,8 @@
                             @endforeach  
                           </ul>
                         </li>
-                        <li><a href="{{route('calendarioprofesor')}}">Anotaciones</a></li>
-                        <li><a href="">Calendario</a></li>
+                        <li><a href="">Anotaciones</a></li>
+                        <li><a href="{{route('calendarioprofesor')}}">Calendario</a></li>
                         <li><a href="">Cuenta</a></li>
                       </ul>
                   </nav>
