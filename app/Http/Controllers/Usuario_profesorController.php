@@ -6,6 +6,7 @@ use App\Models\Titulo_profesor;
 use App\Models\Usuario_profesor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 
 class Usuario_profesorController extends Controller
