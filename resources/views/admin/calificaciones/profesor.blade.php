@@ -11,7 +11,7 @@
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
-    <div>
+    <div style="align-content: flex-end">
         <div style="border-color: red;">
             <button style="background-color:rgba(62, 62, 248, 0.664)" id="boton">Crear Evaluacion</button>
         </div>
@@ -21,7 +21,6 @@
         <div style="border-color: blue">
             <button style="background-color:darkolivegreen" id="boton">Modifica calificacion</button>
         </div>        
-        
         
     </div>
     <div style=" justify-content: center; display:flex;" >
