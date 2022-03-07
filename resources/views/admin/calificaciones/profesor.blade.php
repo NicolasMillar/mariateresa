@@ -23,8 +23,8 @@
                 <button style="background-color:darkolivegreen" id="boton">Modifica calificacion</button>
             </div>        
         </div>
-        <div style="text-align:center; margin-top:2%">
-            <table class="tabla" style="width: 50%; margin: 0 auto;">
+        <div style="text-align:center">
+            <table class="tabla" style="width: 50%; margin: 0 auto; margin-top:2%">
                 <thead>
                     <tr>
                         <th>Nombre Alumno</th>
