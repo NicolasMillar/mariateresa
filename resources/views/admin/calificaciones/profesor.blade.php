@@ -8,6 +8,7 @@
     $sessionFoto = session('Imagen');
     $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
     $sessionasignatura = collect($sessionasignatura);
+    
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
@@ -61,10 +62,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(['route'=>'admin.evento.store']) !!}
-                    <h6>Fecha de la evaluacion</h6>
+                    {!! Form::open(['route'=>['admin.prueba.registrar',$asignaturas]]) !!}
                     <div class="form-group" style="margin-top: 10px;">
-                        {!! Form::label('inicio', 'Fecha de inicio') !!}
+                        {!! Form::label('inicio', 'Fecha de evaluacion') !!}
                         {!! Form::date('inicio', \Carbon\Carbon::now()); !!}
                     </div>
                     <h6>Descripcion de la evaluacion</h6>

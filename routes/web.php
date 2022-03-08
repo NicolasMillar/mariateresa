@@ -102,6 +102,7 @@ Route::resource('asistentes', AsistenteController::class)->names('admin.asistent
 Route::resource('asignaturas', AsignaturaController::class)->names('admin.asignatura');
 Route::resource('categorias', CategoriaAsignaturaController::class)->names('admin.categoria_asignatura');
 Route::resource('talleres', TallerController::class)->names('admin.taller');
+Route::resource('notas', PruebaController::class)->names('admin.prueba');
 
 Route::resource('file', 'App\Http\Controllers\FileController');
 Route::get('participantes/{curso}', 'App\Http\Controllers\ParticipanteController@create')->name('participante.create');
@@ -118,3 +119,4 @@ Route::get('profesorhome', 'App\Http\Controllers\AlumnoProfesor@profesor')->name
 Route::get('cerrarsession', 'App\Http\Controllers\AlumnoProfesor@cerrarsession')->name('cerrarsession');
 Route::get('profesorhome/calendarioprofesor', 'App\Http\Controllers\AlumnoProfesor@calendario')->name('calendarioprofesor');
 Route::get('alumnohome/calendarioalumno', 'App\Http\Controllers\AlumnoProfesor@calendario')->name('calendarioalumno');
+
