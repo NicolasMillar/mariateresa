@@ -62,7 +62,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(['route'=>['prueba.registrar',$cualquiera->id], 'id'=>'registrarEvaluacion' ] )!!}
+                    {!! Form::open(['route'=>['prueba.registrar',$cualquiera], 'id'=>'registrarEvaluacion' ] )!!}
                         {!! Form::label('Fe', 'FECHA De Evaluacion') !!}
                         {!! Form::date('FechaE', null,['id'=>'FechaE', 'class'=>'form-control', 'min'=>$hoy]) !!}
                         {!! Form::label('descri', 'Descripcion de la evaluacion') !!}
