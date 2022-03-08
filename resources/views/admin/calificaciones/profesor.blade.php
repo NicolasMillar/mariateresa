@@ -64,7 +64,7 @@
                 <div class="modal-body">
                     {!! Form::open(['route'=>['prueba.registrar',$cualquiera->id]]) !!}
                         {!! Form::label('FechaE', 'FECHA De Evaluacion') !!}
-                        {!! Form::date('FechaE', ['id'=>'FechaE', 'class'=>'form-control', 'min'=>$hoy]) !!}
+                        {!! Form::date('FechaE', null,['id'=>'FechaE', 'class'=>'form-control', 'min'=>$hoy]) !!}
                         @error('FechaE')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
