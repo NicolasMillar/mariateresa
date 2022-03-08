@@ -23,10 +23,7 @@
                 <div class="card">
                     <div class="card-body" style="background-color: lightblue">
                         {!! Form::open(['route'=>'admin.homeslider.store', 'enctype'=>'multipart/form-data']) !!}
-                            <div class="form-group" style="margin-top: 10px;">
-                                {!! Form::label('Titulo', 'TITULO') !!}
-                                {!! Form::text('Titulo', null, ['class'=>'form-control', 'placeholder'=>'Ingrese un titulo']) !!}
-                            </div>
+                            
                             <div class="form-group" style="margin-top: 10px;">
                                 {!! Form::label('Link', 'LINK') !!}
                                 {!! Form::text('Link', null, ['class'=>'form-control', 'placeholder'=>'Ingrese el Link de la imagen']) !!}
@@ -37,10 +34,6 @@
                                 @error('Image')
                                     <small class="text-danger">{{$message}}</small>
                                 @enderror
-                            </div>
-                            <div class="form-group" style="margin-top: 10px">
-                                {!! Form::label('Estado', 'ESTADO') !!}
-                                {!! Form::select('Estado', ['Inactivo', 'Activo'], 'Inactivo', ['class'=>'form-control']) !!}
                             </div>
 
                             {!! Form::submit('guardar', ['class'=>'btn btn-primary', 'style'=>'margin-top: 10px']) !!}

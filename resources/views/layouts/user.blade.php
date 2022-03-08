@@ -100,9 +100,6 @@
                       <div class="margen">
                           <x-jet-nav-link  style="font-size: 175%;" href='#'>Calendario</x-jet-nav-link>
                       </div>
-                      <div class="margen">
-                          <x-jet-nav-link  style="font-size: 175%;" href='#'>Cuenta</x-jet-nav-link>
-                      </div>
                   </nav>
                 </div>
               </div>

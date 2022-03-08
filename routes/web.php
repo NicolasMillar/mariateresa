@@ -115,3 +115,4 @@ Route::get('login', 'App\Http\Controllers\newlogincontroller@login')->name('logi
 Route::post('validar', 'App\Http\Controllers\newlogincontroller@validar')->name('validar');
 Route::get('alumnohome', 'App\Http\Controllers\newlogincontroller@alumno')->name('alumnohome');
 Route::get('cerrarsession', 'App\Http\Controllers\newlogincontroller@cerrarsession')->name('cerrarsession');
+Route::post('movillogin', 'App\Http\Controllers\MobileController@login');

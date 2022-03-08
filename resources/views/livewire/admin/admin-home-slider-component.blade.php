@@ -29,7 +29,6 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Titulo</th>
                                     <th>Imagen</th>
                                     <th>Link</th>
                                     <th>Estado</th>
@@ -42,7 +41,6 @@
                                 @foreach ($sliders as $slider)
                                     <tr>
                                         <td>{{$slider->id}}</td>
-                                        <td>{{$slider->Titulo}}</td>
                                         <td><img src="{{asset($slider->Image)}}" width="120" /></td>
                                         <td>{{$slider->Link}}</td>
                                         <td>{{$slider->Estado == 1 ? 'Active':'Inactive'}}</td>

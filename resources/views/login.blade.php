@@ -33,6 +33,8 @@
                         <label for="estudiante">estudiante</label>
                         <input type="radio" id="profesor" name="Tipo_usuario" value="PROFESOR">
                         <label for="profesor">profesor</label>
+                        <input type="radio" id="admin" name="Tipo_usuario" value="ADMINISTRADOR">
+                        <label for="admin">administrador</label>
                     </div>
                     <div style="margin: 4%">
                         <label for="remember_me" class="flex items-center">

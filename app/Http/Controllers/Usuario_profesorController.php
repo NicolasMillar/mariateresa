@@ -51,12 +51,11 @@ class Usuario_profesorController extends Controller
             'FechaI'=>'required',
             'Password'=>['required','min:6','regex:/^.*(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!"#$%&()*+,-.:;<=>?@_`{|}~]).*$/'],
             'Imagen'=>'required|image',
-            'Estado'=>'required',
             'addmore.*' => 'required',
         ]);
         $imagenes = $request->file('Imagen')->store('public/usuario_profesor');
         $url = Storage::url($imagenes);
-        $Estado=$request->Estado==1 ? 'active':'inactive';
+        $Estado='active';
         Usuario_profesor::create([
             'Rut'=>$request->Rut,
             'DigitoV_Profesor'=>$request->DV,

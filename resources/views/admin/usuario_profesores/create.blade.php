@@ -88,10 +88,6 @@
                                 @enderror
                             </div>
                             <div class="form-group" style="margin-top: 10px">
-                                {!! Form::label('Estado', 'ESTADO') !!}
-                                {!! Form::select('Estado', ['Inactivo', 'Activo'], 'Inactivo', ['class'=>'form-control']) !!}
-                            </div>
-                            <div class="form-group" style="margin-top: 10px">
                                 
                                 <table class="table table-bordered" id="dynamicTable">  
                                     <tr>
