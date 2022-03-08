@@ -90,4 +90,5 @@
     function crearEvaluacion(){
         $("#Crearevaluacion").modal("show");
     }
+    cosole.log($cualquiera);
 </script>
