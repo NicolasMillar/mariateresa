@@ -65,23 +65,14 @@
                     {!! Form::open(['route'=>['prueba.registrar',$cualquiera->id], 'id'=>'registrarEvaluacion' ] )!!}
                         {!! Form::label('Fe', 'FECHA De Evaluacion') !!}
                         {!! Form::date('FechaE', null,['id'=>'FechaE', 'class'=>'form-control', 'min'=>$hoy]) !!}
-                        @error('FechaE')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror
                         {!! Form::label('descri', 'Descripcion de la evaluacion') !!}
                         {!! Form::text('Descripcion', null, ['class'=>'form-control', 'placeholder'=>'Ingrese una descripcion de la evaluacion']) !!}
-                        @error('Descripcion')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror
                         {!! Form::label('sem', 'Semestre') !!}
                         {!! Form::select('semestre', ['1', '2', '3', '4', '5', '6', '7', '8', '9'], '0', ['class'=>'form-control'] ) !!}
-                            @error('semestre')
-                                <small class="text-danger">{{$message}}</small>
-                            @enderror
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" {{ (!is_null($Descripcion) && !empty($Descripcion)) ? '' : 'disabled' }} >Guardar cambios</button>
+                    <button type="submit" class="btn btn-primary"  >Guardar cambios</button>
                     {!! Form::close() !!}
                 </div>
             </div>
@@ -99,5 +90,17 @@
     function crearEvaluacion(){
         $("#Crearevaluacion").modal("show");
     }
-    
+    $("#Descripcion").keyup(function(event) {
+        validateInputs();
+    });
+    function validateInputs(){
+        var disableButton = false;
+
+        var val1 = $("#Descripcion").val();
+
+        if(val1.length == 0 )
+            disableButton = true;
+
+        $('.sendButton').attr('disabled', disableButton);
+    }
 </script>
