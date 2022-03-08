@@ -63,17 +63,17 @@
                 </div>
                 <div class="modal-body">
                     {!! Form::open(['route'=>['prueba.registrar',$cualquiera->id], 'id'=>'registrarEvaluacion' ] )!!}
-                        {!! Form::label('FechaE', 'FECHA De Evaluacion') !!}
+                        {!! Form::label('Fe', 'FECHA De Evaluacion') !!}
                         {!! Form::date('FechaE', null,['id'=>'FechaE', 'class'=>'form-control', 'min'=>$hoy]) !!}
                         @error('FechaE')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
-                        {!! Form::label('Descripcion', 'Descripcion de la evaluacion') !!}
+                        {!! Form::label('descri', 'Descripcion de la evaluacion') !!}
                         {!! Form::text('Descripcion', null, ['class'=>'form-control', 'placeholder'=>'Ingrese una descripcion de la evaluacion']) !!}
                         @error('Descripcion')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
-                        {!! Form::label('semestre', 'Semestre') !!}
+                        {!! Form::label('sem', 'Semestre') !!}
                         {!! Form::select('semestre', ['1', '2', '3', '4', '5', '6', '7', '8', '9'], '0', ['class'=>'form-control'] ) !!}
                             @error('semestre')
                                 <small class="text-danger">{{$message}}</small>
@@ -81,7 +81,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    {!! Form::submit('guardar', ['class'=>'btn btn-primary', 'disabled'=>'registrarEvaluacion.form.invalid']) !!}
+                    {!! Form::submit('guardar', ['class'=>'btn btn-primary', {{ (!is_null($Descripcion) && !empty($Descripcion) ? '' : 'disabled' }}]) !!}
                     {!! Form::close() !!}
                 </div>
             </div>
