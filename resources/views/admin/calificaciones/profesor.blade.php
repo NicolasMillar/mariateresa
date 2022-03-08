@@ -64,24 +64,24 @@
                 <div class="modal-body">
                     {!! Form::open(['route'=>['prueba.registrar',$cualquiera->id], 'id'=>'registrar' ] )!!}
                         {!! Form::label('FechaE', 'FECHA De Evaluacion') !!}
-                        {!! Form::date('FechaE', null,['id'=>'FechaE', 'class'=>'form-control', 'min'=>$hoy], 'id'=>'fecha') !!}
+                        {!! Form::date('FechaE', null,['id'=>'FechaE', 'class'=>'form-control', 'min'=>$hoy]) !!}
                         @error('FechaE')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                         {!! Form::label('Descripcion', 'Descripcion de la evaluacion') !!}
-                        {!! Form::text('Descripcion', null, ['class'=>'form-control', 'placeholder'=>'Ingrese una descripcion de la evaluacion'], 'id'=>'descripcion') !!}
+                        {!! Form::text('Descripcion', null, ['class'=>'form-control', 'placeholder'=>'Ingrese una descripcion de la evaluacion']) !!}
                         @error('Descripcion')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                         {!! Form::label('semestre', 'Semestre') !!}
-                        {!! Form::select('semestre', ['1', '2', '3', '4', '5', '6', '7', '8', '9'], '0', ['class'=>'form-control'], 'id'=>'semestre') !!}
+                        {!! Form::select('semestre', ['1', '2', '3', '4', '5', '6', '7', '8', '9'], '0', ['class'=>'form-control'] ) !!}
                             @error('semestre')
                                 <small class="text-danger">{{$message}}</small>
                             @enderror
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    {!! Form::submit('guardar', ['class'=>'btn btn-primary']) !!}
+                    {!! Form::submit('guardar', ['class'=>'btn btn-primary'],'[deseable]'=>'ngForm.form.invalid') !!}
                     {!! Form::close() !!}
                 </div>
             </div>
@@ -100,10 +100,4 @@
         $("#Crearevaluacion").modal("show");
     }
     
-    $("#registrar").submit(function(event){
-        event.preventDefault();
-        if($("#fecha").serialize()==null){
-            $("#Crearevaluacion").modal("hide");
-        }
-    })
 </script>
