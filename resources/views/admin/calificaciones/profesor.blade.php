@@ -72,7 +72,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    {!! Form::submit('guardar', ['class'=>'btn btn-primary', 'style'=>'margin-top: 10px']) !!}
+                    {!! Form::submit('guardar', ['class'=>'btn btn-primary']) !!}
                     {!! Form::close() !!}
                 </div>
             </div>
