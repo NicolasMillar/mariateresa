@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class PruebaController extends Controller
 {
     public function registrar(Asignatura $asignatura){
-        json_encode($asignatura->id);
+        echo($asignatura->id);
     }
 }
