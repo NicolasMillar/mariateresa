@@ -62,6 +62,11 @@
                 </div>
                 <div class="modal-body">
                     <h6>Fecha de la evaluacion</h6>
+                    <div class="form-group" style="margin-top: 10px;">
+                        {!! Form::label('inicio', 'Fecha de inicio') !!}
+                        {!! Form::date('inicio', \Carbon\Carbon::now()); !!}
+                        {!! Form::time('horainicio', \Carbon\Carbon::now()); !!}
+                    </div>
                     <h6>Descripcion de la evaluacion</h6>
                     <input type="text" name="" id="">
                 </div>
