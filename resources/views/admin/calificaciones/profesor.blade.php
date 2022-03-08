@@ -8,7 +8,7 @@
     $sessionFoto = session('Imagen');
     $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
     $sessionasignatura = collect($sessionasignatura);
-    
+    $hoy =\Carbon\Carbon::now();
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
@@ -63,12 +63,16 @@
                 </div>
                 <div class="modal-body">
                     {!! Form::open(['route'=>['prueba.registrar',$cualquiera->id]]) !!}
-                    <div class="form-group" style="margin-top: 10px;">
-                        {!! Form::label('inicio', 'Fecha de evaluacion') !!}
-                        {!! Form::date('inicio', \Carbon\Carbon::now()); !!}
-                    </div>
-                    <h6>Descripcion de la evaluacion</h6>
-                    <input type="text" name="" id="">
+                        {!! Form::label('FechaE', 'FECHA De Evaluacion') !!}
+                        {!! Form::date('FechaE', $dateN, ['id'=>'FechaE', 'class'=>'form-control', 'min'=>$hoy]) !!}
+                        @error('FechaE')
+                            <small class="text-danger">{{$message}}</small>
+                        @enderror
+                        {!! Form::label('Descripcion', 'Descripcion de la evaluacion') !!}
+                        {!! Form::text('Descripcion', null, ['class'=>'form-control', 'placeholder'=>'Ingrese una descripcion de la evaluacion']) !!}
+                        @error('Descripcion')
+                            <small class="text-danger">{{$message}}</small>
+                        @enderror
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
