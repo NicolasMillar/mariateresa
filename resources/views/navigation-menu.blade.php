@@ -271,7 +271,7 @@
        <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('alumnohome') }}" :active="request()->routeIs('alumnohome')">
                 {{ __('alumnohome') }}
-            </x-jet-responsive-nav-link>
+            </x-jet-responsive-nav-link> 
         </div>
 
         <!-- Responsive Settings Options -->

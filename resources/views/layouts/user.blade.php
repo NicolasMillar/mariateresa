@@ -19,6 +19,17 @@
         <link rel="stylesheet" href="..\..\..\node_modules\@splidejs\splide\dist\css\splide.min.css">
         <link rel="stylesheet" href="{{asset('css/estilos.css')}}">
 
+        <!-- full calendar -->
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/locales-all.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css">
+        <!--js bt4 -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!--css bt4 -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
         <!--Icons-->
         <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
         @livewireStyles
@@ -55,51 +66,30 @@
               <div class="left-div" id="left-div">
                 <div class="acciones">
                   <nav>
+                    <ul>
+                      <li class="dropdown"><a href="">Materiales</a>
+                        <ul>
+                          @foreach ($sessionasignatura as $asignatura)
+                            <li><a href="{{route('calificacion.index', [$asignatura, $sessionrut])}}"> {{$asignatura->Nombre_Asignatura}}</a></li>
+                          @endforeach  
+                        </ul>
+                      </li>
+                      <li class="dropdown"><a href="">Notas</a>
+                        <ul>
+                          @foreach ($sessionasignatura as $asignatura)
+                            <li><a href="{{route('calificacion.index', [$asignatura, $sessionrut])}}"> {{$asignatura->Nombre_Asignatura}}</a></li>
+                          @endforeach  
+                        </ul>
+                      </li>
+                      <li><a href="">Calendario</a></li>
                       <div class="margen">
-                          <x-jet-dropdown align="right">
-                              <x-slot name="trigger">
-                                  <x-jet-nav-link  style="font-size: 175%;">Materiales</x-jet-nav-link>
-                              </x-slot>
-                              
-                              <x-slot name="content">
-                                @foreach ($sessionasignatura as $asignatura)
-                                  <x-jet-dropdown-link class="text" href="{{route('calificacion.index', [$asignatura, $sessionrut])}}" style="font-size: 150%;">
-                                    {{$asignatura->Nombre_Asignatura}}
-                                  </x-jet-dropdown-link>
-                                @endforeach
-                              </x-slot>
-                              
-                          </x-jet-dropdown>
+                        <x-jet-dropdown align="right" >
+                          <x-slot name="trigger">
+                            <x-jet-nav-link href="{{route('anotacion.index', $sessionrut)}}" style="font-size: 175%;">Anotaciones</x-jet-nav-link>
+                          </x-slot>
+                        </x-jet-dropdown>
                       </div>
-                      <div class="margen">
-                          <x-jet-dropdown align="right">
-                              <x-slot name="trigger">
-                                  <x-jet-nav-link  style="font-size: 175%;">Notas</x-jet-nav-link>
-                              </x-slot>
-                              <x-slot name="content">
-                                  @foreach ($sessionasignatura as $asignatura)
-                                  <x-jet-dropdown-link class="text" href="{{route('calificacion.index', [$asignatura, $sessionrut])}}" style="font-size: 150%;">
-                                      {{$asignatura->Nombre_Asignatura}}
-                                    </x-jet-dropdown-link>
-                                  @endforeach
-                              </x-slot>
-                          </x-jet-dropdown>
-                      </div>
-                      <div class="margen">
-                          <x-jet-dropdown align="right" >
-                              <x-slot name="trigger">
-                                  <x-jet-nav-link href="{{route('anotacion.index', $sessionrut)}}" style="font-size: 175%;">Anotaciones</x-jet-nav-link>
-                              </x-slot>
-                              <x-slot name="content">
-                                  <x-jet-dropdown-link class="text" href="" style="font-size: 150%;">
-                                      Placeholder
-                                  </x-jet-dropdown-link>
-                              </x-slot>
-                          </x-jet-dropdown>
-                      </div>
-                      <div class="margen">
-                          <x-jet-nav-link  style="font-size: 175%;" href='#'>Calendario</x-jet-nav-link>
-                      </div>
+                      </ul>
                   </nav>
                 </div>
               </div>
@@ -247,33 +237,40 @@
     width: 35px;
     height: 35px;
   }
+  nav ul li a{
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    height: 70px;
+    transition: .5s ease;
+    border-radius: 0 30px;
+    font-size: 1.95em;
+    color: #fff;
+    text-transform: capitalize;
+  }
+  nav ul li a:hover{
+    background-attachment: rgba(0,0,0,0.7);
+    color: #fff;
+  }
+  nav ul ul{
+    position: absolute;
+    left: 250px;
+    width: 200px;
+    top: 0;
+    display: none;
+    background-color: #312e81;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7)
+
+  }
+  nav ul .dropdown{
+    position: relative;
+  }
+  nav ul .dropdown:hover ul{
+    display: initial;
+  }
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.min.css"/>
 <script>
-  jQuery(document).ready(function($){
-    $('.owl-carousel').owlCarousel({
-      stagePadding: 50,
-      autoplay:true,
-      loop:true,
-      nav:true,
-      center:true,
-      navText:["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
-      responsive:{
-        0:{
-          items:1
-        },
-        600:{
-          items:1
-        },
-        1000:{
-          items:1
-         }
-      }
-    })
-  })
   function OculatarDiv(){
     var x = document.getElementById("left-div");
     var y = document.getElementById("right-div");

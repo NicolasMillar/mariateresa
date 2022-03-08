@@ -6,17 +6,21 @@ use App\Models\Asignatura;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Usuario_alumno;
+use App\Models\Usuario_profesor;
 use Illuminate\Support\Facades\DB;
+use App\Models\Calificacion;
+use App\Models\Prueba;
+
 use Session;
 
-class newlogincontroller extends Controller
+class AlumnoProfesor extends Controller
 {
     public function login(){
         $sessiontipo = session('sessiontipo');
         if($sessiontipo == "alummno"){
             return redirect()->route('alumnohome');
         }else if($sessiontipo == "profesor"){
-            return "algun dia";
+            return redirect()->route('profesorhome');
         }else{
             return view('login');
         }
@@ -26,7 +30,28 @@ class newlogincontroller extends Controller
         if($sessiontipo == "alummno"){
             return view('alumnohome');
         }else if($sessiontipo == "profesor"){
-            return "algun dia";
+            return redirect()->route('profesorhome'); 
+        }else{
+            return redirect()->route('login'); 
+        }
+    }
+
+    public function profesor(){
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "alummno"){
+            return redirect()->route('alumnohome'); 
+        }else if($sessiontipo == "profesor"){
+            return view('profesorhome'); 
+        }else{
+            return redirect()->route('login'); 
+        }
+    }
+    public function calendario(){
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "profesor"){
+            return view('calendarioprofesor'); 
+        }if($sessiontipo == "alummno" ){
+            return view('calendarioalumno');
         }else{
             return redirect()->route('login'); 
         }
@@ -56,8 +81,21 @@ class newlogincontroller extends Controller
                 Session::flash('mensaje', "El Rut o la clave ingresada son incorrectos");
                 return redirect()->route('login'); 
             }
-        }else{
-            return "algun dia";
+        }else if($request->Tipo_usuario == 'PROFESOR'){
+            $consulta=Usuario_profesor::where('Rut',$request->Rut)->first();
+            if(Hash::check($request->Contraseña, $consulta->Contraseña)){
+                $dbasignatura=DB::table('asignaturas')->select('asignaturas.id')->join('cursos', 'asignaturas.ID_Curso', '=', 'cursos.id')->where('Estado_Curso', '=', 'active')->where('asignaturas.Rut_Profesor', '=', $request->Rut)->get();
+                $asignaturas=Asignatura::whereIn('id', $dbasignatura->pluck('id'))->get();
+                Session::put('rut', $consulta->Rut);
+                Session::put('dv', $consulta->DigitoV_Profesor);
+                Session::put('nombre',$consulta->Nombre_Profesor." ".$consulta->ApellidoP_Profesor);
+                Session::put('sessiontipo','profesor');
+                Session::put('asignaturas', $asignaturas->toArray());
+                return redirect()->route('profesorhome');
+            }else{
+                Session::flash('mensaje', "El Rut o la clave ingresada son incorrectos");
+                return redirect()->route('login'); 
+            }
         }
     }
 

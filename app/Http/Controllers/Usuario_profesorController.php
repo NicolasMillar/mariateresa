@@ -6,6 +6,7 @@ use App\Models\Titulo_profesor;
 use App\Models\Usuario_profesor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 
 class Usuario_profesorController extends Controller
@@ -55,14 +56,19 @@ class Usuario_profesorController extends Controller
         ]);
         $imagenes = $request->file('Imagen')->store('public/usuario_profesor');
         $url = Storage::url($imagenes);
+<<<<<<< HEAD
         $Estado='active';
+=======
+        $password=Hash::make($request->Password);
+        $Estado=$request->Estado==1 ? 'active':'inactive';
+>>>>>>> Nicolas
         Usuario_profesor::create([
             'Rut'=>$request->Rut,
             'DigitoV_Profesor'=>$request->DV,
             'Nombre_Profesor'=>$request->Nombre,
             'ApellidoP_Profesor'=>$request->ApellidoP,
             'ApellidoM_Profesor'=>$request->ApellidoM,
-            'Contraseña'=>$request->Password,
+            'Contraseña'=>$password,
             'FechaInicio_Profesor'=>$request->FechaI,
             'Imagen'=>$url,
             'Estado_Profesor'=>$Estado
