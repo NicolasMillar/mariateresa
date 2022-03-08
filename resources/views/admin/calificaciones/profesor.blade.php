@@ -53,6 +53,6 @@
 <style>
     #boton{
         font-size: 20px; 
-        border-radius: 25%;
+        border-radius: 12px;
     }   
 </style>    
