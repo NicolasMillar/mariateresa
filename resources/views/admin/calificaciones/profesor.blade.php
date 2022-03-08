@@ -13,13 +13,13 @@
 @section('Content')
     <div style="width: 100%;">
         <div style="width: 100%">
-            <div style="float:right; width:20% ">
+            <div style="float:right; width:15% ">
                 <button style="background-color:rgba(62, 62, 248, 0.664) " id="boton">Crear Evaluacion</button>
             </div>
-            <div style="float: right; width:20% ">
+            <div style="float: right; width:15% ">
                 <button style="background-color:cadetblue " id="boton">Ingresar calificacion</button>
             </div>
-            <div style="float: right; width:20% ">
+            <div style="float: right; width:15% ">
                 <button style="background-color:darkolivegreen" id="boton">Modifica calificacion</button>
             </div>        
         </div>
