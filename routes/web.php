@@ -102,7 +102,7 @@ Route::resource('asistentes', AsistenteController::class)->names('admin.asistent
 Route::resource('asignaturas', AsignaturaController::class)->names('admin.asignatura');
 Route::resource('categorias', CategoriaAsignaturaController::class)->names('admin.categoria_asignatura');
 Route::resource('talleres', TallerController::class)->names('admin.taller');
-Route::resource('notas', 'App\Http\Controllers\PruebaController@registrar')->name('prueba.registrar');
+Route::post('notas', 'App\Http\Controllers\PruebaController@registrar')->name('prueba.registrar');
 
 Route::resource('file', 'App\Http\Controllers\FileController');
 Route::get('participantes/{curso}', 'App\Http\Controllers\ParticipanteController@create')->name('participante.create');
