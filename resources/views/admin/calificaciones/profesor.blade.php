@@ -87,22 +87,8 @@
 </style>
 
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script type="text/javascript">
+<script >
     function crearEvaluacion(){
         $("#Crearevaluacion").modal("show");
-    }
-    $("#Descripcion").keyup(function(event) {
-        validateInputs();
-    });
-    function validateInputs(){
-        var disableButton = false;
-
-        var val1 = $("#Descripcion").val();
-
-        if(val1.length == 0 )
-            disableButton = true;
-
-        $('.sendButton').attr('disabled', disableButton);
     }
 </script>

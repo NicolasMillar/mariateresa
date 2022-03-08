@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Asignatura;
+use App\Models\Prueba;
 
 use Illuminate\Http\Request;
 
@@ -11,6 +12,12 @@ class PruebaController extends Controller
         $anio= \Carbon\Carbon::now();
         $year =date('Y', strtotime($anio));
         $asignatura2 = Asignatura::where('id', '=', $asignatura->id)->get();
-        
+        echo ("Nombre_Prueba="+$request->Descripcion+ " Fecha_Prueba="+$request->FechaE+" Semestre="+$request->semestre);
+        /*Prueba::create([
+            'Nombre_Prueba'=>$request->Descripcion,
+            'Fecha_Prueba'=>$request->FechaE,
+            'Semestre'=>$request->semestre,
+            'ID_Asignatura'=>$asignatura->id
+        ]);*/
     }
 }
