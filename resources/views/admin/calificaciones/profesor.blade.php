@@ -62,7 +62,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open($cualquiera, ['route'=>['prueba.registrar',$cualquiera]]) !!}
+                    {!! Form::model($cualquiera,['route'=>['prueba.registrar',$cualquiera]],'method'=>'post' ) !!}
                     <div class="form-group" style="margin-top: 10px;">
                         {!! Form::label('inicio', 'Fecha de evaluacion') !!}
                         {!! Form::date('inicio', \Carbon\Carbon::now()); !!}
