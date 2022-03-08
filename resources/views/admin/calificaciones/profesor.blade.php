@@ -62,7 +62,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(['route'=>['prueba.registrar',$cualquiera->id], 'id'=>'registrar' ] )!!}
+                    {!! Form::open(['route'=>['prueba.registrar',$cualquiera->id], 'id'=>'registrarEvaluacion' ] )!!}
                         {!! Form::label('FechaE', 'FECHA De Evaluacion') !!}
                         {!! Form::date('FechaE', null,['id'=>'FechaE', 'class'=>'form-control', 'min'=>$hoy]) !!}
                         @error('FechaE')
@@ -81,7 +81,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    {!! Form::submit('guardar', ['class'=>'btn btn-primary', 'disabled'=>'registrar.form.invalid']) !!}
+                    {!! Form::submit('guardar', ['class'=>'btn btn-primary', 'disabled'=>'registrarEvaluacion.form.invalid']) !!}
                     {!! Form::close() !!}
                 </div>
             </div>
