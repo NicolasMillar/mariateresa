@@ -81,7 +81,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    {!! Form::submit('guardar', ['class'=>'btn btn-primary', 'disabled'=>'ngForm.form.invalid']) !!}
+                    {!! Form::submit('guardar', ['class'=>'btn btn-primary', 'disabled'=>'registrar.form.invalid']) !!}
                     {!! Form::close() !!}
                 </div>
             </div>
