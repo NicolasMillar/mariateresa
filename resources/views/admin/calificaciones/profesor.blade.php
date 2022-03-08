@@ -14,7 +14,7 @@
     <div style="width: 100%;">
         <div style="width: 100%">
             <div style="float:right; width:12% ">
-                <button style="background-color:rgba(62, 62, 248, 0.664) " id="boton" onclick="">Crear Evaluacion</button>
+                <button style="background-color:rgba(62, 62, 248, 0.664) " id="boton" onclick="crearEvaluacion()">Crear Evaluacion</button>
             </div>
             <div style="float: right; width:12% ">
                 <button style="background-color:cadetblue " id="boton">Ingresar calificacion</button>
