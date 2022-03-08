@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class PruebaController extends Controller
 {
-    //
+    public function registrar(){
+        
+    }
 }

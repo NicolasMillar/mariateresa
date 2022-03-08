@@ -65,14 +65,13 @@
                     <div class="form-group" style="margin-top: 10px;">
                         {!! Form::label('inicio', 'Fecha de inicio') !!}
                         {!! Form::date('inicio', \Carbon\Carbon::now()); !!}
-                        {!! Form::time('horainicio', \Carbon\Carbon::now()); !!}
                     </div>
                     <h6>Descripcion de la evaluacion</h6>
                     <input type="text" name="" id="">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" onclick="{{route('')}}">Save changes</button>
                 </div>
             </div>
         </div>
@@ -89,4 +88,5 @@
     function crearEvaluacion(){
         $("#Crearevaluacion").modal("show");
     }
+    cosole.log($asignatura->id);
 </script>
