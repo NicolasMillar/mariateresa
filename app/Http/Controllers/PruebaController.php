@@ -10,10 +10,7 @@ class PruebaController extends Controller
     public function registrar(Asignatura $asignatura, Request $request){
         $anio= \Carbon\Carbon::now();
         $year =date('Y', strtotime($anio));
-        $request->validate([
-            'Descripcion'=>'required|',
-            'FechaE'=>"required|date",
-        ]);
         $asignatura2 = Asignatura::where('id', '=', $asignatura->id)->get();
+        
     }
 }

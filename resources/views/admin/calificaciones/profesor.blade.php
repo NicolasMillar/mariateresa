@@ -62,17 +62,22 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(['route'=>['prueba.registrar',$cualquiera->id]]) !!}
+                    {!! Form::open(['route'=>['prueba.registrar',$cualquiera->id], 'id'=>'registrar' ] )!!}
                         {!! Form::label('FechaE', 'FECHA De Evaluacion') !!}
-                        {!! Form::date('FechaE', null,['id'=>'FechaE', 'class'=>'form-control', 'min'=>$hoy]) !!}
+                        {!! Form::date('FechaE', null,['id'=>'FechaE', 'class'=>'form-control', 'min'=>$hoy], 'id'=>'fecha') !!}
                         @error('FechaE')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                         {!! Form::label('Descripcion', 'Descripcion de la evaluacion') !!}
-                        {!! Form::text('Descripcion', null, ['class'=>'form-control', 'placeholder'=>'Ingrese una descripcion de la evaluacion']) !!}
+                        {!! Form::text('Descripcion', null, ['class'=>'form-control', 'placeholder'=>'Ingrese una descripcion de la evaluacion'], 'id'=>'descripcion') !!}
                         @error('Descripcion')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
+                        {!! Form::label('semestre', 'Semestre') !!}
+                        {!! Form::select('semestre', ['1', '2', '3', '4', '5', '6', '7', '8', '9'], '0', ['class'=>'form-control'], 'id'=>'semestre') !!}
+                            @error('semestre')
+                                <small class="text-danger">{{$message}}</small>
+                            @enderror
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -94,5 +99,11 @@
     function crearEvaluacion(){
         $("#Crearevaluacion").modal("show");
     }
-    cosole.log($cualquiera);
+    
+    $("#registrar").submit(function(event){
+        event.preventDefault();
+        if($("#fecha").serialize()==null){
+            $("#Crearevaluacion").modal("hide");
+        }
+    })
 </script>
