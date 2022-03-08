@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PruebaController extends Controller
 {
     public function registrar(Asignatura $asignatura){
-        $asignatura2 = Asignatura::where('ID_Asignatura', '=', $asignatura->id)->get();
+        $asignatura2 = Asignatura::where('id', '=', $asignatura->id)->get();
         if(is_null($asignatura2)){
             echo "no funciona";
         }else{
