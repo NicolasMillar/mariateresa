@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class PruebaController extends Controller
 {
     public function registrar(Asignatura $asignatura){
-        cosole.log($asignatura->id);
+        console.log($asignatura->id);
     }
 }
