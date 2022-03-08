@@ -88,5 +88,4 @@
     function crearEvaluacion(){
         $("#Crearevaluacion").modal("show");
     }
-    cosole.log("{{$asignatura->id}}");
 </script>
