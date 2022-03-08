@@ -61,6 +61,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    {!! Form::open(['route'=>'admin.evento.store']) !!}
                     <h6>Fecha de la evaluacion</h6>
                     <div class="form-group" style="margin-top: 10px;">
                         {!! Form::label('inicio', 'Fecha de inicio') !!}
@@ -71,7 +72,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="">Save changes</button>
+                    {!! Form::submit('guardar', ['class'=>'btn btn-primary', 'style'=>'margin-top: 10px']) !!}
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
