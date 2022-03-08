@@ -16,7 +16,7 @@ class PruebaController extends Controller
             'Nombre_Prueba'=>$request->Descripcion,
             'Fecha_Prueba'=>$request->FechaE,
             'Semestre'=>$request->semestre,
-            'ID_Asignatura'=>$asignatura->id
+            'ID_Asignatura'=>$asignatura2->id
         ]);
         return redirect()->route('profesorhome')->with('info', 'se creo la evaluacion');
     }
