@@ -119,4 +119,4 @@ Route::get('profesorhome', 'App\Http\Controllers\AlumnoProfesor@profesor')->name
 Route::get('cerrarsession', 'App\Http\Controllers\AlumnoProfesor@cerrarsession')->name('cerrarsession');
 Route::get('profesorhome/calendarioprofesor', 'App\Http\Controllers\AlumnoProfesor@calendario')->name('calendarioprofesor');
 Route::get('alumnohome/calendarioalumno', 'App\Http\Controllers\AlumnoProfesor@calendario')->name('calendarioalumno');
-Route::get('profesorhome/calendarioprofesor','App\Http\Controllers\calendarioController@mostrarprofesor')->name('mostrarprofesor');
+Route::get('profesorhome/calendarioprofesor/mostrar','App\Http\Controllers\calendarioController@mostrarprofesor')->name('mostrarprofesor');
