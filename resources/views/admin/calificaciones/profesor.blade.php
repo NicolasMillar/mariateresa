@@ -9,7 +9,7 @@
     $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
     $sessionasignatura = collect($sessionasignatura);
     $hoy =\Carbon\Carbon::now();
-    echo ($cualquiera);
+    echo ($cualquiera->id);
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
