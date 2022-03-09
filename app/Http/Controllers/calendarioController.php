@@ -5,9 +5,10 @@ use Session;
 
 class calendarioController extends Controller{
 
-    public function mostrarprofesor(Prueba $prueba){
+    public function mostrarprofesor(Prueba $p){
         $pruebas= Prueba::all();
-        return response()->json($pruebas);
+        $cantidad=count($pruebas);
+        echo($cantidad);
     }
 
 }
