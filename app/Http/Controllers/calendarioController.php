@@ -13,9 +13,9 @@ class calendarioController extends Controller{
             $star=$pruebas[$i]->Fecha_Prueba;
         }
         return response()->json([
-            'title' => '$title',
-            'start' =>  '$star',
-            'end' =>  '$star',
+            'title' => $title,
+            'start' =>  $star,
+            'end' =>  $star,
         ]);
     }
 
