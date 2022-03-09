@@ -6,7 +6,7 @@ use Session;
 class calendarioController extends Controller{
 
     public function mostrarprofesor(Prueba $pruebas){
-        $pruebas= $Prueba::all();
+        $prueba= Prueba::all();
         print_r($pruebas);
     }
 
