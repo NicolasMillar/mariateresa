@@ -7,7 +7,7 @@ class calendarioController extends Controller{
 
     public function mostrarprofesor(Prueba $prueba){
         $pruebas= Prueba::all();
-        print_r($pruebas);
+        return response()->json($pruebas);
     }
 
 }
