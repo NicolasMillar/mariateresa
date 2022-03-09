@@ -45,7 +45,7 @@
                 left: 'prev,next today',
                 right: 'dayGridMonth, timeGridWeek, listWeek'
             },
-            eventSources:[{{route('mostrarprofesor')}}], 
+            eventSources:[], 
             dateClick: function(info) {
               $("#exampleModal").modal("show");
             }
