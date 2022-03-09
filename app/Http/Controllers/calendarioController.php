@@ -17,6 +17,7 @@ class calendarioController extends Controller{
         return response()->json_encode([
             'title' => 'Lorem Ipsum',
             'start' =>  '2022-03-14',
+            'end' =>  '2022-03-14',
         ]);
     }
 
