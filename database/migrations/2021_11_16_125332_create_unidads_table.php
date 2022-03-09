@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMaterialesTable extends Migration
+class CreateUnidadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateMaterialesTable extends Migration
      */
     public function up()
     {
-        Schema::create('materiales', function (Blueprint $table) {
+        Schema::create('unidades', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre_Material');
-            $table->string('Link_Material');
-            $table->unsignedBigInteger('ID_Unidad');
-            $table->foreign('ID_Unidad')->references('id')->on('unidades')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('Valor');
+            $table->string('Nombre_Unidad');
+            $table->unsignedBigInteger('ID_Asignatura');
+            $table->foreign('ID_Asignatura')->references('id')->on('asignaturas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateMaterialesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('materials');
+        Schema::dropIfExists('unidades');
     }
 }

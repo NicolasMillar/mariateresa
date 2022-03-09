@@ -25,6 +25,7 @@ use App\Models\Noticia;
 use App\Models\Usuario_profesor;
 use App\Http\Controllers\AsignaturaController;
 use App\Http\Controllers\CategoriaAsignaturaController;
+use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\PsicologoController;
 use App\Http\Controllers\TallerController;
 use App\Models\Estudios_asistente;
@@ -102,6 +103,7 @@ Route::resource('asistentes', AsistenteController::class)->names('admin.asistent
 Route::resource('asignaturas', AsignaturaController::class)->names('admin.asignatura');
 Route::resource('categorias', CategoriaAsignaturaController::class)->names('admin.categoria_asignatura');
 Route::resource('talleres', TallerController::class)->names('admin.taller');
+Route::resource('materiales', MaterialController::class)->names('admin.material');
 
 Route::resource('file', 'App\Http\Controllers\FileController');
 Route::get('participantes/{curso}', 'App\Http\Controllers\ParticipanteController@create')->name('participante.create');

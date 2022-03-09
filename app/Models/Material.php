@@ -9,8 +9,8 @@ class Material extends Model
 {
     use HasFactory;
     protected $table = "materiales";
-    public function asignatura(){
-        return $this->belongsTo('App\Models\Asignatura');
+    public function unidad(){
+        return $this->belongsTo('App\Models\Unidad');
     }
 
 }

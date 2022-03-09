@@ -10,8 +10,9 @@ class Asignatura extends Model
     use HasFactory;
     protected $fillable=['Nombre_Asignatura', 'Estado_Asignatura', 'ID_Curso', 'ID_Categoria', 'Rut_Profesor'];
 
-    public function material(){
-        return $this->hasMany('App\Models\Material');
+    
+    public function unidad(){
+        return $this->hasMany('App\Models\Unidad');
     }
     public function anotacion(){
         return $this->hasMany('App\Models\Anotacion');

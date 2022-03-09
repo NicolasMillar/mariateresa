@@ -121,12 +121,12 @@
                     </x-jet-dropdown>
                 </div>--}}
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
-                    <x-jet-dropdown align="left">
-                        <x-slot name="trigger">
+                    {{--<x-jet-dropdown align="left">
+                        <x-slot name="trigger">--}}
                             <x-jet-nav-link href="{{route('comentarios')}}" :active="request()->routeIs('comentarios')" id="linkcolor">
                                 Contacto
                             </x-jet-nav-link>
-                        </x-slot>
+                        {{--</x-slot>--}}
                         {{--<x-slot name="content">
                             <x-jet-dropdown-link class="text" href="{{route('psicologia')}}" :active="request()->routeIs('psicologia')">
                                 Psicologa
@@ -140,7 +140,7 @@
                                 Comentarios
                             </x-jet-dropdown-link>
                         </x-slot>--}}
-                    </x-jet-dropdown>
+                    {{--</x-jet-dropdown>--}}
                 </div>
                 
             </div>

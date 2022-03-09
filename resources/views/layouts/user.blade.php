@@ -82,13 +82,11 @@
                         </ul>
                       </li>
                       <li><a href="">Calendario</a></li>
-                      <div class="margen">
-                        <x-jet-dropdown align="right" >
-                          <x-slot name="trigger">
-                            <x-jet-nav-link href="{{route('anotacion.index', $sessionrut)}}" style="font-size: 175%;">Anotaciones</x-jet-nav-link>
-                          </x-slot>
-                        </x-jet-dropdown>
-                      </div>
+                      <li class="dropdown"><a href="">Notas</a>
+                        <ul>
+                            <li><a href="{{route('anotacion.index', $sessionrut)}}" style="font-size: 175%;">Anotaciones</a></li>
+                          </ul>
+                        </li>
                       </ul>
                   </nav>
                 </div>
