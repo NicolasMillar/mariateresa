@@ -8,18 +8,19 @@
     $sessionFoto = session('Imagen');
     $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
     $sessionasignatura = collect($sessionasignatura);
+    $hoy =\Carbon\Carbon::now();
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
     <div style="width: 100%;">
-        <div style="width: 100%; ">
-            <div style="float:left; width: 15%; justify-content: center; display:flex">
-                <button style="background-color:rgba(62, 62, 248, 0.664)" id="boton">Crear Evaluacion</button>
+        <div style="width: 100%">
+            <div style="float:right; width:12% ">
+                <button style="background-color:rgba(62, 62, 248, 0.664) " id="boton" onclick="crearEvaluacion()">Crear Evaluacion</button>
             </div>
-            <div style="float:left; width: 70%; justify-content: center; display:flex">
-                <button style="background-color:cadetblue" id="boton">Ingresar calificacion</button>
+            <div style="float: right; width:12% ">
+                <button style="background-color:cadetblue " id="boton">Ingresar calificacion</button>
             </div>
-            <div style="float:left; width: 15%; justify-content: center; display:flex">
+            <div style="float: right; width:12% ">
                 <button style="background-color:darkolivegreen" id="boton">Modifica calificacion</button>
             </div>        
         </div>
@@ -49,10 +50,46 @@
         </div>
     </div>
     
+
+    <!-- Crear evaluacion -->
+    <div class="modal fade" id="Crearevaluacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Crear Nueva Evaluacion</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {!! Form::open(['route'=>['prueba.registrar',$cualquiera->id], 'id'=>'registrarEvaluacion' ] )!!}
+                        {!! Form::label('Fe', 'FECHA De Evaluacion') !!}
+                        <input type="hidden" name="asignatura" id="asignatura" value="{{$cualquiera->id}}">
+                        {!! Form::date('FechaE', null,['id'=>'FechaE', 'class'=>'form-control', 'min'=>$hoy]) !!}
+                        {!! Form::label('descri', 'Descripcion de la evaluacion') !!}
+                        {!! Form::text('Descripcion', null, ['class'=>'form-control', 'placeholder'=>'Ingrese una descripcion de la evaluacion']) !!}
+                        {!! Form::label('sem', 'Semestre') !!}
+                        {!! Form::select('semestre', ['1', '2', '3', '4', '5', '6', '7', '8', '9'], '0', ['class'=>'form-control'] ) !!}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary"  >Guardar cambios</button>
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
+  </div>
 @endsection
 <style>
     #boton{
-        font-size: 24px; 
-        border-radius: 4px;
+        font-size: 20px; 
+        border-radius: 12px;
     }   
-</style>    
+</style>
+
+
+<script >
+    function crearEvaluacion(){
+        $("#Crearevaluacion").modal("show");
+    }
+</script>

@@ -9,6 +9,8 @@ class Prueba extends Model
 {
     use HasFactory;
     
+    protected $fillable=['Nombre_Prueba','Fecha_Prueba','Semestre','ID_Asignatura'];
+
     public function asignatura(){
         return $this->belongsTo('App\Models\Asignatura');
     }

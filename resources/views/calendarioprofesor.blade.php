@@ -45,6 +45,7 @@
                 left: 'prev,next today',
                 right: 'dayGridMonth, timeGridWeek, listWeek'
             },
+            events:"{{url('profesorhome/calendarioprofesor/mostrar')}}",
             dateClick: function(info) {
               $("#exampleModal").modal("show");
             }
