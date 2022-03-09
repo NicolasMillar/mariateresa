@@ -45,7 +45,7 @@
                 left: 'prev,next today',
                 right: 'dayGridMonth, timeGridWeek, listWeek'
             },
-            eventSources:['App\Http\Controllers\calendarioController@mostrarprofesor'], 
+            events:"{{url('profesorhome/calendarioprofesor/mostrar')}}",
             dateClick: function(info) {
               $("#exampleModal").modal("show");
             }
