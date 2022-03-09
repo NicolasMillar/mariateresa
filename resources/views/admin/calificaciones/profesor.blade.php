@@ -9,7 +9,6 @@
     $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
     $sessionasignatura = collect($sessionasignatura);
     $hoy =\Carbon\Carbon::now();
-    echo ($cualquiera->id);
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
@@ -65,6 +64,7 @@
                 <div class="modal-body">
                     {!! Form::open(['route'=>['prueba.registrar',$cualquiera->id], 'id'=>'registrarEvaluacion' ] )!!}
                         {!! Form::label('Fe', 'FECHA De Evaluacion') !!}
+                        <input type="hidden" name="asignatura" id="asignatura" value="{{$cualquiera}}">
                         {!! Form::date('FechaE', null,['id'=>'FechaE', 'class'=>'form-control', 'min'=>$hoy]) !!}
                         {!! Form::label('descri', 'Descripcion de la evaluacion') !!}
                         {!! Form::text('Descripcion', null, ['class'=>'form-control', 'placeholder'=>'Ingrese una descripcion de la evaluacion']) !!}
