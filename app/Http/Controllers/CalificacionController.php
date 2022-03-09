@@ -21,7 +21,7 @@ class CalificacionController extends Controller
     {
         $pruebas = Prueba::where('ID_Asignatura', '=', $asignatura->id)->get();
         $notas = DB::table('calificaciones')->join('pruebas', 'pruebas.id', '=', 'calificaciones.ID_Pruebas')->whereIn('ID_Pruebas', $pruebas->pluck('id'))->get();
-        $cualquiera=$asignatura->id;
+        $cualquiera=$asignatura;
         return view('admin.calificaciones.profesor', compact('notas','cualquiera'));
     }
     
