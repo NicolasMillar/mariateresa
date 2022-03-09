@@ -14,7 +14,10 @@ class calendarioController extends Controller{
             $star="start: '".$pruebas[$i]->Fecha_Prueba."'";
         }
         $prue=$title.", ".$star;
-        return response()->json($prue);
+        return response()->json_encode([
+            'title' => 'Lorem Ipsum',
+            'start' =>  '2022-03-14',
+        ]);
     }
 
 }
