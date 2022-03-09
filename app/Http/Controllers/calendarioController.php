@@ -9,12 +9,11 @@ class calendarioController extends Controller{
         $pruebas= Prueba::all();
         $cantidad=count($pruebas);
         for($i=0;$i<$cantidad;$i++){
-            return response()->json($pruebas);
-            /*
             $title="title: '".$pruebas[$i]->Nombre_Prueba."'";
-            echo($title);
-            $date="start: '"..$pruebas[$i]->Nombre_Prueba."'";*/
+            $star="start: '".$pruebas[$i]->Fecha_Prueba."'";
         }
+        $prue=$title.",".$star;
+        return response()->json($prue);
     }
 
 }
