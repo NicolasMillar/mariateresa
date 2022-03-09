@@ -11,8 +11,7 @@ class PruebaController extends Controller
     public function registrar(Asignatura $asignatura, Request $request){
         $anio= \Carbon\Carbon::now();
         $year =date('Y', strtotime($anio));
-        $asignatura2 = Asignatura::where('id', '=', $request->asignatura->id)->get();
-        echo($asignatura2);
+        echo($request->asignatura);
        /* Prueba::create([
             'Nombre_Prueba'=>$request->Descripcion,
             'Fecha_Prueba'=>$request->FechaE,
