@@ -9,7 +9,7 @@ class calendarioController extends Controller{
         $pruebas= Prueba::all();
         $cantidad=count($pruebas);
         for($i=0;$i<$cantidad;$i++){
-            return response()->json(cantidad);
+            return response()->json($pruebas);
         }
     }
 
