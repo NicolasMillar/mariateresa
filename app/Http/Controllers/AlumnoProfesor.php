@@ -56,7 +56,6 @@ class AlumnoProfesor extends Controller
             return redirect()->route('login'); 
         }
     }
-
     public function validar(Request $request){
         $this->validate($request,[
             'Rut' => 'required',
