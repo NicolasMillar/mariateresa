@@ -16,7 +16,7 @@ class calendarioController extends Controller{
             $id =$asignaturas['id'];
             $ids[] =$id;
         }
-        $pruebas= Prueba::whereIn('ID_Asignatura', $ids);
+        $pruebas= Prueba::whereIn('ID_Asignatura', $ids)->get();
         $cantidad=count($pruebas);
         for($i=0;$i<$cantidad;$i++){
             $title=$pruebas[$i]->Nombre_Prueba;
