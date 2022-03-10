@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\Models\Prueba;
 use App\Models\Profesor;
+use App\Models\Asignatura;
 use Session;
 
 
@@ -9,7 +10,8 @@ class calendarioController extends Controller{
 
     public function mostrarprofesor(){
         $sessionrut = session('rut');
-        echo $sessionrut;
+        $asignaturas=Asignaturas::where('Rut_Profesor'==$sessionrut)->get();
+        echo $asignaturas;
         $pruebas= Prueba::all();
         $cantidad=count($pruebas);
         for($i=0;$i<$cantidad;$i++){
