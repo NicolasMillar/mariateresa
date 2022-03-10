@@ -14,7 +14,7 @@ class calendarioController extends Controller{
         $sessionasignatura = collect($sessionasignatura);
         foreach($sessionasignatura as $key => $asignaturas){
             $id =$asignaturas['id'];
-            $ids[] =$nuevo;
+            $ids[] =$id;
         }
         $pruebas= Prueba::whereIn('ID_Asignatura', $ids);
         $cantidad=count($pruebas);
