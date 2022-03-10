@@ -10,8 +10,9 @@ class calendarioController extends Controller{
 
     public function mostrarprofesor(){
         $sessionrut = session('rut');
-        $asignaturas=Asignaturas::where('Rut_Profesor'==$sessionrut)->get();
-        echo $asignaturas;
+        $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
+        $sessionasignatura = collect($sessionasignatura);
+        echo $sessionasignatura;
         $pruebas= Prueba::all();
         $cantidad=count($pruebas);
         for($i=0;$i<$cantidad;$i++){
