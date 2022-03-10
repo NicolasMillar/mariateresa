@@ -48,6 +48,7 @@
                 left: 'prev,next today',
                 right: 'dayGridMonth, timeGridWeek, listWeek'
             },
+            events:"{{url('alumnorhome/calendarioalumno/mostrar')}}",
             dateClick: function(info) {
               $("#evaluaciones").modal("show");
             }
