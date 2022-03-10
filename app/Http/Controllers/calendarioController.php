@@ -13,9 +13,10 @@ class calendarioController extends Controller{
         $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
         $sessionasignatura = collect($sessionasignatura);
         foreach($sessionasignatura as $key => $asignaturas){
-            echo $asignaturas['id'];
+            $id =$asignaturas['id'];
+            $ids[] =$nuevo;
         }
-        $pruebas= Prueba::all();
+        $pruebas= Prueba::whereIn('ID_Asignatura', $ids);
         $cantidad=count($pruebas);
         for($i=0;$i<$cantidad;$i++){
             $title=$pruebas[$i]->Nombre_Prueba;
