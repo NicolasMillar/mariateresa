@@ -3,11 +3,12 @@ namespace App\Http\Controllers;
 use App\Models\Prueba;
 use App\Models\Profesor;
 use Session;
-$sessionrut = session('rut');
+
 
 class calendarioController extends Controller{
 
     public function mostrarprofesor(){
+        $sessionrut = session('rut');
         echo $sessionrut;
         $pruebas= Prueba::all();
         $cantidad=count($pruebas);
