@@ -1,11 +1,13 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\Prueba;
+use App\Models\Profesor;
 use Session;
 
 class calendarioController extends Controller{
 
-    public function mostrarprofesor(Prueba $p){
+    public function mostrarprofesor($profesor){
+        echo $profesor;
         $pruebas= Prueba::all();
         $cantidad=count($pruebas);
         for($i=0;$i<$cantidad;$i++){
