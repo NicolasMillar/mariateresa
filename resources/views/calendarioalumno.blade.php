@@ -1,13 +1,13 @@
 <?php 
-  use App\Models\Asignatura;
-  $sessionusuario = session('nombre');
-  $sessiontipo = session('sessiontipo');
-  $sessionrut = session('rut');
-  $sessionfechan = session('fechaN');
-  $sessionfechai = session('fechaI');
-  $sessionFoto = session('Imagen');
-  $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
-  $sessionasignatura = collect($sessionasignatura);
+ use App\Models\Asignatura;
+    $sessionusuario = session('nombre');
+    $sessiontipo = session('sessiontipo');
+    $sessionrut = session('rut');
+    $sessionfechan = session('fechaN');
+    $sessionfechai = session('fechaI');
+    $sessionFoto = session('Imagen');
+    $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
+    $sessionasignatura = collect($sessionasignatura);
 ?>
 @extends('layouts.user')
 @section('Content')
@@ -48,7 +48,7 @@
                 left: 'prev,next today',
                 right: 'dayGridMonth, timeGridWeek, listWeek'
             },
-            events:"{{url('alumnorhome/calendarioalumno/mostrar')}}",
+            events:"{{url('alumnohome/calendarioalumno/mostrar')}}",
             dateClick: function(info) {
               $("#evaluaciones").modal("show");
             }

@@ -9,7 +9,6 @@ use Session;
 class calendarioController extends Controller{
 
     public function mostrarprofesor(){
-        $sessionrut = session('rut');
         $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
         $sessionasignatura = collect($sessionasignatura);
         foreach($sessionasignatura as $key => $asignaturas){
@@ -31,8 +30,14 @@ class calendarioController extends Controller{
         return response()->json($mostrar);
     }
 
-    public function mostraralumno(Prueba $p){
-        $pruebas= Prueba::all();
+    public function mostraralumno(){
+        $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
+        $sessionasignatura = collect($sessionasignatura);
+        foreach($sessionasignatura as $key => $asignaturas){
+            $id =$asignaturas['id'];
+            $ids[] =$id;
+        }
+        $pruebas= Prueba::whereIn('ID_Asignatura', $ids)->get();
         $cantidad=count($pruebas);
         for($i=0;$i<$cantidad;$i++){
             $title=$pruebas[$i]->Nombre_Prueba;

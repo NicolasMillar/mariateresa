@@ -81,7 +81,7 @@
                           @endforeach  
                         </ul>
                       </li>
-                      <li><a href="">Calendario</a></li>
+                      <li><a href="calendarioalumno">Calendario</a></li>
                       <li class="dropdown"><a href="">Notas</a>
                         <ul>
                             <li><a href="{{route('anotacion.index', $sessionrut)}}" style="font-size: 175%;">Anotaciones</a></li>
