@@ -11,12 +11,14 @@ class calendarioController extends Controller{
         for($i=0;$i<$cantidad;$i++){
             $title=$pruebas[$i]->Nombre_Prueba;
             $star=$pruebas[$i]->Fecha_Prueba;
+            $nuevo = array(
+                'id'=>$pruebas[$i]->id ,
+                'title'=> $title,
+                'start'=> $star
+            );
+            $mostrar[] = $nuevo;
         }
-        return response()->json([
-            'title' => $title,
-            'start' =>  $star,
-            'end' =>  $star,
-        ]);
+        return response()->json($mostrar);
     }
 
 }

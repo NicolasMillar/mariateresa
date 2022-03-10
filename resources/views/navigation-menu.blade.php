@@ -121,7 +121,6 @@
                     </x-jet-dropdown>
                 </div>--}}
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
-<<<<<<< HEAD
                     {{--<x-jet-dropdown align="left">
                         <x-slot name="trigger">--}}
                             <x-jet-nav-link href="{{route('comentarios')}}" :active="request()->routeIs('comentarios')" id="linkcolor">
@@ -142,11 +141,6 @@
                             </x-jet-dropdown-link>
                         </x-slot>--}}
                     {{--</x-jet-dropdown>--}}
-=======
-                    <x-jet-nav-link href="{{route('comentarios')}}" :active="request()->routeIs('comentarios')" id="linkcolor">
-                        Contacto
-                    </x-jet-nav-link>
->>>>>>> f7ee2b3e676157896ef09f694f33c2fec1a56141
                 </div>
             </div>
             <div class="hidden sm:flex sm:items-center sm:ml-6">
