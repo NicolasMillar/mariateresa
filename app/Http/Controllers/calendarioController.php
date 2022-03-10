@@ -8,7 +8,7 @@ $sessionrut = session('rut');
 class calendarioController extends Controller{
 
     public function mostrarprofesor(){
-        echo "hola";
+        echo $sessionrut;
         $pruebas= Prueba::all();
         $cantidad=count($pruebas);
         for($i=0;$i<$cantidad;$i++){
