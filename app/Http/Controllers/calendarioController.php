@@ -12,7 +12,9 @@ class calendarioController extends Controller{
         $sessionrut = session('rut');
         $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
         $sessionasignatura = collect($sessionasignatura);
-        echo $sessionasignatura->Nombre_Asignatura;
+        foreach($sessionasignatura as $key => $asignaturas){
+            echo $asignaturas['id'];
+        }
         $pruebas= Prueba::all();
         $cantidad=count($pruebas);
         for($i=0;$i<$cantidad;$i++){
