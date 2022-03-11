@@ -265,7 +265,6 @@
     color: #2caae1;
   }
 }
-@media all and (min-width:960px) and (max-width: 1920px) {
   #tarjeta-fechas{
     text-align: left;
     width: 300px;
@@ -302,7 +301,7 @@
     margin-top: 20px;
     margin-left: 25px;
   }
-}
+
 
 @media only screen and (min-width: 320px) and (max-width: 950px)   {
   #tarjeta-fechas{
