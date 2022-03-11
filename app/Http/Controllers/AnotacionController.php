@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class AnotacionController extends Controller
 {
-    public function index(Usuario_alumno $alumno)
-    {   
+    public function index(Usuario_alumno $alumno){   
         $anio= \Carbon\Carbon::now();
         $year =date('Y', strtotime($anio));
         $anotaciones = DB::table('anotaciones')->join('asignaturas', 'asignaturas.id', '=', 'anotaciones.ID_Asignatura')->join('cursos', 'cursos.id', '=', 'asignaturas.ID_Curso')->where('Rut', '=', $alumno->Rut)->where('cursos.Anio_Academico', '=', $year)->get();
         return view('admin.anotaciones.index', compact('anotaciones'));
     }
+    
 }

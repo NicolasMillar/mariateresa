@@ -82,15 +82,21 @@
                     </button>
                     <div class="w3-dropdown-content w3-bar-block">
                       @foreach ($sessionasignatura as $asignatura)
-                      <a href="{{route('calificacion.index', [$asignatura])}}" class="w3-bar-item w3-button w3-border-bottom" style="font-size:80%">{{$asignatura->Nombre_Asignatura}}</a>
+                      <a href="{{route('calificacion.index', [$asignatura, $sessionrut])}}" class="w3-bar-item w3-button w3-border-bottom" style="font-size:80%">{{$asignatura->Nombre_Asignatura}}</a>
                       @endforeach  
                     </div>
                   </div>  
-                  <a href="{{route('anotacion.index', $sessionrut)}}" class="w3-bar-item w3-button w3-border-bottom">Anotaciones</a> 
-                  <a href="{{route('calendarioalumno')}}" class="w3-bar-item w3-button w3-border-bottom">Calendario</a> 
+                  <a href="#" class="w3-bar-item w3-button w3-border-bottom">Anotaciones</a> 
+                  <a href="{{route('calendarioprofesor')}}" class="w3-bar-item w3-button w3-border-bottom">Calendario</a> 
+                  <a href="#" class="w3-bar-item w3-button w3-border-bottom">Cuenta</a> 
                 </div>
               </div>
                 <div class="right-div" id="right-div">
+                  <button id="ocular-div" onclick="OculatarDiv()">
+                    <a class="Ocultar" >
+                      <i class="fas fa-align-justify"></i>ㅤ
+                    </a>
+                  </button>
                   @yield('Content') @section('Content')
                 </div>
             </main>
