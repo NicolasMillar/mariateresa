@@ -307,7 +307,7 @@
   #tarjeta-fechas{
     text-align: left;
     width: 50%;
-    margin-top: 1%;
+    margin-top: 2%;
     margin-left: 1%;
   }
   .tarjeta-noticias{
@@ -315,7 +315,7 @@
     flex-wrap: wrap;
     text-align: left;
     width: 100%;
-    margin-top: 1%;
+    margin-top: 2%;
     margin-left: 1%;      
   }
   .tarjeta-historia{
@@ -323,7 +323,7 @@
     flex-wrap: wrap;
     text-align: left;
     width: 100%;
-    margin-top: 1%;
+    margin-top: 2%;
     margin-left: 1%;
   }
   .tarjeta-profesor{
@@ -337,8 +337,11 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    margin-top: 1%;
+    margin-top: 2%;
     margin-left: 1%;
+  }
+  li{
+	  font-size: xx-small;
   }
 }
 </style>
