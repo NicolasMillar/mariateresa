@@ -343,9 +343,8 @@
   li{
 	  font-size: xx-small;
   }
-  img{
-    width: 100%;
-    height:10;
+  #texto-historia{
+    margin-left: 1%;
   }
 }
 </style>
