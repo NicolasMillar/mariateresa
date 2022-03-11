@@ -195,43 +195,6 @@
       align-content: space-between;
       align-items: flex-start;
     }
-    #tarjeta-fechas{
-      text-align: left;
-      width: 300px;
-      margin-top: 20px;
-      margin-left: 25px;
-    }
-    .tarjeta-noticias{
-      display: flex;
-      flex-wrap: wrap;
-      text-align: left;
-      width: 700px;
-      margin-top: 20px;
-      margin-left: 25px;
-      
-    }
-    .tarjeta-historia{
-      display: flex;
-      flex-wrap: wrap;
-      text-align: left;
-      width: 1500px;
-      margin-top: 20px;
-      margin-left: 25px;
-    }
-    .tarjeta-profesor{
-      display: flex;
-      flex-wrap: wrap;
-      text-align: left;
-      width: 1500px;
-      margin-left: 25px;
-    }
-    .tarjeta-historia2{
-      display: flex;
-      flex-wrap: wrap;
-      width: 1500px;
-      margin-top: 20px;
-      margin-left: 25px;
-    }
     
     #calendar{
         float: left;
@@ -302,8 +265,46 @@
     color: #2caae1;
   }
 }
+@media all and (min-width:960px) and (max-width: 1920px) {
+  #tarjeta-fechas{
+    text-align: left;
+    width: 300px;
+    margin-top: 20px;
+    margin-left: 25px;
+  }
+  .tarjeta-noticias{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    width: 700px;
+    margin-top: 20px;
+    margin-left: 25px;      
+  }
+  .tarjeta-historia{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    width: 1500px;
+    margin-top: 20px;
+    margin-left: 25px;
+  }
+  .tarjeta-profesor{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    width: 1500px;
+    margin-left: 25px;
+  }    
+  .tarjeta-historia2{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1500px;      
+    margin-top: 20px;
+    margin-left: 25px;
+  }
+}
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 320px) and (max-width: 950px)   {
   #tarjeta-fechas{
     text-align: left;
     width: 50%;
