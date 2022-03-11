@@ -355,6 +355,12 @@
     width: 0px !important; 
     height: 0px !important;
   }
+  h1{
+    font-size: x-small;
+  }
+  p{
+    font-size: xx-small;
+  }
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
