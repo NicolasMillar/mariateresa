@@ -80,7 +80,7 @@
                     </button>
                     <div class="w3-dropdown-content w3-bar-block">
                       @foreach ($sessionasignatura as $asignatura)
-                      <a href="{{route('calificacion.profesor', [$asignatura])}}" class="w3-bar-item w3-button w3-border-bottom">{{$asignatura->Nombre_Asignatura}}</a>
+                      <a href="{{route('calificacion.profesor', [$asignatura])}}" class="w3-bar-item w3-button w3-border-bottom" style="font-size:80%">{{$asignatura->Nombre_Asignatura}}</a>
                       @endforeach  
                     </div>
                   </div>  
