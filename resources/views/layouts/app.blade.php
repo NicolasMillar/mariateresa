@@ -303,7 +303,7 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
   #tarjeta-fechas{
     text-align: left;
     width: 100%;
