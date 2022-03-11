@@ -355,7 +355,7 @@
     width: 0px !important; 
     height: 0px !important;
   }
-  h1{
+  .subtitulos{
     font-size: x-small;
   }
   p{
