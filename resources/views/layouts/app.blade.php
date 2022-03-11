@@ -350,7 +350,8 @@
     display: none;
   }
   #centrar{
-    display: none;
+    width: 0px; 
+    height: 0px;
   }
 }
 </style>
