@@ -81,9 +81,9 @@
                           @endforeach  
                         </ul>
                       </li>
-                      <li><a href="">Calendario</a></li>
-                      <li class="dropdown"><a href="{{route('anotacion.index', $sessionrut)}}">Anotaciones</a></li>
-                      </ul>
+                      <li><a href="{{route('calendarioalumno')}}">Calendario</a></li>
+                      <li><a href="{{route('anotacion.index', $sessionrut)}}" style="font-size: 175%;">Anotaciones</a></li>
+                    </ul>
                   </nav>
                 </div>
               </div>
