@@ -346,7 +346,7 @@
   #texto-historia{
     margin-left: 1%;
   }
-  #imghistoria{
+  #historia{
     width:25%;
     height:20%;
   }
