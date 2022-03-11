@@ -347,8 +347,8 @@
     margin-left: 1%;
   }
   #imghistoria{
-    width:50%;
-    height:25%;
+    width:25%;
+    height:20%;
   }
 }
 </style>
