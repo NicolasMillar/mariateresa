@@ -345,7 +345,11 @@
   li{
 	  font-size: xx-small;
   }
+
   #historia{
+    display: none;
+  }
+  #centrar{
     display: none;
   }
 }
