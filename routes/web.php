@@ -103,20 +103,21 @@ Route::resource('asistentes', AsistenteController::class)->names('admin.asistent
 Route::resource('asignaturas', AsignaturaController::class)->names('admin.asignatura');
 Route::resource('categorias', CategoriaAsignaturaController::class)->names('admin.categoria_asignatura');
 Route::resource('talleres', TallerController::class)->names('admin.taller');
-<<<<<<< HEAD
-Route::resource('materiales', MaterialController::class)->names('admin.material');
-=======
 Route::post('profesorhome/calificaciones/registro', 'App\Http\Controllers\PruebaController@registrar')->name('prueba.registrar');
->>>>>>> f7ee2b3e676157896ef09f694f33c2fec1a56141
 
 Route::resource('file', 'App\Http\Controllers\FileController');
 Route::get('participantes/{curso}', 'App\Http\Controllers\ParticipanteController@create')->name('participante.create');
 Route::post('participantes/{curso}', 'App\Http\Controllers\ParticipanteController@store')->name('participante.store');
-
+Route::get('alumnohome/materiales/{asignatura}', 'App\Http\Controllers\MaterialController@index')->name('material.index');
 Route::get('alumnohome/calificaciones/{asignatura}/{alumno}', 'App\Http\Controllers\CalificacionController@index')->name('calificacion.index');
 Route::get('profesorhome/calificaciones/{asignatura}/', 'App\Http\Controllers\CalificacionController@profesor')->name('calificacion.profesor');
 Route::get('alumnohome/anotaciones/{alumno}', 'App\Http\Controllers\AnotacionController@index')->name('anotacion.index');
 Route::post('movillogin', 'App\Http\Controllers\MobileController@login');
+Route::post('movilanotaciones', 'App\Http\Controllers\MobileController@anotaciones');
+Route::post('moviluser', 'App\Http\Controllers\MobileController@usuario_movil');
+Route::post('movilnotas', 'App\Http\Controllers\MobileController@notas');
+Route::post('movilfechas', 'App\Http\Controllers\MobileController@fechas');
+Route::post('logout', 'App\Http\Controllers\MobileController@logout');
 Route::get('login', 'App\Http\Controllers\AlumnoProfesor@login')->name('login');
 Route::post('validar', 'App\Http\Controllers\AlumnoProfesor@validar')->name('validar');
 Route::get('alumnohome', 'App\Http\Controllers\AlumnoProfesor@alumno')->name('alumnohome');

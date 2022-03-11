@@ -12,6 +12,11 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'movillogin'
+        'movillogin',
+        'moviluser',
+        'movilanotaciones',
+        'movilnotas',
+        'movilfechas',
+        'logout'
     ];
 }
