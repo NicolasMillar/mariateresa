@@ -346,11 +346,7 @@
 	  font-size: xx-small;
   }
   #historia{
-    width:50%;
-    height:25%;
-  }
-  #imghistoria{
-    visibility: hidden;
+    display: none;
   }
 }
 </style>
