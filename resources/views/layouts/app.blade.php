@@ -357,6 +357,11 @@
   }
   .subtitulos{
     font-size: x-small;
+    text-align: center;
+    margin-top: 1%;
+  }
+  .subtitulos2{
+    font-size: x-small;
   }
   p{
     font-size: xx-small;
