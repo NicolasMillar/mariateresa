@@ -52,7 +52,7 @@
                 <h1 class="subtitulos">SELLOS EDUCATIVOS</h1>
                 <div class="tarjeta-historia2" style="border: 1px solid orange; height:150px; max-width:1500px; border-radius: 25px">
                     <div class="texto-historia" style="width:1248px; margin-left: 25px">
-                        <p style="font-size: 100%">El ideario de nuestro Proyecto Educativo Institucional se centra en la formación integral del educando, desarrollando todas las capacidades, competencias y habilidades<br>
+                        <p style="">El ideario de nuestro Proyecto Educativo Institucional se centra en la formación integral del educando, desarrollando todas las capacidades, competencias y habilidades<br>
                             de los niños y niñas, entregándoles herramientas esenciales para incorporarse con éxito en la enseñanza media.
                         </p>
                         <p style="font-size: 100%">El sello educativo se caracteriza porque contamos con niños y niñas que se destacan en sus aprendizaje, autónomos, respetuosos de la diversidad, participes de un<br>
