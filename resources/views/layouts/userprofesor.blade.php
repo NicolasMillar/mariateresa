@@ -64,7 +64,7 @@
                 </div>
               </div>
               <div class="left-div" id="left-div">
-                <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:30%">
+                <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:15%">
                   <div class="w3-dropdown-hover">
                     <button class="w3-button">Materiales
                       <i class="fa fa-caret-down"></i>
