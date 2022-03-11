@@ -346,6 +346,10 @@
   #texto-historia{
     margin-left: 1%;
   }
+  #imghistoria{
+    width:50%;
+    height:25%;
+  }
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
