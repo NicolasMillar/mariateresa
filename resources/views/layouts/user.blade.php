@@ -64,35 +64,33 @@
                 </div>
               </div>
               <div class="left-div" id="left-div">
-                <div class="acciones">
-                  <nav>
-                    <ul>
-                      <li class="dropdown"><div class="tituloside">Materiales</div>
-                        <ul>
-                          @foreach ($sessionasignatura as $asignatura)
-                            <li><a href="{{route('material.index', [$asignatura])}}" class="menuasignaturas"> {{$asignatura->Nombre_Asignatura}}</a></li>
-                          @endforeach  
-                        </ul>
-                      </li>
-                      <li class="dropdown"><div class="tituloside">Notas</div>
-                        <ul>
-                          @foreach ($sessionasignatura as $asignatura)
-                            <li><a href="{{route('calificacion.index', [$asignatura, $sessionrut])}}" class="menuasignaturas"> {{$asignatura->Nombre_Asignatura}}</a></li>
-                          @endforeach  
-                        </ul>
-                      </li>
-                      <li><a href="{{route('calendarioalumno')}}">Calendario</a></li>
-                      <li><a href="{{route('anotacion.index', $sessionrut)}}" style="font-size: 175%;">Anotaciones</a></li>
-                    </ul>
-                  </nav>
+                <div class="w3-sidebar w3-bar-block w3-card" style="width:15%; font-size:175%; background-color:#2caae1; color:#ffffff">
+                  <div class=" w3-border-bottom w3-bar-item" >Menu</div>
+                  <div class="w3-dropdown-hover">
+                    <button class="w3-button w3-border-bottom">Materiales
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="w3-dropdown-content w3-bar-block">
+                      @foreach ($sessionasignatura as $asignatura)
+                        <a href="{{route('material.index', [$asignatura])}}" class="w3-bar-item w3-button w3-border-bottom" style="font-size:80%">{{$asignatura->Nombre_Asignatura}}</a>
+                      @endforeach 
+                    </div>
+                  </div>
+                  <div class="w3-dropdown-hover">
+                    <button class="w3-button w3-border-bottom">Notas
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="w3-dropdown-content w3-bar-block">
+                      @foreach ($sessionasignatura as $asignatura)
+                      <a href="{{route('calificacion.index', [$asignatura])}}" class="w3-bar-item w3-button w3-border-bottom" style="font-size:80%">{{$asignatura->Nombre_Asignatura}}</a>
+                      @endforeach  
+                    </div>
+                  </div>  
+                  <a href="{{route('anotacion.index', $sessionrut)}}" class="w3-bar-item w3-button w3-border-bottom">Anotaciones</a> 
+                  <a href="{{route('calendarioalumno')}}" class="w3-bar-item w3-button w3-border-bottom">Calendario</a> 
                 </div>
               </div>
                 <div class="right-div" id="right-div">
-                  <button id="ocular-div" onclick="OculatarDiv()">
-                    <a class="Ocultar" >
-                      <i class="fas fa-align-justify"></i>ㅤ
-                    </a>
-                  </button>
                   @yield('Content') @section('Content')
                 </div>
             </main>
@@ -223,80 +221,6 @@
     color: #ffffff;
     font-size: x-large;
   }
-  .ocultar{
-    background-color: #312e81;
-    display:inline-block;
-    font-size:2em;
-    color: white;
-    width: 35px;
-    height: 35px;
-  }
-  nav ul li a{
-    display: flex;
-    align-items: center;
-    padding: 10px 30px;
-    height: 70px;
-    transition: .5s ease;
-    border-radius: 0 30px;
-    font-size: 1.95em;
-    color: #fff;
-    text-transform: capitalize;
-  }
-  .tituloside{
-    display: flex;
-    align-items: center;
-    padding: 10px 30px;
-    height: 70px;
-    transition: .5s ease;
-    border-radius: 0 30px;
-    font-size: 1.95em;
-    color: #fff;
-    text-transform: capitalize;
-  }
-  
-  nav ul li a:hover{
-    background-attachment: rgba(0,0,0,0.7);
-    color: #fff;
-  }
-  nav ul ul{
-    position: absolute;
-    left: 250px;
-    width: 200px;
-    top: 0;
-    display: none;
-    background-color: #312e81;
-    border-radius: 5px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7)
-
-  }
-  nav ul .dropdown{
-    position: relative;
-  }
-  nav ul .dropdown:hover ul{
-    display: initial;
-  }
-  .menuasignaturas{
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    height: 70px;
-    transition: .5s ease;
-    border-radius: 0 30px;
-    font-size: 0.95em;
-    color: #fff;
-    text-transform: capitalize;
-  }
 </style>
 <script>
-  function OculatarDiv(){
-    var x = document.getElementById("left-div");
-    var y = document.getElementById("right-div");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-        y.style.width = "85%";
-    } else {
-        x.style.display = "none";
-        y.style.width = "100%";
-    }
-  }
 </script>
