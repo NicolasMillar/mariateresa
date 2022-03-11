@@ -350,7 +350,7 @@
     height:25%;
   }
   #imghistoria{
-    display: none;
+    visibility: hidden;
   }
 }
 </style>
