@@ -307,38 +307,38 @@
   #tarjeta-fechas{
     text-align: left;
     width: 50%;
-    margin-top: 10%;
-    margin-left: 10%;
+    margin-top: 5%;
+    margin-left: 5%;
   }
   .tarjeta-noticias{
     display: flex;
     flex-wrap: wrap;
     text-align: left;
     width: 100%;
-    margin-top: 10%;
-    margin-left: 10%;      
+    margin-top: 5%;
+    margin-left: 5%;      
   }
   .tarjeta-historia{
     display: flex;
     flex-wrap: wrap;
     text-align: left;
     width: 100%;
-    margin-top: 10%;
-    margin-left: 10%;
+    margin-top: 5%;
+    margin-left: 5%;
   }
   .tarjeta-profesor{
     display: flex;
     flex-wrap: wrap;
     text-align: left;
     width: 100%;
-    margin-left: 10%;
+    margin-left: 5%;
   }
   .tarjeta-historia2{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    margin-top: 10%;
-    margin-left: 10%;
+    margin-top: 5%;
+    margin-left: 5%;
   }
 }
 </style>
