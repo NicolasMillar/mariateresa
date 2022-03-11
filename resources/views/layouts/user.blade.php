@@ -92,11 +92,6 @@
                 </div>
               </div>
                 <div class="right-div" id="right-div">
-                  <button id="ocular-div" onclick="OculatarDiv()">
-                    <a class="Ocultar" >
-                      <i class="fas fa-align-justify"></i>ㅤ
-                    </a>
-                  </button>
                   @yield('Content') @section('Content')
                 </div>
             </main>
