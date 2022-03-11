@@ -347,7 +347,7 @@
     margin-left: 1%;
   }
   #historia{
-    width:25%;
+    width:50%;
     height:20%;
   }
 }
