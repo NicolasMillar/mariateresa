@@ -4,7 +4,7 @@
             <div class="header">
                 <div id="imagen-principal" style="position: relative; text-align: center;">
                     <h1 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 300%; color:white"><b>HISTORIA DEL COLEGIO</b></h1>
-                    <img id="historia" src="{{asset('assets/images/custom/foto-colegio.jpg')}}" alt="" style="width:1600px; height:400px; object-fit: cover; display: flex; margin-left: auto; margin-right: auto;">
+                    <img src="{{asset('assets/images/custom/foto-colegio.jpg')}}" alt="" style="width:1600px; height:400px; object-fit: cover; display: flex; margin-left: auto; margin-right: auto;">
                 </div>
             </div>
         </div>
