@@ -349,6 +349,9 @@
     width:50%;
     height:25%;
   }
+  #imghistoria{
+    display: none;
+  }
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
