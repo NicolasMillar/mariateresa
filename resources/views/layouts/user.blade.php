@@ -67,26 +67,22 @@
                 <div class="acciones">
                   <nav>
                     <ul>
-                      <li class="dropdown"><a href="">Materiales</a>
+                      <li class="dropdown"><div class="tituloside">Materiales</div>
                         <ul>
                           @foreach ($sessionasignatura as $asignatura)
-                            <li><a href="{{route('calificacion.index', [$asignatura, $sessionrut])}}"> {{$asignatura->Nombre_Asignatura}}</a></li>
+                            <li><a href="{{route('material.index', [$asignatura])}}" class="menuasignaturas"> {{$asignatura->Nombre_Asignatura}}</a></li>
                           @endforeach  
                         </ul>
                       </li>
-                      <li class="dropdown"><a href="">Notas</a>
+                      <li class="dropdown"><div class="tituloside">Notas</div>
                         <ul>
                           @foreach ($sessionasignatura as $asignatura)
-                            <li><a href="{{route('calificacion.index', [$asignatura, $sessionrut])}}"> {{$asignatura->Nombre_Asignatura}}</a></li>
+                            <li><a href="{{route('calificacion.index', [$asignatura, $sessionrut])}}" class="menuasignaturas"> {{$asignatura->Nombre_Asignatura}}</a></li>
                           @endforeach  
                         </ul>
                       </li>
-                      <li><a href="calendarioalumno">Calendario</a></li>
-                      <li class="dropdown"><a href="">Notas</a>
-                        <ul>
-                            <li><a href="{{route('anotacion.index', $sessionrut)}}" style="font-size: 175%;">Anotaciones</a></li>
-                          </ul>
-                        </li>
+                      <li><a href="">Calendario</a></li>
+                      <li class="dropdown"><a href="{{route('anotacion.index', $sessionrut)}}">Anotaciones</a></li>
                       </ul>
                   </nav>
                 </div>
@@ -246,6 +242,18 @@
     color: #fff;
     text-transform: capitalize;
   }
+  .tituloside{
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    height: 70px;
+    transition: .5s ease;
+    border-radius: 0 30px;
+    font-size: 1.95em;
+    color: #fff;
+    text-transform: capitalize;
+  }
+  
   nav ul li a:hover{
     background-attachment: rgba(0,0,0,0.7);
     color: #fff;
@@ -266,6 +274,17 @@
   }
   nav ul .dropdown:hover ul{
     display: initial;
+  }
+  .menuasignaturas{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    height: 70px;
+    transition: .5s ease;
+    border-radius: 0 30px;
+    font-size: 0.95em;
+    color: #fff;
+    text-transform: capitalize;
   }
 </style>
 <script>

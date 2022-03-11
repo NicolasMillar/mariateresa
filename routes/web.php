@@ -109,11 +109,16 @@ Route::post('profesorhome/calificaciones/registro', 'App\Http\Controllers\Prueba
 Route::resource('file', 'App\Http\Controllers\FileController');
 Route::get('participantes/{curso}', 'App\Http\Controllers\ParticipanteController@create')->name('participante.create');
 Route::post('participantes/{curso}', 'App\Http\Controllers\ParticipanteController@store')->name('participante.store');
-
+Route::get('alumnohome/materiales/{asignatura}', 'App\Http\Controllers\MaterialController@index')->name('material.index');
 Route::get('alumnohome/calificaciones/{asignatura}/{alumno}', 'App\Http\Controllers\CalificacionController@index')->name('calificacion.index');
 Route::get('profesorhome/calificaciones/{asignatura}/', 'App\Http\Controllers\CalificacionController@profesor')->name('calificacion.profesor');
 Route::get('alumnohome/anotaciones/{alumno}', 'App\Http\Controllers\AnotacionController@index')->name('anotacion.index');
 Route::post('movillogin', 'App\Http\Controllers\MobileController@login');
+Route::post('movilanotaciones', 'App\Http\Controllers\MobileController@anotaciones');
+Route::post('moviluser', 'App\Http\Controllers\MobileController@usuario_movil');
+Route::post('movilnotas', 'App\Http\Controllers\MobileController@notas');
+Route::post('movilfechas', 'App\Http\Controllers\MobileController@fechas');
+Route::post('logout', 'App\Http\Controllers\MobileController@logout');
 Route::get('login', 'App\Http\Controllers\AlumnoProfesor@login')->name('login');
 Route::post('validar', 'App\Http\Controllers\AlumnoProfesor@validar')->name('validar');
 Route::get('alumnohome', 'App\Http\Controllers\AlumnoProfesor@alumno')->name('alumnohome');
