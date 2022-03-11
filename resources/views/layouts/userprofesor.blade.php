@@ -7,6 +7,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- full calendar -->
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/locales-all.js"></script>
@@ -62,26 +64,28 @@
                 </div>
               </div>
               <div class="left-div" id="left-div">
-                <div class="acciones">
-                  <nav>
-                      <ul>
-                        <li class="dropdown"><a href="">Materiales</a>
-                            <ul>
-                              <li><a href="">placeholder</a></li> 
-                            </ul>
-                        </li>
-                        <li class="dropdown"><a href="">Notas</a>
-                          <ul>
-                            @foreach ($sessionasignatura as $asignatura)
-                              <li><a href="{{route('calificacion.profesor', [$asignatura])}}" id="menuasignaturas"> {{$asignatura->Nombre_Asignatura}}</a></li>
-                            @endforeach  
-                          </ul>
-                        </li>
-                        <li><a href="">Anotaciones</a></li>
-                        <li><a href="{{route('calendarioprofesor')}}">Calendario</a></li>
-                        <li><a href="">Cuenta</a></li>
-                      </ul>
-                  </nav>
+                <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:30%">
+                  <div class="w3-dropdown-hover">
+                    <button class="w3-button">Materiales
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="w3-dropdown-content w3-bar-block">
+                      <a href="#" class="w3-bar-item w3-button">PlaceHolder</a>
+                    </div>
+                  </div>
+                  <div class="w3-dropdown-hover">
+                    <button class="w3-button">Notas
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="w3-dropdown-content w3-bar-block">
+                      @foreach ($sessionasignatura as $asignatura)
+                      <a href="{{route('calificacion.profesor', [$asignatura])}}" class="w3-bar-item w3-button">{{$asignatura->Nombre_Asignatura}}</a>
+                      @endforeach  
+                    </div>
+                  </div>  
+                  <a href="#" class="w3-bar-item w3-button">Anotaciones</a> 
+                  <a href="{{route('calendarioprofesor')}}" class="w3-bar-item w3-button">Calendario</a> 
+                  <a href="#" class="w3-bar-item w3-button">Cuenta</a> 
                 </div>
               </div>
                 <div class="right-div" id="right-div">
@@ -227,49 +231,6 @@
     color: white;
     width: 35px;
     height: 35px;
-  }
-  nav ul li a{
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    height: 70px;
-    transition: .5s ease;
-    border-radius: 0 30px;
-    font-size: 1.95em;
-    color: #fff;
-    text-transform: capitalize;
-  }
-  nav ul li a:hover{
-    background-attachment: rgba(0,0,0,0.7);
-    color: #fff;
-  }
-  nav ul ul{
-    position: absolute;
-    left: 250px;
-    width: 200px;
-    top: 0;
-    display: none;
-    background-color: #312e81;
-    border-radius: 5px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7)
-
-  }
-  nav ul .dropdown{
-    position: relative;
-  }
-  nav ul .dropdown:hover ul{
-    display: initial;
-  }
-  #menuasignaturas{
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    height: 70px;
-    transition: .5s ease;
-    border-radius: 0 30px;
-    font-size: 0.95em;
-    color: #fff;
-    text-transform: capitalize;
   }
 </style>
 <script>
