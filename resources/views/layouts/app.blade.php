@@ -342,6 +342,9 @@
     margin-top: 2%;
     margin-left: 1%;
   }
+  .tarjeta-historia2 li{
+    margin-top: 2%;
+  }
   li{
 	  font-size: xx-small;
   }
