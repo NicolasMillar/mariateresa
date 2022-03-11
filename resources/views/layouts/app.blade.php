@@ -345,9 +345,6 @@
   li{
 	  font-size: xx-small;
   }
-  #texto-historia{
-    margin-left: 1%;
-  }
   #historia{
     width:50%;
     height:25%;

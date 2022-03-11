@@ -14,7 +14,7 @@
                     <div class="centrar" style="width: 200px; height: 150px;">
                         <img id="historia" src="{{asset('assets/images/sliders/1.jpg')}}" width="100%" height="100" style="border-radius: 25px; position: absolute; top: 50%; transform: translateY(-50%);">
                     </div>
-                    <div class="texto-historia" style="">
+                    <div class="texto-historia" style="margin-left: 20px">
                         <ul>
                             <li type="circle">En el año 1860 fue creada la "Escuela de Preceptores N°2" donde se atendían a niños solo hasta cuarto año de educación primaria.</li>
                             <li type="circle">El 20 de Junio de 1917 por el Decreto N° 2881, se crean simultáneamente dos escuelas; las N° 26 y 27 superior de hombres y de mujeres.</li>
