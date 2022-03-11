@@ -348,7 +348,7 @@
   }
   #historia{
     width:50%;
-    height:20%;
+    height:25%;
   }
 }
 </style>
