@@ -65,7 +65,7 @@
               </div>
               <div class="left-div" id="left-div">
                 <div class="w3-sidebar w3-bar-block w3-card" style="width:15%; font-size:175%; background-color:#2caae1; color:#ffffff">
-                  <div class=" w3-border-bottom">Menu</div>
+                  <div class=" w3-border-bottom w3-bar-item" >Menu</div>
                   <div class="w3-dropdown-hover">
                     <button class="w3-button w3-border-bottom">Materiales
                       <i class="fa fa-caret-down"></i>
