@@ -11,6 +11,9 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -86,8 +89,9 @@
                       @endforeach  
                     </div>
                   </div>  
-                  <a href="{{route('anotacion.index', $sessionrut)}}" class="w3-bar-item w3-button w3-border-bottom">Anotaciones</a> 
-                  <a href="{{route('calendarioalumno')}}" class="w3-bar-item w3-button w3-border-bottom">Calendario</a> 
+                  <a href="#" class="w3-bar-item w3-button w3-border-bottom">Anotaciones</a> 
+                  <a href="{{route('calendarioprofesor')}}" class="w3-bar-item w3-button w3-border-bottom">Calendario</a> 
+                  <a href="#" class="w3-bar-item w3-button w3-border-bottom">Cuenta</a> 
                 </div>
               </div>
                 <div class="right-div" id="right-div">
@@ -220,6 +224,14 @@
   .nombre-escuela h1{
     color: #ffffff;
     font-size: x-large;
+  }
+  .ocultar{
+    background-color: #312e81;
+    display:inline-block;
+    font-size:2em;
+    color: white;
+    width: 35px;
+    height: 35px;
   }
 </style>
 <script>
