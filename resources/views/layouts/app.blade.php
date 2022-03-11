@@ -345,11 +345,10 @@
   li{
 	  font-size: xx-small;
   }
-
   #historia{
     display: none;
   }
-  #centrar{
+  .centrar{
     width: 0px; 
     height: 0px;
   }
