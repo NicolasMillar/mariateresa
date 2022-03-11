@@ -64,28 +64,28 @@
                 </div>
               </div>
               <div class="left-div" id="left-div">
-                <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:15%; font-size:175%">
+                <div class="w3-sidebar w3-bar-block w3-card" style="width:15%; font-size:175%; background-color:#2caae1; color:#ffffff">
                   <div class="w3-dropdown-hover">
-                    <button class="w3-button">Materiales
+                    <button class="w3-button w3-border-bottom">Materiales
                       <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="w3-dropdown-content w3-bar-block">
-                      <a href="#" class="w3-bar-item w3-button">PlaceHolder</a>
+                      <a href="#" class="w3-bar-item w3-button w3-border-bottom">PlaceHolder</a>
                     </div>
                   </div>
                   <div class="w3-dropdown-hover">
-                    <button class="w3-button">Notas
+                    <button class="w3-button w3-border-bottom">Notas
                       <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="w3-dropdown-content w3-bar-block">
                       @foreach ($sessionasignatura as $asignatura)
-                      <a href="{{route('calificacion.profesor', [$asignatura])}}" class="w3-bar-item w3-button">{{$asignatura->Nombre_Asignatura}}</a>
+                      <a href="{{route('calificacion.profesor', [$asignatura])}}" class="w3-bar-item w3-button w3-border-bottom">{{$asignatura->Nombre_Asignatura}}</a>
                       @endforeach  
                     </div>
                   </div>  
-                  <a href="#" class="w3-bar-item w3-button">Anotaciones</a> 
-                  <a href="{{route('calendarioprofesor')}}" class="w3-bar-item w3-button">Calendario</a> 
-                  <a href="#" class="w3-bar-item w3-button">Cuenta</a> 
+                  <a href="#" class="w3-bar-item w3-button w3-border-bottom">Anotaciones</a> 
+                  <a href="{{route('calendarioprofesor')}}" class="w3-bar-item w3-button w3-border-bottom">Calendario</a> 
+                  <a href="#" class="w3-bar-item w3-button w3-border-bottom">Cuenta</a> 
                 </div>
               </div>
                 <div class="right-div" id="right-div">
