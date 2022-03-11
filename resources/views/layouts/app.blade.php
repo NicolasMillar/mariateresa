@@ -197,7 +197,7 @@
     }
     #tarjeta-fechas{
       text-align: left;
-      width: 300px;
+      width: 100%;
       margin-top: 20px;
       margin-left: 25px;
     }
