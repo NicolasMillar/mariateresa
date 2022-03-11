@@ -205,7 +205,7 @@
       display: flex;
       flex-wrap: wrap;
       text-align: left;
-      width: 700px;
+      width: 100%;
       margin-top: 20px;
       margin-left: 25px;
       
@@ -214,7 +214,7 @@
       display: flex;
       flex-wrap: wrap;
       text-align: left;
-      width: 1500px;
+      width: 100%;
       margin-top: 20px;
       margin-left: 25px;
     }
@@ -222,13 +222,13 @@
       display: flex;
       flex-wrap: wrap;
       text-align: left;
-      width: 1500px;
+      width: 100%;
       margin-left: 25px;
     }
     .tarjeta-historia2{
       display: flex;
       flex-wrap: wrap;
-      width: 1500px;
+      width: 100%;
       margin-top: 20px;
       margin-left: 25px;
     }
