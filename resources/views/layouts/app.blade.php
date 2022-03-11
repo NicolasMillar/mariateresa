@@ -306,7 +306,7 @@
 @media only screen and (max-width: 600px) {
   #tarjeta-fechas{
     text-align: left;
-    width: 100%;
+    width: 50%;
     margin-top: 10%;
     margin-left: 10%;
   }
