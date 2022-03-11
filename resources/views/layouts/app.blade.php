@@ -197,7 +197,7 @@
     }
     #tarjeta-fechas{
       text-align: left;
-      width: 100%;
+      width: 300px;
       margin-top: 20px;
       margin-left: 25px;
     }
@@ -205,7 +205,7 @@
       display: flex;
       flex-wrap: wrap;
       text-align: left;
-      width: 100%;
+      width: 700px;
       margin-top: 20px;
       margin-left: 25px;
       
@@ -214,7 +214,7 @@
       display: flex;
       flex-wrap: wrap;
       text-align: left;
-      width: 100%;
+      width: 1500px;
       margin-top: 20px;
       margin-left: 25px;
     }
@@ -222,13 +222,13 @@
       display: flex;
       flex-wrap: wrap;
       text-align: left;
-      width: 100%;
+      width: 1500px;
       margin-left: 25px;
     }
     .tarjeta-historia2{
       display: flex;
       flex-wrap: wrap;
-      width: 100%;
+      width: 1500px;
       margin-top: 20px;
       margin-left: 25px;
     }
