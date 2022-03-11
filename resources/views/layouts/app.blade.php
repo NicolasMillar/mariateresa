@@ -306,39 +306,39 @@
 @media screen and (max-width: 600px) {
   #tarjeta-fechas{
     text-align: left;
-    width: 300px;
-    margin-top: 20px;
-    margin-left: 25px;
+    width: 100%;
+    margin-top: 10%;
+    margin-left: 10%;
   }
   .tarjeta-noticias{
     display: flex;
     flex-wrap: wrap;
     text-align: left;
-    width: 700px;
-    margin-top: 20px;
-    margin-left: 25px;      
+    width: 100%;
+    margin-top: 10%;
+    margin-left: 10%;      
   }
   .tarjeta-historia{
     display: flex;
     flex-wrap: wrap;
     text-align: left;
-    width: 1500px;
-    margin-top: 20px;
-    margin-left: 25px;
+    width: 100%;
+    margin-top: 10%;
+    margin-left: 10%;
   }
   .tarjeta-profesor{
     display: flex;
     flex-wrap: wrap;
     text-align: left;
-    width: 1500px;
-    margin-left: 25px;
+    width: 100%;
+    margin-left: 10%;
   }
   .tarjeta-historia2{
     display: flex;
     flex-wrap: wrap;
-    width: 1500px;
-    margin-top: 20px;
-    margin-left: 25px;
+    width: 100%;
+    margin-top: 10%;
+    margin-left: 10%;
   }
 }
 </style>
