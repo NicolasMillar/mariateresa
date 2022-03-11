@@ -301,6 +301,46 @@
   span.img-text:hover {
     color: #2caae1;
   }
+}
+
+@media screen and (max-width: 600px) {
+  #tarjeta-fechas{
+    text-align: left;
+    width: 300px;
+    margin-top: 20px;
+    margin-left: 25px;
+  }
+  .tarjeta-noticias{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    width: 700px;
+    margin-top: 20px;
+    margin-left: 25px;      
+  }
+  .tarjeta-historia{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    width: 1500px;
+    margin-top: 20px;
+    margin-left: 25px;
+  }
+  .tarjeta-profesor{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    width: 1500px;
+    margin-left: 25px;
+  }
+  .tarjeta-historia2{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1500px;
+    margin-top: 20px;
+    margin-left: 25px;
+  }
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
