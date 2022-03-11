@@ -64,7 +64,7 @@
                 </div>
               </div>
               <div class="left-div" id="left-div">
-                <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:15%">
+                <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:15%; font-size:175%">
                   <div class="w3-dropdown-hover">
                     <button class="w3-button">Materiales
                       <i class="fa fa-caret-down"></i>
@@ -89,11 +89,6 @@
                 </div>
               </div>
                 <div class="right-div" id="right-div">
-                  <button id="ocular-div" onclick="OculatarDiv()">
-                    <a class="Ocultar" >
-                      <i class="fas fa-align-justify"></i>ㅤ
-                    </a>
-                  </button>
                   @yield('Content') @section('Content')
                 </div>
             </main>
@@ -234,15 +229,4 @@
   }
 </style>
 <script>
-  function OculatarDiv(){
-    var x = document.getElementById("left-div");
-    var y = document.getElementById("right-div");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-        y.style.width = "85%";
-    } else {
-        x.style.display = "none";
-        y.style.width = "100%";
-    }
-  }
 </script>
