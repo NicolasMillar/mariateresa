@@ -10,8 +10,8 @@
         </div>
         <div class="container">
             <div class="history">
-                <div class="tarjeta-historia" style="border: 1px solid orange; height:150px; max-width:1500px; border-radius: 25px">
-                    <div class="centrar" style="width: 200px; height: 150px;">
+                <div class="tarjeta-historia" style="border: 1px solid orange; height:937.5%; max-width:1500px; border-radius: 25px">
+                    <div class="centrar" style="width: 200px; height: 937.5%;">
                         <img id="historia" src="{{asset('assets/images/sliders/1.jpg')}}" width="100%" height="100" style="border-radius: 25px; position: absolute; top: 50%; transform: translateY(-50%);">
                     </div>
                     <div class="texto-historia" style="margin-left: 20px">
@@ -24,7 +24,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="tarjeta-historia2" style="border: 1px solid orange; height:150px; max-width:1500px; border-radius: 25px">
+                <div class="tarjeta-historia2" style="border: 1px solid orange; height:937.5%; max-width:1500px; border-radius: 25px">
                     <div class="texto-historia" style="width:1248px; margin-left: 25px">
                         <ul>
                             <li type="circle">El año 1981; al igual que en todo el país se transfiere la dependencia desde el Ministerio de Educación a la I. Municipalidad de Coelemu.</li>
@@ -33,12 +33,12 @@
                             <li type="circle">En el año 2019 se incorpora a la JEC los niveles de Educación Parvularia NT1- NT2.</li>
                         </ul>
                     </div>
-                    <div class="centrar" style="width: 200px; height: 150px; float: right; margin-right: 25px">
+                    <div class="centrar" style="width: 200px; height: 937.5%; float: right; margin-right: 25px">
                         <img id="historia" src="{{asset('assets/images/sliders/1.jpg')}}" width="100%" height="100" style="border-radius: 25px; position: absolute; top: 50%; transform: translateY(-50%);">
                     </div>
                 </div>
-                <div class="tarjeta-historia" style="border: 1px solid orange; height:150px; max-width:1500px; border-radius: 25px">
-                    <div class="centrar" style="width: 200px; height: 150px;">
+                <div class="tarjeta-historia" style="border: 1px solid orange; height:937.5%; max-width:1500px; border-radius: 25px">
+                    <div class="centrar" style="width: 200px; height: 937.5%;">
                         <img id="historia" src="{{asset('assets/images/sliders/1.jpg')}}" width="100%" height="100" style="border-radius: 25px; position: absolute; top: 50%; transform: translateY(-50%);">
                     </div>
                     <div class="texto-historia" style="margin-left: 20px">
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <h1 class="subtitulos">SELLOS EDUCATIVOS</h1>
-                <div class="tarjeta-historia2" style="border: 1px solid orange; height:150px; max-width:1500px; border-radius: 25px">
+                <div class="tarjeta-historia2" style="border: 1px solid orange; height:937.5%; max-width:1500px; border-radius: 25px">
                     <div class="texto-historia" style="width:1248px; margin-left: 25px">
                         <p style="font-size: 100%">El ideario de nuestro Proyecto Educativo Institucional se centra en la formación integral del educando, desarrollando todas las capacidades, competencias y habilidades<br>
                             de los niños y niñas, entregándoles herramientas esenciales para incorporarse con éxito en la enseñanza media.
@@ -60,13 +60,13 @@
                             escolar sustentada en buenos resultados académicos.
                         </p>
                     </div>
-                    <div class="centrar" style="width: 200px; height: 150px; float: right; margin-right: 25px">
+                    <div class="centrar" style="width: 200px; height: 937.5%; float: right; margin-right: 25px">
                         <img id="historia" src="{{asset('assets/images/sliders/1.jpg')}}" width="100%" height="100" style="border-radius: 25px; position: absolute; top: 50%; transform: translateY(-50%);">
                     </div>
                 </div>
                 <h1 class="subtitulos"> MISION Y VISION</h1>
-                <div class="tarjeta-historia" style="border: 1px solid orange; height:150px; max-width:1500px; border-radius: 25px">
-                    <div class="centrar" style="width: 200px; height: 150px;">
+                <div class="tarjeta-historia" style="border: 1px solid orange; height:937.5%; max-width:1500px; border-radius: 25px">
+                    <div class="centrar" style="width: 200px; height: 937.5%;">
                         <img id="historia" src="{{asset('assets/images/sliders/1.jpg')}}" width="100%" height="100" style="border-radius: 25px; position: absolute; top: 50%; transform: translateY(-50%);">
                     </div>
                     <div class="texto-historia" style="margin-left: 20px">
@@ -75,12 +75,12 @@
                         <p>"Ser reconocidos como una escuela que forma niños y niñas con buen desempeño escolar, empáticos, solidarios, responsables y respetuosos, con sus pares, mayores y su <br> entorno, desde NT1 a 8° básico."</p>
                     </div>
                 </div>
-                <div class="tarjeta-historia2" style="border: 1px solid orange; height:150px; max-width:1500px; border-radius: 25px">
+                <div class="tarjeta-historia2" style="border: 1px solid orange; height:937.5%; max-width:1500px; border-radius: 25px">
                     <div class="texto-historia" style="width:1248px; margin-left: 25px">
                         <h2 class="subtitulos2">La misión de nuestra unidad educativa es: <br><br></h2>
                         <p>"Formar personas de buen desempeño escolar, capaces de participar progresiva y positivamente en la sociedad de la cual forma parte".</p>
                     </div>
-                    <div class="centrar" style="width: 200px; height: 150px; float: right; margin-right: 25px">
+                    <div class="centrar" style="width: 200px; height: 937.5%; float: right; margin-right: 25px">
                         <img id="historia" src="{{asset('assets/images/sliders/1.jpg')}}" width="100%" height="100" style="border-radius: 25px; position: absolute; top: 50%; transform: translateY(-50%);">
                     </div>
                 </div>
