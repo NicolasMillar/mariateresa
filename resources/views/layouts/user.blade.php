@@ -222,6 +222,14 @@
     color: #ffffff;
     font-size: x-large;
   }
+  .ocultar{
+    background-color: #312e81;
+    display:inline-block;
+    font-size:2em;
+    color: white;
+    width: 35px;
+    height: 35px;
+  }
 </style>
 <script>
 </script>
