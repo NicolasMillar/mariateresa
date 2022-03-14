@@ -16,4 +16,8 @@ class AnotacionController extends Controller
         return view('admin.anotaciones.index', compact('anotaciones'));
     }
     
+    public function profesor(){
+        $alumnos = DB::table('usuario_alumno')->get();
+        return view('admin.anotaciones.profesor', compact('alumnos'));
+    }
 }
