@@ -20,7 +20,10 @@
                 @foreach ($alumnos as $alumno)
                     <tr>
                         <td>{{$alumno->Rut}}</td>
-                        <td>{{$alumno->Nombre_Alumno}} {{$alumno->ApellidoP_Alumno}}</td>
+                        {!! Form::open(['route'=>['anotacionesAlumno']] )!!}
+                        <input type="hidden" name="Rut" id="Rut" value="$alumno->Rut">
+                        <td>{!! Form::submit($alumno->Nombre_Alumno $alumno->ApellidoP_Alumno, ['class'=>'btn btn-primary']) !!}</td>
+                        {!! Form::close() !!}
                     </tr>
                 @endforeach
             </tbody>
