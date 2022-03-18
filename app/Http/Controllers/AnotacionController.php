@@ -21,6 +21,6 @@ class AnotacionController extends Controller
         return view('admin.anotaciones.profesoranotaciones', compact('alumnos'));
     }
     public function anotacionesalumno(Request $request){
-        echo $request->rut;
+        echo $request;
     }
 }
