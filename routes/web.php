@@ -113,7 +113,7 @@ Route::get('alumnohome/materiales/{asignatura}', 'App\Http\Controllers\MaterialC
 Route::get('alumnohome/calificaciones/{asignatura}/{alumno}', 'App\Http\Controllers\CalificacionController@index')->name('calificacion.index');
 Route::get('profesorhome/calificaciones/{asignatura}/', 'App\Http\Controllers\CalificacionController@profesor')->name('calificacion.profesor');
 Route::get('alumnohome/anotaciones/{alumno}', 'App\Http\Controllers\AnotacionController@index')->name('anotacion.index');
-Route::get('profesorhome/anotaciones', 'App\Http\Controllers\AnotacionController@profesor')->name('adminanotaciones.profesor');
+Route::get('profesorhome/anotaciones', 'App\Http\Controllers\AnotacionController@profesor')->name('admin.profesoranotaciones');
 Route::post('movillogin', 'App\Http\Controllers\MobileController@login');
 Route::post('movilanotaciones', 'App\Http\Controllers\MobileController@anotaciones');
 Route::post('moviluser', 'App\Http\Controllers\MobileController@usuario_movil');
