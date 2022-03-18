@@ -4,7 +4,8 @@
     use App\Models\Categoria_Asignatura;
     $profesor= new Usuario_profesor;
     $curso= new Curso;
-    
+    $anio= \Carbon\Carbon::now();
+    $year =date('Y', strtotime($anio));
 @endphp
 <div>
     <link rel="stylesheet" href="{{asset('css/add-slider.css')}}">
@@ -41,7 +42,7 @@
                             </div>
                             <div class="form-group" style="margin-top: 10px">
                                 {!! Form::label('Curso', 'Curso') !!}
-                                {!! Form::select('Curso', Curso::all()->pluck('full_name', 'id'), null, ['placeholder' => 'Elija un curso', 'class'=>'form-control']) !!}
+                                {!! Form::select('Curso', Curso::all()->where('Anio_Academico', '=', $year)->pluck('full_name', 'id'), null, ['placeholder' => 'Elija un curso', 'class'=>'form-control']) !!}
                                 @error('Profesor')
                                     <small class="text-danger">{{$message}}</small>
                                 @enderror

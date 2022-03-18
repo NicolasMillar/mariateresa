@@ -45,9 +45,10 @@ class MobileController extends Controller
     }
 
     public function usuario_movil(Request $request){
-        
+        $anio= \Carbon\Carbon::now();
+        $year =date('Y', strtotime($anio));
         $rut=$request->Rut;
-        $dbasignatura=DB::table('asignaturas')->select('asignaturas.id')->join('cursos', 'asignaturas.ID_Curso', '=', 'cursos.id')->join('participantes', 'cursos.id', '=', 'participantes.ID_Curso')->where('Estado_Curso', '=', 'active')->where('participantes.Rut', '=', $rut)->get();
+        $dbasignatura=DB::table('asignaturas')->select('asignaturas.id')->join('cursos', 'asignaturas.ID_Curso', '=', 'cursos.id')->join('participantes', 'cursos.id', '=', 'participantes.ID_Curso')->where('Estado_Curso', '=', 'active')->where('participantes.Rut', '=', $rut)->where('cursos.Anio_Academico', '=', $year)->get();
         $asignaturas=Asignatura::whereIn('id', $dbasignatura->pluck('id'))->get();
         return response()->json([
             'Asignaturas'=>$asignaturas
@@ -56,7 +57,7 @@ class MobileController extends Controller
     public function anotaciones(Request $request){
         $anio= \Carbon\Carbon::now();
         $year =date('Y', strtotime($anio));
-        $anotaciones = DB::table('anotaciones')->join('asignaturas', 'asignaturas.id', '=', 'anotaciones.ID_Asignatura')->join('cursos', 'cursos.id', '=', 'asignaturas.ID_Curso')->where('Rut', '=', $request->Rut)->where('cursos.Anio_Academico', '=', $year)->get();
+        $anotaciones = DB::table('anotaciones')->join('asignaturas', 'asignaturas.id', '=', 'anotaciones.ID_Asignatura')->join('cursos', 'cursos.id', '=', 'asignaturas.ID_Curso')->where('Rut', '=', $request->Rut)->get();
         return response()->json([
             'Anotaciones'=>$anotaciones
         ]);
@@ -73,7 +74,8 @@ class MobileController extends Controller
     public function fechas(Request $request){
         $rut=$request->Rut;
         $fecha= \Carbon\Carbon::now();
-        $pruebas=DB::table('pruebas')->join('asignaturas', 'asignaturas.id', '=', 'pruebas.ID_Asignatura')->join('cursos', 'cursos.id', '=', 'asignaturas.ID_Curso')->join('participantes', 'participantes.ID_Curso', '=', 'cursos.id')->where('participantes.Rut', '=', $rut)->where('Fecha_Prueba', '>', $fecha)->get();
+        $year =date('Y', strtotime($fecha));
+        $pruebas=DB::table('pruebas')->join('asignaturas', 'asignaturas.id', '=', 'pruebas.ID_Asignatura')->join('cursos', 'cursos.id', '=', 'asignaturas.ID_Curso')->join('participantes', 'participantes.ID_Curso', '=', 'cursos.id')->where('participantes.Rut', '=', $rut)->where('Fecha_Prueba', '>', $fecha)->where('cursos.Anio_Academico', '=', $year)->get();
         return response()->json([
             'Fechas'=>$pruebas
         ]);
