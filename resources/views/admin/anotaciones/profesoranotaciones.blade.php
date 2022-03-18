@@ -21,7 +21,7 @@
                     <tr>
                         <td>{{$alumno->Rut}}</td>
                         {!! Form::open(['route'=>['anotacionesAlumno']] )!!}
-                        <input type="hidden" name="Rut" id="Rut" value="$alumno->Rut">
+                        <input type="hidden" name="Rut" id="Rut" value="{{$alumno->Rut}}">
                         <td>{!! Form::submit("$alumno->Nombre_Alumno $alumno->ApellidoP_Alumno", ['class'=>'btn btn-primary']) !!}</td>
                         {!! Form::close() !!}
                     </tr>
