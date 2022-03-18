@@ -20,7 +20,7 @@
                 @foreach ($alumnos as $alumno)
                     <tr>
                         <td>{{$alumno->Rut}}</td>
-                        <td>{{$alumno->Nombre_Alumno }}{{$alumno->ApellidoP_Alumno}}</td>
+                        <td>{{$alumno->Nombre_Alumno}} {{$alumno->ApellidoP_Alumno}}</td>
                     </tr>
                 @endforeach
             </tbody>
