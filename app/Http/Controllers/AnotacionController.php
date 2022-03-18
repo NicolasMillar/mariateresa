@@ -17,7 +17,7 @@ class AnotacionController extends Controller
     }
     
     public function profesor(){
-        $alumnos = DB::table('usuario_alumno')->get();
+        $alumnos = Usuario_Alumno::All();
         return view('admin.anotaciones.profesor', compact('alumnos'));
     }
 }
