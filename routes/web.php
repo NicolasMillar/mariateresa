@@ -105,7 +105,7 @@ Route::resource('categorias', CategoriaAsignaturaController::class)->names('admi
 Route::resource('talleres', TallerController::class)->names('admin.taller');
 Route::resource('materiales', MaterialController::class)->names('admin.material');
 Route::post('profesorhome/calificaciones/registro', 'App\Http\Controllers\PruebaController@registrar')->name('prueba.registrar');
-Route::post('profesorhome/anotaciones', 'App\Http\Controllers\AnoracionConreoller@anotacionesalumno')->name('anotacionesAlumno');
+Route::post('profesorhome/anotaciones', 'App\Http\Controllers\AnoracionConreoller@AnotacionController')->name('anotacionesAlumno');
 
 Route::resource('file', 'App\Http\Controllers\FileController');
 Route::get('participantes/{curso}', 'App\Http\Controllers\ParticipanteController@create')->name('participante.create');
