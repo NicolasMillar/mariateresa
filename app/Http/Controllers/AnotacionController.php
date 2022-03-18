@@ -18,6 +18,6 @@ class AnotacionController extends Controller
     
     public function profesor(){
         $alumnos = Usuario_Alumno::All();
-        return view('admin.profesoranotaciones', compact('alumnos'));
+        return view('admin.anotaciones.profesoranotaciones', compact('alumnos'));
     }
 }

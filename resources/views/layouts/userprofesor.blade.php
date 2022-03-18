@@ -84,7 +84,7 @@
                       @endforeach  
                     </div>
                   </div>  
-                  <a href="{{route('admin.profesoranotaciones')}}" class="w3-bar-item w3-button w3-border-bottom">Anotaciones</a> 
+                  <a href="{{route('admin.anotaciones.profesoranotaciones')}}" class="w3-bar-item w3-button w3-border-bottom">Anotaciones</a> 
                   <a href="{{route('calendarioprofesor')}}" class="w3-bar-item w3-button w3-border-bottom">Calendario</a> 
                   <a href="#" class="w3-bar-item w3-button w3-border-bottom">Cuenta</a> 
                 </div>
