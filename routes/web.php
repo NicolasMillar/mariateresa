@@ -115,6 +115,7 @@ Route::get('alumnohome/calificaciones/{asignatura}/{alumno}', 'App\Http\Controll
 Route::get('profesorhome/calificaciones/{asignatura}/', 'App\Http\Controllers\CalificacionController@profesor')->name('calificacion.profesor');
 Route::get('alumnohome/anotaciones/{alumno}', 'App\Http\Controllers\AnotacionController@index')->name('anotacion.index');
 Route::get('profesorhome/anotaciones', 'App\Http\Controllers\AnotacionController@profesor')->name('admin.anotaciones.profesoranotaciones');
+Route::get('profesorhome/anotaciones', 'App\Http\Controllers\AnotacionController@anotacionesalumno')->name('admin.anotaciones.alumnoanotaciones');
 Route::post('movillogin', 'App\Http\Controllers\MobileController@login');
 Route::post('movilanotaciones', 'App\Http\Controllers\MobileController@anotaciones');
 Route::post('moviluser', 'App\Http\Controllers\MobileController@usuario_movil');
