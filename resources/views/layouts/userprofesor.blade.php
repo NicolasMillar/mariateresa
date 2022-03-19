@@ -232,5 +232,7 @@
     height: 35px;
   }
 </style>
-<script>
-</script>
+<script>$(document).ready(function() {
+  $('#tabla').DataTable();
+} );
+</script>  
