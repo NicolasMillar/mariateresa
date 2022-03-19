@@ -30,9 +30,13 @@
                         {!! Form::close() !!}
                     </tr>
                 @endforeach
-            </tbody>
-                            
+            </tbody>           
         </table>
     </div>
+
+    <script>$(document).ready(function() {
+        $('#tabla').DataTable();
+      } );
+    </script>  
 @endsection
 <style></style>  
