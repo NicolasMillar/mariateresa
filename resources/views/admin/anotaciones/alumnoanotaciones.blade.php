@@ -18,13 +18,15 @@
                 <tr>
                     <th>Tipo</th>
                     <th>Descripcion</th>
+                    <th>Asignatura</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($anotaciones as $anotacion)
                     <tr>
-                        <td>{{$anotacion->Tipo}}</td>
-                        <td>{{$anotacion->Descripcion }}</td>
+                        <td>{{$anotacion->Tipo_Anotacion}}</td>
+                        <td>{{$anotacion->Descripcion_Anotacion }}</td>
+                        <td>{{$anotacion->Nombre_Asignatura }}</td>
                     </tr>
                 @endforeach
             </tbody>           

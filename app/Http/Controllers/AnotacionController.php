@@ -21,7 +21,7 @@ class AnotacionController extends Controller
         return view('admin.anotaciones.profesoranotaciones', compact('alumnos'));
     }
     public function anotacionesalumno(Request $request){
-        $anotaciones = DB::table('anotaciones')->where('Rut', '=', $request->Rut)->get();
+        $anotaciones = DB::table('anotaciones')->join('asignaturas', 'asignaturas.id', '=', 'anotaciones.ID_Asignatura')->where('Rut', '=', $request->Rut)->get();
         return view('admin.anotaciones.alumnoanotaciones', compact('anotaciones'));
     }
 }
