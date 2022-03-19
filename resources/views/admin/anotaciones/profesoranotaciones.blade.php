@@ -12,8 +12,8 @@
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">           
-    <div style="text-align:center;" >
-        <table id="tabla" class="table table-striped table-bordered table-sm" style="width: 75%; margin: 0 auto;">
+    <div style=" justify-content: center; display:flex;" >
+        <table id="tabla" class="table table-striped table-bordered table-sm" style="width: 100%">
             <thead>
                 <tr>
                     <th>Rut</th>
