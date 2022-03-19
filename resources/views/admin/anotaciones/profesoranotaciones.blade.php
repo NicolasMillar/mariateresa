@@ -9,6 +9,9 @@
 
 @extends('layouts.userprofesor')
 @section('Content')
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">           
     <div style=" justify-content: center; display:flex;" >
         <table id="tabla" class="table table-striped table-bordered table-sm" style="width: 50%">
@@ -33,10 +36,7 @@
         </table>
     </div>
 @endsection
-<style></style>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>  
+<style></style>  
 <script>$(document).ready(function() {
     $('#tabla').DataTable();
   } );
