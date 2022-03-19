@@ -6,9 +6,10 @@
     $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
     $sessionasignatura = collect($sessionasignatura);
 ?>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+
 @extends('layouts.userprofesor')
-@section('Content')             
+@section('Content')  
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">           
     <div style=" justify-content: center; display:flex;" >
         <table class="table table-striped table-bordered table-sm" style="width: 50%">
             <thead>
@@ -34,8 +35,8 @@
 @endsection
 <style></style>
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
-    <script>$(document).ready(function() {
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+<script>$(document).ready(function() {
         $('#tabla').DataTable();
     } );
 </script>   
