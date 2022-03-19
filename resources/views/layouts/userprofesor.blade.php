@@ -232,7 +232,3 @@
     height: 35px;
   }
 </style>
-<script>$(document).ready(function() {
-  $('#tabla').DataTable();
-} );
-</script>  
