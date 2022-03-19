@@ -10,7 +10,7 @@
 @extends('layouts.userprofesor')
 @section('Content')           
     <div style=" justify-content: center; display:flex;" >
-        <table class="table table-striped table-bordered table-sm" style="width: 50%">
+        <table id="tabla" class="table table-striped table-bordered table-sm" style="width: 50%">
             <thead>
                 <tr>
                     <th>Rut</th>
@@ -33,8 +33,4 @@
     </div>
 @endsection
 <style></style>
-
-<script>$(document).ready(function() {
-        $('#tabla').DataTable();
-    } );
-</script>   
+ 
