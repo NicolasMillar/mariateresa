@@ -26,7 +26,7 @@
                         <td>{{$alumno->Rut}}</td>
                         {!! Form::open(['route'=>['anotacionesAlumno']] )!!}
                         <input type="hidden" name="Rut" id="Rut" value="{{$alumno->Rut}}">
-                        <td>{!! Form::submit("$alumno->Nombre_Alumno $alumno->ApellidoP_Alumno") !!}</td>
+                        {!! Form::submit(<td>"$alumno->Nombre_Alumno $alumno->ApellidoP_Alumno"</td>) !!}
                         {!! Form::close() !!}
                     </tr>
                 @endforeach
@@ -34,9 +34,9 @@
         </table>
     </div>
 
-    <script>$(document).ready(function() {
-        $('#tabla').DataTable();
-      } );
-    </script>  
+<script>$(document).ready(function() {
+    $('#tabla').DataTable();
+    } );
+</script>  
 @endsection
 <style></style>  
