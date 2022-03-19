@@ -49,17 +49,18 @@
                 </button>
             </div>
             <div class="modal-body">
-                {!! Form::open(['route'=>['anotacionesagregar'] ] )!!}
+                {!! Form::open(['route'=>['anotacionesagregar', 'method =>POST'] ] )!!}
                     <input type="hidden" name="Fecha" id="Fecha" value="{{$hoy}}">
                     <input type="hidden" name="idasignatura" id="idasignatura" value="{{$asignatura}}">
+                    <input type="hidden" name="alumnorut" id="alumnorut" value="{{$rutalumno}}">
                     {!! Form::label('descri', 'Descripcion de la anotacion') !!}
                     {!! Form::text('Descripcion', null, ['class'=>'form-control', 'placeholder'=>'Ingrese una descripcion de la anotacion']) !!}
                     {!! Form::label('sem', 'Tipo de anotacion') !!}
-                    {!! Form::select('semestre', ['positiva', 'negativa'], '0', ['class'=>'form-control'] ) !!}
+                    {!! Form::select('Tipo', ['positiva', 'negativa'], 0, ['class'=>'form-control'] ) !!}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary"  >Guardar cambios</button>
+                <button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
+               {!! Form::submit("Guardar", ['class'=>'btn btn-primary']) !!}
                 {!! Form::close() !!}
             </div>
         </div>
@@ -76,4 +77,5 @@
     function agregarAnotacion(){
         $("#Agregaranotacion").modal("show");
     }
+
 </script>

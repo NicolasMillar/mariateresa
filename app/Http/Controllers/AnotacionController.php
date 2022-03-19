@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario_alumno;
 use Illuminate\Support\Facades\DB;
+use App\Models\Anotacion;
 
 
 class AnotacionController extends Controller
@@ -24,9 +25,23 @@ class AnotacionController extends Controller
     public function anotacionesalumno(Request $request){
         $anotaciones = DB::table('anotaciones')->join('asignaturas', 'asignaturas.id', '=', 'anotaciones.ID_Asignatura')->where('Rut', '=', $request->Rut)->get();
         $asignatura= $request->asignatura;
-        return view('admin.anotaciones.alumnoanotaciones', compact('anotaciones', 'asignatura'));
+        $rutalumno= $request->Rut;
+        return view('admin.anotaciones.alumnoanotaciones', compact('anotaciones', 'asignatura', 'rutalumno'));
     }
     public function anotacionesagregar(Request $request){
-        echo $request->idasignatura;
+        if($request->Tipo == 0){
+            $tipo="positiva";
+        }
+        else{
+            $tipo="negativa";
+        }
+        Anotacion::create([
+            'Descripcion_Anotacion' => $request->Descripcion,
+            'Tipo_Anotacion' =>  $tipo,
+            'ID_Asignatura' =>$request->idasignatura,
+            'Rut' =>$request->alumnorut,
+            'created_at' => $request->Fecha
+        ]);
+        return redirect()->route('profesorhome')->with('info', 'se creo la anotacion');
     }
 }

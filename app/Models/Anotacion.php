@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Anotacion extends Model
 {
+    protected $fillable=['Descripcion_Anotacion', 'Tipo_Anotacion', 'ID_Asignatura', 'Rut', 'created_at' ];
     use HasFactory;
     protected $table = "anotaciones";
     
