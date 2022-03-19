@@ -36,7 +36,3 @@
     </div>
 @endsection
 <style></style>  
-<script>$(document).ready(function() {
-    $('#tabla').DataTable();
-  } );
-</script>  
