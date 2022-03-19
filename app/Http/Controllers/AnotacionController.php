@@ -16,12 +16,17 @@ class AnotacionController extends Controller
         return view('admin.anotaciones.index', compact('anotaciones'));
     }
     
-    public function profesor(){
-        $alumnos = Usuario_Alumno::All();
-        return view('admin.anotaciones.profesoranotaciones', compact('alumnos'));
+    public function profesor(Request $request){
+        $asignaturaid=$request->asignatura;
+        $alumnos = DB::table('usuario_alumnos')->join('participantes', 'participantes.Rut', '=', 'usuario_alumnos.Rut')->join('cursos', 'cursos.id', '=', 'participantes.ID_Curso')->join('asignaturas', 'asignaturas.ID_Curso' ,'=','cursos.id')->where('asignaturas.id', '=', $asignaturaid)->get();
+        return view('admin.anotaciones.profesoranotaciones', compact('alumnos','asignaturaid'));
     }
     public function anotacionesalumno(Request $request){
         $anotaciones = DB::table('anotaciones')->join('asignaturas', 'asignaturas.id', '=', 'anotaciones.ID_Asignatura')->where('Rut', '=', $request->Rut)->get();
-        return view('admin.anotaciones.alumnoanotaciones', compact('anotaciones'));
+        $asignatura= $request->asignatura;
+        return view('admin.anotaciones.alumnoanotaciones', compact('anotaciones', 'asignatura'));
+    }
+    public function anotacionesagregar(Request $request){
+        echo $request->idasignatura;
     }
 }

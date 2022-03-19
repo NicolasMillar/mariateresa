@@ -27,6 +27,7 @@
                         <td>{{$alumno->Rut}}</td>
                         {!! Form::open(['route'=>['anotacionesAlumno']] )!!}
                         <input type="hidden" name="Rut" id="Rut" value="{{$alumno->Rut}}">
+                        <input type="hidden" name="asignatura" id="asignatura" value="{{$asignaturaid}}">
                         <td>{{$alumno->Nombre_Alumno }} {{$alumno->ApellidoP_Alumno}}</td>
                         <td>{!! Form::submit("ver Anotaciones", ['class'=>'btn btn-primary']) !!}</td>
                         {!! Form::close() !!}

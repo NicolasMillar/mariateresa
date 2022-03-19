@@ -84,8 +84,20 @@
                       <a href="{{route('calificacion.profesor', [$asignatura])}}" class="w3-bar-item w3-button w3-border-bottom" style="font-size:80%">{{$asignatura->Nombre_Asignatura}}</a>
                       @endforeach  
                     </div>
-                  </div>  
-                  <a href="{{route('admin.anotaciones.profesoranotaciones')}}" class="w3-bar-item w3-button w3-border-bottom">Anotaciones</a> 
+                  </div>
+                  <div class="w3-dropdown-hover">
+                    <button class="w3-button w3-border-bottom">Anotaciones
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="w3-dropdown-content w3-bar-block">
+                      @foreach ($sessionasignatura as $asignatura)
+                        {!! Form::open(['route'=>['profesor']] )!!}
+                          <input type="hidden" name="asignatura" id="asignatura" value="{{$asignatura->id}}">
+                          <button type="submit" class="w3-bar-item w3-button w3-border-bottom" style="font-size:80%" >{{$asignatura->Nombre_Asignatura}}</button>
+                        {!! Form::close() !!}
+                      @endforeach  
+                    </div>
+                  </div>     
                   <a href="{{route('calendarioprofesor')}}" class="w3-bar-item w3-button w3-border-bottom">Calendario</a> 
                   <a href="#" class="w3-bar-item w3-button w3-border-bottom">Cuenta</a> 
                 </div>
