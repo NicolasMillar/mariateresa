@@ -18,6 +18,7 @@
                 <tr>
                     <th>Rut</th>
                     <th>Nombre</th>
+                    <th>Anotaciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,7 +27,8 @@
                         <td>{{$alumno->Rut}}</td>
                         {!! Form::open(['route'=>['anotacionesAlumno']] )!!}
                         <input type="hidden" name="Rut" id="Rut" value="{{$alumno->Rut}}">
-                        {!! Form::submit(<td>"$alumno->Nombre_Alumno $alumno->ApellidoP_Alumno"</td>) !!}
+                        <td>{{$alumno->Nombre_Alumno $alumno->ApellidoP_Alumno}}</td>
+                        <td>{!! Form::submit("ver Anotaciones", ['class'=>'btn btn-primary', 'style'=>'margin-top: 10px']) !!}</td>
                         {!! Form::close() !!}
                     </tr>
                 @endforeach
