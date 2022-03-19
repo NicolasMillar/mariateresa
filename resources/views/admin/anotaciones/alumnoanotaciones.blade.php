@@ -8,7 +8,10 @@
 ?>
 
 @extends('layouts.userprofesor')
-@section('Content')         
+@section('Content')
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">           
     <div style=" justify-content: center; display:flex; margin-top:2.5%" >
         <table id="tabla" class="" style="">
             <thead>
@@ -20,12 +23,17 @@
             <tbody>
                 @foreach ($anotaciones as $anotacion)
                     <tr>
-                        <td>{{$anotacion->tipo}}</td>
+                        <td>{{$anotacion->Tipo}}</td>
                         <td>{{$anotacion->Descripcion }}</td>
                     </tr>
                 @endforeach
             </tbody>           
         </table>
     </div>
+
+<script>$(document).ready(function() {
+    $('#tabla').DataTable();
+    } );
+</script>  
 @endsection
 <style></style>  
