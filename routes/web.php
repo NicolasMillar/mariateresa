@@ -136,4 +136,4 @@ Route::get('alumnohome/calendarioalumno', 'App\Http\Controllers\AlumnoProfesor@c
 Route::get('profesorhome/calendarioprofesor/mostrar/','App\Http\Controllers\calendarioController@mostrarprofesor')->name('mostrarprofesor');
 Route::get('alumnohome/calendarioalumno/mostrar','App\Http\Controllers\calendarioController@mostraralumno')->name('mostraralumno');
 Route::get('profesorhome/cuenta','App\Http\Controllers\Usuario_profesorController@cuenta')->name('cuenta');
-
+Route::post('profesorhome/cuenta','App\Http\Controllers\Usuario_profesorController@cambiarcontraseña')->name('cambiarcon');

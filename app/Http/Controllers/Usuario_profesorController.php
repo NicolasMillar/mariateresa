@@ -180,4 +180,29 @@ class Usuario_profesorController extends Controller
     public function cuenta(){
         return view('cuenta');
     }
+
+    public function cambiarcontraseña(Request $request){
+        $request->validate([
+            'ContraseñaActual'=>['required','min:6','regex:/^.*(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!"#$%&()*+,-.:;<=>?@_`{|}~]).*$/'],
+            'contraseñanueva'=>['required','min:6','regex:/^.*(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!"#$%&()*+,-.:;<=>?@_`{|}~]).*$/'],
+            'confcontraseña'=>['required','min:6','regex:/^.*(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!"#$%&()*+,-.:;<=>?@_`{|}~]).*$/'],
+        ]);
+        $sessionrut = session('rut');
+        $consulta=Usuario_profesor::where('Rut',$sessionrut)->first();
+        if(!is_null($consulta)){
+            if(Hash::check($request->ContraseñaActual, $consulta->Contraseña)){
+                if(strcmp($request->contraseñanueva, $request->confcontraseña) == 0){
+                    $password=Hash::make($request->contraseñanueva);
+                    $consulta->update([
+                        'Contraseña'=> $password
+                    ]);
+                    return redirect()->route('cuenta')->with('info', 'se actualizo  ela contraseña exitosamente');
+                }else{
+                    return redirect()->route('cuenta')->with('warning', 'Las contraseñas nuevas no coinciden');
+                }
+            }else{
+                return redirect()->route('cuenta')->with('warning', 'Las contraseñas ingresada no coincide con su contraseña actual');
+            }
+        }
+    }
 }
