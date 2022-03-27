@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario_alumno;
 use Illuminate\Support\Facades\DB;
+use App\Models\Anotacion;
 
 
 class AnotacionController extends Controller
@@ -16,4 +17,31 @@ class AnotacionController extends Controller
         return view('admin.anotaciones.index', compact('anotaciones'));
     }
     
+    public function profesor(Request $request){
+        $asignaturaid=$request->asignatura;
+        $alumnos = DB::table('usuario_alumnos')->join('participantes', 'participantes.Rut', '=', 'usuario_alumnos.Rut')->join('cursos', 'cursos.id', '=', 'participantes.ID_Curso')->join('asignaturas', 'asignaturas.ID_Curso' ,'=','cursos.id')->where('asignaturas.id', '=', $asignaturaid)->get();
+        return view('admin.anotaciones.profesoranotaciones', compact('alumnos','asignaturaid'));
+    }
+    public function anotacionesalumno(Request $request){
+        $anotaciones = DB::table('anotaciones')->join('asignaturas', 'asignaturas.id', '=', 'anotaciones.ID_Asignatura')->where('Rut', '=', $request->Rut)->get();
+        $asignatura= $request->asignatura;
+        $rutalumno= $request->Rut;
+        return view('admin.anotaciones.alumnoanotaciones', compact('anotaciones', 'asignatura', 'rutalumno'));
+    }
+    public function anotacionesagregar(Request $request){
+        if($request->Tipo == 0){
+            $tipo="positiva";
+        }
+        else{
+            $tipo="negativa";
+        }
+        Anotacion::create([
+            'Descripcion_Anotacion' => $request->Descripcion,
+            'Tipo_Anotacion' =>  $tipo,
+            'ID_Asignatura' =>$request->idasignatura,
+            'Rut' =>$request->alumnorut,
+            'created_at' => $request->Fecha
+        ]);
+        return redirect()->route('profesorhome')->with('info', 'se creo la anotacion');
+    }
 }

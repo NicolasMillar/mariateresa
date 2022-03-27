@@ -9,6 +9,7 @@
         
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <!-- full calendar -->
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/locales-all.js"></script>
@@ -83,8 +84,20 @@
                       <a href="{{route('calificacion.profesor', [$asignatura])}}" class="w3-bar-item w3-button w3-border-bottom" style="font-size:80%">{{$asignatura->Nombre_Asignatura}}</a>
                       @endforeach  
                     </div>
-                  </div>  
-                  <a href="#" class="w3-bar-item w3-button w3-border-bottom">Anotaciones</a> 
+                  </div>
+                  <div class="w3-dropdown-hover">
+                    <button class="w3-button w3-border-bottom">Anotaciones
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="w3-dropdown-content w3-bar-block">
+                      @foreach ($sessionasignatura as $asignatura)
+                        {!! Form::open(['route'=>['profesor']] )!!}
+                          <input type="hidden" name="asignatura" id="asignatura" value="{{$asignatura->id}}">
+                          <button type="submit" class="w3-bar-item w3-button w3-border-bottom" style="font-size:80%" >{{$asignatura->Nombre_Asignatura}}</button>
+                        {!! Form::close() !!}
+                      @endforeach  
+                    </div>
+                  </div>     
                   <a href="{{route('calendarioprofesor')}}" class="w3-bar-item w3-button w3-border-bottom">Calendario</a> 
                   <a href="#" class="w3-bar-item w3-button w3-border-bottom">Cuenta</a> 
                 </div>
@@ -229,5 +242,3 @@
     height: 35px;
   }
 </style>
-<script>
-</script>

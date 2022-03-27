@@ -195,43 +195,6 @@
       align-content: space-between;
       align-items: flex-start;
     }
-    #tarjeta-fechas{
-      text-align: left;
-      width: 300px;
-      margin-top: 20px;
-      margin-left: 25px;
-    }
-    .tarjeta-noticias{
-      display: flex;
-      flex-wrap: wrap;
-      text-align: left;
-      width: 700px;
-      margin-top: 20px;
-      margin-left: 25px;
-      
-    }
-    .tarjeta-historia{
-      display: flex;
-      flex-wrap: wrap;
-      text-align: left;
-      width: 1500px;
-      margin-top: 20px;
-      margin-left: 25px;
-    }
-    .tarjeta-profesor{
-      display: flex;
-      flex-wrap: wrap;
-      text-align: left;
-      width: 1500px;
-      margin-left: 25px;
-    }
-    .tarjeta-historia2{
-      display: flex;
-      flex-wrap: wrap;
-      width: 1500px;
-      margin-top: 20px;
-      margin-left: 25px;
-    }
     
     #calendar{
         float: left;
@@ -301,6 +264,112 @@
   span.img-text:hover {
     color: #2caae1;
   }
+}
+  #tarjeta-fechas{
+    text-align: left;
+    width: 300px;
+    margin-top: 20px;
+    margin-left: 25px;
+  }
+  .tarjeta-noticias{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    width: 700px;
+    margin-top: 20px;
+    margin-left: 25px;      
+  }
+  .tarjeta-historia{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    width: 1500px;
+    margin-top: 20px;
+    margin-left: 25px;
+  }
+  .tarjeta-profesor{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    width: 1500px;
+    margin-left: 25px;
+  }    
+  .tarjeta-historia2{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1500px;      
+    margin-top: 20px;
+    margin-left: 25px;
+  }
+
+
+@media only screen and (min-width: 300px) and (max-width: 950px)   {
+  #tarjeta-fechas{
+    text-align: left;
+    flex-wrap: wrap;
+    text-align: left;
+    width: 100%;
+    margin-top: 2%;
+    margin-left: 1%;
+  }
+  .tarjeta-noticias{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    width: 100%;
+    margin-top: 2%;
+    margin-left: 1%;      
+  }
+  .tarjeta-historia{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    width: 100%;
+    margin-top: 2%;
+    margin-left: 1%;
+  }
+  .tarjeta-profesor{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    width: 100%;
+    margin-left: 1%;
+  }
+  .tarjeta-historia2{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 2%;
+    margin-left: 1%;
+  }
+  .tarjeta-historia2 li{
+    margin-top: 2%;
+  }
+  li{
+	  font-size: xx-small;
+  }
+  #historia{
+    display: none;
+  }
+  .centrar{
+    width: 0px !important; 
+    height: 0px !important;
+  }
+  .subtitulos{
+    font-size: x-small;
+    text-align: center;
+    margin-top: 1%;
+  }
+  .subtitulos2{
+    font-size: x-small;
+  }
+  p{
+    font-size: xx-small;
+  }
+  #w3review{
+    width: 100%;
+  }
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>

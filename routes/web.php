@@ -105,6 +105,9 @@ Route::resource('categorias', CategoriaAsignaturaController::class)->names('admi
 Route::resource('talleres', TallerController::class)->names('admin.taller');
 Route::resource('materiales', MaterialController::class)->names('admin.material');
 Route::post('profesorhome/calificaciones/registro', 'App\Http\Controllers\PruebaController@registrar')->name('prueba.registrar');
+Route::post('profesorhome/anotacion', 'App\Http\Controllers\AnotacionController@anotacionesalumno')->name('anotacionesAlumno');
+Route::post('profesorhome/anotaciones', 'App\Http\Controllers\AnotacionController@profesor')->name('profesor');
+Route::post('profesorhome/anotacion/alumno', 'App\Http\Controllers\AnotacionController@anotacionesagregar')->name('anotacionesagregar');
 
 Route::resource('file', 'App\Http\Controllers\FileController');
 Route::get('participante/{curso}', 'App\Http\Controllers\ParticipanteController@index')->name('participante.index');
@@ -115,6 +118,8 @@ Route::get('alumnohome/materiales/{asignatura}', 'App\Http\Controllers\MaterialC
 Route::get('alumnohome/calificaciones/{asignatura}/{alumno}', 'App\Http\Controllers\CalificacionController@index')->name('calificacion.index');
 Route::get('profesorhome/calificaciones/{asignatura}/', 'App\Http\Controllers\CalificacionController@profesor')->name('calificacion.profesor');
 Route::get('alumnohome/anotaciones/{alumno}', 'App\Http\Controllers\AnotacionController@index')->name('anotacion.index');
+Route::post('profesorhome/anotaciones/alumnos', 'App\Http\Controllers\AnotacionController@profesor')->name('admin.anotaciones.profesoranotaciones');
+Route::post('profesorhome/anotaciones/alumno', 'App\Http\Controllers\AnotacionController@anotacionesalumno')->name('admin.anotaciones.alumnoanotaciones');
 Route::post('movillogin', 'App\Http\Controllers\MobileController@login');
 Route::post('movilanotaciones', 'App\Http\Controllers\MobileController@anotaciones');
 Route::post('moviluser', 'App\Http\Controllers\MobileController@usuario_movil');
