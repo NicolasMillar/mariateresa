@@ -44,6 +44,7 @@
                                     <th>Editar</th>
                                     <th>Eliminar</th>
                                     <th>agregar</th>
+                                    <th>alumnos</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -102,6 +103,9 @@
                                         </td>
                                         <td>
                                             <a href="{{route('participante.create', $curso)}}" class="btn btn-success">Agregar Alumnos</a>
+                                        </td>
+                                        <td>
+                                            <a href="{{route('participante.index', $curso)}}" class="btn btn-success">Ver Alumnos</a>
                                         </td>
                                     </tr>
                                 @endforeach

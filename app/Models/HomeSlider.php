@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class HomeSlider extends Model
 {
     use HasFactory;
-    protected $fillable=['Titulo', 'Link', 'Image', 'Estado'];
+    protected $fillable=['Link', 'Image', 'Estado'];
     protected $table = "home_sliders";
 }

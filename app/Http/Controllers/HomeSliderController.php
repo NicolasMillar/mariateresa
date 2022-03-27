@@ -38,18 +38,15 @@ class HomeSliderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'Titulo'=>'required',
             'Link'=>'required',
-            'Image'=>'required|image',
-            'Estado'=>'required'
+            'Image'=>'required|image'
         ]);
         $imagenes = $request->file('Image')->store('public/sliders');
         $Titulo=$request->Titulo;
         $Link=$request->Link;
-        $Estado=$request->Estado;
+        $Estado=true;
         $url = Storage::url($imagenes);
         HomeSlider::create([
-            'Titulo'=>$Titulo,
             'Link'=>$Link,
             'Image'=>$url,
             'Estado'=>$Estado

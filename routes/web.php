@@ -107,6 +107,8 @@ Route::resource('materiales', MaterialController::class)->names('admin.material'
 Route::post('profesorhome/calificaciones/registro', 'App\Http\Controllers\PruebaController@registrar')->name('prueba.registrar');
 
 Route::resource('file', 'App\Http\Controllers\FileController');
+Route::get('participante/{curso}', 'App\Http\Controllers\ParticipanteController@index')->name('participante.index');
+Route::get('participante/hoja/{alumno}', 'App\Http\Controllers\ParticipanteController@hoja')->name('participante.hoja');
 Route::get('participantes/{curso}', 'App\Http\Controllers\ParticipanteController@create')->name('participante.create');
 Route::post('participantes/{curso}', 'App\Http\Controllers\ParticipanteController@store')->name('participante.store');
 Route::get('alumnohome/materiales/{asignatura}', 'App\Http\Controllers\MaterialController@index')->name('material.index');

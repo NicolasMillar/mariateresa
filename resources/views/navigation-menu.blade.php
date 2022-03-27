@@ -246,7 +246,7 @@
                             </x-slot>
                         </x-jet-dropdown>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-white dark:text-gray-500 underline">Log in</a>
+                        <a href="{{ route('login') }}" class="text-sm text-white dark:text-gray-500 underline">Intranet</a>
                     @endauth
                 </div>
             </div>

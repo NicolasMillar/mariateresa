@@ -18,19 +18,12 @@ class MobileController extends Controller
 
         $this->validate($request,[
             'Rut' => 'required',
-            'Contraseña' => 'required',
-            'Token'=>'required'
+            'Contraseña' => 'required'
         ]);
 
         $consulta=Usuario_alumno::where('Rut',$request->Rut)->first();
         $consultatoken=FCMToken::where('token', $request->Token)->first();
             if(Hash::check($request->Contraseña, $consulta->Contraseña)){
-                if(is_null($consultatoken)){
-                    FCMToken::create([
-                        'Rut'=>$request->Rut,
-                        'token'=>$request->Token
-                    ]);
-                }
                 
                 $token=md5(time()). '.' .md5($request->Rut);
                 return response()->json([

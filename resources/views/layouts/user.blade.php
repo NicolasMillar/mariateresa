@@ -89,9 +89,8 @@
                       @endforeach  
                     </div>
                   </div>  
-                  <a href="#" class="w3-bar-item w3-button w3-border-bottom">Anotaciones</a> 
-                  <a href="{{route('calendarioprofesor')}}" class="w3-bar-item w3-button w3-border-bottom">Calendario</a> 
-                  <a href="#" class="w3-bar-item w3-button w3-border-bottom">Cuenta</a> 
+                  <a href="{{route('anotacion.index', [$sessionrut])}}" class="w3-bar-item w3-button w3-border-bottom">Anotaciones</a> 
+                  <a href="{{route('calendarioprofesor')}}" class="w3-bar-item w3-button w3-border-bottom">Calendario</a>
                 </div>
               </div>
                 <div class="right-div" id="right-div">
