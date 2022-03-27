@@ -176,4 +176,8 @@ class Usuario_profesorController extends Controller
         $pusuario->delete();
         return redirect()->route('admin.usuario_profesor.index');
     }
+
+    public function cuenta(){
+        return view('cuenta');
+    }
 }

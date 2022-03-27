@@ -99,7 +99,7 @@
                     </div>
                   </div>     
                   <a href="{{route('calendarioprofesor')}}" class="w3-bar-item w3-button w3-border-bottom">Calendario</a> 
-                  <a href="#" class="w3-bar-item w3-button w3-border-bottom">Cuenta</a> 
+                  <a href="{{route('cuenta')}}" class="w3-bar-item w3-button w3-border-bottom">Cuenta</a> 
                 </div>
               </div>
                 <div class="right-div" id="right-div">
