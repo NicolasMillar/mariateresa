@@ -54,22 +54,32 @@
                     <input type="hidden" name="idasignatura" id="idasignatura" value="{{$asignatura}}">
                     <input type="hidden" name="alumnorut" id="alumnorut" value="{{$rutalumno}}">
                     {!! Form::label('descri', 'Descripcion de la anotacion') !!}
-                    {!! Form::text('Descripcion', null, ['class'=>'form-control', 'placeholder'=>'Ingrese una descripcion de la anotacion']) !!}
+                    <input type="text" id="descripciona" name="Descripciona">
                     {!! Form::label('sem', 'Tipo de anotacion') !!}
-                    {!! Form::select('Tipo', ['positiva', 'negativa'], 0, ['class'=>'form-control'] ) !!}
+                    {!! Form::select('Tipo', ['Positiva', 'Negativa','Observacion'], 0, ['class'=>'form-control'] ) !!}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
-               {!! Form::submit("Guardar", ['class'=>'btn btn-primary']) !!}
+                <button type="submit" class="btn btn-primary"  id="Guardar" disabled>Guardar cambios</button>
                 {!! Form::close() !!}
             </div>
         </div>
     </div>
 </div>
 
-<script>$(document).ready(function() {
-    $('#tabla').DataTable();
+<script>
+    $(document).ready(function() {
+        $('#tabla').DataTable();
     } );
+</script>
+<script defer>
+    var inputTextMensaje = document.getElementById('descripciona');
+      var buttonEnviar = document.getElementById('Guardar');
+  
+      inputTextMensaje.addEventListener('keyup', function(evt) { 
+          var valueTextField = inputTextMensaje.value.trim();
+          buttonEnviar.disabled = (valueTextField == "");
+      });
 </script>  
 @endsection
 <style></style>  
@@ -77,5 +87,4 @@
     function agregarAnotacion(){
         $("#Agregaranotacion").modal("show");
     }
-
 </script>

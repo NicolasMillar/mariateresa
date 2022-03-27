@@ -30,18 +30,21 @@ class AnotacionController extends Controller
     }
     public function anotacionesagregar(Request $request){
         if($request->Tipo == 0){
-            $tipo="positiva";
+            $tipo="Positiva";
+        }
+        else if($request->Tipo == 1){
+            $tipo="Negativa";
         }
         else{
-            $tipo="negativa";
+            $tipo="Observacion";
         }
         Anotacion::create([
-            'Descripcion_Anotacion' => $request->Descripcion,
+            'Descripcion_Anotacion' => $request->Descripciona,
             'Tipo_Anotacion' =>  $tipo,
             'ID_Asignatura' =>$request->idasignatura,
             'Rut' =>$request->alumnorut,
             'created_at' => $request->Fecha
         ]);
-        return redirect()->route('profesorhome')->with('info', 'se creo la anotacion');
+        return redirect()->route('profesorhome')->with('info','Anotacion registrada con exito');
     }
 }
