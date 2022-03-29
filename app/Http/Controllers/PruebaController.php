@@ -12,7 +12,7 @@ class PruebaController extends Controller
         $anio= \Carbon\Carbon::now();
         $year =date('Y', strtotime($anio));
         Prueba::create([
-            'Nombre_Prueba'=>$request->Descripcion,
+            'Nombre_Prueba'=>$request->Descripcionc,
             'Fecha_Prueba'=>$request->FechaE,
             'Semestre'=>$request->semestre,
             'ID_Asignatura'=>$request->asignatura

@@ -22,7 +22,18 @@ class CalificacionController extends Controller
         $pruebas = Prueba::where('ID_Asignatura', '=', $asignatura->id)->get();
         $notas = DB::table('calificaciones')->join('pruebas', 'pruebas.id', '=', 'calificaciones.ID_Pruebas')->whereIn('ID_Pruebas', $pruebas->pluck('id'))->get();
         $cualquiera=$asignatura;
-        return view('admin.calificaciones.profesor', compact('notas','cualquiera'));
+        $contador=0;
+        $rut=0;
+        $cont=count($notas);
+        for($i=0;$i<$cont;$i++){
+            if($rut == 0){
+                $rut=$notas[$i]->Rut;
+            }
+            if($rut == $notas[$i]->Rut){
+                $contador++;
+            }
+        }
+        return view('admin.calificaciones.profesor', compact('notas','cualquiera','contador'));
     }
     
 

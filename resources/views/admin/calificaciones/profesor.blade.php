@@ -9,6 +9,8 @@
     $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
     $sessionasignatura = collect($sessionasignatura);
     $hoy =\Carbon\Carbon::now();
+    $anterior=0;
+    $promedio=0;
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
@@ -28,22 +30,30 @@
             <table class="tabla" style="width: 50%; margin: 0 auto">
                 <thead>
                     <tr>
-                        <th>Nombre Alumno</th>
-                        <th>Nombre</th>
-                        <th>Notas</th>
+                        <th>Rut Alumno</th>
+                        @for ($i=0; $i<$contador; $i++)
+                            <th>Notas</th>
+                        @endfor
+                        
+                        <th>Promedio</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($notas as $nota)
-                        <tr>
-                            <td>{{$nota->Rut}}</td>
-                            @foreach ($notas as $nota1)
-                                @if ($nota->Rut == $nota1->Rut)
-                                    <td>{{$nota1->Nombre_Prueba}}</td>
-                                    <td>{{$nota1->Notas}}</td>
-                                @endif
-                            @endforeach             
-                        </tr>
+                        @if ($nota->Rut != $anterior)
+                            <tr>
+                                <td>{{$nota->Rut}}</td>
+                                @foreach ($notas as $nota1)
+                                    @if ($nota->Rut == $nota1->Rut)
+                                        <td>{{$nota1->Notas}}</td>
+                                        <?php $promedio =$promedio+$nota1->Notas ?>
+                                    @endif
+                                @endforeach 
+                                <?php $promedio =$promedio/$contador ?>
+                                <td>{{$promedio}}</td>            
+                            </tr>
+                        @endif
+                        <?php $anterior = $nota->Rut ?>
                     @endforeach
                 </tbody>            
             </table>
@@ -67,18 +77,28 @@
                         <input type="hidden" name="asignatura" id="asignatura" value="{{$cualquiera->id}}">
                         {!! Form::date('FechaE', null,['id'=>'FechaE', 'class'=>'form-control', 'min'=>$hoy]) !!}
                         {!! Form::label('descri', 'Descripcion de la evaluacion') !!}
-                        {!! Form::text('Descripcion', null, ['class'=>'form-control', 'placeholder'=>'Ingrese una descripcion de la evaluacion']) !!}
+                        <input type="text" id="descripcionc" name="Descripcionc">
                         {!! Form::label('sem', 'Semestre') !!}
                         {!! Form::select('semestre', ['1', '2', '3', '4', '5', '6', '7', '8', '9'], '0', ['class'=>'form-control'] ) !!}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary"  >Guardar cambios</button>
+                    <button type="submit" class="btn btn-primary"  id="Guardar" disabled>Guardar cambios</button>
                     {!! Form::close() !!}
                 </div>
             </div>
         </div>
   </div>
+
+<script defer>
+    var inputTextMensaje = document.getElementById('descripcionc');
+      var buttonEnviar = document.getElementById('Guardar');
+  
+      inputTextMensaje.addEventListener('keyup', function(evt) { 
+          var valueTextField = inputTextMensaje.value.trim();
+          buttonEnviar.disabled = (valueTextField == "");
+      });
+</script> 
 @endsection
 <style>
     #boton{
