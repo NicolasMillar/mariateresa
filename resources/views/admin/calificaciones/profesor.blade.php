@@ -9,8 +9,6 @@
     $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
     $sessionasignatura = collect($sessionasignatura);
     $hoy =\Carbon\Carbon::now();
-    $anterior=0;
-    $promedio=0;
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
@@ -31,31 +29,43 @@
                 <thead>
                     <tr>
                         <th>Rut Alumno</th>
-                        @for ($i=0; $i<$contador; $i++)
+                        @for($i=0;$i<$cont;$i++)
                             <th>Notas</th>
                         @endfor
-                        
                         <th>Promedio</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($notas as $nota)
-                        @if ($nota->Rut != $anterior)
-                            <tr>
-                                <td>{{$nota->Rut}}</td>
-                                @foreach ($notas as $nota1)
-                                    @if ($nota->Rut == $nota1->Rut)
-                                        <td>{{$nota1->Notas}}</td>
-                                        <?php $promedio =$promedio+$nota1->Notas ?>
-                                    @endif
-                                @endforeach 
-                                <?php $promedio =$promedio/$contador ?>
-                                <td>{{$promedio}}</td>            
-                            </tr>
-                        @endif
-                        <?php $anterior = $nota->Rut ?>
-                    @endforeach
-                </tbody>            
+                   @foreach ($participantes as $participante)
+                        <?php $cant=0; $prom=0;?>
+                        <tr>
+                            <td>{{$participante->Rut}}</td>
+                            @foreach ($notas as $nota)
+                                @if ($nota->Rut == $participante->Rut)
+                                    <td>{{$nota->Notas}}</td>
+                                    <?php 
+                                        $cant++;
+                                        $prom=$prom+$nota->Notas;
+                                    ?>
+                                @else
+                                    <?php $cant=1;?>
+                                    <td><input type="text" name="{{$nota->Rut}}" id="{{$nota->Rut}}"></td>
+                                @endif
+                            @endforeach
+                            <?php $prom=$prom/$cant; ?>
+                            <td>{{$prom}}</td>
+                        </tr>
+                   @endforeach
+                </tbody>
+                <tfoot >
+                    <tr >
+                        <th style="background-color:rgb(241, 240, 240)"></th>
+                        @for($i=0;$i<$cont;$i++)
+                            <th style="background-color: rgb(65, 65, 236)">Promedio Notas</th>
+                        @endfor
+                        <th style="background-color:rgb(65, 65, 236)">Promedio Final: </th>
+                    </tr>    
+                </tfoot>            
             </table>
         </div>
     </div>
