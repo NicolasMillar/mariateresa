@@ -35,6 +35,7 @@
                             <th>Notas</th>
                         @endfor
                         <th>Promedio</th>
+                        <th>Inspeccionar </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,6 +60,7 @@
                             @endif
                             <?php $prom=$prom/$cant; $promg=$promg+$prom;?>
                             <td>{{$prom}}</td>
+                            <td><i class="fas fa-eye"></i></td>
                         </tr>
                    @endforeach
                 </tbody>
