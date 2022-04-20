@@ -9,6 +9,8 @@
     $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
     $sessionasignatura = collect($sessionasignatura);
     $hoy =\Carbon\Carbon::now();
+    $promg=0;
+    $total=0;
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
@@ -37,7 +39,7 @@
                 </thead>
                 <tbody>
                    @foreach ($participantes as $participante)
-                        <?php $cant=0; $prom=0;?>
+                        <?php $cant=0; $prom=0; $total++; $pruebas=0;?>
                         <tr>
                             <td>{{$participante->Rut}}</td>
                             @foreach ($notas as $nota)
@@ -46,13 +48,16 @@
                                     <?php 
                                         $cant++;
                                         $prom=$prom+$nota->Notas;
-                                    ?>
-                                @else
-                                    <?php $cant=1;?>
-                                    <td><input type="text" name="{{$nota->Rut}}" id="{{$nota->Rut}}"></td>
+                                        $pruebas++;
+                                    ?>      
                                 @endif
                             @endforeach
-                            <?php $prom=$prom/$cant; ?>
+                            @if($pruebas<$cont)
+                                @for($i=$pruebas;$i<$cont;$i++)
+                                    <td><input type="text" name="{{$participante->Rut}}" id="{{$participante->Rut}}"></td>
+                                @endfor
+                            @endif
+                            <?php $prom=$prom/$cant; $promg=$promg+$prom;?>
                             <td>{{$prom}}</td>
                         </tr>
                    @endforeach
@@ -61,9 +66,10 @@
                     <tr >
                         <th style="background-color:rgb(241, 240, 240)"></th>
                         @for($i=0;$i<$cont;$i++)
-                            <th style="background-color: rgb(65, 65, 236)">Promedio Notas</th>
+                            <th style="background-color: rgb(65, 65, 236)">Promedio Notas:{{$promedios [$i]}} </th>
                         @endfor
-                        <th style="background-color:rgb(65, 65, 236)">Promedio Final: </th>
+                        <?php $promg=$promg/$total; ?>
+                        <th style="background-color:rgb(65, 65, 236)">Promedio Final: {{$promg}}</th>
                     </tr>    
                 </tfoot>            
             </table>

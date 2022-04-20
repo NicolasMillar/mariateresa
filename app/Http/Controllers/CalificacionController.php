@@ -25,7 +25,22 @@ class CalificacionController extends Controller
         $participantes = Participante::where('ID_Curso', '=', $asignatura->ID_Curso)->get();
         $cualquiera=$asignatura;
         $cont=count($pruebas);
-        return view('admin.calificaciones.profesor', compact('participantes','cont','notas','cualquiera'));
+        $limite=count($notas);
+        $anterior=0; 
+        for($i=0;$i<$limite;$i++){
+            if($anterior != $notas[$i]->ID_Pruebas){
+                $anterior=$notas[$i]->ID_Pruebas;
+                $nota = DB::table('Calificaciones')->where('ID_Pruebas', '=', $anterior)->get();
+                $total=count($nota);
+                $promedio=0;
+                for($j=0;$j<$total;$j++){
+                    $promedio=$promedio+$nota[$j]->Notas;
+                }
+                $promedio =$promedio/$total;
+                $promedios [] = $promedio;
+            }
+        }
+        return view('admin.calificaciones.profesor', compact('participantes','cont','notas','cualquiera','promedios'));
     }
     
 
