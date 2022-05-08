@@ -44,10 +44,20 @@ class CalificacionController extends Controller
     }
 
     public function Notasalumno(Request $request)
-    {
-        echo $request;
-        //return view('admin.calificaciones.alumnonotas'); 
+    { 
+        $pruebas = Prueba::where('ID_Asignatura', '=', $request->Asignatura)->get();
+        $asignatura=$request->Asignatura;
+        $cont=count($pruebas);
+        $notas = DB::table('calificaciones')->join('pruebas', 'pruebas.id', '=', 'calificaciones.ID_Pruebas')->whereIn('ID_Pruebas', $pruebas->pluck('id'))->where('Rut', '=', $request->Alumnor)->get();
+        return view('admin.calificaciones.alumnonotas' , compact('notas', 'cont', 'asignatura')); 
     }
     
+    public function ActualizarNotasa(Request $request){
+        $pruebas = Prueba::where('ID_Asignatura', '=', $request->Asignatura)->get();
+        $notas = DB::table('calificaciones')->join('pruebas', 'pruebas.id', '=', 'calificaciones.ID_Pruebas')->whereIn('ID_Pruebas', $pruebas->pluck('id'))->where('Rut', '=', $request->Alumnor)->get();
+        foreach($notas as $key =>$nota){
+            //DB::table('calificaciones')->where('id',$nota->id)->update(['Notas' => $nota->id]);
+        }
 
+    }
 }

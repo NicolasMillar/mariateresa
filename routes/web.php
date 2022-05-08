@@ -138,4 +138,4 @@ Route::get('alumnohome/calendarioalumno/mostrar','App\Http\Controllers\calendari
 Route::get('profesorhome/cuenta','App\Http\Controllers\Usuario_profesorController@cuenta')->name('cuenta');
 Route::post('profesorhome/cuenta','App\Http\Controllers\Usuario_profesorController@cambiarcontraseña')->name('cambiarcon');
 Route::post('profesorhome/calificaciones/alumno', 'App\Http\Controllers\CalificacionController@Notasalumno')->name('notasAlumno');
-
+Route::post('profesorhome/calificaciones/alumnos', 'App\Http\Controllers\CalificacionController@ActualizarNotasa')->name('actualizarnotas');

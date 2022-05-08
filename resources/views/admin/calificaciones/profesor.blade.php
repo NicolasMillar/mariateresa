@@ -21,10 +21,7 @@
             </div>
             <div style="float: right; width:12% ">
                 <button style="background-color:cadetblue " id="boton">Ingresar calificacion</button>
-            </div>
-            <div style="float: right; width:12% ">
-                <button style="background-color:darkolivegreen" id="boton">Modifica calificacion</button>
-            </div>        
+            </div>      
         </div>
         <div style="text-align:center">
             <table class="tabla" style="width: 50%; margin: 0 auto">
@@ -62,6 +59,7 @@
                             <td>{{$prom}}</td>
                             {!! Form::open(['route'=>['notasAlumno']] )!!}
                                 <input type="hidden" name="Asignatura" value="{{$cualquiera->id}}">
+                                <input type="hidden" name="Alumnor" value="{{$participante->Rut}}">
                                 <td><button type="submit" class="btn btn-primary"  id="Revisar"><i class="fas fa-eye"></i></button></td>
                             {!! Form::close() !!}
                         </tr>

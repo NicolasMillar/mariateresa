@@ -8,8 +8,44 @@
     $sessionFoto = session('Imagen');
     $sessionasignatura = Asignatura::hydrate(Session::get('asignaturas'));
     $sessionasignatura = collect($sessionasignatura);
+    $prom=0;
+    $total=0;
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
-   <h1>hola</h1>
+    <div style="text-align:center; margin-top:1% ">
+        {!! Form::open(['route'=>['actualizarnotas'] ] )!!}
+            <table class="tabla" style="width: 50%; margin: 0 auto">
+                <thead>
+                    <tr>
+                        @for($i=0;$i<$cont;$i++)
+                            <th>Notas</th>
+                        @endfor
+                        <th>Promedio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        @foreach ($notas as $nota)
+                            <input type="hidden" name="Alumnor" value="{{$nota->Rut}}">
+                            <?php $total++; $prom=+$nota->Notas; ?>
+                            <td><input type="text" name="{{$total}}" id="{{$total}}" value="{{$nota->Notas}}"></td>
+                        @endforeach
+                        <?php $prom=$prom/$total; ?>
+                        <td>{{$prom}}</td>
+                    </tr>
+                </tbody>        
+            </table>
+            <div style="float: right; width:12% ">
+                <button style="background-color:darkolivegreen" id="boton">Modifica calificacion</button>
+            </div>
+            <input type="hidden" name="Asignatura" value="{{$asignatura}}">
+        {!! Form::close() !!}  
+    </div>
 @endsection
+<style>
+    #boton{
+        font-size: 20px; 
+        border-radius: 12px;
+    } 
+</style>
