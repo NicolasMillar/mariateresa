@@ -60,7 +60,10 @@
                             @endif
                             <?php $prom=$prom/$cant; $promg=$promg+$prom;?>
                             <td>{{$prom}}</td>
-                            <td><i class="fas fa-eye"></i></td>
+                            {!! Form::open(['route'=>['notasAlumno']] )!!}
+                                <input type="hidden" name="Asignatura" value="{{$cualquiera->id}}">
+                                <td><button type="submit" class="btn btn-primary"  id="Revisar"><i class="fas fa-eye"></i></button></td>
+                            {!! Form::close() !!}
                         </tr>
                    @endforeach
                 </tbody>

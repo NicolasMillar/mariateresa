@@ -137,3 +137,5 @@ Route::get('profesorhome/calendarioprofesor/mostrar/','App\Http\Controllers\cale
 Route::get('alumnohome/calendarioalumno/mostrar','App\Http\Controllers\calendarioController@mostraralumno')->name('mostraralumno');
 Route::get('profesorhome/cuenta','App\Http\Controllers\Usuario_profesorController@cuenta')->name('cuenta');
 Route::post('profesorhome/cuenta','App\Http\Controllers\Usuario_profesorController@cambiarcontraseña')->name('cambiarcon');
+Route::post('profesorhome/calificaciones/alumno', 'App\Http\Controllers\CalificacionController@Notasalumno')->name('notasAlumno');
+

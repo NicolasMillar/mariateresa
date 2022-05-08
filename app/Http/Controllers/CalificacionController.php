@@ -42,6 +42,12 @@ class CalificacionController extends Controller
         }
         return view('admin.calificaciones.profesor', compact('participantes','cont','notas','cualquiera','promedios'));
     }
+
+    public function Notasalumno(Request $request)
+    {
+        echo $request;
+        //return view('admin.calificaciones.alumnonotas'); 
+    }
     
 
 }
