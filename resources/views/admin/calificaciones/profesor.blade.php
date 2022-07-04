@@ -14,13 +14,13 @@
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
-    <div style="width: 100%;">
+    <div style="width: 100%; margin-top:1.5%;">
         <div style="width: 100%">
             <div style="float:right; width:12% ">
-                <button style="background-color:rgba(62, 62, 248, 0.664) " id="boton" onclick="crearEvaluacion()">Crear Evaluacion</button>
+                <button class="btn btn-info" onclick="crearEvaluacion()">Crear Evaluacion</button>
             </div>
             <div style="float: right; width:12% ">
-                <button style="background-color:cadetblue " id="boton">Ingresar calificacion</button>
+                <button class="btn btn-info">Ingresar calificacion</button>
             </div>      
         </div>
         <div style="text-align:center">
@@ -69,7 +69,11 @@
                     <tr >
                         <th style="background-color:rgb(241, 240, 240)"></th>
                         @for($i=0;$i<$cont;$i++)
-                            <th style="background-color: rgb(65, 65, 236)">Promedio Notas:{{$promedios [$i]}} </th>
+                            @if(isset($promedios[$i]))
+                                <th style="background-color: rgb(65, 65, 236)">Promedio Notas: {{$promedios [$i]}} </th>        
+                            @else
+                            <th style="background-color: rgb(65, 65, 236)">Promedio Notas: 0 </th>  
+                            @endif
                         @endfor
                         <?php $promg=$promg/$total; ?>
                         <th style="background-color:rgb(65, 65, 236)">Promedio Final: {{$promg}}</th>
@@ -120,10 +124,10 @@
 </script> 
 @endsection
 <style>
-    #boton{
-        font-size: 20px; 
-        border-radius: 12px;
-    }   
+    .btn {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 </style>
 
 

@@ -53,11 +53,12 @@ class CalificacionController extends Controller
     }
     
     public function ActualizarNotasa(Request $request){
-        $pruebas = Prueba::where('ID_Asignatura', '=', $request->Asignatura)->get();
+        echo $request;
+        /*$pruebas = Prueba::where('ID_Asignatura', '=', $request->Asignatura)->get();
         $notas = DB::table('calificaciones')->join('pruebas', 'pruebas.id', '=', 'calificaciones.ID_Pruebas')->whereIn('ID_Pruebas', $pruebas->pluck('id'))->where('Rut', '=', $request->Alumnor)->get();
         foreach($notas as $key =>$nota){
-            //DB::table('calificaciones')->where('id',$nota->id)->update(['Notas' => $nota->id]);
-        }
+            DB::table('calificaciones')->where('id',$nota->id)->update(['Notas' => $nota->id]);
+        }*/
 
     }
 }

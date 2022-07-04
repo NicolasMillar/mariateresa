@@ -48,14 +48,14 @@
 
             <!-- Page Content -->
             <main>
-              <div class="up-div">
+              <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div class="icono-escuela">
-                  <a href="{{ route('alumnohome') }}">
+                  <a class="navbar-brand" href="{{ route('alumnohome') }}">
                     <x-jet-application-mark class="block h-9 w-auto" />
                   </a>
                 </div>
                 <div class="nombre-escuela">
-                  <h1>Escuela Maria Teresa Marchant</h1>
+                  <h1 class="text-center">Escuela Maria Teresa Marchant</h1>
                 </div>
                 <div class="boton-salir">
                   <button>
@@ -64,7 +64,7 @@
                     </a>
                   </button>
                 </div>
-              </div>
+              </nav>
               <div class="left-div" id="left-div">
                 <div class="w3-sidebar w3-bar-block w3-card" style="width:15%; font-size:175%; background-color:#2caae1; color:#ffffff">
                   <div class=" w3-border-bottom w3-bar-item" >Menu</div>
@@ -228,7 +228,8 @@
     float:center;
     display:flex;
     height: 6%;
-    width: 36%;
+    width: 65%;
+    align-content: center;
   }
   .nombre-escuela h1{
     color: #ffffff;

@@ -28,20 +28,32 @@
                     <tr>
                         @foreach ($notas as $nota)
                             <input type="hidden" name="Alumnor" value="{{$nota->Rut}}">
-                            <?php $total++; $prom=+$nota->Notas; ?>
-                            <td><input type="text" name="{{$total}}" id="{{$total}}" value="{{$nota->Notas}}"></td>
+                            <?php $total++; $prom=+$nota->Notas;  $prueba=$nota->Notas ?>
+                            <td><input type="text" name="nota" id="nota" value="{{$nota->Notas}}"></td>
                         @endforeach
+                        @if ($total!=$cont)
+                            <td><input type="text" name="nota" id="new" value="0"></td>
+                        @endif
                         <?php $prom=$prom/$total; ?>
                         <td>{{$prom}}</td>
                     </tr>
                 </tbody>        
             </table>
             <div style="float: right; width:12% ">
-                <button style="background-color:darkolivegreen" id="boton">Modifica calificacion</button>
+                <button class="btn btn-info">Modifica calificacion</button>
             </div>
-            <input type="hidden" name="Asignatura" value="{{$asignatura}}">
+            <input type="hidden" name="modificada" id="modificada" value="{{$prueba}}">
         {!! Form::close() !!}  
     </div>
+    <script defer>
+        var inputTextMensaje = document.getElementById('nota');
+        inputTextMensaje.addEventListener('keyup', function(evt) { 
+            var nuevo=document.getElementById('modificada');
+            $prueba=inputTextMensaje.value;
+            nuevo.value=$prueba;
+            console.log(nuevo);
+        });
+    </script> 
 @endsection
 <style>
     #boton{
