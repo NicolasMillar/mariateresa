@@ -30,11 +30,11 @@
                             @endif
                         </label>
                         <input type="radio" id="estudiante" name="Tipo_usuario" value="ESTUDIANTE">
-                        <label for="estudiante">estudiante</label>
+                        <label for="estudiante">Estudiante</label>
                         <input type="radio" id="profesor" name="Tipo_usuario" value="PROFESOR">
-                        <label for="profesor">profesor</label>
+                        <label for="profesor">Profesor</label>
                         <input type="radio" id="admin" name="Tipo_usuario" value="ADMINISTRADOR">
-                        <label for="admin">administrador</label>
+                        <label for="admin">Administrador</label>
                     </div>
                     <div style="margin: 4%">
                         <label for="remember_me" class="flex items-center">
@@ -45,7 +45,7 @@
                     <div style="margin: 4%">
                         @if (Route::has('password.request'))
                             <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                                {{ __('Forgot your password?') }}
+                                {{ __('Olvidaste tu contraseña?') }}
                             </a>
                         @endif
                         <x-jet-button class="ml-4">
@@ -56,8 +56,7 @@
                 @if (Session::has('mensaje'))
                     <div class="alert alert-danger">{{Session::get('mensaje')}} </div>
                 @endif 
-        </div>  
-        
+        </div>   
     </div>
     
 </x-guest-layout>
@@ -73,9 +72,23 @@
   left: 50%;
   background-color: white;
   width: 25%;
+  border-radius: 2%;
+  padding-top: 1%;
 }
 img{
     display:block;
     margin:auto;
 }
+#estudiante{
+    margin-right: 1%;
+}
+#profesor{
+    margin-right: 2%;
+    margin-left: 2%
+}
+#admin{
+    margin-right: 2%;
+    margin-left: 2%
+}
+
 </style>
