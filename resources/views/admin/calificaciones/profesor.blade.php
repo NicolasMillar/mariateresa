@@ -70,9 +70,11 @@
                         <th style="background-color:rgb(241, 240, 240)"></th>
                         @for($i=0;$i<$cont;$i++)
                             @if(isset($promedios[$i]))
-                                <th style="background-color: rgb(65, 65, 236)">Promedio Notas: {{$promedios [$i]}} </th>        
+                                <th style="background-color: rgb(65, 65, 236)">Promedio Notas: {{$promedios [$i]}} </th>
+                                <input type="hidden" id="{{$i}}" value="{{$promedios [$i]}}">        
                             @else
-                            <th style="background-color: rgb(65, 65, 236)">Promedio Notas: 0 </th>  
+                                <th style="background-color: rgb(65, 65, 236) ">Promedio Notas: 0 </th>
+                                <input type="hidden"  id="{{$i}}" value="0">
                             @endif
                         @endfor
                         <?php $promg=$promg/$total; ?>
@@ -81,8 +83,12 @@
                 </tfoot>            
             </table>
         </div>
+        <input type="hidden" id="total" value="{{$total}}">
+        <button type="button" class="btn btn-primary" onclick="MostarGrafico()">MostarGrafico</button>
+        <div style="margin-left: 2%">
+            <canvas id="myChart" style="height: 65%"></canvas>
+        </div>
     </div>
-    
 
     <!-- Crear evaluacion -->
     <div class="modal fade" id="Crearevaluacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -104,7 +110,7 @@
                         {!! Form::label('sem', 'Semestre') !!}
                         {!! Form::select('semestre', ['1', '2', '3', '4', '5', '6', '7', '8', '9'], '0', ['class'=>'form-control'] ) !!}
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" id="elemento" style="display:none;>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary"  id="Guardar" disabled>Guardar cambios</button>
                     {!! Form::close() !!}
@@ -122,6 +128,32 @@
           buttonEnviar.disabled = (valueTextField == "");
       });
 </script> 
+<script>
+    $total=document.getElementById('total').value;
+    const labels= [];
+    const dato=[];
+    for(var i=1;i<=$total;i++){
+        $label="promedio "+i;
+        labels.push($label);
+        $nota=document.getElementById((i-1)).value;
+        dato.push($nota);
+    }
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'Variacion promedio curso',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: dato,
+    }]
+  };
+  const config = {
+    type: 'line',
+    data: data,
+    options: {responsive:false}
+  };
+  const myChart = new Chart(document.getElementById('myChart'),config);
+</script>
 @endsection
 <style>
     .btn {
@@ -134,5 +166,8 @@
 <script >
     function crearEvaluacion(){
         $("#Crearevaluacion").modal("show");
+    }
+    function MostarGrafico(){
+        document.getElementById("element").style.display = "block";
     }
 </script>

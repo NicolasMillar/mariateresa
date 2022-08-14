@@ -24,8 +24,7 @@
                 @foreach ($notas as $nota)
                     <tr>
                         <td>{{$nota->Nombre_Prueba}}</td>
-                        <td>{{$nota->Notas}}</td>
-                                        
+                        <td>{{$nota->Notas}}</td>                 
                     </tr>
                 @endforeach
             </tbody>

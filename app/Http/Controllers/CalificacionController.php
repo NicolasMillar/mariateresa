@@ -49,7 +49,23 @@ class CalificacionController extends Controller
         $asignatura=$request->Asignatura;
         $cont=count($pruebas);
         $notas = DB::table('calificaciones')->join('pruebas', 'pruebas.id', '=', 'calificaciones.ID_Pruebas')->whereIn('ID_Pruebas', $pruebas->pluck('id'))->where('Rut', '=', $request->Alumnor)->get();
-        return view('admin.calificaciones.alumnonotas' , compact('notas', 'cont', 'asignatura')); 
+        $anterior=0;
+        $notas2 = DB::table('calificaciones')->join('pruebas', 'pruebas.id', '=', 'calificaciones.ID_Pruebas')->whereIn('ID_Pruebas', $pruebas->pluck('id'))->get();
+        $limite=count($notas2); 
+        for($i=0;$i<$limite;$i++){
+            if($anterior != $notas2[$i]->ID_Pruebas){
+                $anterior=$notas2[$i]->ID_Pruebas;
+                $nota = DB::table('Calificaciones')->where('ID_Pruebas', '=', $anterior)->get();
+                $total=count($nota);
+                $promedio=0;
+                for($j=0;$j<$total;$j++){
+                    $promedio=$promedio+$nota[$j]->Notas;
+                }
+                $promedio =$promedio/$total;
+                $promedios [] = $promedio;
+            }
+        }
+        return view('admin.calificaciones.alumnonotas' , compact('notas', 'cont', 'asignatura', 'promedios', 'total')); 
     }
     
     public function ActualizarNotasa(Request $request){
