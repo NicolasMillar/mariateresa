@@ -11,6 +11,7 @@
     $hoy =\Carbon\Carbon::now();
     $promg=0;
     $total=0;
+    $j=0;
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
@@ -20,7 +21,7 @@
                 <button class="btn btn-info" onclick="crearEvaluacion()">Crear Evaluacion</button>
             </div>
             <div style="float: right; width:12% ">
-                <button class="btn btn-info">Ingresar calificacion</button>
+                <button class="btn btn-info" onclick="enviarNotas()">Ingresar calificacion</button>
             </div>      
         </div>
         <div style="text-align:center">
@@ -52,10 +53,10 @@
                             @endforeach
                             @if($pruebas<$cont)
                                 @for($i=$pruebas;$i<$cont;$i++)
-                                    <td><input type="text" name="{{$participante->Rut}}" id="{{$participante->Rut}}"></td>
+                                    <td><input type="text" name="{{$participante->Rut}}" id="alumno{{$j}}"></td>
                                 @endfor
                             @endif
-                            <?php $prom=$prom/$cant; $promg=$promg+$prom;?>
+                            <?php $prom=$prom/$cant; $promg=$promg+$prom; $j=$j+1;?>
                             <td>{{$prom}}</td>
                             {!! Form::open(['route'=>['notasAlumno']] )!!}
                                 <input type="hidden" name="Asignatura" value="{{$cualquiera->id}}">
@@ -64,6 +65,7 @@
                             {!! Form::close() !!}
                         </tr>
                    @endforeach
+                   <input type="hidden" id="cantidadNotas" value="{{$j}}">
                 </tbody>
                 <tfoot >
                     <tr >
@@ -128,6 +130,7 @@
           buttonEnviar.disabled = (valueTextField == "");
       });
 </script> 
+<!--Script para el Grafico -->
 <script>
     $total=document.getElementById('total').value;
     const labels= [];
@@ -162,12 +165,27 @@
     }
 </style>
 
-
+<!--Script para las funciones -->
 <script >
     function crearEvaluacion(){
         $("#Crearevaluacion").modal("show");
     }
     function MostarGrafico(){
         document.getElementById("element").style.display = "block";
+    }
+    function enviarNotas(){
+        const dato=[];
+        $alumnos=document.getElementById("cantidadNotas").value;
+        for(var i=0;i<$alumnos;i++){
+            $alumno="alumno"+i;
+            $nota=document.getElementById($alumno).value;
+            console.log($nota);
+            dato.push($nota);
+        }
+        $.ajax({
+            type: "POST",
+            url: ...,
+            data: {'array': JSON.stringify(dato)},     
+        });
     }
 </script>
