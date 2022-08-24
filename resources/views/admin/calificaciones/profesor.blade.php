@@ -113,7 +113,7 @@
                         {!! Form::label('sem', 'Semestre') !!}
                         {!! Form::select('semestre', ['1', '2', '3', '4', '5', '6', '7', '8', '9'], '0', ['class'=>'form-control'] ) !!}
                 </div>
-                <div class="modal-footer" id="elemento" style="display:none;>
+                <div class="modal-footer" id="elemento" style="display:none;">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary"  id="Guardar" disabled>Guardar cambios</button>
                     {!! Form::close() !!}

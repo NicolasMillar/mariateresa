@@ -23,4 +23,9 @@ class MaterialController extends Controller
         $count=	sizeof($materiales);
         return view('admin.materiales.profesormaterial', compact('asignatura', 'materiales', 'count'));
     }
+
+    public function CrearMateriales(Request $request)
+    {
+        return $request;
+    }
 }

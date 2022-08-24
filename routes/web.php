@@ -141,3 +141,4 @@ Route::post('profesorhome/calificaciones/alumno', 'App\Http\Controllers\Califica
 Route::post('profesorhome/calificaciones/alumnos', 'App\Http\Controllers\CalificacionController@ActualizarNotasa')->name('actualizarnotas');
 Route::post('profesorhome/calificaciones/up', 'App\Http\Controllers\CalificacionController@Notasalumno')->name('notasup');
 Route::post('profesorhome/materiales','App\Http\Controllers\MaterialController@profesorMateriales')->name('materiales.profesormaterial');
+Route::post('profesorhome/materiales/crear','App\Http\Controllers\MaterialController@CrearMateriales')->name('CrearMateriales');

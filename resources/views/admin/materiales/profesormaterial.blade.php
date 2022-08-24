@@ -15,7 +15,7 @@
 @section('Content')
     <div style="text-align:center; margin-top:1% ">   
         <div style="float: right; width:12% ">
-            <button class="btn btn-info">Modifica calificacion</button>
+            <button class="btn btn-info" onclick="crearMateriales()">Modifica calificacion</button>
         </div>
         <table class="tabla" style="width: 50%; margin: 0 auto">
             <thead>
@@ -36,24 +36,49 @@
     </div>
     
     <!-- Crear Material -->
-    <div class="modal fade" id="CreareMaterial" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="CrearMaterial" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Crear Nuevo Material</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Crear nuevo material</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    
+                    {!! Form::open(['route'=>['CrearMateriales'] ])!!}
+                        {!! Form::label('D', 'Ingrese una descripción: ') !!}
+                        <input type="hidden" name="asignatura" id="asignatura" value="{{$asignatura}}">
+                        <input type="text" id="descripcion" name="Descripcion" style="margin-left: 1%">
+                        {!! Form::label('l', 'Ingrese un link: ') !!}
+                        <input type="text" id="link" name="link" style="margin-left: 13.8%">
                 </div>
-                <div class="modal-footer" id="elemento" style="display:none;">
-                    
+                <div class="modal-footer" id="elemento" >
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary"  id="Guardar" disabled>Guardar cambios</button>
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
     </div>
+
+    <!--Control del boton enviar -->
+    <script defer>
+        var inputTextMensaje = document.getElementById('descripcion');
+        var inputTextMensajes = document.getElementById('link');
+        var buttonEnviar = document.getElementById('Guardar');
+    
+        inputTextMensaje.addEventListener('keyup', function(evt) { 
+            var valueTextField = inputTextMensaje.value.trim();
+            var valueTextFields = inputTextMensajes.value.trim();
+            buttonEnviar.disabled = (valueTextField == "" && valueTextFields == "");
+        });
+    </script> 
 @endsection
 <style>
 </style>
+<script>
+    function crearMateriales(){
+        $("#CrearMaterial").modal("show");
+    }
+</script>
