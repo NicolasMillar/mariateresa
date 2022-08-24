@@ -77,4 +77,8 @@ class CalificacionController extends Controller
         }*/
 
     }
+
+    public function Notasup(){
+        $data = json_decode($_POST['array']);
+    }
 }

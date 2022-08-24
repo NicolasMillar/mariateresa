@@ -75,7 +75,12 @@
                       <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="w3-dropdown-content w3-bar-block">
-                      <a href="#" class="w3-bar-item w3-button w3-border-bottom">PlaceHolder</a>
+                      @forEach ($sessionasignatura as $asignatura)
+                        {!! Form::open(['route'=>['materiales.profesormaterial']]) !!}
+                          <input type="hidden" name="asig" id="asig" value="{{$asignatura->id}}">
+                          <button type="submit" class="w3-bar-item w3-button w3-border-bottom" style="font-size:80%" >{{$asignatura->Nombre_Asignatura}}</button>
+                        {!! Form::close() !!}
+                      @endforeach
                     </div>
                   </div>
                   <div class="w3-dropdown-hover">

@@ -15,4 +15,12 @@ class MaterialController extends Controller
         $materiales=DB::table('materiales')->whereIn('ID_Unidad', $unidad->pluck('id'))->get();
         return view('admin.materiales.index', compact('asignatura', 'unidad', 'materiales'));
     }
+
+    public function profesorMateriales(Request $request)
+    {
+        $asignatura=$request->asig;
+        $materiales=DB::table('materiales')->where('ID_Asignatura', '=', $asignatura)->get();
+        $count=	sizeof($materiales);
+        return view('admin.materiales.profesormaterial', compact('asignatura', 'materiales', 'count'));
+    }
 }

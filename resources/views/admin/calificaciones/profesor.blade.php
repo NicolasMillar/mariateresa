@@ -15,6 +15,7 @@
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"> </script>  
     <div style="width: 100%; margin-top:1.5%;">
         <div style="width: 100%">
             <div style="float:right; width:12% ">
@@ -119,44 +120,43 @@
                 </div>
             </div>
         </div>
-  </div>
-
-<script defer>
-    var inputTextMensaje = document.getElementById('descripcionc');
-      var buttonEnviar = document.getElementById('Guardar');
-  
-      inputTextMensaje.addEventListener('keyup', function(evt) { 
-          var valueTextField = inputTextMensaje.value.trim();
-          buttonEnviar.disabled = (valueTextField == "");
-      });
-</script> 
-<!--Script para el Grafico -->
-<script>
-    $total=document.getElementById('total').value;
-    const labels= [];
-    const dato=[];
-    for(var i=1;i<=$total;i++){
-        $label="promedio "+i;
-        labels.push($label);
-        $nota=document.getElementById((i-1)).value;
-        dato.push($nota);
-    }
-  const data = {
-    labels: labels,
-    datasets: [{
-      label: 'Variacion promedio curso',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
-      data: dato,
-    }]
-  };
-  const config = {
-    type: 'line',
-    data: data,
-    options: {responsive:false}
-  };
-  const myChart = new Chart(document.getElementById('myChart'),config);
-</script>
+    </div>
+    <script defer>
+        var inputTextMensaje = document.getElementById('descripcionc');
+        var buttonEnviar = document.getElementById('Guardar');
+    
+        inputTextMensaje.addEventListener('keyup', function(evt) { 
+            var valueTextField = inputTextMensaje.value.trim();
+            buttonEnviar.disabled = (valueTextField == "");
+        });
+    </script> 
+    <!--Script para el Grafico -->
+    <script>
+        $total=document.getElementById('total').value;
+        const labels= [];
+        const dato=[];
+        for(var i=1;i<=$total;i++){
+            $label="promedio "+i;
+            labels.push($label);
+            $nota=document.getElementById((i-1)).value;
+            dato.push($nota);
+        }
+    const data = {
+        labels: labels,
+        datasets: [{
+        label: 'Variacion promedio curso',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: dato,
+        }]
+    };
+    const config = {
+        type: 'line',
+        data: data,
+        options: {responsive:false}
+    };
+    const myChart = new Chart(document.getElementById('myChart'),config);
+    </script>
 @endsection
 <style>
     .btn {
@@ -175,17 +175,32 @@
     }
     function enviarNotas(){
         const dato=[];
+        $o=0;
         $alumnos=document.getElementById("cantidadNotas").value;
         for(var i=0;i<$alumnos;i++){
             $alumno="alumno"+i;
             $nota=document.getElementById($alumno).value;
-            console.log($nota);
             dato.push($nota);
         }
-        $.ajax({
-            type: "POST",
-            url: ...,
-            data: {'array': JSON.stringify(dato)},     
+        dato.forEach(element => {
+            if(element == ""){
+                $o++;
+            }
+            if(element>8 || element<1){
+                $o++;
+            }
         });
+        if($o>0){
+            alert("La calificaion ingresada es invalida");
+        }else{
+            $.ajax({
+                type: "POST",
+                url: "{{route('notasup')}}",
+                data: {'array': JSON.stringify(dato)},
+                success: function(data){
+                    alert(request.getResponseHeader('some_header'));
+                }     
+            });
+        }
     }
 </script>
