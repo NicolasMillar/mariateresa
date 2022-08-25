@@ -6,6 +6,7 @@ use App\Models\Asignatura;
 use App\Models\Unidad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Material;
 
 class MaterialController extends Controller
 {
@@ -26,6 +27,11 @@ class MaterialController extends Controller
 
     public function CrearMateriales(Request $request)
     {
-        return $request;
+        Material::create([
+            'Nombre_Material'=>$request->Descripcion,
+            'Link_Material'=>$request->link,
+            'ID_Asignatura'=>$request->asignatura
+        ]);
+        return redirect()->route('profesorhome')->with('info', 'Se creo el nuevo material');
     }
 }

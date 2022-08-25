@@ -67,7 +67,7 @@ class AlumnoProfesor extends Controller
             if(!is_null($consulta)){
                 if(Hash::check($request->Contraseña, $consulta->Contraseña)){
                     $dbasignatura=DB::table('asignaturas')->select('asignaturas.id')->join('cursos', 'asignaturas.ID_Curso', '=', 'cursos.id')->join('participantes', 'cursos.id', '=', 'participantes.ID_Curso')->where('Estado_Curso', '=', 'active')->where('participantes.Rut', '=', $request->Rut)->get();
-                    $asignaturas=Asignatura::whereIn('id', $dbasignatura->pluck('id'))->get();
+                    $asignaturas=Asignatura::whereIn('id', $dbasignatura->pluck('id'))->where('Estado_Asignatura', '=', 'active')->get();
                     Session::put('rut', $consulta->Rut);
                     Session::put('dv', $consulta->DigitoV_Alumno);
                     Session::put('nombre',$consulta->Nombre_Alumno. " ".$consulta->ApellidoP_Alumno);
@@ -92,7 +92,7 @@ class AlumnoProfesor extends Controller
             if(!is_null($consulta)){
                 if(Hash::check($request->Contraseña, $consulta->Contraseña)){
                     $dbasignatura=DB::table('asignaturas')->select('asignaturas.id')->join('cursos', 'asignaturas.ID_Curso', '=', 'cursos.id')->where('Estado_Curso', '=', 'active')->where('asignaturas.Rut_Profesor', '=', $request->Rut)->get();
-                    $asignaturas=Asignatura::whereIn('id', $dbasignatura->pluck('id'))->get();
+                    $asignaturas=Asignatura::whereIn('id', $dbasignatura->pluck('id'))->where('Estado_Asignatura', '=', 'active')->get();
                     Session::put('rut', $consulta->Rut);
                     Session::put('dv', $consulta->DigitoV_Profesor);
                     Session::put('nombre',$consulta->Nombre_Profesor." ".$consulta->ApellidoP_Profesor);
