@@ -139,6 +139,6 @@ Route::get('profesorhome/cuenta','App\Http\Controllers\Usuario_profesorControlle
 Route::post('profesorhome/cuenta','App\Http\Controllers\Usuario_profesorController@cambiarcontraseña')->name('cambiarcon');
 Route::post('profesorhome/calificaciones/alumno', 'App\Http\Controllers\CalificacionController@Notasalumno')->name('notasAlumno');
 Route::post('profesorhome/calificaciones/alumnos', 'App\Http\Controllers\CalificacionController@ActualizarNotasa')->name('actualizarnotas');
-Route::post('profesorhome/calificaciones/up', 'App\Http\Controllers\CalificacionController@Notasalumno')->name('notasup');
+Route::post('profesorhome/calificaciones/up', 'App\Http\Controllers\CalificacionController@Notasup')->name('notasup');
 Route::post('profesorhome/materiales','App\Http\Controllers\MaterialController@profesorMateriales')->name('materiales.profesormaterial');
 Route::post('profesorhome/materiales/crear','App\Http\Controllers\MaterialController@CrearMateriales')->name('CrearMateriales');

@@ -15,7 +15,7 @@
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"> </script>  
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"> </script>
     <div style="width: 100%; margin-top:1.5%;">
         <div style="width: 100%">
             <div style="float:right; width:12% ">
@@ -167,6 +167,7 @@
 
 <!--Script para las funciones -->
 <script >
+    
     function crearEvaluacion(){
         $("#Crearevaluacion").modal("show");
     }
@@ -175,6 +176,7 @@
     }
     function enviarNotas(){
         const dato=[];
+        var token = $("input[name=_token]").val();
         $o=0;
         $alumnos=document.getElementById("cantidadNotas").value;
         for(var i=0;i<$alumnos;i++){
@@ -196,9 +198,12 @@
             $.ajax({
                 type: "POST",
                 url: "{{route('notasup')}}",
-                data: {'array': JSON.stringify(dato)},
+                data: {
+                    array: JSON.stringify(dato),
+                    _token: token
+                },
                 success: function(data){
-                    alert(request.getResponseHeader('some_header'));
+                    alert("funciono supongo");
                 }     
             });
         }

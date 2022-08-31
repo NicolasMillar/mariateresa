@@ -14,13 +14,13 @@
 @extends('layouts.userprofesor')
 @section('Content')
     <div style="text-align:center; margin-top:1% ">
+        {!! Form::open(['route'=>['actualizarnotas'] ] )!!}
         <div class="alert alert-warning alert-dismissible fade show" role="alert" style="width: 50%; margin-left:25%;">
             <strong>Profesor! Tenga en mente que:</strong> No puede modificar más de una calificación al mismo tiempo.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
         </div>          
-        {!! Form::open(['route'=>['actualizarnotas'] ] )!!}
             <div style="float: right; width:12% ">
                 <button class="btn btn-info">Modifica calificacion</button>
             </div>
@@ -38,18 +38,20 @@
                         @foreach ($notas as $nota)
                             <input type="hidden" name="Alumnor" value="{{$nota->Rut}}">
                             <?php $total++; $prom=+$nota->Notas;  $prueba=$nota->Notas ?>
-                            <td><input type="text" name="nota" id="nota" value="{{$nota->Notas}}"></td>
+                            <td><input type="text" name="nota" id="nota{{$total}}" value="{{$nota->Notas}}"></td>
+                            <input type="hidden" name="id" id="id{{$total}}" value="{{$nota->id}}">
                         @endforeach
                         @if ($total!=$cont)
-                            <td><input type="text" name="nota" id="new" value="0"></td>
+                            <td><input type="text" name="nota" id="nota{{$cont}}" value="0"></td>
                         @endif
                         <?php $prom=$prom/$total; ?>
                         <td>{{$prom}}</td>
                     </tr>
                 </tbody>        
             </table>
+            <input type="hidden" name="identificador" id="identificador" value="1">
             <input type="hidden" name="modificada" id="modificada" value="{{$prueba}}">
-        {!! Form::close() !!}  
+            {!! Form::close() !!}  
     </div>
     <div style="margin-left: 2%">
         <button type="button" class="btn btn-primary" onclick="MostarGrafico()">MostarGrafico</button>
@@ -62,13 +64,22 @@
 
     <!--Script-->
     <script defer>
-        var inputTextMensaje = document.getElementById('nota');
-        inputTextMensaje.addEventListener('keyup', function(evt) { 
-            var nuevo=document.getElementById('modificada');
-            $prueba=inputTextMensaje.value;
-            nuevo.value=$prueba;
-            console.log(nuevo);
-        });
+        $total=document.getElementById('total').value;
+        for(var i=1;i<=$total;i++){
+            $label="nota"+i;
+            var inputTextMensaje = document.getElementById($label);
+            inputTextMensaje.addEventListener('keyup', function(evt) { 
+                var nuevo=document.getElementById('modificada');
+                $prueba=inputTextMensaje.value;
+                nuevo.value=$prueba;
+                $label="id"+(i-1);
+                $id=document.getElementById($label).value;
+                console.log($id);
+                nuevo=document.getElementById('identificador');
+                nuevo.value=$id;
+            });
+        }
+        
     </script>
     <script>
         $total=document.getElementById('total').value;
@@ -77,9 +88,11 @@
         for(var i=1;i<=$total;i++){
             $label="promedio "+i;
             labels.push($label);
-            $nota=document.getElementById((i-1)).value;
-            dato.push($nota);
-            console.log($nota);
+            $promedio=document.getElementById((i-1)).value;
+            $label="nota"+i;
+            $nota=document.getElementById($label).value;
+            $promedio=$nota-$promedio;
+            dato.push($promedio);
         }
       const data = {
         labels: labels,
