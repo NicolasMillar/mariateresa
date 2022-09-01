@@ -69,13 +69,8 @@ class CalificacionController extends Controller
     }
     
     public function ActualizarNotasa(Request $request){
-        echo $request;
-        /*$pruebas = Prueba::where('ID_Asignatura', '=', $request->Asignatura)->get();
-        $notas = DB::table('calificaciones')->join('pruebas', 'pruebas.id', '=', 'calificaciones.ID_Pruebas')->whereIn('ID_Pruebas', $pruebas->pluck('id'))->where('Rut', '=', $request->Alumnor)->get();
-        foreach($notas as $key =>$nota){
-            DB::table('calificaciones')->where('id',$nota->id)->update(['Notas' => $nota->id]);
-        }*/
-
+        $prueba=Calificacion::where('Rut', '=', $request->Alumnor)->where('ID_Pruebas', '=', $request->identificador)->update(['Notas'=> $request->modificada]);
+        return redirect()->route('profesorhome')->with('info', 'Se modifico la calificacion');
     }
 
     public function Notasup(){

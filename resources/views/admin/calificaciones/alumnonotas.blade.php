@@ -39,7 +39,7 @@
                             <input type="hidden" name="Alumnor" value="{{$nota->Rut}}">
                             <?php $total++; $prom=+$nota->Notas;  $prueba=$nota->Notas ?>
                             <td><input type="text" name="nota" id="nota{{$total}}" value="{{$nota->Notas}}"></td>
-                            <input type="hidden" name="id" id="id{{$total}}" value="{{$nota->id}}">
+                            <input type="hidden" name="id{{$total}}" id="id{{$total}}" value="{{$nota->id}}">
                         @endforeach
                         @if ($total!=$cont)
                             <td><input type="text" name="nota" id="nota{{$cont}}" value="0"></td>

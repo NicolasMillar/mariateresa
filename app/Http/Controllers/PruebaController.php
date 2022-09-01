@@ -17,6 +17,6 @@ class PruebaController extends Controller
             'Semestre'=>$request->semestre,
             'ID_Asignatura'=>$request->asignatura
         ]);
-        return redirect()->route('profesorhome')->with('info', 'se creo la evaluacion');
+        return redirect()->route('profesorhome')->with('info', 'Se creo la evaluacion');
     }
 }
