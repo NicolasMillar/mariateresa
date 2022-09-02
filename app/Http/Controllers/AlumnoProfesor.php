@@ -118,23 +118,6 @@ class AlumnoProfesor extends Controller
                 return redirect()->route('login'); 
             }
         }
-        else{
-            $consulta=Usuario_admin::where('Rut',$request->Rut)->first();
-            if(!is_null($consulta)){
-                if(Hash::check($request->Contraseña, $consulta->Contraseña)){
-                    Session::put('rut', $consulta->Rut);
-                    Session::put('dv', $consulta->DigitoV_Profesor);
-                    Session::put('sessiontipo','admin');
-                    return redirect()->route('adminhome');
-                }else{
-                    Session::flash('mensaje', "la clave ingresada es incorrecta");
-                    return redirect()->route('login'); 
-                }
-            }else{
-                Session::flash('mensaje', "El Rut o el tipo de usuario ingresado es incorrecto");
-                return redirect()->route('login'); 
-            }
-        }
     }
 
     public function cerrarsession(){
