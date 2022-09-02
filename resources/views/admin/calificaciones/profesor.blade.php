@@ -61,6 +61,7 @@
                                 <td><button type="submit" class="btn btn-primary"  id="Revisar"><i class="fas fa-eye"></i></button></td>
                             {!! Form::close() !!}
                         </tr>
+                        </tr>
                    @endforeach
                    <input type="hidden" id="cantidadNotas" value="{{$j}}">
                 </tbody>
