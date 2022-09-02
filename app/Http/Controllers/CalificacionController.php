@@ -40,7 +40,10 @@ class CalificacionController extends Controller
                 $promedios [] = $promedio;
             }
         }
-        return view('admin.calificaciones.profesor', compact('participantes','cont','notas','cualquiera','promedios'));
+        foreach ($pruebas as $key => $value) {
+            $id=$value->id;
+        }
+        return view('admin.calificaciones.profesor', compact('participantes','cont','notas','cualquiera','promedios', 'id'));
     }
 
     public function Notasalumno(Request $request)
@@ -73,8 +76,18 @@ class CalificacionController extends Controller
         return redirect()->route('profesorhome')->with('info', 'Se modifico la calificacion');
     }
 
-    public function Notasup(){
-        $data = json_decode($_POST['array']);
-        echo "funciona";
+    public function Notasup(Request $request){
+        for($i=0; $i<$request->total; $i++){
+            $label="N".$i;
+            $Nota= $request->$label;
+            $Rut= $request->$i;
+            $identificador= $request->identificador;
+            Calificacion::create([
+                'Rut'=>$Rut,
+                'ID_Pruebas'=>$identificador,
+                'Notas'=>$Nota
+            ]);
+        }
+        return redirect()->route('profesorhome')->with('info', 'Se ingresaron las calificacion');
     }
 }

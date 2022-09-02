@@ -15,15 +15,11 @@
 ?>
 @extends('layouts.userprofesor')
 @section('Content')
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"> </script>
     <div style="width: 100%; margin-top:1.5%;">
         <div style="width: 100%">
             <div style="float:right; width:12% ">
                 <button class="btn btn-info" onclick="crearEvaluacion()">Crear Evaluacion</button>
-            </div>
-            <div style="float: right; width:12% ">
-                <button class="btn btn-info" onclick="enviarNotas()">Ingresar calificacion</button>
-            </div>      
+            </div> 
         </div>
         <div style="text-align:center">
             <table class="tabla" style="width: 50%; margin: 0 auto">
@@ -85,14 +81,25 @@
                     </tr>    
                 </tfoot>            
             </table>
+            <div style="float: right; width:12% ">
+                {!! Form::open(['route'=>['notasup']] )!!}
+                    <input type="hidden" id="total" name="total" value="{{$total}}">
+                    <?php $alumnos=0; ?>
+                    @foreach ($participantes as $participante)
+                        <input type="hidden" id="{{$alumnos}}" name="{{$alumnos}}" value="{{$participante->Rut}}">
+                        <input type="hidden" name="N{{$alumnos}}" id="N{{$alumnos}}" value="1">
+                        <?php $alumnos++; ?>
+                    @endforeach
+                    <input type="hidden" id="identificador" value="{{$id}}" name="identificador">
+                    <button type="submit" class="btn btn-info" onclick="obtener()"> Subir calificacion</button>
+                {!! Form::close() !!}
+            </div>     
         </div>
-        <input type="hidden" id="total" value="{{$total}}">
         <button type="button" class="btn btn-primary" onclick="MostarGrafico()">MostarGrafico</button>
         <div style="margin-left: 2%">
             <canvas id="myChart" style="height: 65%"></canvas>
         </div>
     </div>
-
     <!-- Crear evaluacion -->
     <div class="modal fade" id="Crearevaluacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -167,45 +174,18 @@
 
 <!--Script para las funciones -->
 <script >
-    
     function crearEvaluacion(){
         $("#Crearevaluacion").modal("show");
     }
     function MostarGrafico(){
         document.getElementById("element").style.display = "block";
     }
-    function enviarNotas(){
-        const dato=[];
-        var token = $("input[name=_token]").val();
-        $o=0;
-        $alumnos=document.getElementById("cantidadNotas").value;
-        for(var i=0;i<$alumnos;i++){
-            $alumno="alumno"+i;
-            $nota=document.getElementById($alumno).value;
-            dato.push($nota);
-        }
-        dato.forEach(element => {
-            if(element == ""){
-                $o++;
-            }
-            if(element>8 || element<1){
-                $o++;
-            }
-        });
-        if($o>0){
-            alert("La calificaion ingresada es invalida");
-        }else{
-            $.ajax({
-                type: "POST",
-                url: "{{route('notasup')}}",
-                data: {
-                    array: JSON.stringify(dato),
-                    _token: token
-                },
-                success: function(data){
-                    alert("funciono supongo");
-                }     
-            });
+    function obtener(){
+        $total=document.getElementById('total').value;
+        for(var i=0;i<$total;i++){
+            $label="alumno"+i;
+            $lalbe1="N"+i;
+            document.getElementById($lalbe1).value=document.getElementById($label).value;;
         }
     }
 </script>

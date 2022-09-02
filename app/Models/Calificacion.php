@@ -9,6 +9,7 @@ class Calificacion extends Model
 {
     use HasFactory;
     protected $table = "calificaciones";
+    protected $fillable=['Notas','Rut','ID_Pruebas'];
     
     public function prueba(){
         return $this->belongsTo('App\Models\Prueba');
