@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Usuario_alumno;
 use App\Models\Usuario_profesor;
+use App\Models\Usuario_admin;
 use Illuminate\Support\Facades\DB;
 use App\Models\Calificacion;
 use App\Models\Prueba;
@@ -32,7 +33,7 @@ class AlumnoProfesor extends Controller
         }else if($sessiontipo == "profesor"){
             return redirect()->route('profesorhome'); 
         }else{
-            return redirect()->route('login'); 
+            return redirect()->route('adminhome'); 
         }
     }
 
@@ -43,7 +44,17 @@ class AlumnoProfesor extends Controller
         }else if($sessiontipo == "profesor"){
             return view('profesorhome'); 
         }else{
-            return redirect()->route('login'); 
+            return redirect()->route('adminhome'); 
+        }
+    }
+    public function admin(){
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "alummno"){
+            return redirect()->route('alumnohome'); 
+        }else if($sessiontipo == "profesor"){
+            return redirect()->route('profesorhome'); 
+        }else{
+            return view('adminhome');
         }
     }
     public function calendario(){
@@ -53,7 +64,7 @@ class AlumnoProfesor extends Controller
         }if($sessiontipo == "alummno" ){
             return view('calendarioalumno');
         }else{
-            return redirect()->route('login'); 
+            return redirect()->route('adminhome'); 
         }
     }
     public function validar(Request $request){
@@ -86,7 +97,6 @@ class AlumnoProfesor extends Controller
                 Session::flash('mensaje', "El Rut o el tipo de usuario ingresado es incorrecto");
                 return redirect()->route('login'); 
             }
-            
         }else if($request->Tipo_usuario == 'PROFESOR'){
             $consulta=Usuario_profesor::where('Rut',$request->Rut)->first();
             if(!is_null($consulta)){
@@ -107,7 +117,23 @@ class AlumnoProfesor extends Controller
                 Session::flash('mensaje', "El Rut o el tipo de usuario ingresado es incorrecto");
                 return redirect()->route('login'); 
             }
-            
+        }
+        else{
+            $consulta=Usuario_admin::where('Rut',$request->Rut)->first();
+            if(!is_null($consulta)){
+                if(Hash::check($request->Contraseña, $consulta->Contraseña)){
+                    Session::put('rut', $consulta->Rut);
+                    Session::put('dv', $consulta->DigitoV_Profesor);
+                    Session::put('sessiontipo','admin');
+                    return redirect()->route('adminhome');
+                }else{
+                    Session::flash('mensaje', "la clave ingresada es incorrecta");
+                    return redirect()->route('login'); 
+                }
+            }else{
+                Session::flash('mensaje', "El Rut o el tipo de usuario ingresado es incorrecto");
+                return redirect()->route('login'); 
+            }
         }
     }
 
