@@ -17,8 +17,8 @@ class CreateMaterialesTable extends Migration
             $table->id();
             $table->string('Nombre_Material');
             $table->string('Link_Material');
-            $table->unsignedBigInteger('ID_Unidad');
-            $table->foreign('ID_Unidad')->references('id')->on('unidades')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('ID_Asignatura');
+            $table->foreign('ID_Asignatura')->references('id')->on('asignaturas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
