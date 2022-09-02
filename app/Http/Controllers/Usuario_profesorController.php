@@ -121,7 +121,7 @@ class Usuario_profesorController extends Controller
             'Imagen'=>'image',
             'Estado'=>'required'
         ]);
-        $Password=$Hash::make($request->Password);
+        $Password=Hash::make($request->Password);
         if($Password==null){
             $Password=$pusuario->Contraseña;
         };
