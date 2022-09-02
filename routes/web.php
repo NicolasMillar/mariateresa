@@ -129,7 +129,6 @@ Route::post('logout', 'App\Http\Controllers\MobileController@logout');
 Route::get('login', 'App\Http\Controllers\AlumnoProfesor@login')->name('login');
 Route::post('validar', 'App\Http\Controllers\AlumnoProfesor@validar')->name('validar');
 Route::get('alumnohome', 'App\Http\Controllers\AlumnoProfesor@alumno')->name('alumnohome');
-Route::get('profesorhome', 'App\Http\Controllers\AlumnoProfesor@profesor')->name('profesorhome');
 Route::get('profesorhome', 'App\Http\Controllers\AlumnoProfesor@admin')->name('adminhome');
 Route::get('cerrarsession', 'App\Http\Controllers\AlumnoProfesor@cerrarsession')->name('cerrarsession');
 Route::get('profesorhome/calendarioprofesor', 'App\Http\Controllers\AlumnoProfesor@calendario')->name('calendarioprofesor');
@@ -143,3 +142,4 @@ Route::post('profesorhome/calificaciones/alumnos', 'App\Http\Controllers\Calific
 Route::post('profesorhome/calificaciones/up', 'App\Http\Controllers\CalificacionController@Notasup')->name('notasup');
 Route::post('profesorhome/materiales','App\Http\Controllers\MaterialController@profesorMateriales')->name('materiales.profesormaterial');
 Route::post('profesorhome/materiales/crear','App\Http\Controllers\MaterialController@CrearMateriales')->name('CrearMateriales');
+Route::get('profesorhome', 'App\Http\Controllers\AlumnoProfesor@profesor')->name('profesorhome');
