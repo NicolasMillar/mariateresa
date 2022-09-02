@@ -53,7 +53,13 @@
                                     <td><input type="text" name="{{$participante->Rut}}" id="alumno{{$j}}"></td>
                                 @endfor
                             @endif
-                            <?php $prom=$prom/$cant; $promg=$promg+$prom; $j=$j+1;?>
+                            <?php 
+                                if($cant!=0){
+                                    $prom=$prom/$cant; 
+                                    $promg=$promg+$prom; 
+                                    $j=$j+1;
+                                }
+                            ?>
                             <td>{{$prom}}</td>
                             {!! Form::open(['route'=>['notasAlumno']] )!!}
                                 <input type="hidden" name="Asignatura" value="{{$cualquiera->id}}">
