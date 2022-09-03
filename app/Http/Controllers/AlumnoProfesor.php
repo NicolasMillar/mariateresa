@@ -22,7 +22,10 @@ class AlumnoProfesor extends Controller
             return redirect()->route('alumnohome');
         }else if($sessiontipo == "profesor"){
             return redirect()->route('profesorhome');
-        }else{
+        }elseif($sessiontipo == "admin"){
+            return redirect()->route('administradorhome');
+        }
+        else{
             return view('login');
         }
     }
@@ -125,7 +128,7 @@ class AlumnoProfesor extends Controller
                     Session::put('rut', $consulta->Rut);
                     Session::put('dv', $consulta->DigitoV_Profesor);
                     Session::put('sessiontipo','admin');
-                    return redirect()->route('adminhome');
+                    return redirect()->route('administradorhome');
                 }else{
                     Session::flash('mensaje', "la clave ingresada es incorrecta");
                     return redirect()->route('login'); 
