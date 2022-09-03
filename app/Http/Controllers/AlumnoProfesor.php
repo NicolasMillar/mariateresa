@@ -33,7 +33,7 @@ class AlumnoProfesor extends Controller
         }else if($sessiontipo == "profesor"){
             return redirect()->route('profesorhome'); 
         }else{
-            return redirect()->route('adminhome'); 
+            return redirect()->route('administradorhome'); 
         }
     }
 
@@ -44,7 +44,7 @@ class AlumnoProfesor extends Controller
         }else if($sessiontipo == "profesor"){
             return view('profesorhome'); 
         }else{
-            return redirect()->route('adminhome'); 
+            return redirect()->route('administradorhome'); 
         }
     }
     public function admin(){
@@ -54,7 +54,7 @@ class AlumnoProfesor extends Controller
         }else if($sessiontipo == "profesor"){
             return redirect()->route('profesorhome'); 
         }else{
-            return view('adminhome');
+            return view('administradorhome');
         }
     }
     public function calendario(){
@@ -64,7 +64,7 @@ class AlumnoProfesor extends Controller
         }if($sessiontipo == "alummno" ){
             return view('calendarioalumno');
         }else{
-            return redirect()->route('adminhome'); 
+            return redirect()->route('administradorhome'); 
         }
     }
     public function validar(Request $request){
