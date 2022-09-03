@@ -32,7 +32,11 @@
                         <td><input type="text" name="{{$i}}" value="{{$nota->Notas}}" id="{{$i}}"></td>
                         <?php $prom=$prom+$nota->Notas; $i++;?>
                     @endforeach
-                    <?php $prom=$prom/$total?>
+                    <?php
+                        if($total!=0){
+                            $prom=$prom/$total
+                        } 
+                    ?>
                     <td>{{$prom}}</td>
                 </tr>
             </tbody>
