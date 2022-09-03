@@ -58,6 +58,7 @@ class CalificacionController extends Controller
         $notas2 = DB::table('calificaciones')->join('pruebas', 'pruebas.id', '=', 'calificaciones.ID_Pruebas')->whereIn('ID_Pruebas', $pruebas->pluck('id'))->get();
         $limite=count($notas2);
         $promedios=[]; 
+        $total=0;
         for($i=0;$i<$limite;$i++){
             if($anterior != $notas2[$i]->ID_Pruebas){
                 $anterior=$notas2[$i]->ID_Pruebas;
