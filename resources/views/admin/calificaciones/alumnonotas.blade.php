@@ -34,7 +34,7 @@
                     @endforeach
                     <?php
                         if($total!=0){
-                            $prom=$prom/$total
+                            $prom=$prom/$total;
                         } 
                     ?>
                     <td>{{$prom}}</td>
