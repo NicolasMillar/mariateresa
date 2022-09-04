@@ -73,6 +73,7 @@
                   <a href="{{route('usuario_alumno')}}" class="w3-bar-item w3-button w3-border-bottom">Alumno</a> 
                   <a href="{{route('Cursos')}}" class="w3-bar-item w3-button w3-border-bottom">Curso</a>
                   <a href="{{route('asignatura')}}" class="w3-bar-item w3-button w3-border-bottom">Asignatura</a>
+                  <a href="{{route('categoria')}}" class="w3-bar-item w3-button w3-border-bottom">Categoria</a>
                 </div>
               </div>
                 <div class="right-div" id="right-div">
