@@ -16,8 +16,12 @@ class Usuario_alumnoController extends Controller
      */
     public function index()
     {
-        $alumnos = Usuario_alumno::all();
-        return view('admin.usuario_alumnos.index', compact('alumnos'));
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "admin"){
+            $alumnos = Usuario_alumno::all();
+            return view('admin.usuario_alumnos.index', compact('alumnos'));
+        }
+        return redirect()->route('login');   
     }
 
     /**
@@ -27,11 +31,15 @@ class Usuario_alumnoController extends Controller
      */
     public function create()
     {
-        $date= \Carbon\Carbon::now();
-        $date->format('Y-M-D');
-        $dateN= \Carbon\Carbon::now();
-        $dateN->subYears(4);
-        return view('admin.usuario_alumnos.create', compact('date', 'dateN'));
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "admin"){
+            $date= \Carbon\Carbon::now();
+            $date->format('Y-M-D');
+            $dateN= \Carbon\Carbon::now();
+            $dateN->subYears(4);
+            return view('admin.usuario_alumnos.create', compact('date', 'dateN'));
+        }
+        return redirect()->route('login');
     }
 
     /**
@@ -99,8 +107,13 @@ class Usuario_alumnoController extends Controller
      */
     public function edit(Usuario_alumno $alumno)
     {
-        $date= \Carbon\Carbon::now();
-        return view('admin.usuario_alumnos.edit', compact('alumno', 'date'));
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "admin"){
+            $date= \Carbon\Carbon::now();
+            return view('admin.usuario_alumnos.edit', compact('alumno', 'date'));
+        }
+        return redirect()->route('login');
+        
     }
 
     /**
