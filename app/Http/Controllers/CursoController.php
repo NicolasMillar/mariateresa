@@ -19,9 +19,12 @@ class CursoController extends Controller
      */
     public function index()
     {
-        $cursos = Curso::all();
-        return view('admin.cursos.index', compact('cursos'));
-        
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "admin"){
+            $cursos = Curso::all();
+            return view('admin.cursos.index', compact('cursos'));
+        }
+        return redirect()->route('login');
     }
 
     /**
@@ -31,13 +34,15 @@ class CursoController extends Controller
      */
     public function create()
     {
-        $anio= \Carbon\Carbon::now();
-        $year =date('Y', strtotime($anio));
-        
-        $resto= DB::table('usuario_profesores')->join('cursos', 'cursos.Rut_Profesor', '=', 'usuario_profesores.Rut')->where('Anio_Academico', '=', $year)->select('usuario_profesores.Rut')->get();
-        
-        $profesor=Usuario_profesor::whereNotIn('Rut', $resto->pluck('Rut'))->get();
-        return view('admin.cursos.create', compact('year', 'profesor'));
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "admin"){
+            $anio= \Carbon\Carbon::now();
+            $year =date('Y', strtotime($anio));
+            $resto= DB::table('usuario_profesores')->join('cursos', 'cursos.Rut_Profesor', '=', 'usuario_profesores.Rut')->where('Anio_Academico', '=', $year)->select('usuario_profesores.Rut')->get();
+            $profesor=Usuario_profesor::whereNotIn('Rut', $resto->pluck('Rut'))->get();
+            return view('admin.cursos.create', compact('year', 'profesor'));
+        }
+        return redirect()->route('login');
     }
 
     /**
@@ -92,7 +97,11 @@ class CursoController extends Controller
      */
     public function edit(Curso $curso)
     {
-        return view('admin.cursos.edit', compact('curso'));
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "admin"){
+            return view('admin.cursos.edit', compact('curso'));
+        }
+        return redirect()->route('login');
     }
 
     /**
