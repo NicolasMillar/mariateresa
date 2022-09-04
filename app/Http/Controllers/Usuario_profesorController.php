@@ -34,7 +34,12 @@ class Usuario_profesorController extends Controller
      */
     public function create()
     {
-        $date= \Carbon\Carbon::now();
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "admin"){
+            return redirect()->route('login');
+            $date= \Carbon\Carbon::now();
+        }
+        
         return view('admin.usuario_profesores.create', compact('date'));
     }
 
@@ -104,8 +109,13 @@ class Usuario_profesorController extends Controller
      */
     public function edit(Usuario_profesor $pusuario)
     {
-        $date= \Carbon\Carbon::now();
-        return view('admin.usuario_profesores.edit', compact('pusuario', 'date'));
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "admin"){
+            $date= \Carbon\Carbon::now();
+            return view('admin.usuario_profesores.edit', compact('pusuario', 'date'));
+        }
+        return redirect()->route('login');
+        
     }
 
     /**
