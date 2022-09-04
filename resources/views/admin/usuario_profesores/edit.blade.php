@@ -1,3 +1,12 @@
+<?php 
+    use App\Models\Asignatura;
+    $sessionusuario = session('nombre');
+    $sessiontipo = session('sessiontipo');
+    $sessionrut = session('rut');
+?>
+@extends('layouts.useradmin')
+@section('Content')
+
 <div>
     <div>
         <link rel="stylesheet" href="{{asset('css/add-slider.css')}}">
@@ -79,3 +88,7 @@
     </div>
     
 </div>
+
+@endsection
+<style>
+</style>
