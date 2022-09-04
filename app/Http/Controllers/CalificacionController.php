@@ -79,7 +79,7 @@ class CalificacionController extends Controller
         $pruebas= Prueba::where('ID_Asignatura', '=', $request->asignatura)->get();
         for($i=0; $i<$request->total;$i++){
             $idprueba=$pruebas[$i]->id;
-            $iden=$i+2;
+            $iden=$i+1;
             $nota=$request->$iden;
             if(!is_numeric($nota)){
                 $nota=1;
