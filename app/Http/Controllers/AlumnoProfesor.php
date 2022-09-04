@@ -35,8 +35,10 @@ class AlumnoProfesor extends Controller
             return view('alumnohome');
         }else if($sessiontipo == "profesor"){
             return redirect()->route('profesorhome'); 
-        }else{
+        }elseif($sessiontipo == "admin"){
             return redirect()->route('administradorhome'); 
+        }else{
+            return view('login');
         }
     }
 

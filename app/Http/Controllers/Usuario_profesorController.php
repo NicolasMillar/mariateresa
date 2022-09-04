@@ -18,8 +18,11 @@ class Usuario_profesorController extends Controller
      */
     public function index()
     {
-        $pusuarios = Usuario_profesor::all();
-        return view('admin.usuario_profesores.index', compact('pusuarios'));
+        if($sessiontipo == "alummno"){
+            $pusuarios = Usuario_profesor::all();
+            return view('admin.usuario_profesores.index', compact('pusuarios'));
+        }
+        return redirect()->route('login');
     }
 
     /**
