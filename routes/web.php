@@ -129,7 +129,7 @@ Route::post('logout', 'App\Http\Controllers\MobileController@logout');
 Route::get('login', 'App\Http\Controllers\AlumnoProfesor@login')->name('login');
 Route::post('validar', 'App\Http\Controllers\AlumnoProfesor@validar')->name('validar');
 Route::get('alumnohome', 'App\Http\Controllers\AlumnoProfesor@alumno')->name('alumnohome');
-Route::get('adminhome', 'App\Http\Controllers\AlumnoProfesor@admin')->name('administradorhome');
+Route::get('administradorhome', 'App\Http\Controllers\AlumnoProfesor@admin')->name('administradorhome');
 Route::get('profesorhome', 'App\Http\Controllers\AlumnoProfesor@profesor')->name('profesorhome');
 Route::get('cerrarsession', 'App\Http\Controllers\AlumnoProfesor@cerrarsession')->name('cerrarsession');
 Route::get('profesorhome/calendarioprofesor', 'App\Http\Controllers\AlumnoProfesor@calendario')->name('calendarioprofesor');
