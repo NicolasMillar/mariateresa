@@ -78,8 +78,8 @@ class CalificacionController extends Controller
     public function ActualizarNotasa(Request $request){
         $pruebas= Prueba::where('ID_Asignatura', '=', $request->asignatura)->get();
         for($i=0; $i<$request->total;$i++){
-            $idprueba=$pruebas[$i]->id;
-            $iden=$i+1;
+            echo $pruebas;
+            /*$iden=$i+1;
             $nota=$request->$iden;
             if(!is_numeric($nota)){
                 $nota=1;
@@ -87,9 +87,9 @@ class CalificacionController extends Controller
             if($nota>7 || $nota<0){
                 $nota=7;
             }
-            Calificacion::where('Rut', $request->alumno)->where('ID_Pruebas',$idprueba)->update(['Notas' => $nota]);
+            Calificacion::where('Rut', $request->alumno)->where('ID_Pruebas',$idprueba)->update(['Notas' => $nota]);*/
         }
-        return redirect()->route('profesorhome')->with('info', 'Se modificaron las calificaciones');
+        //return redirect()->route('profesorhome')->with('info', 'Se modificaron las calificaciones');
     }
 
     public function Notasup(Request $request){
