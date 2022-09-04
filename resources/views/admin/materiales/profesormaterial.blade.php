@@ -15,7 +15,7 @@
 @section('Content')
     <div style="text-align:center; margin-top:1% ">   
         <div style="float: right; width:12% ">
-            <button class="btn btn-info" onclick="crearMateriales()">Modifica calificacion</button>
+            <button class="btn btn-info" onclick="crearMateriales()">Crear Material</button>
         </div>
         <table class="tabla" style="width: 50%; margin: 0 auto">
             <thead>

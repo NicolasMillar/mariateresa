@@ -14,7 +14,7 @@
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">           
      <div style="float: right; margin-top:1%;">
-        <button onclick="agregarAnotacion()" style="background-color: #4CAF50; font-size: 20px; border-radius: 12px;">Agregar Anotacion</button>
+        <button class="btn btn-info" onclick="agregarAnotacion()">Agregar Anotacion</button>
     </div>
     <div style=" justify-content: center; display:flex; margin-top:2.5%" >
         <table id="tabla" class="table table-striped table-bordered table-sm" style="width: 110%;">
@@ -43,7 +43,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Crear Nueva Evaluacion</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Crear nueva anotacion</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
