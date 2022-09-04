@@ -9,8 +9,12 @@ class CategoriaAsignaturaController extends Controller
 {
     public function index()
     {
-        $categorias = Categoria_Asignatura::all();
-        return view('admin.categoria_asignaturas.index', compact('categorias'));
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "admin"){
+            $categorias = Categoria_Asignatura::all();
+            return view('admin.categoria_asignaturas.index', compact('categorias'));
+        }
+        return redirect()->route('login'); 
     }
 
     /**
@@ -20,7 +24,11 @@ class CategoriaAsignaturaController extends Controller
      */
     public function create()
     {
-        return view('admin.categoria_asignaturas.create');
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "admin"){
+            return view('admin.categoria_asignaturas.create');
+        }
+        return redirect()->route('login');
     }
 
     /**
