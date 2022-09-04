@@ -18,8 +18,12 @@ class AsignaturaController extends Controller
      */
     public function index()
     {
-        $asignaturas = Asignatura::all();
-        return view('admin.asignaturas.index', compact('asignaturas'));
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "admin"){
+            $asignaturas = Asignatura::all();
+            return view('admin.asignaturas.index', compact('asignaturas'));
+        }
+        return redirect()->route('login');
     }
 
     /**
@@ -29,9 +33,13 @@ class AsignaturaController extends Controller
      */
     public function create()
     {
-        $anio= \Carbon\Carbon::now();
-        $year =date('Y', strtotime($anio));
-        return view('admin.asignaturas.create', compact('year'));
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "admin"){
+            $anio= \Carbon\Carbon::now();
+            $year =date('Y', strtotime($anio));
+            return view('admin.asignaturas.create', compact('year'));
+        }
+        return redirect()->route('login');   
     }
 
     /**
@@ -97,9 +105,13 @@ class AsignaturaController extends Controller
      */
     public function edit(Asignatura $asignatura)
     {
-        $anio= \Carbon\Carbon::now();
-        $year =date('Y', strtotime($anio));
-        return view('admin.asignaturas.edit', compact('asignatura', 'year'));
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "admin"){
+            $anio= \Carbon\Carbon::now();
+            $year =date('Y', strtotime($anio));
+            return view('admin.asignaturas.edit', compact('asignatura', 'year'));
+        }
+        return redirect()->route('login');
     }
 
     /**
