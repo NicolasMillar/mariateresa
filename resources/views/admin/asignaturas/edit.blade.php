@@ -1,3 +1,12 @@
+<?php 
+    use App\Models\Asignatura;
+    $sessionusuario = session('nombre');
+    $sessiontipo = session('sessiontipo');
+    $sessionrut = session('rut');
+?>
+@extends('layouts.useradmin')
+@section('Content')
+
 @php
     use App\Models\Usuario_profesor;
     $profesor= new Usuario_profesor;
@@ -48,3 +57,7 @@
     </div>
     
 </div>
+
+@endsection
+<style>
+</style>
