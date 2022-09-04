@@ -36,11 +36,10 @@ class Usuario_profesorController extends Controller
     {
         $sessiontipo = session('sessiontipo');
         if($sessiontipo == "admin"){
-            return redirect()->route('login');
             $date= \Carbon\Carbon::now();
+            return view('admin.usuario_profesores.create', compact('date'));
         }
-        
-        return view('admin.usuario_profesores.create', compact('date'));
+        return redirect()->route('login');
     }
 
     /**
