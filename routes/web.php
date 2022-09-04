@@ -108,7 +108,7 @@ Route::post('profesorhome/calificaciones/registro', 'App\Http\Controllers\Prueba
 Route::post('profesorhome/anotacion', 'App\Http\Controllers\AnotacionController@anotacionesalumno')->name('anotacionesAlumno');
 Route::post('profesorhome/anotaciones', 'App\Http\Controllers\AnotacionController@profesor')->name('profesor');
 Route::post('profesorhome/anotacion/alumno', 'App\Http\Controllers\AnotacionController@anotacionesagregar')->name('anotacionesagregar');
-Route::get('admin/home', 'App\Http\Controllers\Usuario_profesorController@index')->name('usuario_profesor');
+Route::get('admin/profesor', 'App\Http\Controllers\Usuario_profesorController@index')->name('usuario_profesor');
 Route::resource('file', 'App\Http\Controllers\FileController');
 Route::get('participante/{curso}', 'App\Http\Controllers\ParticipanteController@index')->name('participante.index');
 Route::get('participante/hoja/{alumno}', 'App\Http\Controllers\ParticipanteController@hoja')->name('participante.hoja');
