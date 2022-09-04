@@ -53,7 +53,7 @@
         <canvas id="myChart" style="height: 65%"></canvas>
     </div>
     
-    @for($i=1;$i<=$total;$i++)
+    @for($i=1;$i<$total;$i++)
         <input type="hidden" id="nota{{$i}}" value="{{$promedios[($i-1)]}}">
     @endfor
     <!--Script-->
