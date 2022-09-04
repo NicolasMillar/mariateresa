@@ -19,7 +19,8 @@ class Usuario_profesorController extends Controller
      */
     public function index()
     {
-        if($sessiontipo == "alummno"){
+        $sessiontipo = session('sessiontipo');
+        if($sessiontipo == "admin"){
             $pusuarios = Usuario_profesor::all();
             return view('admin.usuario_profesores.index', compact('pusuarios'));
         }
