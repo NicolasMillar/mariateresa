@@ -70,7 +70,7 @@
               <div class="left-div" id="left-div">
                 <div class="w3-sidebar w3-bar-block w3-card" style="width:15%; font-size:175%; background-color:#2caae1; color:#ffffff">
                   <a href="{{route('usuario_profesor')}}" class="w3-bar-item w3-button w3-border-bottom">Profesor</a>     
-                  <a href="{{route('cuenta')}}" class="w3-bar-item w3-button w3-border-bottom">Alumno</a> 
+                  <a href="{{route('usuario_alumno')}}" class="w3-bar-item w3-button w3-border-bottom">Alumno</a> 
                   <a href="{{route('cuenta')}}" class="w3-bar-item w3-button w3-border-bottom">Curso</a>
                   <a href="{{route('cuenta')}}" class="w3-bar-item w3-button w3-border-bottom">Asignatura</a>
                 </div>
