@@ -14,7 +14,7 @@
 @extends('layouts.userprofesor')
 @section('Content')
     <div style="text-align:center; margin-top:1% ">   
-        <div style="float: right; width:12% ">
+        <div style="float: right; width:25% ">
             <button class="btn btn-info" onclick="crearMateriales()">Crear Material</button>
             <button class="btn btn-info" onclick="modificarMateriales()">Modificar Material</button>
         </div>
