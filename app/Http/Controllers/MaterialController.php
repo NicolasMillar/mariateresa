@@ -37,6 +37,6 @@ class MaterialController extends Controller
 
     public function ActualizarMateriales(Request $request)
     {
-        echo "hola";
+        echo $request;
     }
 }
