@@ -55,23 +55,20 @@ class CalificacionController extends Controller
         $cont=count($pruebas);
         $notas = DB::table('calificaciones')->join('pruebas', 'pruebas.id', '=', 'calificaciones.ID_Pruebas')->whereIn('ID_Pruebas', $pruebas->pluck('id'))->where('Rut', '=', $request->Alumnor)->get();
         $anterior=0;
-        $notas2 = DB::table('calificaciones')->join('pruebas', 'pruebas.id', '=', 'calificaciones.ID_Pruebas')->whereIn('ID_Pruebas', $pruebas->pluck('id'))->get();
-        $limite=count($notas2);
         $promedios=[]; 
         $total=0;
-        echo $limite;
-        for($i=0;$i<$limite;$i++){
-            if($anterior != $notas2[$i]->ID_Pruebas){
-                $anterior=$notas2[$i]->ID_Pruebas;
-                $nota = DB::table('Calificaciones')->where('ID_Pruebas', '=', $anterior)->get();
-                $total=count($nota);
-                $promedio=0;
-                for($j=0;$j<$total;$j++){
-                    $promedio=$promedio+$nota[$j]->Notas;
+        for($i=0;$i<$cont;$i++){
+            $anterior=$notas[$i]->ID_Pruebas;
+            $promedio=0;
+            $total=0;
+            foreach ($notas as $key => $nota) {
+                if($nota->ID_Pruebas == $anterior){
+                    $promedio=$promedio+$nota->Notas;
+                    $total++;
                 }
-                $promedio =$promedio/$total;
-                $promedios [] = $promedio;
             }
+            $promedio=$promedio/$total;
+            $promedios []=$promedio;
         }
         return view('admin.calificaciones.alumnonotas' , compact('notas', 'cont', 'asignatura', 'promedios', 'total'));
     }
