@@ -16,6 +16,7 @@
     <div style="text-align:center; margin-top:1% ">   
         <div style="float: right; width:12% ">
             <button class="btn btn-info" onclick="crearMateriales()">Crear Material</button>
+            <button class="btn btn-info" onclick="modificarMateriales()">Modificar Material</button>
         </div>
         <table class="tabla" style="width: 50%; margin: 0 auto">
             <thead>
@@ -52,6 +53,29 @@
                         <input type="text" id="descripcion" name="Descripcion" style="margin-left: 1%">
                         {!! Form::label('l', 'Ingrese un link: ') !!}
                         <input type="text" id="link" name="link" style="margin-left: 13.8%">
+                </div>
+                <div class="modal-footer" id="elemento" >
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary"  id="Guardar" disabled>Guardar cambios</button>
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modificar Material -->
+    <div class="modal fade" id="ModificarMaterial" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modificar material</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {!! Form::open(['route'=>['CrearMateriales'] ])!!}
+                        
                 </div>
                 <div class="modal-footer" id="elemento" >
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
