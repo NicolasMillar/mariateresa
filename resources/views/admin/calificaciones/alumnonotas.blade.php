@@ -54,7 +54,6 @@
     <div style="margin-left: 2%" style="display: block" id="myDIV"> 
         <canvas id="myChart" style="height: 65%"></canvas>
     </div>
-    
     @if ($total>0)
         <?php $i=0; ?>  
         @foreach ($promedios as $promedio)
