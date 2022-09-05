@@ -47,7 +47,7 @@ class CalificacionController extends Controller
         foreach ($pruebas as $key => $value) {
             $id=$value->id;
         }
-        echo $promedios;
+        var_dump($promedios) ;
         echo $total;
         //return view('admin.calificaciones.profesor', compact('participantes','cont','notas','cualquiera','promedios', 'id'));
     }
