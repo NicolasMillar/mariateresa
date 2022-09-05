@@ -37,6 +37,7 @@ class MaterialController extends Controller
 
     public function ActualizarMateriales(Request $request)
     {
-        echo $request;
+        echo $request->Descripcion;
+        //Material::where('id', $request->Material)->update(['Notas' => $nota]);
     }
 }

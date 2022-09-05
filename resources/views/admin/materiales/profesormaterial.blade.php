@@ -82,7 +82,6 @@
                         </select>
                         <p></p>
                         {!! Form::label('D', 'Ingrese una descripción: ') !!}
-                        <input type="hidden" name="asignatura" id="asignatura" value="{{$asignatura}}">
                         <input type="text" id="descripcion" name="Descripcion" style="margin-left: 1%; margin-bottom:1%;">
                         {!! Form::label('l', 'Ingrese un link: ') !!}
                         <input type="text" id="link" name="link" style="margin-left: 13.8%"> 
