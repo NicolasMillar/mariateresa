@@ -29,9 +29,9 @@ class CalificacionController extends Controller
         $anterior=0; 
         $promedios=[];
         $id=0;
-        echo $notas;
+        echo $limite;
         /*for($i=0;$i<$cont;$i++){
-            if(isset($notas)){
+            if($limite>0){
                 $anterior=$notas[$i]->ID_Pruebas;
                 $promedio=0;
                 $total=0;
