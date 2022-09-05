@@ -30,17 +30,19 @@ class CalificacionController extends Controller
         $promedios=[];
         $id=0;
         for($i=0;$i<$cont;$i++){
-            $anterior=$notas[$i]->ID_Pruebas;
-            $promedio=0;
-            $total=0;
-            foreach ($notas as $key => $nota) {
-                if($nota->ID_Pruebas == $anterior){
-                    $promedio=$promedio+$nota->Notas;
-                    $total++;
+            if(isset($nota)){
+                $anterior=$notas[$i]->ID_Pruebas;
+                $promedio=0;
+                $total=0;
+                foreach ($notas as $key => $nota) {
+                    if($nota->ID_Pruebas == $anterior){
+                        $promedio=$promedio+$nota->Notas;
+                        $total++;
+                    }
                 }
+                $promedio=$promedio/$total;
+                $promedios []=$promedio;
             }
-            $promedio=$promedio/$total;
-            $promedios []=$promedio;
         }
         foreach ($pruebas as $key => $value) {
             $id=$value->id;
@@ -59,17 +61,19 @@ class CalificacionController extends Controller
         $promedios=[]; 
         $total=0;
         for($i=0;$i<$cont;$i++){
-            $anterior=$notas2[$i]->ID_Pruebas;
-            $promedio=0;
-            $total=0;
-            foreach ($notas2 as $key => $nota) {
-                if($nota->ID_Pruebas == $anterior){
-                    $promedio=$promedio+$nota->Notas;
-                    $total++;
+            if(isset($nota)){
+                $anterior=$notas2[$i]->ID_Pruebas;
+                $promedio=0;
+                $total=0;
+                foreach ($notas2 as $key => $nota) {
+                    if($nota->ID_Pruebas == $anterior){
+                        $promedio=$promedio+$nota->Notas;
+                        $total++;
+                    }
                 }
-            }
-            $promedio=$promedio/$total;
-            $promedios []=$promedio;
+                $promedio=$promedio/$total;
+                $promedios []=$promedio;
+            } 
         }
         $total=$cont;
         return view('admin.calificaciones.alumnonotas' , compact('notas', 'cont', 'asignatura', 'promedios', 'total'));
