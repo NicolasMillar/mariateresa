@@ -59,13 +59,13 @@
     <!--Script-->
     <script>
         $total=document.getElementById('total').value;
-        console.log($total);
         const labels= [];
         const dato=[];
         for(var i=1;i<=$total;i++){
             $label="promedio "+i;
             labels.push($label);
             $nota=document.getElementById((i+1)).value;
+            console.log($nota);
             $label="nota"+i;
             $promedio=document.getElementById($label).value;
             $promedio=$nota-$promedio;
