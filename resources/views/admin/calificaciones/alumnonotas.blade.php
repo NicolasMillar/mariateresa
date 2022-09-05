@@ -53,16 +53,19 @@
         <canvas id="myChart" style="height: 65%"></canvas>
     </div>
     
-    @for($i=1;$i<$total;$i++)
-        <input type="hidden" id="nota{{$i}}" value="{{$promedios[($i-1)]}}">
-    @endfor
+    @if ($total>0)
+        @for($i=1;$i<=$total;$i++)
+            <input type="hidden" id="nota{{$i}}" value="{{$promedios[($i-1)]}}">
+        @endfor
+    @endif
+    
     <!--Script-->
     <script>
         $total=document.getElementById('total').value;
         const labels= [];
         const dato=[];
         for(var i=1;i<=$total;i++){
-            $label="promedio "+i;
+            $label="Nota "+i;
             labels.push($label);
             $nota=document.getElementById((i)).value;
             $label="nota"+i;
