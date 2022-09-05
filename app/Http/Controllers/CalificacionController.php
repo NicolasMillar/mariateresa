@@ -76,7 +76,9 @@ class CalificacionController extends Controller
             } 
         }
         $total=$cont;
-        return view('admin.calificaciones.alumnonotas' , compact('notas', 'cont', 'asignatura', 'promedios', 'total'));
+        echo $promedios;
+        echo $total;
+        //return view('admin.calificaciones.alumnonotas' , compact('notas', 'cont', 'asignatura', 'promedios', 'total'));
     }
     
     public function ActualizarNotasa(Request $request){
