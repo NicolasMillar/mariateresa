@@ -43,10 +43,10 @@ class CalificacionController extends Controller
             $promedio=$promedio/$total;
             $promedios []=$promedio;
         }
-        echo $promedio;
         foreach ($pruebas as $key => $value) {
             $id=$value->id;
         }
+        echo $id;
         //return view('admin.calificaciones.profesor', compact('participantes','cont','notas','cualquiera','promedios', 'id'));
     }
 
