@@ -64,8 +64,7 @@
         for(var i=1;i<=$total;i++){
             $label="promedio "+i;
             labels.push($label);
-            $nota=document.getElementById((i+1)).value;
-            console.log($nota);
+            $nota=document.getElementById((i)).value;
             $label="nota"+i;
             $promedio=document.getElementById($label).value;
             $promedio=$nota-$promedio;
