@@ -153,6 +153,7 @@
         $total=document.getElementById('total').value;
         const labels= [];
         const dato=[];
+        console.log($total);
         for(var i=1;i<=$total;i++){
             $label="promedio "+i;
             labels.push($label);

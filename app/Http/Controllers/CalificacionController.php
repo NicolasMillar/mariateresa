@@ -36,7 +36,6 @@ class CalificacionController extends Controller
             foreach ($notas as $key => $nota) {
                 if($nota->ID_Pruebas == $anterior){
                     $promedio=$promedio+$nota->Notas;
-                    echo $promedio;
                     $total++;
                 }
             }
