@@ -54,9 +54,11 @@
     </div>
     
     @if ($total>0)
-        @for($i=0;$i<$total;$i++)
-            <input type="hidden" id="nota{{$i}}" value="{{$promedios[$i]}}">
-        @endfor
+        <?php $i=0; ?>  
+        @foreach ($promedios as $promedio)
+            <input type="hidden" id="nota{{$i}}" value="{{$promedio}}">     
+            <?php $i++; ?>  
+        @endforeach
     @endif
     
     <!--Script-->
