@@ -14,8 +14,8 @@
 @extends('layouts.userprofesor')
 @section('Content')
     <div style="text-align:center; margin-top:1% ">   
-        <div style="float: right; width:25% ">
-            <button class="btn btn-info" onclick="crearMateriales()">Crear Material</button>
+        <div style="float: right; width:20% ">
+            <button class="btn btn-info" onclick="crearMateriales()" style="margin-right: 1%">Crear Material</button>
             <button class="btn btn-info" onclick="modificarMateriales()">Modificar Material</button>
         </div>
         <table class="tabla" style="width: 50%; margin: 0 auto">
@@ -104,5 +104,9 @@
 <script>
     function crearMateriales(){
         $("#CrearMaterial").modal("show");
+    }
+
+    function modificarMateriales(){
+        $("#ModificarMaterial").modal("show");
     }
 </script>
