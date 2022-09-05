@@ -50,6 +50,8 @@
     {!! Form::close() !!}
     <div style="margin-left: 2%">
         <button type="button" class="btn btn-primary" onclick="MostarGrafico()">MostarGrafico</button>
+    </div>
+    <div style="margin-left: 2%" style="display: block" id="myDIV"> 
         <canvas id="myChart" style="height: 65%"></canvas>
     </div>
     
@@ -101,3 +103,13 @@
         border-radius: 12px;
     } 
 </style>
+<script>
+    function MostarGrafico(){
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>

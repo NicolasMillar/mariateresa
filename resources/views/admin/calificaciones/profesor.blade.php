@@ -107,7 +107,7 @@
             </div>     
         </div>
         <button type="button" class="btn btn-primary" onclick="MostarGrafico()">MostarGrafico</button>
-        <div style="margin-left: 2%" style="display: none" id="myDIV">
+        <div style="margin-left: 2%" style="display: block" id="myDIV">
             <canvas id="myChart" style="height: 65%"></canvas>
         </div>
     </div>
