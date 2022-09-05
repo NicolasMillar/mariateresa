@@ -76,8 +76,11 @@
                 <div class="modal-body">
                     {!! Form::open(['route'=>['CrearMateriales'] ])!!}
                         <select name="Material">
-                            <option value="">Placeholder</option>
+                            @forEach($materiales as $material)
+                                <option value="{{$material->id}}">{{$material->Nombre_Material}}</option>
+                            @endforeach  
                         </select>
+                        <p></p>
                         {!! Form::label('D', 'Ingrese una descripción: ') !!}
                         <input type="hidden" name="asignatura" id="asignatura" value="{{$asignatura}}">
                         <input type="text" id="descripcion" name="Descripcion" style="margin-left: 1%; margin-bottom:1%;">
