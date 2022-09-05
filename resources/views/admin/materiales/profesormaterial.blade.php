@@ -89,7 +89,7 @@
                 </div>
                 <div class="modal-footer" id="elemento" >
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary"  id="Guardar" disabled>Guardar cambios</button>
+                        <button type="submit" class="btn btn-primary"  id="Modificar">Guardar cambios</button>
                     {!! Form::close() !!}
                 </div>
             </div>
