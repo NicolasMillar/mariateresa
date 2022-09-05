@@ -107,7 +107,7 @@
             </div>     
         </div>
         <button type="button" class="btn btn-primary" onclick="MostarGrafico()">MostarGrafico</button>
-        <div style="margin-left: 2%">
+        <div style="margin-left: 2%" style="display: none" id="myDIV">
             <canvas id="myChart" style="height: 65%"></canvas>
         </div>
     </div>
@@ -190,7 +190,12 @@
         $("#Crearevaluacion").modal("show");
     }
     function MostarGrafico(){
-        document.getElementById("element").style.display = "block";
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
     }
     function obtener(){
         $total=document.getElementById('total').value;
