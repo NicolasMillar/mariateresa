@@ -54,8 +54,8 @@
     </div>
     
     @if ($total>0)
-        @for($i=1;$i<=$total;$i++)
-            <input type="hidden" id="nota{{$i}}" value="{{$promedios[($i-1)]}}">
+        @for($i=0;$i<$total;$i++)
+            <input type="hidden" id="nota{{$i}}" value="{{$promedios[($i)]}}">
         @endfor
     @endif
     
@@ -64,7 +64,7 @@
         $total=document.getElementById('total').value;
         const labels= [];
         const dato=[];
-        for(var i=1;i<=$total;i++){
+        for(var i=0;i<=total;i++){
             $label="Nota "+i;
             labels.push($label);
             $nota=document.getElementById(i).value;
