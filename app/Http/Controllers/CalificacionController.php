@@ -47,7 +47,9 @@ class CalificacionController extends Controller
         foreach ($pruebas as $key => $value) {
             $id=$value->id;
         }
-        return view('admin.calificaciones.profesor', compact('participantes','cont','notas','cualquiera','promedios', 'id'));
+        echo $promedios;
+        echo $total;
+        //return view('admin.calificaciones.profesor', compact('participantes','cont','notas','cualquiera','promedios', 'id'));
     }
 
     public function Notasalumno(Request $request)
@@ -76,9 +78,7 @@ class CalificacionController extends Controller
             } 
         }
         $total=$cont;
-        echo $promedios;
-        echo $total;
-        //return view('admin.calificaciones.alumnonotas' , compact('notas', 'cont', 'asignatura', 'promedios', 'total'));
+        return view('admin.calificaciones.alumnonotas' , compact('notas', 'cont', 'asignatura', 'promedios', 'total'));
     }
     
     public function ActualizarNotasa(Request $request){
