@@ -68,7 +68,15 @@
         const labels= [];
         const dato=[];
         for(var i=0;i<=$total;i++){
-            console.log("hola");
+            $label="Nota "+i;
+            labels.push($label);
+            $nota=document.getElementById(i).value;
+            console.log($nota);
+            $label="nota"+i;
+            $promedio=document.getElementById($label).value;
+            console.log($promedio);
+            $promedio=$nota-$promedio;
+            dato.push($promedio);
         }
       const data = {
         labels: labels,
