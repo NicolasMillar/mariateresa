@@ -78,7 +78,7 @@ class CalificacionController extends Controller
     public function ActualizarNotasa(Request $request){
         $pruebas= Prueba::where('ID_Asignatura', '=', $request->asignatura)->get();
         for($i=0; $i<count($pruebas);$i++){
-            echo $i;
+            echo $pruebas[$i];
             /*$iden=$i+1;
             $nota=$request->$iden;
             if(!is_numeric($nota)){
