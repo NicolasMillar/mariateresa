@@ -38,10 +38,11 @@ class MaterialController extends Controller
     public function ActualizarMateriales(Request $request)
     {
         if($request->Descripcion == "") {
-            echo "descripcion";
+            Material::where('id', $request->Material)->update(['Link_Material' => $request->link]);
+            return redirect()->route('profesorhome')->with('info', 'Se modifico el link del material');
         }elseif($request->link == ""){
-            echo "link";
+            Material::where('id', $request->Material)->update(['Nombre_Material' => $request->Descripcion]);
+            return redirect()->route('profesorhome')->with('info', 'Se modifico la descripcion del material');
         }
-        //Material::where('id', $request->Material)->update(['Notas' => $nota]);
     }
 }
