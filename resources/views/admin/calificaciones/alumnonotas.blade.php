@@ -55,7 +55,7 @@
     
     @if ($total>0)
         @for($i=1;$i<=$total;$i++)
-            <input type="hidden" id="nota{{$i}}" value="{{$promedios[($i-1)]}}">
+            <input type="hidden" id="nota{{$i}}" value="{{$promedios[0]}}">
         @endfor
     @endif
     
