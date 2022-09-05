@@ -67,7 +67,7 @@
         console.log($total);
         const labels= [];
         const dato=[];
-        for(var i=0;i<=total;i++){
+        for(var i=0;i<=$total;i++){
             console.log("hola");
         }
       const data = {
