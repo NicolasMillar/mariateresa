@@ -29,7 +29,8 @@ class CalificacionController extends Controller
         $anterior=0; 
         $promedios=[];
         $id=0;
-        for($i=0;$i<$cont;$i++){
+        echo $notas;
+        /*for($i=0;$i<$cont;$i++){
             if(isset($notas)){
                 $anterior=$notas[$i]->ID_Pruebas;
                 $promedio=0;
@@ -47,7 +48,7 @@ class CalificacionController extends Controller
         foreach ($pruebas as $key => $value) {
             $id=$value->id;
         }
-        return view('admin.calificaciones.profesor', compact('participantes','cont','notas','cualquiera','promedios', 'id'));
+        return view('admin.calificaciones.profesor', compact('participantes','cont','notas','cualquiera','promedios', 'id'));*/
     }
 
     public function Notasalumno(Request $request)
