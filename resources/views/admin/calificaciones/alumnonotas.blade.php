@@ -64,6 +64,7 @@
     <!--Script-->
     <script>
         $total=document.getElementById('total').value;
+        console.log($total);
         const labels= [];
         const dato=[];
         for(var i=0;i<=total;i++){
