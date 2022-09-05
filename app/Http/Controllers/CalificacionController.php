@@ -70,7 +70,7 @@ class CalificacionController extends Controller
             }
             $promedio=$promedio/$total;
             $promedios []=$promedio;
-            echo $promedios;
+            var_dump($promedios);
         }
         //return view('admin.calificaciones.alumnonotas' , compact('notas', 'cont', 'asignatura', 'promedios', 'total'));
     }
