@@ -71,7 +71,7 @@
         for(var i=1;i<=$total;i++){
             $label="Nota "+i;
             labels.push($label);
-            if(document.getElementById(i).value != null){
+            if(typeof document.getElementById(i).value != 'undefined'){
                 $nota=document.getElementById(i).value;
                 console.log($nota);
                 $label="nota"+(i-1);
