@@ -34,4 +34,9 @@ class MaterialController extends Controller
         ]);
         return redirect()->route('profesorhome')->with('info', 'Se creo el nuevo material');
     }
+
+    public function ActualizarMateriales(Request $request)
+    {
+        echo "hola";
+    }
 }

@@ -74,7 +74,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(['route'=>['CrearMateriales'] ])!!}
+                    {!! Form::open(['route'=>['ActualizarMateriales'] ])!!}
                         <select name="Material">
                             @forEach($materiales as $material)
                                 <option value="{{$material->id}}">{{$material->Nombre_Material}}</option>
