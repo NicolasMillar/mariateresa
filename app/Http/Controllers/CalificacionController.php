@@ -54,14 +54,15 @@ class CalificacionController extends Controller
         $asignatura=$request->Asignatura;
         $cont=count($pruebas);
         $notas = DB::table('calificaciones')->join('pruebas', 'pruebas.id', '=', 'calificaciones.ID_Pruebas')->whereIn('ID_Pruebas', $pruebas->pluck('id'))->where('Rut', '=', $request->Alumnor)->get();
+        $notas2 = DB::table('calificaciones')->join('pruebas', 'pruebas.id', '=', 'calificaciones.ID_Pruebas')->whereIn('ID_Pruebas', $pruebas->pluck('id'))->get();
         $anterior=0;
         $promedios=[]; 
         $total=0;
         for($i=0;$i<$cont;$i++){
-            $anterior=$notas[$i]->ID_Pruebas;
+            $anterior=$notas2[$i]->ID_Pruebas;
             $promedio=0;
             $total=0;
-            foreach ($notas as $key => $nota) {
+            foreach ($notas2 as $key => $nota) {
                 if($nota->ID_Pruebas == $anterior){
                     $promedio=$promedio+$nota->Notas;
                     $total++;
