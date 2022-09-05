@@ -29,7 +29,7 @@ class CalificacionController extends Controller
         $anterior=0; 
         $promedios=[];
         $id=0;
-        echo $limite;
+        echo $cont;
         /*for($i=0;$i<$limite;$i++){
             if($anterior != $notas[$i]->ID_Pruebas){
                 $anterior=$notas[$i]->ID_Pruebas;
