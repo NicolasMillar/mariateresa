@@ -71,18 +71,13 @@
         for(var i=1;i<=$total;i++){
             $label="Nota "+i;
             labels.push($label);
-            if($("$i").length > 0 ){
-                $nota=document.getElementById(i).value;
-                console.log($nota);
-                $label="nota"+(i-1);
-                $promedio=document.getElementById($label).value;
-                console.log($promedio);
-                $promedio=$nota-$promedio;
-                dato.push($promedio);
-            }else{
-                dato.push(0);
-            }
-            
+            $nota=document.getElementById(i).value;
+            console.log($nota);
+            $label="nota"+(i-1);
+            $promedio=document.getElementById($label).value;
+            console.log($promedio);
+            $promedio=$nota-$promedio;
+            dato.push($promedio);
         }
       const data = {
         labels: labels,
