@@ -98,18 +98,10 @@ class CalificacionController extends Controller
     }
 
     public function Notasup(Request $request){
-        $mensaje='Se ingresaron las calificacion';
-        for($i=0; $i<=$request->total; $i++){
+        echo $request;
+        /*for($i=0; $i<=$request->total; $i++){
             $label="N".$i;
             $Nota= $request->$label;
-            if(!is_numeric($Nota)){
-                $Nota=1;
-                $mensaje='Se ingresaron las calificaciones, pero puede haber un problema';
-            }
-            if($Nota>7 || $Nota<0){
-                $Nota=7;
-                $mensaje='Se ingresaron las calificaciones, pero puede haber un problema';
-            }
             $Rut= $request->$i;
             $identificador= $request->identificador;
             Calificacion::create([
@@ -118,6 +110,6 @@ class CalificacionController extends Controller
                 'Notas'=>$Nota
             ]);
         }
-        return redirect()->route('profesorhome')->with('info', $mensaje);
+        return redirect()->route('profesorhome')->with('info', 'Se ingresaron las calificacion');*/
     }
 }
