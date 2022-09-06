@@ -32,6 +32,9 @@
                         <td><input type="text" name="{{$i}}" value="{{$nota->Notas}}" id="{{$i}}"></td>
                         <?php $prom=$prom+$nota->Notas; $i++;?>
                     @endforeach
+                    @if(true)
+                        <input type="hidden" name="hola" value="{{$i}}">
+                    @endif
                     <?php
                         if($total!=0){
                             $prom=$prom/$total;
