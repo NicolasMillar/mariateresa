@@ -49,16 +49,9 @@
                             @endforeach
                             @if($pruebas<$cont)
                                 @for($i=$pruebas;$i<$cont;$i++)
-                                    <td><input type="text" name="{{$participante->Rut}}" id="alumno{{$j}}"></td>
+                                    <td><input type="text" name="{{$participante->Rut}}" id="alumno{{$i}}"></td>
                                 @endfor
                             @endif
-                            <?php 
-                                if($cant!=0){
-                                    $prom=$prom/$cant; 
-                                    $promg=$promg+$prom; 
-                                    $j=$j+1;
-                                }
-                            ?>
                             {!! Form::open(['route'=>['notasAlumno']] )!!}
                                 <input type="hidden" name="Asignatura" value="{{$cualquiera->id}}">
                                 <input type="hidden" name="Alumnor" value="{{$participante->Rut}}">
