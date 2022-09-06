@@ -76,7 +76,6 @@ class CalificacionController extends Controller
                 $promedios []=$promedio;
             } 
         }
-        $total=$cont;
         return view('admin.calificaciones.alumnonotas' , compact('notas', 'cont', 'asignatura', 'promedios', 'total'));
     }
     
