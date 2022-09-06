@@ -99,8 +99,7 @@ class CalificacionController extends Controller
     public function Notasup(Request $request){
         for($i=0; $i<$request->total; $i++){
             $label="N".$i;
-            $Nota= $request->$label;
-            echo $label;
+            echo $request->$label;
             $Rut= $request->$i;
             $identificador= $request->identificador;
             /*Calificacion::create([
