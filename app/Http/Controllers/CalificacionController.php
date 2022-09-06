@@ -101,7 +101,7 @@ class CalificacionController extends Controller
             $label="N".$i;
             $Nota= $request->$label;
             if($Nota == "" || $Nota>7 || $Nota<1){
-                echo $Nota;
+                echo $request->$label;
             }
             $Rut= $request->$i;
             $identificador= $request->identificador;
