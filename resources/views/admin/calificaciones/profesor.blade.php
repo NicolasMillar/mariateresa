@@ -59,7 +59,6 @@
                                     $j=$j+1;
                                 }
                             ?>
-                            <td>{{$prom}}</td>
                             {!! Form::open(['route'=>['notasAlumno']] )!!}
                                 <input type="hidden" name="Asignatura" value="{{$cualquiera->id}}">
                                 <input type="hidden" name="Alumnor" value="{{$participante->Rut}}">
