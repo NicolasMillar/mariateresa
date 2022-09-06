@@ -49,7 +49,8 @@
                             @endforeach
                             @if($pruebas<$cont)
                                 @for($i=$pruebas;$i<$cont;$i++)
-                                    <td><input type="text" name="{{$participante->Rut}}" id="alumno{{$i}}"></td>
+                                    <?php $label=$participante->Rut.$i; ?>
+                                    <td><input type="text" name="{{$participante->Rut}}" id="{{$label}}"></td>
                                 @endfor
                             @endif
                             {!! Form::open(['route'=>['notasAlumno']] )!!}
@@ -179,9 +180,9 @@
         $total=document.getElementById('total').value;
         console.log($total);
         for(var i=0;i<$total;i++){
-            $label="alumno"+i;
+            /*$label="alumno"+i;
             $lalbe1="N"+i;
-            document.getElementById($lalbe1).value=document.getElementById($label).value;
+            document.getElementById($lalbe1).value=document.getElementById($label).value;*/
         }
     }
 </script>
