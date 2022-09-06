@@ -26,10 +26,9 @@
                 <thead>
                     <tr>
                         <th>Rut Alumno</th>
-                        @for($i=0;$i<$cont;$i++)
-                            <th>Notas</th>
-                        @endfor
-                        <th>Promedio</th>
+                        @foreach ($pruebas as $prueba)
+                            <th>{{$prueba->Nombre_Prueba}}</th>
+                        @endforeach
                         <th>Inspeccionar </th>
                     </tr>
                 </thead>
@@ -71,26 +70,14 @@
                    @endforeach
                    <input type="hidden" id="cantidadNotas" value="{{$j}}">
                 </tbody>
-                <tfoot >
-                    <tr >
-                        <th style="background-color:rgb(241, 240, 240)"></th>
-                        @for($i=0;$i<$cont;$i++)
-                            @if(isset($promedios[$i]))
-                                <th style="background-color: rgb(65, 65, 236)">Promedio Notas: {{$promedios [$i]}} </th>
-                                <input type="hidden" id="{{$i}}" value="{{$promedios [$i]}}">        
-                            @else
-                                <th style="background-color: rgb(65, 65, 236) ">Promedio Notas: 0 </th>
-                                <input type="hidden"  id="{{$i}}" value="0">
-                            @endif
-                        @endfor
-                        <?php
-                            if($total!=0){
-                                $promg=$promg/$total; 
-                            }   
-                        ?>
-                        <th style="background-color:rgb(65, 65, 236)">Promedio Final: {{$promg}}</th>
-                    </tr>    
-                </tfoot>            
+                    @for($i=0;$i<$cont;$i++)
+                        @if(isset($promedios[$i]))
+                            <input type="hidden" id="{{$i}}" value="{{$promedios [$i]}}">        
+                        @else
+                            <th style="background-color: rgb(65, 65, 236) ">Promedio Notas: 0 </th>
+                            <input type="hidden"  id="{{$i}}" value="0">
+                        @endif
+                    @endfor          
             </table>
             <div style="float: right; width:12% ">
                 {!! Form::open(['route'=>['notasup']] )!!}

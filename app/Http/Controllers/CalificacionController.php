@@ -47,7 +47,7 @@ class CalificacionController extends Controller
         foreach ($pruebas as $key => $value) {
             $id=$value->id;
         }
-        return view('admin.calificaciones.profesor', compact('participantes','cont','notas','cualquiera','promedios', 'id'));
+        return view('admin.calificaciones.profesor', compact('participantes','cont','notas','cualquiera','promedios', 'id', 'pruebas'));
     }
 
     public function Notasalumno(Request $request)
