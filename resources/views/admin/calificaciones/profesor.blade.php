@@ -79,7 +79,7 @@
             </table>
             <div style="float: right; width:12% ">
                 {!! Form::open(['route'=>['notasup']] )!!}
-                    <input type="hidden" id="total" name="total" value="{{$cont}}">
+                    <input type="hidden" id="total" name="total" value="{{$total}}">
                     <?php $alumnos=0; ?>
                     @foreach ($participantes as $participante)
                         <input type="hidden" id="{{$alumnos}}" name="{{$alumnos}}" value="{{$participante->Rut}}">
