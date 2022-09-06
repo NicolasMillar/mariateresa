@@ -98,9 +98,8 @@ class CalificacionController extends Controller
     }
 
     public function Notasup(Request $request){
-        echo $request;
-        /*$mensaje='Se ingresaron las calificacion';
-        for($i=0; $i<$request->total; $i++){
+        $mensaje='Se ingresaron las calificacion';
+        for($i=0; $i<=$request->total; $i++){
             $label="N".$i;
             $Nota= $request->$label;
             if(!is_numeric($Nota)){
@@ -119,6 +118,6 @@ class CalificacionController extends Controller
                 'Notas'=>$Nota
             ]);
         }
-        return redirect()->route('profesorhome')->with('info', $mensaje);*/
+        return redirect()->route('profesorhome')->with('info', $mensaje);
     }
 }
