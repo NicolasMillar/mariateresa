@@ -83,7 +83,7 @@
                     <?php $alumnos=0; ?>
                     @foreach ($participantes as $participante)
                         <input type="hidden" id="{{$alumnos}}" name="{{$alumnos}}" value="{{$participante->Rut}}">
-                        <input type="hidden" name="N{{$alumnos}}" id="N{{$alumnos}}" value="1">
+                        <input type="hidden" name="N{{$alumnos}}" id="N{{$alumnos}}" value="">
                         <?php $alumnos++; ?>
                     @endforeach
                     <input type="hidden" id="identificador" value="{{$id}}" name="identificador">
@@ -184,10 +184,11 @@
     }
     function obtener(){
         $total=document.getElementById('total').value;
+        console.log($total);
         for(var i=0;i<$total;i++){
             $label="alumno"+i;
             $lalbe1="N"+i;
-            document.getElementById($lalbe1).value=document.getElementById($label).value;;
+            document.getElementById($lalbe1).value=document.getElementById($label).value;
         }
     }
 </script>
