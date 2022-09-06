@@ -39,7 +39,7 @@
                             <td>{{$participante->Rut}}</td>
                             @foreach ($notas as $nota)
                                 @if ($nota->Rut == $participante->Rut)
-                                    <td>{{$nota->Notas}}</td>
+                                    <td id="{{$cant}}">{{$nota->Notas}}</td>
                                     <?php 
                                         $cant++;
                                         $prom=$prom+$nota->Notas;
