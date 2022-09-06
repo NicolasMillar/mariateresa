@@ -97,18 +97,20 @@ class CalificacionController extends Controller
     }
 
     public function Notasup(Request $request){
-        echo $request;
-        /*for($i=0; $i<=$request->total; $i++){
+        for($i=0; $i<=$request->total; $i++){
             $label="N".$i;
             $Nota= $request->$label;
+            if($Nota == "" || $Nota>7 || $Nota<1){
+                echo "hola";
+            }
             $Rut= $request->$i;
             $identificador= $request->identificador;
-            Calificacion::create([
+            /*Calificacion::create([
                 'Rut'=>$Rut,
                 'ID_Pruebas'=>$identificador,
                 'Notas'=>$Nota
-            ]);
+            ]);*/
         }
-        return redirect()->route('profesorhome')->with('info', 'Se ingresaron las calificacion');*/
+        //return redirect()->route('profesorhome')->with('info', 'Se ingresaron las calificacion');
     }
 }
