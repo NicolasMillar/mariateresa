@@ -73,7 +73,6 @@
                         @if(isset($promedios[$i]))
                             <input type="hidden" id="{{$i}}" value="{{$promedios [$i]}}">        
                         @else
-                            <th style="background-color: rgb(65, 65, 236) ">Promedio Notas: 0 </th>
                             <input type="hidden"  id="{{$i}}" value="0">
                         @endif
                     @endfor          
